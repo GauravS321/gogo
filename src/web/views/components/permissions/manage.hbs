@@ -1,0 +1,147 @@
+<div class="content-i">
+    <div class="content-box">
+        <div class="element-wrapper">
+            <h6 class="element-header">Manage permissions</h6>
+            <div class="element-box">
+                <h5 class="form-header">Manage permissions</h5>
+                <div class="table-responsive">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <table id="dataTable1" width="100%" class="table table-striped table-lightfont dataTable">
+                                <thead>
+                                    <tr role="row">
+                                        <th>Name</th>
+                                        <th>Description</th>
+                                        <th class="text-center">Actions</th>
+                                </thead>
+
+                                <tbody>
+                                    {{#if list_permissions}}
+                                    <tr>
+                                        <td>connect</td>
+                                        <td> connect to other nodes and see the blockchain's contents</td>
+                                        <td class="row-actions">
+                                            <div class="buttons-w">
+                                                {{#if list_permissions.connect}}
+                                                <input id="connect" type="submit" class="btn btn-danger btn-md"
+                                                    value="Revoke" onclick="revoke(this)">
+                                                {{else}}
+                                                <input id="connect" type="submit" class="btn btn-success btn-md"
+                                                    value="Grant" onclick="grant(this)">
+                                                {{/if}}
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>send</td>
+                                        <td>send assets to other entities</td>
+                                        <td class="row-actions">
+                                            <div class="buttons-w">
+                                                {{#if list_permissions.send}}
+                                                <input id="send" type="submit" class="btn btn-danger btn-md"
+                                                    value="Revoke" onclick="revoke(this)">
+                                                {{else}}
+                                                <input id="send" type="submit" class="btn btn-success btn-md"
+                                                    value="Grant" onclick="grant(this)">
+                                                {{/if}}
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>receive</td>
+                                        <td>receive assets from other entities</td>
+                                        <td class="row-actions">
+                                            <div class="buttons-w">
+                                                {{#if list_permissions.receive}}
+                                                <input id="receive" type="submit" class="btn btn-danger btn-md"
+                                                    value="Revoke" onclick="revoke(this)">
+                                                {{else}}
+                                                <input id="receive" type="submit" class="btn btn-success btn-md"
+                                                    value="Grant" onclick="grant(this)">
+                                                {{/if}}
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>issue</td>
+                                        <td>issue new assets</td>
+                                        <td class="row-actions">
+                                            {{#if list_permissions.issue}}
+                                            <input id="issue" type="submit" class="btn btn-danger btn-md" value="Revoke"
+                                                onclick="revoke(this)">
+                                            {{else}}
+                                            <input id="issue" type="submit" class="btn btn-success btn-md" value="Grant"
+                                                onclick="grant(this)">
+                                            {{/if}}
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>create</td>
+                                        <td>create data channels</td>
+                                        <td class="row-actions">
+                                            {{#if list_permissions.create}}
+                                            <input id="create" type="submit" class="btn btn-danger btn-md"
+                                                value="Revoke" onclick="revoke(this)">
+                                            {{else}}
+                                            <input id="create" type="submit" class="btn btn-success btn-md"
+                                                value="Grant" onclick="grant(this)">
+                                            {{/if}}
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>mine</td>
+                                        <td>mine blocks</td>
+                                        <td class="row-actions">
+                                            {{#if list_permissions.mine}}
+                                            <input id="mine" type="submit" class="btn btn-danger btn-md" value="Revoke"
+                                                onclick="revoke(this)">
+                                            {{else}}
+                                            <input id="mine" type="submit" class="btn btn-success btn-md" value="Grant"
+                                                onclick="grant(this)">
+                                            {{/if}}
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>activate</td>
+                                        <td>change connect, send and receive permissions for other entities</td>
+                                        <td class="row-actions">
+                                            {{#if list_permissions.activate}}
+                                            <input id="activate" type="submit" class="btn btn-danger btn-md"
+                                                value="Revoke" onclick="revoke(this)">
+                                            {{else}}
+                                            <input id="activate" type="submit" class="btn btn-success btn-md"
+                                                value="Grant" onclick="grant(this)">
+                                            {{/if}}
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>admin</td>
+                                        <td>change all permissions for other entities, including issue, mine, activate
+                                            and admin</td>
+                                        <td class="row-actions">
+                                            {{#if list_permissions.admin}}
+                                            <input id="admin" type="submit" class="btn btn-danger btn-md"
+                                                value="Revoke" onclick="revoke(this)">
+                                            {{else}}
+                                            <input id="admin" type="submit" class="btn btn-success btn-md"
+                                                value="Grant" onclick="grant(this)">
+                                            {{/if}}
+                                        </td>
+                                    </tr>
+                                    {{/if}}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

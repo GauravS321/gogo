@@ -1,0 +1,59 @@
+<!-- BEGIN Content-->
+<div class="content-i">
+    <div class="content-box">
+        {{#if error_msg}}
+        <div class="alert alert-warning" role="alert">{{error_msg}}</div>
+        {{/if}}
+
+        <div class="element-box" id="form_uploaded_id">
+            <div class="row">
+                <div class="col-sm-12 col-xxl-12">
+                    <h5 class="form-header">
+                        Download plain-text data from the blockchain
+                    </h5>
+                    <br>
+                    <hr>
+                </div>
+            </div>
+
+            <form id="formValidate" method="POST" action="/components/data/download">
+                <div class="row">
+                    <div class="col-sm-12 col-xxl-12">
+                        <legend>
+                            <span>Identifier / Key *</span>
+                        </legend>
+
+                        <div class="form-group">
+                            <input class="form-control" id="key" data-error="This field is compulsory"
+                                required="required" value="Bruce Lee" name="key">
+
+                            <div class="help-block form-text text-muted form-control-feedback">
+                            </div>
+
+                            <div class="help-block form-text with-errors form-control-feedback"></div>
+                        </div>
+
+                        <legend>
+                            <span>Data channel name *</span>
+                        </legend>
+
+                        <div class="form-group">
+                            <input class="form-control" id="stream_name" name="stream_name"
+                                data-error="This field is compulsory" required="required" value="DATA_MASTERLIST">
+
+                            <div class="help-block form-text text-muted form-control-feedback">
+                            </div>
+
+                            <div class="help-block form-text with-errors form-control-feedback"></div>
+                        </div>
+
+                        <div class="form-buttons-w">
+                            <input type="submit" class="btn btn-primary" value="Download">
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- END Content-->

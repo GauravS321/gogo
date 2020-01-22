@@ -1,0 +1,158 @@
+<div class="menu-mobile menu-activated-on-click color-scheme-dark">
+  <div class="mm-logo-buttons-w">
+    <a class="mm-logo" href="/account/my-profile"><img src="/web/img/logo.png"><span>Primechain</span></a>
+    <div class="mm-buttons">
+      <div class="mobile-menu-trigger">
+        <div class="os-icon os-icon-hamburger-menu-1"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="menu-and-user">
+    <div class="logged-user-w">
+      <div class="avatar-w">
+        <img alt="buddha" src="/web/img/buddha.jpg">
+      </div>
+      <div class="logged-user-info-w">
+        <div class="logged-user-name">
+          {{username}}
+        </div>
+        <div class="logged-user-role">
+          {{email}}
+        </div>
+      </div>
+    </div>
+    <ul class="main-menu">
+      <li class="sub-header"><span>Components</span></li>
+      <li class="has-sub-menu"><a href="#">
+          <div class="icon-w">
+            <div class="os-icon os-icon-grid"></div>
+          </div><span>Administration</span>
+        </a>
+        <ul class="sub-menu">
+          <li><a href="/components/blockchain/parameters">Blockchain parameters</a></li>
+          <li><a href="/components/blockchain/information">Blockchain information</a></li>
+          <li><a href="/components/blockchain/runtime-parameters">Runtime parameters</a></li>
+        </ul>
+      </li>
+
+      <li class="has-sub-menu"><a href="#">
+          <div class="icon-w">
+            <div class="os-icon os-icon-users"></div>
+          </div><span>User Management</span>
+        </a>
+        <ul class="sub-menu">
+          <li><a href="/components/user-management/list">List all users</a></li>
+        </ul>
+      </li>
+
+      <li class="has-sub-menu"><a href="#">
+          <div class="icon-w">
+            <div class="os-icon os-icon-zap"></div>
+          </div><span>Permissions</span>
+        </a>
+        <ul class="sub-menu">
+          <li><a href="/components/permissions/list">List permissions</a></li>
+          <li><a href="/components/permissions/manage">Manage permissions</a></li>
+        </ul>
+      </li>
+
+      <li class="has-sub-menu"><a href="#">
+          <div class="icon-w">
+            <div class="os-icon os-icon-edit-32"></div>
+          </div><span>E-Signature</span>
+        </a>
+        <ul class="sub-menu">
+          <li><a href="/components/esignature/create">Create an e-signature</a></li>
+          <li><a href="/components/esignature/verify">Verify an e-signature</a></li>
+          <li><a href="/components/esignature/create-save">Create & save an e-signature</a></li>
+        </ul>
+      </li>
+
+      <li class="has-sub-menu"><a href="#">
+          <div class="icon-w">
+            <div class="os-icon os-icon-layers"></div>
+          </div><span>Data Channels</span>
+        </a>
+        <ul class="sub-menu">
+          <li><a href="/components/data-channels/create">Create a channel</a></li>
+          <li><a href="/components/data-channels/list">View all channels</a></li>
+          <li><a href="/components/data-channels/grant">Grant permissions</a></li>
+          <li><a href="/components/data-channels/revoke">Revoke permissions</a></li>
+        </ul>
+      </li>
+
+      <li class="has-sub-menu"><a href="#">
+          <div class="icon-w">
+            <div class="os-icon os-icon-pencil-1"></div>
+          </div><span>Publish data</span>
+        </a>
+        <ul class="sub-menu">
+          <li><a href="/components/data/publish">Publish data to blockchain</a></li>
+          <li><a href="/components/data/download">Download data from blockchain</a></li>
+          <li><a href="/components/data/publish-encrypt">Encrypt & publish data to blockchain</a></li>
+          <li><a href="/components/data/download-decrypt">Decrypt & download data from blockchain</a></li>
+        </ul>
+      </li>
+
+      <li class="has-sub-menu"><a href="#">
+          <div class="icon-w">
+            <div class="os-icon os-icon-file-text"></div>
+          </div><span>Publish file</span>
+        </a>
+        <ul class="sub-menu">
+          <li><a href="/components/file/publish-encrypt">Encrypt & publish a file to blockchain</a></li>
+          <li><a href="/components/file/download-decrypt">Decrypt & download a file from blockchain</a></li>
+        </ul>
+      </li>
+
+      <li class="has-sub-menu"><a href="#">
+          <div class="icon-w">
+            <div class="os-icon os-icon-coins-4"></div>
+          </div><span>Assets</span>
+        </a>
+        <ul class="sub-menu">
+          <li><a href="/components/sam/create">Create an asset</a></li>
+          <li><a href="/components/sam/view">View my assets</a></li>
+          <li><a href="/components/sam/transfer">Transfer an asset</a></li>
+        </ul>
+      </li>
+
+      <li class="has-sub-menu"><a href="#">
+          <div class="icon-w">
+            <div class="os-icon os-icon-crown"></div>
+          </div><span>CRUD Wizard</span>
+        </a>
+        <ul class="sub-menu">
+          <li><a href="/components/curd-wizard/create">Create a new record</a></li>
+          <li><a href="/components/curd-wizard/list">View / Edit / Delete a record</a></li>
+        </ul>
+      </li>
+
+      <li class="sub-header"><span>D.A.V.E. Plugins</span></li>
+      <li class="has-sub-menu"><a href="#">
+          <div class="icon-w">
+            <div class="os-icon os-icon-bar-chart-up"></div>
+          </div><span>Bank Guarantee</span>
+        </a>
+        <ul class="sub-menu">
+          <li><a href="/plugins/dave/bank-guarantee/issue">Issue a bank guarantee</a></li>
+          <li><a href="/plugins/dave/bank-guarantee/view">View all bank guarantees</a></li>
+        </ul>
+      </li>
+
+      <li class="has-sub-menu"><a href="#">
+          <div class="icon-w">
+            <div class="os-icon os-icon-edit"></div>
+          </div><span>Business Licenses</span>
+        </a>
+        <ul class="sub-menu">
+          <li><a href="/plugins/dave/business-licenses/issue">Issue a Business License</a></li>
+          <li><a href="/plugins/dave/business-licenses/view">View all Business Licenses</a></li>
+        </ul>
+      </li>
+
+
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,27 @@
+<div class="content-i">
+    <div class="content-box">
+        <div class="all-wrapper menu-side with-pattern">
+            <div class="auth-box-w" style="padding-top:4%">
+                <h5 class="auth-header">
+                    2-Factor Authentication
+                </h5>
+                <p align="center">Authentication code has been sent to your email</p>
+                <form action="/two-factor-authentication" method="POST">
+                    <div class="form-group">
+                        <input class="form-control" placeholder="Authentication code" type="text"
+                            name="authenticationCode">
+                        <div class="pre-icon os-icon os-icon-fingerprint"></div>
+                    </div>
+                    <p style="color: orange; font-size: 13px;">Note: For this demo purpose, please enter
+                        <code> 123456</code> to access
+                        dashboard</p>
+
+                    <div class="buttons-w">
+                        <button class="btn btn-primary btn-lg" style="width: 100%" type="submit"
+                            onclick="this.form.submit(); this.disabled=true;">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,38 @@
+<div class="content-i">
+    <div class="content-box">
+        <div class="element-box">
+            <h5 class="form-header">Decrypted and downloaded data</h5>
+            <hr>
+            <div class="table-responsive">
+                <table id="dataTable1" width="100%" class="table table-striped table-lightfont dataTable">
+                    <thead>
+                        <tr>
+                            <th width='30%'>Parameter</th>
+                            <th width='70%'>Value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#if data}}
+                        <tr>
+                            <td>Data</td>
+                            <td>{{data}}</td>
+                        </tr>
+                        {{/if}}
+                        {{#if signerDetails}}
+                        <tr>
+                            <td>Primechain address</td>
+                            <td>{{signerDetails}}</td>
+                        </tr>
+                        {{/if}}
+                        {{#if signature}}
+                        <tr>
+                            <td>Signature Status</td>
+                            <td>{{signature}}</td>
+                        </tr>
+                        {{/if}}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

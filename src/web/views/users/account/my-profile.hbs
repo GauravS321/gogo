@@ -1,0 +1,79 @@
+<div class="content-panel-toggler">
+    <i class="os-icon os-icon-grid-squares-22"></i>
+    <span>Sidebar</span>
+</div>
+<div class="content-i">
+    <div class="content-box">
+        {{#if error_msg}}
+        <div class="alert alert-warning" style="margin: 0px 15px 0px" role="alert">{{error_msg}}</div>
+        {{/if}}
+        <div class="element-wrapper">
+            <div class="user-profile">
+                <div class="up-head-w" style="background-image:url(/web/img/tradechain_top.jpg)">
+
+                    <div class="up-main-info">
+                        <h1 class="up-sub-header">{{username}}</h1>
+                        <hr>
+                        <h5 class="up-sub-header">{{email}}</h5>
+                    </div><svg class="decor" width="842px" height="219px" viewBox="0 0 842 219"
+                        preserveAspectRatio="xMaxYMax meet" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <g transform="translate(-381.000000, -362.000000)" fill="#FFFFFF">
+                            <path class="decor-path"
+                                d="M1223,362 L1223,581 L381,581 C868.912802,575.666667 1149.57947,502.666667 1223,362 Z">
+                            </path>
+                        </g>
+                    </svg>
+                </div>
+                <div class="up-controls">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="value-pair">
+                                <div class="label">Status:</div>
+                                <div class="value badge badge-pill badge-success">Online </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="up-contents">
+                    <h6 class="element-header">
+                        Profile Information
+                    </h6>
+                    <div class="os-tabs-w">
+                        <div class="os-tabs-controls">
+                            <ul class="nav nav-tabs smaller">
+                                <li class="nav-item"><a class="nav-link active" data-toggle="tab"
+                                        href="#general_info">General</a></li>
+                            </ul>
+                            <ul class="nav nav-pills smaller d-none d-md-flex">
+                            </ul>
+                        </div>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="general_info">
+                                <div class="table-responsive">
+                                    <table class="table table-lightborder">
+                                        <tbody>
+                                            <tr>
+                                                <td>Username</td>
+                                                <td>{{username}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Email address</td>
+                                                <td>{{email}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Primechain address</td>
+                                                <td>{{primechain_address}}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

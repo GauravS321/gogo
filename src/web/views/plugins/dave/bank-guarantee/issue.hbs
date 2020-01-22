@@ -1,0 +1,457 @@
+<!-- BEGIN Content-->
+<div class="content-i">
+    <div class="content-box">
+        {{#if error_msg}}
+        <div class="alert alert-warning" role="alert">{{error_msg}}</div>
+        {{/if}}
+
+        <div class="progressResult" id="progressBGResult" style="display: none;">
+            <div class="col-sm-12 col-xxl-12">
+                <div class="element-box">
+
+                    <div class="progress" style="display: none;">
+                        <div class="scrollup"></div>
+                        <div class="progress-bar progress-bar-striped">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" id="uploadBGStatus" style="display: none;">
+            <div class="col-sm-12 col-xxl-12">
+                <div class="element-box">
+                    <h5 class="form-header" id="uploadingBGHeader">Uploading Bank Guarantee to primechain</h5>
+                    <hr>
+                    <table class="table table-striped" style="width: 100%">
+                        <thead>
+                            <th style="width: 90%;">Description</th>
+                            <th style="width: 10%;">Actions</th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>The SHA-512 hash of the data is computed</td>
+                                <td>
+                                    <i id="doc_hash" class="fa fa-question"
+                                        style="font-size:16px;color:orange; align: center;"></i>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>The hash is signed using the private key of the provided primechain address
+                                    (using
+                                    ECDSA)</td>
+                                <td>
+                                    <i id="doc_enc" class="fa fa-question" style="font-size:16px;color:orange"></i>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>The digital signature, hash and the primechain address of the signer are stored
+                                    in
+                                    the trade channel</td>
+                                <td>
+                                    <i id="doc_txid" class="fa fa-question" style="font-size:16px;color:orange"></i>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>The data is encrypted using the AES (Advanced Encryption Standard) algorithm</td>
+                                <td>
+                                    <i id="d_sign" class="fa fa-question" style="font-size:16px;color:orange"></i>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>The encrypted data and the tag are published to the specified trade channel</td>
+                                <td>
+                                    <i id="sign_txid" class="fa fa-question" style="font-size:16px;color:orange"></i>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="element-box" id="form_uploaded_id">
+            <div class="row">
+                <div class="col-sm-12 col-xxl-12">
+                    <h5 class="form-header">
+                        Issue Bank Guarantee
+                    </h5>
+                    <hr>
+                </div>
+            </div>
+
+            <form id="formValidate" class="bank_guarantee_form">
+                <input type="hidden" id="trade_channel_name" name="trade_channel_name" value="DATA_MASTERLIST">
+
+            <fieldset class="form-group">
+            <legend><span>Number *</span></legend>
+              <div class="row">
+                <div class="col-sm-12">
+                  <div class="form-group">
+                    <input class="form-control" data-error="This field is compulsory" placeholder=""  type="text" id="Number" name="Number" required>
+                    <div class="help-block form-text with-errors form-control-feedback"></div>
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+
+            <fieldset class="form-group">
+            <legend><span>Guarantee amount</span></legend>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                        <label for=""> Currency</label>
+                        <select class="form-control" id="Currency" name="Currency">
+                            <option value="INR" selected="selected">India Rupees</option>
+                            <option value="USD">United States Dollars</option>
+                            <option value="EUR">Euro</option>
+                            <option value="GBP">United Kingdom Pounds</option>
+                            <option value="DZD">Algeria Dinars</option>
+                            <option value="ARP">Argentina Pesos</option>
+                            <option value="AUD">Australia Dollars</option>
+                            <option value="ATS">Austria Schillings</option>
+                            <option value="BSD">Bahamas Dollars</option>
+                            <option value="BBD">Barbados Dollars</option>
+                            <option value="BEF">Belgium Francs</option>
+                            <option value="BMD">Bermuda Dollars</option>
+                            <option value="BRR">Brazil Real</option>
+                            <option value="BGL">Bulgaria Lev</option>
+                            <option value="CAD">Canada Dollars</option>
+                            <option value="CLP">Chile Pesos</option>
+                            <option value="CNY">China Yuan Renmimbi</option>
+                            <option value="CYP">Cyprus Pounds</option>
+                            <option value="CSK">Czech Republic Koruna</option>
+                            <option value="DKK">Denmark Kroner</option>
+                            <option value="NLG">Dutch Guilders</option>
+                            <option value="XCD">Eastern Caribbean Dollars</option>
+                            <option value="EGP">Egypt Pounds</option>
+                            <option value="FJD">Fiji Dollars</option>
+                            <option value="FIM">Finland Markka</option>
+                            <option value="FRF">France Francs</option>
+                            <option value="DEM">Germany Deutsche Marks</option>
+                            <option value="XAU">Gold Ounces</option>
+                            <option value="GRD">Greece Drachmas</option>
+                            <option value="HKD">Hong Kong Dollars</option>
+                            <option value="HUF">Hungary Forint</option>
+                            <option value="ISK">Iceland Krona</option>
+                            <option value="IDR">Indonesia Rupiah</option>
+                            <option value="IEP">Ireland Punt</option>
+                            <option value="ILS">Israel New Shekels</option>
+                            <option value="ITL">Italy Lira</option>
+                            <option value="JMD">Jamaica Dollars</option>
+                            <option value="JPY">Japan Yen</option>
+                            <option value="JOD">Jordan Dinar</option>
+                            <option value="KRW">Korea (South) Won</option>
+                            <option value="LBP">Lebanon Pounds</option>
+                            <option value="LUF">Luxembourg Francs</option>
+                            <option value="MYR">Malaysia Ringgit</option>
+                            <option value="MXP">Mexico Pesos</option>
+                            <option value="NLG">Netherlands Guilders</option>
+                            <option value="NZD">New Zealand Dollars</option>
+                            <option value="NOK">Norway Kroner</option>
+                            <option value="PKR">Pakistan Rupees</option>
+                            <option value="XPD">Palladium Ounces</option>
+                            <option value="PHP">Philippines Pesos</option>
+                            <option value="XPT">Platinum Ounces</option>
+                            <option value="PLZ">Poland Zloty</option>
+                            <option value="PTE">Portugal Escudo</option>
+                            <option value="ROL">Romania Leu</option>
+                            <option value="RUR">Russia Rubles</option>
+                            <option value="SAR">Saudi Arabia Riyal</option>
+                            <option value="XAG">Silver Ounces</option>
+                            <option value="SGD">Singapore Dollars</option>
+                            <option value="SKK">Slovakia Koruna</option>
+                            <option value="ZAR">South Africa Rand</option>
+                            <option value="KRW">South Korea Won</option>
+                            <option value="ESP">Spain Pesetas</option>
+                            <option value="XDR">Special Drawing Right (IMF)</option>
+                            <option value="SDD">Sudan Dinar</option>
+                            <option value="SEK">Sweden Krona</option>
+                            <option value="CHF">Switzerland Francs</option>
+                            <option value="TWD">Taiwan Dollars</option>
+                            <option value="THB">Thailand Baht</option>
+                            <option value="TTD">Trinidad and Tobago Dollars</option>
+                            <option value="TRL">Turkey Lira</option>
+                            <option value="VEB">Venezuela Bolivar</option>
+                            <option value="ZMK">Zambia Kwacha</option>
+                            <option value="EUR">Euro</option>
+                            <option value="XCD">Eastern Caribbean Dollars</option>
+                            <option value="XDR">Special Drawing Right (IMF)</option>
+                            <option value="XAG">Silver Ounces</option>
+                            <option value="XAU">Gold Ounces</option>
+                            <option value="XPD">Palladium Ounces</option>
+                            <option value="XPT">Platinum Ounces</option>
+                        </select>
+                      </div>
+                </div>
+
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for=""> Amount in words *</label>
+                        <input class="form-control" data-error="This field is compulsory" id="Amount (words)"  name="Amount (words)" required="required" type="text" value="">
+                        <div class="help-block form-text with-errors form-control-feedback"></div>
+                    </div>
+                </div>
+
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label for=""> Amount in figures *</label>
+                        <input class="form-control" data-error="This field is compulsory" id="Amount (fig)" name="Amount (fig)" required="required" type="number" value="">
+                        <div class="help-block form-text with-errors form-control-feedback"></div>  
+                    </div>
+                </div>
+              </div>
+            </fieldset>
+
+            <fieldset class="form-group">
+            <legend><span>Dates</span></legend>
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group">
+                  <label for="">Date of issue *</label>   
+                    <input class="form-control" data-error="Please enter" placeholder="Enter number" required="required" type="date" name="Date of issue" id="Date of issue">
+                    <div class="help-block form-text with-errors form-control-feedback"></div>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                  <label for="">Date of maturity *</label>   
+                    <input class="form-control" data-error="This field is compulsory" id="Date of maturity" name="Date of maturity" required="required" type="date" value="">
+                    <div class="help-block form-text with-errors form-control-feedback"></div>
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+
+            <fieldset class="form-group">
+            <legend><span>Authorised Official</span></legend>
+            <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group">
+                  <label for="">Name *</label>   
+                    <input class="form-control" data-error="This field is compulsory" id="Auth official's name" name="Auth official's name" required="required" type="text" value="">
+                    <div class="help-block form-text with-errors form-control-feedback"></div>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                  <label for="">Designation *</label>   
+                    <input class="form-control" data-error="This field is compulsory" id="Auth official's title" name="Auth official's title" required="required" type="text" value="">
+                    <div class="help-block form-text with-errors form-control-feedback"></div>
+                  </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4">
+                  <div class="form-group">
+                  <label for="">Telephone *</label>   
+                    <input class="form-control" data-error="This field is compulsory" id="Auth official's phone" name="Auth official's phone" required="required" type="text" value="">
+                    <div class="help-block form-text with-errors form-control-feedback"></div>
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="form-group">
+                  <label for="">Email *</label>   
+                    <input class="form-control" data-error="This field is compulsory" id="Auth official's email" name="Auth official's email" required="required" type="email" value="">
+                    <div class="help-block form-text with-errors form-control-feedback"></div>
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="form-group">
+                  <label for="">Facsimile *</label>   
+                    <input class="form-control" data-error="This field is compulsory" id="Auth official's fax" name="Auth official's fax" required="required" type="text" value="">
+                    <div class="help-block form-text with-errors form-control-feedback"></div>
+                  </div>
+                </div>
+            </div>
+            </fieldset>
+
+            <fieldset class="form-group">
+            <legend><span>Details</span></legend>
+            <div class="row">
+                <div class="col-sm-12">
+                  <div class="form-group">
+                  <label for="">Beneficiary *</label>   
+                    <input class="form-control" data-error="This field is compulsory" id="Beneficiary" name="Beneficiary" required="required" type="text" value="">
+                    <div class="help-block form-text with-errors form-control-feedback"></div>
+                  </div>
+                </div>
+                <div class="col-sm-12">
+                  <div class="form-group">
+                  <label for="">Details *</label>   
+                    <textarea class="guarantee_details" required="required" data-error="This field is compulsory" cols="80" id="ckeditor1" name="Details" rows="10" style="visibility: hidden; display: none;"></textarea>
+                    <div class="help-block form-text with-errors form-control-feedback"></div>
+                  </div>
+                </div>
+            </div>
+            </fieldset>
+
+            <fieldset class="form-group">
+            <legend><span>Stamp paper (India only)</span></legend>
+            <div class="row">
+                <div class="col-sm-4">
+                  <div class="form-group">
+                  <label for="">Date of issue</label>   
+                    <input class="form-control" data-error="This field is compulsory" id="Stamp (issue date)" name="Stamp (issue date)" type="date">
+                    <div class="help-block form-text with-errors form-control-feedback"></div>
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="form-group">
+                  <label for="">Number</label>   
+                    <input class="form-control" data-error="This field is compulsory" id="Stamp (number)" name="Stamp (number)" type="text" value="">
+                    <div class="help-block form-text with-errors form-control-feedback"></div>
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="form-group">
+                  <label for="">State of issue</label>   
+                    <select class="form-control" id="Stamp (state)" name="Stamp (state)">
+                        <option value="NA">NA</option>
+                        <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+                        <option value="Andhra Pradesh">Andhra Pradesh</option>
+                        <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                        <option value="Assam">Assam</option>
+                        <option value="Bihar">Bihar</option>
+                        <option value="Chandigarh">Chandigarh</option>
+                        <option value="Chhattisgarh">Chhattisgarh</option>
+                        <option value="Dadra and Nagar Haveli">Dadra and Nagar Haveli</option>
+                        <option value="Daman and Diu">Daman and Diu</option>
+                        <option value="Delhi">Delhi</option>
+                        <option value="Goa">Goa</option>
+                        <option value="Gujarat">Gujarat</option>
+                        <option value="Haryana">Haryana</option>
+                        <option value="Himachal Pradesh">Himachal Pradesh</option>
+                        <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                        <option value="Jharkhand">Jharkhand</option>
+                        <option value="Karnataka">Karnataka</option>
+                        <option value="Kerala">Kerala</option>
+                        <option value="Lakshadweep">Lakshadweep</option>
+                        <option value="Madhya Pradesh">Madhya Pradesh</option>
+                        <option value="Maharashtra">Maharashtra</option>
+                        <option value="Manipur">Manipur</option>
+                        <option value="Meghalaya">Meghalaya</option>
+                        <option value="Mizoram">Mizoram</option>
+                        <option value="Nagaland">Nagaland</option>
+                        <option value="Orissa">Orissa</option>
+                        <option value="Pondicherry">Pondicherry</option>
+                        <option value="Punjab">Punjab</option>
+                        <option value="Rajasthan">Rajasthan</option>
+                        <option value="Sikkim">Sikkim</option>
+                        <option value="Tamil Nadu">Tamil Nadu</option>
+                        <option value="Tripura">Tripura</option>
+                        <option value="Uttaranchal">Uttaranchal</option>
+                        <option value="Uttar Pradesh">Uttar Pradesh</option>
+                        <option value="West Bengal">West Bengal</option>
+                        </select>
+                  </div>
+                </div>
+            </div>
+            </fieldset>
+
+
+                <div class="form-buttons-w">
+                    <button type="submit" class="btn btn-primary" id="BGIssue"> Issue</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="row" id="BGIssueStatus" style="display: none;">
+            <div class="col-sm-12 col-xxl-12">
+                <div class="element-box">
+                    <h5 class="form-header">Bank guarantee has been issued. This is the output: </h5>
+                    <hr>
+                    <table class='table table-striped'>
+                        <thead>
+                            <th>Field</th>
+                            <th>Value</th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="width: 10%;">tx_id_enc_data</td>
+                                <td style="width: 90%;" id="td1"></td>
+                            </tr>
+                            <tr>
+                                <td style="width: 10%;">tx_id_signature</td>
+                                <td style="width: 90%;" id="td2"></td>
+                            </tr>
+                            <tr>
+                                <td style="width: 10%;">signature</td>
+                                <td style="width: 90%;" id="td3"></td>
+                            </tr>
+                            <tr>
+                                <td style="width: 10%;">aes_password</td>
+                                <td style="width: 90%;" id="td4"></td>
+                            </tr>
+                            <tr>
+                                <td style="width: 10%;">aes_iv</td>
+                                <td style="width: 90%;" id="td5"></td>
+                            </tr>
+                            <tr>
+                                <td style="width: 10%;">trade_channel_name</td>
+                                <td style="width: 90%;" id="td6"></td>
+                            </tr>
+                             <tr>
+                                <td style="width: 10%;">Verification url</td>
+                                <td style="width: 90%;" id="td7"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" id="BGIssueDesc" style="display: none;">
+            <div class="col-sm-12 col-xxl-12">
+                <div class="element-box">
+                    <h5 class="form-header">Explanation of the output: </h5>
+                    <hr>
+                    <table class='table table-striped'>
+                        <thead>
+                            <th>Field</th>
+                            <th>Value</th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="width: 10%;">tx_id_enc_data</td>
+                                <td style="width: 90%; word-wrap:break-word;">the id of the transaction in which the
+                                    encrypted data and tag
+                                    were
+                                    published
+                                    to
+                                    the trade channel</td>
+                            </tr>
+                            <tr>
+                                <td style="width: 10%;">tx_id_signature</td>
+                                <td style="width: 90%; word-wrap:break-word;">the id of the
+                                    transaction in which the
+                                    digital signature, hash and the
+                                    signer's
+                                    primechain address were published to the the trade channel</td>
+                            </tr>
+                            <tr>
+                                <td style="width: 10%;">signature</td>
+                                <td style="width: 90%; word-wrap:break-word;">the digital signature</td>
+                            </tr>
+                            <tr>
+                                <td style="width: 10%;">aes_password</td>
+                                <td style="width: 90%;" id="td4">the AES password</td>
+                            </tr>
+                            <tr>
+                                <td style="width: 10%;">aes_iv</td>
+                                <td style="width: 90%;">the Initialization Vector (IV)</td>
+                            </tr>
+                            <tr>
+                                <td style="width: 10%;">trade_channel_name</td>
+                                <td style="width: 90%; word-wrap:break-word;">the name of the trade channel to which
+                                    the data is
+                                    published</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END Content-->

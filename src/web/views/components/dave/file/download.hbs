@@ -1,0 +1,91 @@
+<div class="content-i">
+    <div class="content-box" style="padding-bottom: 380px;">
+        <div class="element-box">
+            <h5 class="form-header">Decrypt, verify and retrieve file</h5>
+            <hr>
+
+            <form id="formValidate" action="/web/dave/file/download" method="POST">
+                <legend>
+                    <span>Transaction Id Encrypted Data *</span>
+                </legend>
+
+                <div class="form-group">
+                    <input class="form-control" type="text" autocomplete="off" data-error="This field is compulsory"
+                        id="txid_data" name="txid_data" required="required"
+                        value="d12a5b21b387896f29128bbdc1cf7120d6e7a97fd3d4135d668920610790f393">
+                    <div class="help-block form-text with-errors form-control-feedback"></div>
+                </div>
+
+                <div class="help-block form-text text-muted form-control-feedback">
+                </div>
+
+                <div class="form-desc"></div>
+
+                <legend>
+                    <span>Transaction Id Encrypted Signature *</span>
+                </legend>
+
+                <div class="form-group">
+                    <input class="form-control" type="text" autocomplete="off" data-error="This field is compulsory"
+                        id="txid_signature" name="txid_signature" required="required"
+                        value="696972dba252af9cfaaf5fc98ba30e7524f07f4e6969fe8c4a35008f328804b4">
+                    <div class="help-block form-text with-errors form-control-feedback"></div>
+                </div>
+
+                <div class="help-block form-text text-muted form-control-feedback">
+                </div>
+
+                <div class="form-desc"></div>
+
+                <legend>
+                    <span>AES password *</span>
+                </legend>
+
+                <div class="form-group">
+                    <input class="form-control" type="text" autocomplete="off" data-error="This field is compulsory"
+                        id="password" name="password" required="required" value="d2LZd44L3ghtUPkhBEY5BhulrVX9BlKv">
+                    <div class="help-block form-text with-errors form-control-feedback"></div>
+                </div>
+
+                <div class="help-block form-text text-muted form-control-feedback">
+                </div>
+
+                <div class="form-desc"></div>
+
+                <legend>
+                    <span>AES Initializaion vector (IV) *</span>
+                </legend>
+
+                <div class="form-group">
+                    <input class="form-control" type="text" autocomplete="off" data-error="This field is compulsory"
+                        id="iv" name="iv" required="required" value="93fPV8VLGiOx">
+                    <div class="help-block form-text with-errors form-control-feedback"></div>
+                </div>
+
+                <div class="help-block form-text text-muted form-control-feedback">
+                </div>
+                <div class="form-desc"></div>
+
+
+                <legend>
+                    <span>Stream name *</span>
+                </legend>
+
+                <div class="form-group">
+                    <input class="form-control" id="stream_name" name="stream_name"
+                        data-error="This field is compulsory" required="required" value="FILE_MASTERLIST">
+
+                    <div class="help-block form-text text-muted form-control-feedback">
+                    </div>
+
+                    <div class="help-block form-text with-errors form-control-feedback"></div>
+                </div>
+
+
+                <div class="form-buttons-w">
+                    <button class="btn btn-primary"> Download</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

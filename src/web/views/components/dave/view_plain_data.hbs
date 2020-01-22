@@ -1,0 +1,28 @@
+<div class="content-i">
+    <div class="content-box">
+        <div class="element-box">
+            <h5 class="form-header">Plain text data has been downloaded from the blockchain</h5>
+            <hr>
+            <div class="table-responsive">
+                <table class="table table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Identifier / Key</th>
+                            <th>Data</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#if dataArr}} {{#each dataArr}}
+                        <tr>
+                            {{#if this}} {{#each this}}
+                            <td>{{@key}}</td>
+                            <td>{{this}}</td>
+                            {{/each}} {{/if}}
+                        </tr>
+                        {{/each}} {{/if}}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

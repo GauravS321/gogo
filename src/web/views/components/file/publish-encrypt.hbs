@@ -1,0 +1,90 @@
+<div class="content-i">
+    <div class="content-box">
+        {{#if error_msg}}
+        <div class="alert alert-warning" role="alert">{{error_msg}}</div>
+        {{/if}}
+        <div class="row">
+            <div class="col-sm-12 col-xxl-12">
+                <div class="element-box" id="publish_file_data">
+                    <div class="element-wrapper">
+                        <h5 class="form-header">Publish</h5>
+                        <hr>
+                        <form action="" method="POST" enctype="multipart/form-data">
+                            <legend>
+                                <span>Stream name *</span>
+                            </legend>
+
+                            <div class="form-group">
+                                <input class="form-control" id="stream_name" data-error="This field is compulsory"
+                                    required="required" value="FILE_MASTERLIST">
+
+                                <div class="help-block form-text text-muted form-control-feedback">
+                                </div>
+
+                                <div class="help-block form-text with-errors form-control-feedback"></div>
+                            </div>
+                            <div class="form-desc"></div>
+
+                            <legend>
+                                <span>File *</span>
+                            </legend>
+                            <div class="dropzone" id="myDropzone">
+                            </div>
+
+                            <div class="form-buttons-w">
+                                <input type="button" class="btn btn-md btn-primary" id="publish_file" value="Publish">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div id="publishResult" style="display: none;">
+                    <div class="col-sm-12 col-xxl-12">
+                        <div class="element-box">
+                            <h6>The following is the output</h6>
+                            <hr>
+                            <table class='table table-striped' style='table-layout:fixed; width: 100%;'>
+                                <thead>
+                                    <th style='width: 30%;'>Parameter</th>
+                                    <th style='width: 70%;'>output</th>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>tx_id_enc_data</td>
+                                        <td id="td1" style="word-wrap: break-word"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>tx_id_signature</td>
+                                        <td id="td2" style="word-wrap: break-word"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>signature</td>
+                                        <td id="td3" style="word-wrap: break-word"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>aes_password</td>
+                                        <td id="td4" style="word-wrap: break-word"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>aes_iv (Initialization Vector)</td>
+                                        <td id="td5" style="word-wrap: break-word"></td>
+                                    </tr>
+                                     <tr>
+                                        <td>Stream name</td>
+                                        <td id="td6" style="word-wrap: break-word"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <a href="/components/file/publish-encrypt">Go Back</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="publishOutput"></div>
+
+            </div>
+
+        </div>
+    </div>
+</div>

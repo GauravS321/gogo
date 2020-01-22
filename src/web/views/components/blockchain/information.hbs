@@ -1,0 +1,31 @@
+<div class="content-i">
+    <div class="content-box">
+        <div class="row">
+            <div class="col-sm-12 col-xxl-10">
+                <div class="element-box">
+                    <h5 class="form-header">Blockchain information</h5>
+                    <hr>
+                    <br>
+                    <div class="table-responsive">
+                        <table class="table table-striped table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Parameter</th>
+                                    <th>Value</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {{#if blockchain_information}} {{#each blockchain_information}}
+                                <tr>
+                                    <td>{{displayName}}</td>
+                                    <td>{{value}}</td>
+                                </tr>
+                                {{/each}}{{/if}}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

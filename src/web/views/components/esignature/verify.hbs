@@ -1,0 +1,82 @@
+<!-- BEGIN Content-->
+<div class="content-i">
+    <div class="content-box">
+        {{#if error_msg}}
+        <div class="alert alert-warning" role="alert">{{error_msg}}</div>
+        {{/if}}
+
+        <div class="element-box" id="form_uploaded_id">
+            <div class="row">
+                <div class="col-sm-12 col-xxl-12">
+                    <h5 class="form-header"> Verifying a digital signature</h5>
+                    To verify an e-signature, fill in the data below and click on "Verify"
+                    <hr>
+                </div>
+            </div>
+
+            <form id="formValidate">
+                <div class="row">
+                    <div class="col-sm-12 col-xxl-12">
+                        <div class="row">
+                            <div class="col-sm-12 col-xxl-12">
+                                <div class="form-group">
+                                    <legend>
+                                        <span>Data *</span>
+                                    </legend>
+                                    <textarea class="form-control" rows="8" cols="40"
+                                        data-error="This field is compulsory" id="data" name="data" required="required"
+                                        style="resize:none;">
+                                    </textarea>
+
+                                </div>
+                                <div class="help-block form-text text-muted form-control-feedback">
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-12 col-xxl-12">
+                                <div class="form-group">
+                                    <legend>
+                                        <span>Signature *</span>
+                                    </legend>
+                                    <input class="form-control" data-error="This field is compulsory" id="signature"
+                                        name="signature" required="required"
+                                        value="">
+                                </div>
+                                <div class="help-block form-text text-muted form-control-feedback">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-buttons-w">
+                    <input type="submit" class="btn btn-primary" id="verify_signature" value="Verify">
+                </div>
+            </form>
+        </div>
+
+        <div class="row" id="verifySignatureStatus" style="display: none;">
+            <div class="col-sm-12 col-xxl-12">
+                <div class="element-box">
+                    <h5 class="form-header">The e-signature has been verified.</h5>
+                    <hr>
+                    <table class='table table-striped'>
+                        <thead>
+                            <th>Field</th>
+                            <th>Value</th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="width: 10%;">Signature</td>
+                                <td style="width: 90%;" id="td1"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END Content-->

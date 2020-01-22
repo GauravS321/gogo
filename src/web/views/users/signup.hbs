@@ -1,0 +1,65 @@
+<div class="all-wrapper menu-side with-pattern">
+    <div class="auth-box-w wider">
+<<<<<<< HEAD
+        <div class="logo-w"><a href="/"><img alt="" src="/web/img/logo-big.png"></a></div>
+=======
+        <div class="logo-w"><a href="/signup"><img alt="" src="/web/img/logo-big.png"></a></div>
+>>>>>>> master
+        <h4 class="auth-header" style="margin-top: -45px;">Create new account</h4>
+        <form id="formValidate" novalidate="true" action="/signup" method="POST"
+            onsubmit="signup.disabled = true; return true;">
+            <div class="form-group">
+                <label for="">Username</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text os-icon os-icon-user"></div>
+                    </div>
+                    <input class="form-control" data-error="Please enter username" placeholder="Username" type="text"
+                        name="username" required="required">
+                </div>
+                <div class="help-block form-text with-errors form-control-feedback"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="">Email Address</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text os-icon os-icon-mail"></div>
+                    </div>
+                    <input class="form-control" data-error="Email address is invalid" placeholder="Email address"
+                        type="email" name="email" required="required">
+                </div>
+                <div class="help-block form-text with-errors form-control-feedback"></div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for=""> Password</label>
+                        <input class="form-control" data-minlength="6" placeholder="Password" required="required"
+                            type="password" id="password" name="password">
+                        <div class="help-block form-text text-muted form-control-feedback">Minimum of 6 characters</div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="">Confirm Password</label>
+                        <input class="form-control" data-match="#password" data-match-error="Passwords don't match"
+                            placeholder="Confirm Password" required="required" type="password" name="confirm_password">
+                        <div class="help-block form-text with-errors form-control-feedback"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="buttons-w">
+                <button class="btn btn-primary" name="signup">Sign up</button>
+
+                <div class="form-check-inline" style="float: right; margin-top: 5px;">
+                    <label class="form-check-label">
+                        <a href="/">Already have an account? Login.</a>
+                    </label>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>

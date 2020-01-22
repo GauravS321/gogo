@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Primechain</title>
+    <meta charset="utf-8">
+    <meta content="ie=edge" http-equiv="x-ua-compatible">
+    <meta content="Primechain: The 6 minute blockchain" name="keywords">
+    <meta content="Neo <> Primechain Technologies Pvt ltd" name="author">
+    <meta content="Primechain: The 6 minute blockchain" name="description">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="favicon.png" rel="shortcut icon">
+    <link href="apple-touch-icon.png" rel="apple-touch-icon">
+    <link href="//fast.fonts.net/cssapi/487b73f1-c2d1-43db-8526-db577e4c822b.css" rel="stylesheet" type="text/css">
+    <link href="/web/bower_components/select2/dist/css/select2.min.css" rel="stylesheet">
+    <link href="/web/bower_components/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+    <link href="/web/bower_components/dropzone/dist/dropzone.css" rel="stylesheet">
+    <link href="/web/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
+    <link href="/web/bower_components/fullcalendar/dist/fullcalendar.min.css" rel="stylesheet">
+    <link href="/web/bower_components/perfect-scrollbar/css/perfect-scrollbar.min.css" rel="stylesheet">
+    <link href="/web/bower_components/slick-carousel/slick/slick.css" rel="stylesheet">
+    <link href="/web/icon_fonts_assets/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/web/css/main.css?version=4.4.1" rel="stylesheet">
+
+    <style>
+        .hideContent {
+            overflow: hidden;
+            line-height: 1.5em;
+            height: 1.5em;
+        }
+
+        .showContent {
+            word-wrap: break-word;
+            line-height: 1.5em;
+            height: auto;
+        }
+
+        .carousel-inner {
+            /*background-color: #C1E0FF;*/
+        }
+
+        .carousel-indicators {
+            font-size: 2em;
+            bottom: -1%;
+            text-align: left;
+            text-shadow: none;
+        }
+
+        /***
+ * Bootstrap relies on CSS transitions for animation, which makes it
+ * easy to override.  Just add the vertical class to your carousel:
+ * <div class='carousel vertical'>...</div>
+ ***/
+
+        .carousel.vertical .carousel-inner {
+            height: 100%;
+        }
+
+        .carousel.vertical .carousel-item {
+            -webkit-transition: 1.5s ease-in-out top;
+            -moz-transition: 1.5s ease-in-out top;
+            -ms-transition: 1.5s ease-in-out top;
+            -o-transition: 1.5s ease-in-out top;
+            left: 0;
+        }
+
+        .carousel.vertical .active {
+            top: 0;
+        }
+
+        .carousel.vertical .active.right {
+            top: 100%;
+        }
+
+        .carousel.vertical .active.left {
+            top: -100%;
+        }
+
+        #loadingMessage {
+            position: relative;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+
+</head>
+
+{{#if user}}
+
+<body class="menu-position-side menu-side-left full-screen with-content-panel">
+    <div class="all-wrapper with-side-panel solid-bg-all">
+        <div class="layout-w">
+            {{> mobile_menu}}
+
+            {{> main_menu}}
+
+            <div class="content-w">
+                {{> top_bar}}
+
+                {{{body}}}
+                {{> script_libraries}}
+            </div>
+        </div>
+        <div class="display-type"></div>
+    </div>
+    {{else}}
+    {{{body}}}
+    {{> script_libraries}}
+</body>
+{{/if}}
+</html>

@@ -1,0 +1,99 @@
+<!-- BEGIN Content-->
+<div class="content-i">
+    <div class="content-box">
+        {{#if error_msg}}
+        <div class="alert alert-warning" role="alert">{{error_msg}}</div>
+        {{/if}}
+
+        <div class="element-box" id="form_uploaded_id">
+            <div class="row">
+                <div class="col-sm-12 col-xxl-12">
+                    <h5 class="form-header">
+                        Publish plain-text data (without encryption)
+                    </h5>
+                    <p>Use this form to publish plain-text data (without encryption) to the blockchain.</p>
+                    <hr>
+                </div>
+            </div>
+
+            <form id="formValidate">
+                <div class="row">
+                    <div class="col-sm-12 col-xxl-12">
+                        <legend>
+                            <span>Identifier / key *</span>
+                        </legend>
+                        <div class="form-group">
+                            <input class="form-control" id="key" data-error="This field is compulsory"
+                                required="required" value="Bruce Lee">
+                            <div class="help-block form-text text-muted form-control-feedback">
+                            </div>
+                            <div class="help-block form-text text-muted form-control-feedback">This is the identifier / key based on which the data can be retrieved from the blockchain.</div>
+                        </div>
+
+                        <div class="form-desc"></div>
+
+                        <div class="form-group">
+                            <legend>
+                                <span>Data to be published to the blockchain *</span>
+                            </legend>
+                            <textarea class="form-control" rows="8" cols="40" data-error="This field is compulsory"
+                                id="data" name="data" required="required" style="resize:none;">I fear not the man who has practiced 10,000 kicks once, but I fear the man who has practiced one kick 10,000 times.
+                            </textarea>
+
+                        </div>
+                        <div class="help-block form-text text-muted form-control-feedback">
+                        </div>
+                    </div>
+                </div>
+
+                <legend>
+                    <span>Channel to which the data should be published *</span>
+                </legend>
+
+                <div class="form-group">
+                    <input class="form-control" id="stream_name" data-error="This field is compulsory"
+                        required="required" value="DATA_MASTERLIST">
+
+                    <div class="help-block form-text text-muted form-control-feedback">
+                    </div>
+
+                    <div class="help-block form-text with-errors form-control-feedback"></div>
+                </div>
+
+                <div class="form-buttons-w">
+                    <input type="submit" class="btn btn-primary" id="publish_plian_data" value="Publish">
+                </div>
+            </form>
+        </div>
+
+        <div class="row" id="publishPlainDataStatus" style="display: none;">
+            <div class="col-sm-12 col-xxl-12">
+                <div class="element-box">
+                    <h5 class="form-header">Output </h5>
+                    <hr>
+                    <table class='table table-striped'>
+                        <thead>
+                            <th>Field</th>
+                            <th>Value</th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="width: 25%;">Transaction ID</td>
+                                <td style="width: 75%;" id="td1"></td>
+                            </tr>
+                            <tr>
+                                <td style="width: 25%;">Key / Identifier</td>
+                                <td style="width: 75%;" id="td2"></td>
+                            </tr>
+                            <tr>
+                                <td style="width: 25%;">Data channel name</td>
+                                <td style="width: 75%;" id="td3"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END Content-->

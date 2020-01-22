@@ -1,0 +1,71 @@
+<!-- BEGIN Content-->
+<div class="content-i">
+    <div class="content-box">
+        {{#if error_msg}}
+        <div class="alert alert-warning" role="alert">{{error_msg}}</div>
+        {{/if}}
+
+        <div class="element-box" id="form_uploaded_id">
+            <div class="row">
+                <div class="col-sm-12 col-xxl-12">
+                    <h5 class="form-header">
+                        Create and save an e-signature
+                    </h5>
+                    To generate an e-signature, fill in the data below and click on "Sign"
+                    <br>
+                    <hr>
+                </div>
+            </div>
+
+            <form>
+                <div class="row">
+                    <div class="col-sm-12 col-xxl-12">
+                        <div class="form-group">
+                            <legend>
+                                <span>Data *</span>
+                            </legend>
+                            <textarea class="form-control" rows="8" cols="40" data-error="This field is compulsory"
+                                id="data" name="data" required="required" style="resize:none;">I fear not the man who has practiced 10,000 kicks once, but I fear the man who has practiced one kick 10,000 times.
+                            </textarea>
+
+                        </div>
+                        <div class="help-block form-text text-muted form-control-feedback">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-buttons-w">
+                    <input type="button" class="btn btn-primary" id="create_save_signature" value="Sign">
+                </div>
+            </form>
+        </div>
+
+        <div class="row" id="signStoreStatus" style="display: none;">
+            <div class="col-sm-12 col-xxl-12">
+                <div class="element-box">
+                    <h5 class="form-header">The data has been successfully signed and stored. To verify this
+                        e-signature, you will
+                        need the data and the e-signature. </h5>
+                    <hr>
+                    <table class='table table-striped'>
+                        <thead>
+                            <th>Field</th>
+                            <th>Value</th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="width: 25%;">e-Signature</td>
+                                <td style="width: 75%;" id="td1"></td>
+                            </tr>
+                            <tr>
+                                <td style="width: 25%;">Transaction Id</td>
+                                <td style="width: 75%;" id="td2"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END Content-->

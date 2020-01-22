@@ -1,0 +1,53 @@
+<div class="content-i">
+    <div class="content-box">
+        {{#if success_msg}}
+        <div class="alert alert-success" role="alert">{{success_msg}}</div>
+        {{/if}}
+        {{#if error_msg}}
+        <div class="alert alert-warning" role="alert">{{error_msg}}</div>
+        {{/if}}
+        <div class="element-box" id="grantWritePermissions">
+            <h5 class="form-header">Grant write permission to a data channel</h5>
+            To grant an entity write permission to a data channel, fill in the form below and click on "Grant".
+            <br>
+            <hr>
+            <form id="formValidate" action="/components/data-channels/grant" method="POST">
+                <legend>
+                    <span>Data channel writer *</span>
+                </legend>
+
+                <div class="form-group">
+                    <input class="form-control" type="text" autocomplete="off" data-error="This field is compulsory"
+                        id="trade_channel_writer" name="trade_channel_writer" required>
+
+                    <div class="help-block form-text text-muted">
+                        The primechain address of the entity to be granted write permission to the data channel.
+                    </div>
+
+                    <div class=" help-block form-text with-errors form-control-feedback"></div>
+                </div>
+
+                <div class="form-desc"></div>
+
+                <legend>
+                    <span>Data channel name *</span>
+                </legend>
+
+                <div class="form-group">
+                    <input class="form-control" type="text" autocomplete="off" data-error="This field is compulsory"
+                        id="trade_channel_name" name="trade_channel_name" required>
+
+                    <div class="help-block form-text text-muted">
+                        The name of the relevant data channel.
+                    </div>
+
+                    <div class="help-block form-text with-errors form-control-feedback"></div>
+                </div>
+
+                <div class="form-buttons-w">
+                    <button class="btn btn-primary"> Grant</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
