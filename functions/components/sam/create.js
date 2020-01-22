@@ -32,15 +32,6 @@ module.exports = (from_address, to_address, name, quantity, unit, open, descript
                     });
 
                     if (created_asset_info.status === 200) {
-                        let sam = new Sam({
-                            name,
-                            description,
-                            asset_ref: created_asset_info["asset_ref"],
-                            txid: created_asset_info["tx_id"]
-                        });
-
-                        await sam.save();
-                        
                         return resolve({
                             status: 200,
                             msg: {
