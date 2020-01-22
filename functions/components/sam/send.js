@@ -1,10 +1,5 @@
 const validator = require('validator');
 
-<<<<<<< HEAD
-=======
-const Sam = require('../../../models/sam');
-
->>>>>>> master
 const APICall = require('../../../helpers/request');
 
 module.exports = (from_address, to_address, asset_name, quantity, details) => {

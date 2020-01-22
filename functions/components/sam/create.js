@@ -1,16 +1,8 @@
 const validator = require('validator');
 
-<<<<<<< HEAD
 const APICall = require('../../../helpers/request');
 
 module.exports = (from_address, to_address, name, quantity, unit, open, description) => {
-=======
-const Sam = require('../../models/sam');
-
-const APICall = require('../../helpers/request');
-
-exports.create = (from_address, to_address, name, quantity, unit, open, description) => {
->>>>>>> master
     return new Promise(async (resolve, reject) => {
         try {
             const validationErrors = [];
@@ -40,8 +32,6 @@ exports.create = (from_address, to_address, name, quantity, unit, open, descript
                     });
 
                     if (created_asset_info.status === 200) {
-<<<<<<< HEAD
-=======
                         let sam = new Sam({
                             name,
                             description,
@@ -51,7 +41,6 @@ exports.create = (from_address, to_address, name, quantity, unit, open, descript
 
                         await sam.save();
                         
->>>>>>> master
                         return resolve({
                             status: 200,
                             msg: {
@@ -66,35 +55,21 @@ exports.create = (from_address, to_address, name, quantity, unit, open, descript
                         });
                     }
                     else {
-<<<<<<< HEAD
                         return reject({
                             status: 401,
                             message: "Unable to create asset"
-=======
-                        return resolve({
-                            status: 401,
-                            message: created_asset_info.message
->>>>>>> master
                         });
                     }
                 }
                 else {
-<<<<<<< HEAD
                     return reject({
-=======
-                    return resolve({
->>>>>>> master
                         status: 401,
                         message: "Asset quantity should not exceed 11 character"
                     });
                 }
             }
             else {
-<<<<<<< HEAD
                 return reject({
-=======
-                return resolve({
->>>>>>> master
                     status: 401,
                     message: "Asset quantity should be greater than zero"
                 });
@@ -102,11 +77,7 @@ exports.create = (from_address, to_address, name, quantity, unit, open, descript
         } catch (error) {
             return reject({
                 status: 500,
-<<<<<<< HEAD
                 message: error
-=======
-                error: error
->>>>>>> master
             });
         }
     });

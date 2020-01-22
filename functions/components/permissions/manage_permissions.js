@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 const APICall = require('../../../helpers/request');
-=======
-const APICall = require('../../helpers/request');
->>>>>>> master
 
 module.exports = (action, primechain_address, permission) => {
     return new Promise(async (resolve, reject) => {
