@@ -1,5 +1,5 @@
-// Login function call
 const { authenticate } = require('../../../../../functions/users/login');
+const ActivityLog = require('../../../../..//src/web/models/users/activity-logs');
 /**
  * GET /login
  * Login page.
@@ -15,11 +15,18 @@ module.exports.get = (req, res) => {
  * POST /login
  * Sign in using email and password.
  */
-module.exports.post = async (req, res, next) => {
+module.exports.post = async (req, res) => {
     try {
         const { email, password } = req.body;
 
-        await authenticate(req, res, next, email, password);
+        await authenticate(req, res, email, password);
+        
+        let ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+        ip_arr = ip.split(':');
+        ip = ip_arr[ip_arr.length - 1];
+        let browser = req.headers['user-agent'];
+
+        await ActivityLog.create(email, ip, browser);
 
         return res.redirect('/account/my-profile');
 

@@ -1,23 +1,12 @@
-<<<<<<< HEAD
-// signup functions call
-=======
->>>>>>> master
 const { create } = require('../../../../../functions/users/signup');
 
 // Get signup page
 module.exports.get = (req, res) => {
     if (req.user && req.isAuthenticated()) {
-<<<<<<< HEAD
-        return res.render('users/account/my-profile');
-    }
-    return res.render('users/signup');
-};
-=======
         return res.redirect('/users/account/my-profile');
     }
     return res.render('users/signup');
 }
->>>>>>> master
 
 /**
 * POST /signup
@@ -36,11 +25,7 @@ module.exports.post = async (req, res) => {
             return res.redirect('/login');
         }
         else if (error.message) {
-<<<<<<< HEAD
-            req.flash('error_msg', error.message);
-=======
             req.flash('error_msg', error.error);
->>>>>>> master
             return res.redirect('/login');
         }
         else {

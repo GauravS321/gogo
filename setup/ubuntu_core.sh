@@ -86,7 +86,7 @@ sudo chown $linux_admin_user: $datadir
 
 su -l $linux_admin_user -c  'multichain-util create '$chainname' '$protocol' -datadir='$datadir
 
-su -l $linux_admin_user -c "sed -ie 's/.*chain-description =.*\#/chain-description = '$chainname' - Building blockchains for a better world     #/g' $datadir/$chainname/params.dat"
+su -l $linux_admin_user -c "sed -ie 's/.*chain-description =.*\#/chain-description = '$chainname'-Building blockchains for a better world     #/g' $datadir/$chainname/params.dat"
 su -l $linux_admin_user -c "sed -ie 's/.*root-stream-open =.*\#/root-stream-open = false     #/g' $datadir/$chainname/params.dat"
 su -l $linux_admin_user -c "sed -ie 's/.*target-block-time =.*\#/target-block-time = 10     #/g' $datadir/$chainname/params.dat"
 su -l $linux_admin_user -c "sed -ie 's/.*maximum-block-size =.*\#/maximum-block-size = 1000000000     #/g' $datadir/$chainname/params.dat"
