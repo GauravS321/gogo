@@ -64,46 +64,47 @@ class MailNotificationEngine {
     *******************************************************************************************************************/
     sendEmailNotification(fromAddress, toList, subject, body, ccList, bccList) {
         return new Promise(async (resolve, reject) => {
+            try {
+                let toEmail = toList;
 
-            let toEmail = toList;
+                // if (toList && toList.length) {
+                //     for (let i = 0, j = toList.length; i < j; i++) {
+                //         if (toList[i].trim() !== '')
+                //             toEmail[toList[i].trim()]
+                //     }
+                // }
 
-            // if (toList && toList.length) {
-            //     for (let i = 0, j = toList.length; i < j; i++) {
-            //         if (toList[i].trim() !== '')
-            //             toEmail[toList[i].trim()]
-            //     }
-            // }
-
-            // if (!toEmail && !toEmail.length)
-            //     throw Error('To email cannot be empty');
+                // if (!toEmail && !toEmail.length)
+                //     throw Error('To email cannot be empty');
 
 
-            let sgRequestedData = this.sgEmptyRequest;
-            sgRequestedData.to = toEmail;
-            sgRequestedData.subject = subject.trim();
-            sgRequestedData.from = fromAddress;
-            sgRequestedData.html = this.emailTop + body.trim() + this.emailBottom;
+                let sgRequestedData = this.sgEmptyRequest;
+                sgRequestedData.to = toEmail;
+                sgRequestedData.subject = subject.trim();
+                sgRequestedData.from = fromAddress;
+                sgRequestedData.html = this.emailTop + body.trim() + this.emailBottom;
 
-            if (ccList && ccList.length) {
-                let ccEmail = [];
-                for (let i = 0, j = ccList.length; i < j; i++) {
-                    if (ccList[i].trim() !== '')
-                        ccEmail.push({
-                            email: ccList[i].trim()
-                        });
-                }
-
-                if (bccList && bccList.length) {
-                    let bccEmail = [];
-                    for (let i = 0, j = bccList.length; i < j; i++) {
-                        if (bccList[i].trim() !== '')
-                            bccEmail.push({
-                                email: bccList[i].trim()
+                if (ccList && ccList.length) {
+                    let ccEmail = [];
+                    for (let i = 0, j = ccList.length; i < j; i++) {
+                        if (ccList[i].trim() !== '')
+                            ccEmail.push({
+                                email: ccList[i].trim()
                             });
                     }
 
-                    if (bccEmail && bccEmail.length)
-                        sgRequestedData['bcc'] = bccEmail;
+                    if (bccList && bccList.length) {
+                        let bccEmail = [];
+                        for (let i = 0, j = bccList.length; i < j; i++) {
+                            if (bccList[i].trim() !== '')
+                                bccEmail.push({
+                                    email: bccList[i].trim()
+                                });
+                        }
+
+                        if (bccEmail && bccEmail.length)
+                            sgRequestedData['bcc'] = bccEmail;
+                    }
                 }
 
                 await this.transporter.sendMail(sgRequestedData)
@@ -111,10 +112,10 @@ class MailNotificationEngine {
                     status: 200,
                     sent: true
                 });
-            } else {
+            } catch (error) {
                 return reject({
                     status: 500,
-                    message: error
+                    message: "Unable to sent e-mail"
                 });
             }
         });

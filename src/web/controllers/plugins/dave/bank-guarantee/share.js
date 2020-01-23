@@ -24,7 +24,9 @@ module.exports.post = async (req, res) => {
                 return res.redirect('/plugins/dave/bank-guarantee/view');
             }
         } catch (error) {
-            req.flash("error_msg", "Internal server error");
+            console.log(error);
+
+            req.flash("error_msg", error.message);
             return res.redirect('/plugins/dave/bank-guarantee/view');
         }
     }
