@@ -30,28 +30,15 @@ class MailNotificationEngine {
                                     </table>
                                     <div style="padding: 20px 70px; border-top: 1px solid rgba(0,0,0,0.05);">`;
 
-        this.emailBottom = `                Have an amazing day!
-                                        <br> 
-                                        Team Primechain
-                                        <h4>Need Help?</h4>
-                                        <div style="color: #A5A5A5; font-size: 14px;">
-                                            If you have any questions, Please email to <a href="mailto:info@primechain.in?Subject=Have%20a%20question"
-                                                target="_top">info@primechain.in</a>
-                                        </div>
+        this.emailBottom = `        Have an amazing day!<br>Team Primechain<br/><br/>
 
-                                         <h5 style='margin-top:20px;'> Do Not Share This Email</h5>
-
-                                        <div style="color: #A5A5A5; font-size: 14px;">
-                                        This email contains a secure link to ${this.productName}. Please do not share this email, link, or access code with others.
-                                        </div>
+                                    This email contains a secure link to ${this.productName}. Please do not share this email, link, or access code with unauthorised persons.
+                                        
                                     </div>
                                     <div style="background-color: #F5F5F5; padding: 0px; text-align: center;">
                                         <div style="padding-top: 5px; padding-bottom: 5px; border-top: 1px solid rgba(0,0,0,0.05);">
-                                            <div style="color: #A5A5A5; font-size: 11px; margin-bottom: 5px;">410, Supreme Headquarters,
-                                                Mumbai-Bangalore Highway, Near Audi Showroom, Baner, Pune, Maharashtra 411045</div>
-                                            <div style="color: #A5A5A5; font-size: 10px;">Copyrights © 2016-19 Primechain &trade; Technologies Pvt. Ltd.
-                                                All
-                                                Rights Reserved.</div>
+                                        
+                                            <div style="color: #A5A5A5; font-size: 10px;">Copyright © 2016-20 Primechain Technologies Pvt. Ltd. All Rights Reserved.</div>
                                         </div>
                                     </div>
                                 </div>
@@ -470,20 +457,12 @@ class MailNotificationEngine {
         return new Promise((resolve, reject) => {
             let subject = `Blockchain protected document`;
             let fromAddress = `${this.productName} <${sender_email}>`;
-        
 
-            let emailBody = `<h1 style="margin-top: 0px;">
+            let emailBody = `<p><strong>
                                 Hello ${receiver_name}!
-                            </h1>
-        
-                            <br>
-                            <p>
-                                A blockchain-protected document has been shared with you.
-                            </p>
-                            <br>
-                            <br>
-                        
-                        
+                            </strong></p>
+                            <p>A blockchain-protected document has been shared with you.</p>
+
                         <a href='${this.baseUrl}/plugins/dave/bank-guarantee/${path}' style='padding: 8px 20px; background-color: #4B72FA; color: #fff; font-weight: bolder; font-size: 16px; display: inline-block; margin: 20px 0px; margin-right: 20px; text-decoration: none;'>View document
                         </a>
                         <br>`;
