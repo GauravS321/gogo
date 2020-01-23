@@ -14,12 +14,12 @@ const bgShareController = require('../../controllers/plugins/dave/bank-guarantee
 const bgVerifyController = require('../../controllers/plugins/dave/bank-guarantee/verify');
 
 // Routes
-router.get('/dave/bank-guarantee/issue', bgIssueController.get);
-router.post('/dave/bank-guarantee/issue', bgIssueController.post);
+router.get('/issue', bgIssueController.get);
+router.post('/issue', bgIssueController.post);
 
-router.get('/dave/bank-guarantee/view', bgViewController.get);
-router.post('/dave/bank-guarantee/share', bgShareController.post);
+router.get('/view', bgViewController.get);
+router.post('/share', bgShareController.post);
 
-router.get('/dave/bank-guarantee/verification', bgVerifyController.get);
+router.get('/verification', bgVerifyController.get);
 
 module.exports = router;

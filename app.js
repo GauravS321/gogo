@@ -16,7 +16,8 @@ require('dotenv').config({ path: __dirname + '/.env' });
 
 const userRoutes = require('./src/web/routes/users');
 const componentsRoutes = require('./src/web/routes/components');
-const pluginsRoutes = require('./src/web/routes/plugins');
+const bankguaranteeRoutes = require('./src/web/routes/plugins/dave/bank-guarantee');
+const academicRoutes = require('./src/web/routes/plugins/dave/academic');
 
 const app = express();
 
@@ -78,7 +79,8 @@ app.use((req, res, next) => {
 
 app.use('/', userRoutes);
 app.use('/components', componentsRoutes);
-app.use('/plugins', pluginsRoutes);
+app.use('/plugins/dave/bank-guarantee', bankguaranteeRoutes);
+app.use('/plugins/dave/academic', academicRoutes);
 
 app.get('/', function (req, res) {
   return res.redirect('/login');

@@ -14,12 +14,12 @@ const bgShareController = require('../../controllers/plugins/dave/academic/share
 const bgVerifyController = require('../../controllers/plugins/dave/academic/verify');
 
 // Routes
-router.get('/dave/academic/issue', bgIssueController.get);
-router.post('/dave/academic/issue', bgIssueController.post);
+router.get('/issue', bgIssueController.get);
+router.post('/issue', bgIssueController.post);
 
-router.get('/dave/academic/view', bgViewController.get);
-router.post('/dave/academic/share', bgShareController.post);
+router.get('/view', bgViewController.get);
+router.post('/share', bgShareController.post);
 
-router.get('/dave/academic/verification', bgVerifyController.get);
+router.get('/verification', bgVerifyController.get);
 
 module.exports = router;
