@@ -9,13 +9,7 @@ const bgSchema = new mongoose.Schema({
     trade_channel_name: { type: String }
 }, { timestamps: true });
 
-/**
- * Save
- */
-bgSchema.pre('save', function save(next) {
-    next();
-});
 
-const BankGuarantee = mongoose.model('bankGuarantee', bgSchema);
+const academic = mongoose.model('academic', bgSchema);
 
-module.exports = BankGuarantee;
+module.exports = academic;

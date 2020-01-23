@@ -1,11 +1,13 @@
 const APICall = require('../../../../helpers/request');
-const BankGuarantee = require('../../../../models/bank_guarantee');
-const Mail = require('../../../../helpers/sendgrid');
+
+const academic = require('../../../../src/web/models/plugins/dave/academic');
+
+const Mailer = require('../../../../helpers/mailer');
 
 module.exports.issue = (primechain_address, json) => {
     return new Promise(async (resolve, reject) => {
         try {
-            const keys = [json.guarantee_number, json.date_issue, json.guarantee_currency, json.guarantee_amount_figures, json.guarantee_beneficiary];
+            const keys = [json["Full name"], json["Date of birth"], json["Father's name"], json["Mother's name"], json["Mobile number"]];
 
             let trade_channel_name = json.trade_channel_name;
 
@@ -22,16 +24,16 @@ module.exports.issue = (primechain_address, json) => {
 
             if (response.status === 200) {
 
-                let newBankGuarantee = new BankGuarantee({
+                let newRecord = new academic({
                     keys,
                     tx_id_enc_data: response.response['tx_id_enc_data'],
                     tx_id_signature: response.response['tx_id_signature'],
                     aes_password: response.response['aes_password'],
                     aes_iv: response.response['aes_iv'],
                     trade_channel_name
-                })
+                });
 
-                await newBankGuarantee.save();
+                await newRecord.save();
 
                 return resolve({
                     status: 200,
@@ -104,7 +106,7 @@ module.exports.share = (sender_mail, recevier_name, receiver_email, body) => {
 
             const path = `verification?txid_data=${tx_id_enc_data}&txid_signature=${tx_id_signature}&password=${aes_password}&iv=${aes_iv}&trade_channel_name=${trade_channel_name}`;
 
-            await Mail.shareVerificationMail(sender_mail, recevier_name, receiver_email, path)
+            await Mailer.shareVerificationMail(sender_mail, recevier_name, receiver_email, path)
 
             return resolve({
                 status: 200,
