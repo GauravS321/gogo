@@ -469,10 +469,8 @@ class MailNotificationEngine {
     shareVerificationMail(sender_email, receiver_name, email, path) {
         return new Promise((resolve, reject) => {
             let subject = `Blockchain protected document`;
-            let fromAddress = {
-                name: `${this.productName}`,
-                email: `${sender_email}`
-            };
+            let fromAddress = `${this.productName} <${sender_email}>`;
+        
 
             let emailBody = `<h1 style="margin-top: 0px;">
                                 Hello ${receiver_name}!
