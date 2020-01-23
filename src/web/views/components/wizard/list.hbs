@@ -18,7 +18,9 @@
                             <th>value1</th>
                             <th>value2</th>
                             <th>value3</th>
-                            <th>Action</th>
+                            <th>View</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -31,7 +33,15 @@
                             <td>
                                 <form action="">
                                     <button formaction='view/{{id}}' class="btn btn-md btn-primary">View</button>
+                                </form>
+                            </td>
+                            <td>
+                                <form action="">
                                     <button formaction='edit/{{id}}' class="btn btn-md btn-warning">Edit</button>
+                                </form>
+                            </td>
+                            <td>
+                                <form action="">
                                     <button formaction='delete/{{id}}' class="btn btn-md btn-danger">Delete</button>
                                 </form>
                             </td>
