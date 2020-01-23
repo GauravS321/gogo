@@ -1,4 +1,4 @@
-const bankguarantee = require('../../../../models/plugins/dave/academic');
+const academic = require('../../../../models/plugins/dave/academic');
 
 module.exports.get = async (req, res) => {
     if (req.user && req.isAuthenticated()) {
@@ -8,11 +8,11 @@ module.exports.get = async (req, res) => {
 
             records.forEach(record => {
                 records_list.push({
-                    name: record.keys[0],
-                    date_issue: record.keys[1],
-                    currency: record.keys[2],
-                    amount_in_figures: record.keys[3],
-                    beneficiary: record.keys[4],
+                    fullname: record.keys[0],
+                    dob: record.keys[1],
+                    father: record.keys[2],
+                    mother: record.keys[3],
+                    mobile: record.keys[4],
                     tx_id_enc_data: record.tx_id_enc_data,
                     tx_id_signature: record.tx_id_signature,
                     aes_password: record.aes_password,
