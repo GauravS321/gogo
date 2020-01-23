@@ -1,11 +1,11 @@
-const { listPermissions, managePermissions } = require('../../../../../functions/components/permissions');
+const { list, manage } = require('../../../../../functions/components/permissions');
 
 // Manage permissions
 exports.get = async (req, res) => {
     if (req.user && req.isAuthenticated()) {
         let user_permissions = {};
 
-        const list_permissions = await listPermissions(req.user.primechain_address);
+        const list_permissions = await list(req.user.primechain_address);
 
         list_permissions.msg.primechain_address.forEach(permission => {
             user_permissions[[permission.type]] = true;
@@ -25,7 +25,7 @@ exports.post = async (req, res) => {
         try {
             const { action, permission } = req.body;
 
-            let response = await managePermissions(action, req.user.primechain_address, permission);
+            let response = await manage(action, req.user.primechain_address, permission);
 
             if (response.msg.status === 200) {
                 return res.json({
