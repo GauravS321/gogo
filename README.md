@@ -34,7 +34,12 @@ cd ~
 cd primechain
 sudo nano .env
 ```
-1. To use sendgrid for transactional emails, enter your SENDGRID_API_KEY
+Update the below in .env, to use sendgrid for transactional emails.
+```
+MAIL_SERVICE_NAME=SENDGRID
+MAIL_USERNAME=<your-username>
+MAIL_PASSWORD=<your-password>
+```
 2. Copy Primechain-API username and password if you will be using the API service.
 
 ## 3. Updating Primechain 
