@@ -16,3 +16,4 @@ module.exports.get = async (req, res) => {
             email: req.user.email
         });
     }
+}
