@@ -2,16 +2,16 @@ const router = require('express').Router();
 
 //Controller
 // Issue
-const bgIssueController = require('../../controllers/plugins/dave/academic/issue');
+const bgIssueController = require('../../../../controllers/plugins/dave/academic/issue');
 
 // View
-const bgViewController = require('../../controllers/plugins/dave/academic/view');
+const bgViewController = require('../../../../controllers/plugins/dave/academic/view');
 
 // Share
-const bgShareController = require('../../controllers/plugins/dave/academic/share');
+const bgShareController = require('../../../../controllers/plugins/dave/academic/share');
 
 // Verification
-const bgVerifyController = require('../../controllers/plugins/dave/academic/verify');
+const bgVerifyController = require('../../../../controllers/plugins/dave/academic/verify');
 
 // Routes
 router.get('/issue', bgIssueController.get);

@@ -2,16 +2,16 @@ const router = require('express').Router();
 
 //Controller
 // Issue
-const bgIssueController = require('../../controllers/plugins/dave/bank-guarantee/issue');
+const bgIssueController = require('../../../../controllers/plugins/dave/bank-guarantee/issue');
 
 // View
-const bgViewController = require('../../controllers/plugins/dave/bank-guarantee/view');
+const bgViewController = require('../../../../controllers/plugins/dave/bank-guarantee/view');
 
 // Share
-const bgShareController = require('../../controllers/plugins/dave/bank-guarantee/share');
+const bgShareController = require('../../../../controllers/plugins/dave/bank-guarantee/share');
 
 // Verification
-const bgVerifyController = require('../../controllers/plugins/dave/bank-guarantee/verify');
+const bgVerifyController = require('../../../../controllers/plugins/dave/bank-guarantee/verify');
 
 // Routes
 router.get('/issue', bgIssueController.get);
