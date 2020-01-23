@@ -27,8 +27,6 @@ module.exports.get = async (req, res) => {
                 email: req.user.email
             });
         } catch (error) {
-            console.log(error);
-
             return res.render('plugins/dave/bank-guarantee/view', {
                 username: req.user.username,
                 email: req.user.email

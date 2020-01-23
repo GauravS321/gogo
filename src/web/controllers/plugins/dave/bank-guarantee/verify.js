@@ -5,11 +5,15 @@ module.exports.get = async (req, res) => {
         let response = await retrieve(req.query);
 
         return res.render('plugins/dave/bank-guarantee/verification', {
-            data: response.msg['data']
+            data: response.msg['data'].msg,
+            username: req.user.username,
+            email: req.user.email
         });
     } catch (error) {
         return res.render('plugins/dave/bank-guarantee/verification', {
-            error_msg: "Whoops, something went wrong, Please try later.."
+            error_msg: "Whoops, something went wrong, Please try later..",
+            username: req.user.username,
+            email: req.user.email
         });
     }
 }
