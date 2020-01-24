@@ -5,7 +5,7 @@
         <div class="alert alert-warning" role="alert">{{error_msg}}</div>
         {{/if}}
 
-        <div class="progressResult" id="progressBGResult" style="display: none;">
+        <div class="progressResult" id="progressDaveResult" style="display: none;">
             <div class="col-sm-12 col-xxl-12">
                 <div class="element-box">
 
@@ -18,10 +18,10 @@
             </div>
         </div>
 
-        <div class="row" id="uploadBGStatus" style="display: none;">
+        <div class="row" id="uploadDaveStatus" style="display: none;">
             <div class="col-sm-12 col-xxl-12">
                 <div class="element-box">
-                    <h5 class="form-header" id="uploadingBGHeader">Uploading Academic Record to Primechain</h5>
+                    <h5 class="form-header" id="uploadingDaveHeader">Uploading Academic Record to Primechain</h5>
                     <hr>
                     <table class="table table-striped" style="width: 100%">
                         <thead>
@@ -76,7 +76,7 @@
                 </div>
             </div>
 
-            <form id="formValidate" class="academic_form">
+            <form id="formValidate" class="plugins_dave_form">
                 <input type="hidden" id="trade_channel_name" name="trade_channel_name" value="DATA_MASTERLIST">
 
             <fieldset class="form-group">
@@ -163,12 +163,12 @@
             </fieldset>
 
                 <div class="form-buttons-w">
-                    <button type="submit" class="btn btn-primary" id="BGIssue"> Issue</button>
+                    <button type="submit" class="btn btn-primary" id="issue_dave"> Issue</button>
                 </div>
             </form>
         </div>
 
-        <div class="row" id="BGIssueStatus" style="display: none;">
+        <div class="row" id="DaveIssueStatus" style="display: none;">
             <div class="col-sm-12 col-xxl-12">
                 <div class="element-box">
                     <h5 class="form-header">Academic record has been issued. This is the output: </h5>
@@ -213,7 +213,7 @@
             </div>
         </div>
 
-        <div class="row" id="BGIssueDesc" style="display: none;">
+        <div class="row" id="DaveIssueDesc" style="display: none;">
             <div class="col-sm-12 col-xxl-12">
                 <div class="element-box">
                     <h5 class="form-header">Explanation of the output: </h5>
