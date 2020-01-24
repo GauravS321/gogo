@@ -1,4 +1,4 @@
-const list = require('../../../../../functions/plugins/sam/loyalty/list');
+const list = require('../../../../../../functions/plugins/sam/loyalty/list');
 
 module.exports.get = async (req, res) => {
     if (req.user && req.isAuthenticated()) {

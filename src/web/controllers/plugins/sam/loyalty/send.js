@@ -1,4 +1,4 @@
-const send = require('.././../../../../functions/plugins/sam/loyalty/send')
+const send = require('.././../../../../../functions/plugins/sam/loyalty/send')
 module.exports.get = (req, res) => {
     if (req.user && req.isAuthenticated()) {
         return res.render('plugins/sam/loyalty/send',

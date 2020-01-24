@@ -1,6 +1,6 @@
 const validator = require('validator');
 
-const APICall = require('../../../helpers/request');
+const APICall = require('../../../../helpers/request');
 
 module.exports = (from_address, to_address, name, quantity, unit, open, description) => {
     return new Promise(async (resolve, reject) => {

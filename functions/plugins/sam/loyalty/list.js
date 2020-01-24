@@ -1,4 +1,4 @@
-const APICall = require('../../../helpers/request');
+const APICall = require('../../../../helpers/request');
 
 module.exports = (primechain_address) => {
     return new Promise(async (resolve, reject) => {

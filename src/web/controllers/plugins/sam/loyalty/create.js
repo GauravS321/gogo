@@ -1,4 +1,4 @@
-const create = require('../../../../../functions/plugins/sam/loyalty/create');
+const create = require('../../../../../../functions/plugins/sam/loyalty/create');
 
 module.exports.get = (req, res) => {
     if (req.user && req.isAuthenticated()) {
