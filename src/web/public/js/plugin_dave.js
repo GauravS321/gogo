@@ -1,7 +1,8 @@
-$('#BGIssue').off('click').on('click', function (e) {
+$('#issue_dave').off('click').on('click', function (e) {
     e.preventDefault();
+
     var formBody = {};
-    var elem = document.getElementsByClassName('bank_guarantee_form')[0].elements;
+    var elem = document.getElementsByClassName('plugins_dave_form')[0].elements;
 
     for (var i = 0; i < elem.length; i++) {
         if (elem[i].name !== "") {
@@ -14,10 +15,9 @@ $('#BGIssue').off('click').on('click', function (e) {
         }
     }
 
-
     $.ajax({
         type: "POST",
-        url: '/plugins/dave/bank-guarantee/issue',
+        url: `${window.location.pathname}`,
 
         success: function (res) {
             if (res && res["success"]) {
@@ -33,8 +33,8 @@ $('#BGIssue').off('click').on('click', function (e) {
                 bar.addClass('bar-info');
 
                 $('.progress').show();
-                $('#progressBGResult').show();
-                $('#uploadBGStatus').show();
+                $('#progressDaveResult').show();
+                $('#uploadDaveStatus').show();
 
                 bar.width(percentVal);
                 setTimeout(() => {
@@ -57,9 +57,13 @@ $('#BGIssue').off('click').on('click', function (e) {
                                     bar.width(100 + "%");
                                     $('#sign_txid').css("color", "green").removeClass("fa-question").addClass("fa-check");
 
-                                    $('#progressBGResult').hide();
-                                    $('#uploadingBGHeader').html("This is what has happened");
-                                    $('#BGIssueStatus').show();
+                                    $('#progressDaveResult').hide();
+                                    $('#uploadingDaveHeader').html("This is what has happened");
+                                    $('#DaveIssueStatus').show();
+
+                                    let path_url = window.location.pathname;
+                                    let path_url_str = path_url.substr(path_url.lastIndexOf('/') + 1);
+                                    let new_url_path = path_url.replace(new RegExp(path_url_str), '');
 
                                     if (res["tx_id_enc_data"]) {
                                         $('#td1').html(res["tx_id_enc_data"]);
@@ -85,11 +89,11 @@ $('#BGIssue').off('click').on('click', function (e) {
                                                                 data-toggle="tooltip" title
                                                                 data-original-title="Tooltip on top" 
                                                                 aria-describedby="tooltip90544"
-                                                                data-clipboard-text="${window.location.origin}/plugins/dave/bank-guarantee/verification?txid_data=${res['tx_id_enc_data']}&txid_signature=${res['tx_id_signature']}&password=${res['aes_password']}&iv=${res['aes_iv']}&trade_channel_name=${res['trade_channel_name']}">
+                                                                data-clipboard-text="${window.location.origin}${new_url_path}verification?txid_data=${res['tx_id_enc_data']}&txid_signature=${res['tx_id_signature']}&password=${res['aes_password']}&iv=${res['aes_iv']}&trade_channel_name=${res['trade_channel_name']}">
                                                                 Copy to clipboard
                                                             </button>`);
 
-                                                            $('#BGIssueDesc').show();
+                                                            $('#DaveIssueDesc').show();
 
                                                         }
                                                         else {
@@ -127,7 +131,7 @@ $('#BGIssue').off('click').on('click', function (e) {
             }
             else {
                 alert(res['message']);
-                window.location.href = '/plugins/dave/bank-guarantee/issue'
+                window.location.href = `${window.location.pathname}`;
             }
         },
         data: formBody,
@@ -145,7 +149,7 @@ clipboard.on('error', function (e) {
 });
 
 
-$('#retrieveBGClick').off('click').on('click', function (e) {
+$('#retrieveDaveClick').off('click').on('click', function (e) {
     e.preventDefault();
 
     var txid_data = $.trim($('#txid_data').val());

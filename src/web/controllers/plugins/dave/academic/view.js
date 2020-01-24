@@ -33,5 +33,5 @@ module.exports.get = async (req, res) => {
             });
         }
     }
-    return res.redirect('/login')
+    return res.redirect('/login');
 }

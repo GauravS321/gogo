@@ -2,24 +2,28 @@ const router = require('express').Router();
 
 //Controller
 // Issue
-const bgIssueController = require('../../../../controllers/plugins/dave/academic/issue');
+const issueController = require('../../../../controllers/plugins/dave/academic/issue');
 
 // View
-const bgViewController = require('../../../../controllers/plugins/dave/academic/view');
+const viewController = require('../../../../controllers/plugins/dave/academic/view');
 
 // Share
-const bgShareController = require('../../../../controllers/plugins/dave/academic/share');
+const shareController = require('../../../../controllers/plugins/dave/academic/share');
 
 // Verification
-const bgVerifyController = require('../../../../controllers/plugins/dave/academic/verify');
+const verifyController = require('../../../../controllers/plugins/dave/academic/verify');
 
-// Routes
-router.get('/issue', bgIssueController.get);
-router.post('/issue', bgIssueController.post);
+/* Routing for issue */
+router.get('/issue', issueController.get);
+router.post('/issue', issueController.post);
 
-router.get('/view', bgViewController.get);
-router.post('/share', bgShareController.post);
+/** Routing for view */
+router.get('/view', viewController.get);
 
-router.get('/verification', bgVerifyController.get);
+/** Routing for share */
+router.post('/share', shareController.post);
+
+/** Routing for verfication */
+router.get('/verification', verifyController.get);
 
 module.exports = router;

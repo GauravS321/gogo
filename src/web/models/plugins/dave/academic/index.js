@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const bgSchema = new mongoose.Schema({
+const newSchema = new mongoose.Schema({
     keys: { type: Array },
     tx_id_enc_data: { type: String },
     tx_id_signature: { type: String },
@@ -10,6 +10,6 @@ const bgSchema = new mongoose.Schema({
 }, { timestamps: true });
 
 
-const academic = mongoose.model('academic', bgSchema);
+const academic = mongoose.model('academic', newSchema);
 
 module.exports = academic;

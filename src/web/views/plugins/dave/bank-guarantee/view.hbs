@@ -38,7 +38,7 @@
                                         <td>{{beneficiary}}</td>
                                         <td>
                                             <div class="md4">
-                                                <form id="viewForm#{{tx_id_enc_data}}" action="/plugins/dave/bank-guarantee/verification"
+                                                <form id="viewForm#{{tx_id_enc_data}}" action="verification"
                                                     method="GET" target="_blank">
                                                     <input type="hidden" name="txid_data" value="{{tx_id_enc_data}}">
                                                     <input type="hidden" name="txid_signature"
@@ -48,8 +48,8 @@
                                                     <input type="hidden" name="trade_channel_name"
                                                         value="{{trade_channel_name}}">
                                                 </form>
-                                                <button class="btn btn-success"
-                                                    onclick="document.getElementById('viewForm#{{tx_id_enc_data}}').submit();">View</button>
+                                                <button class="btn btn-success" 
+                                                    onclick="document.getElementById('viewForm#{{tx_id_enc_data}}').submit();" formaction="">View</button>
                                             </div>
                                         </td>
                                         <td>

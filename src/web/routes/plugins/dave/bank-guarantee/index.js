@@ -2,24 +2,28 @@ const router = require('express').Router();
 
 //Controller
 // Issue
-const bgIssueController = require('../../../../controllers/plugins/dave/bank-guarantee/issue');
+const issueController = require('../../../../controllers/plugins/dave/bank-guarantee/issue');
 
 // View
-const bgViewController = require('../../../../controllers/plugins/dave/bank-guarantee/view');
+const viewController = require('../../../../controllers/plugins/dave/bank-guarantee/view');
 
 // Share
-const bgShareController = require('../../../../controllers/plugins/dave/bank-guarantee/share');
+const shareController = require('../../../../controllers/plugins/dave/bank-guarantee/share');
 
 // Verification
-const bgVerifyController = require('../../../../controllers/plugins/dave/bank-guarantee/verify');
+const verifyController = require('../../../../controllers/plugins/dave/bank-guarantee/verify');
 
-// Routes
-router.get('/issue', bgIssueController.get);
-router.post('/issue', bgIssueController.post);
+/** Routing for issue */
+router.get('/issue', issueController.get);
+router.post('/issue', issueController.post);
 
-router.get('/view', bgViewController.get);
-router.post('/share', bgShareController.post);
+/** Routing for view */
+router.get('/view', viewController.get);
 
-router.get('/verification', bgVerifyController.get);
+/** Routing for share */
+router.post('/share', shareController.post);
+
+/** Routing for verification */
+router.get('/verification', verifyController.get);
 
 module.exports = router;

@@ -72,7 +72,8 @@ module.exports.retrieve = (json) => {
                 trade_channel_name
             };
 
-            let response = await APICall.httpPostMethod('get_data', apiBody)
+            let response = await APICall.httpPostMethod('get_data', apiBody);
+
 
             if (response.status === 200) {
                 return resolve({
