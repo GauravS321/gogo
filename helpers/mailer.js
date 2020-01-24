@@ -453,7 +453,7 @@ class MailNotificationEngine {
     /*******************************************************************************************************************
     Send password changed notification
     *******************************************************************************************************************/
-    shareVerificationMail(sender_email, receiver_name, email, path) {
+    shareVerificationMail(sender_email, receiver_name, email, use_case, path) {
         return new Promise((resolve, reject) => {
             let subject = `Blockchain protected document`;
             let fromAddress = `${this.productName} <${sender_email}>`;
@@ -463,7 +463,7 @@ class MailNotificationEngine {
                             </strong></p>
                             <p>A blockchain-protected document has been shared with you.</p>
 
-                        <a href='${this.baseUrl}/plugins/dave/bank-guarantee/${path}' style='padding: 8px 20px; background-color: #4B72FA; color: #fff; font-weight: bolder; font-size: 16px; display: inline-block; margin: 20px 0px; margin-right: 20px; text-decoration: none;'>View document
+                        <a href='${this.baseUrl}/plugins/dave/${use_case}/${path}' style='padding: 8px 20px; background-color: #4B72FA; color: #fff; font-weight: bolder; font-size: 16px; display: inline-block; margin: 20px 0px; margin-right: 20px; text-decoration: none;'>View document
                         </a>
                         <br>`;
 
