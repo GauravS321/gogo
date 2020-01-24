@@ -4,8 +4,10 @@ module.exports.get = async (req, res) => {
     try {
         let response = await retrieve(req.query);
 
+        console.log(response);
+
         return res.render('plugins/dave/bank-guarantee/verification', {
-            data: response.msg['data'].msg,
+            data: response.msg['data'],
             username: req.user.username,
             email: req.user.email
         });
