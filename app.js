@@ -18,6 +18,7 @@ const userRoutes = require('./src/web/routes/users');
 const componentsRoutes = require('./src/web/routes/components');
 const bgRoutes = require('./src/web/routes/plugins/dave/bank-guarantee');
 const academicRoutes = require('./src/web/routes/plugins/dave/academic');
+const loyaltyRoutes = require('./src/web/routes/plugins/sam/loyalty');
 
 const app = express();
 
@@ -81,6 +82,7 @@ app.use('/', userRoutes);
 app.use('/components', componentsRoutes);
 app.use('/plugins/dave/bank-guarantee', bgRoutes);
 app.use('/plugins/dave/academic', academicRoutes);
+app.use('/plugins/sam/loyalty', loyaltyRoutes);
 
 app.get('/', function (req, res) {
   return res.redirect('/login');
