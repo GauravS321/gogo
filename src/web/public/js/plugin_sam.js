@@ -13,11 +13,12 @@ $('#createAsset').off('click').on('click', function (e) {
             }
         }
     }
+
     $('#createAsset').val('creating...').attr('disabled', true)
 
         $.ajax({
             type: 'POST',
-            url: '/components/sam/create',
+            url: `${window.location.pathname}`,
             success: function (res) {
                 if (res['success']) {
                     $("#asset_form").hide();
@@ -85,12 +86,12 @@ $('#createAsset').off('click').on('click', function (e) {
                 }
                 else {
                     alert(res['message']);
-                    window.location.href = "/components/sam/create";
+                    window.location.href = `${window.location.pathname}`;
                 }
             },
             error: function (error) {
                 alert(error);
-                window.location.href = "/components/sam/create";
+                window.location.href = `${window.location.pathname}`;
             },
             data: formBody
         });
@@ -101,7 +102,7 @@ $(document).ready(function () {
         minimumInputLength: 1,
         dataType: 'json',
         ajax: {
-            url: '/components/sam/list',
+            url: `${window.location.pathname}`,
             dataType: 'json',
             type: "GET",
             quietMillis: 50,
@@ -137,7 +138,7 @@ $('#sendAssetFrom').off('click').on('click', function (e) {
     if (from_address && to_address && name && quantity && description) {
         $.ajax({
             type: "POST",
-            url: `/components/sam/transfer`,
+            url: `${window.location.pathname}`,
 
             success: function (res) {
                 if (res && res['transaction_id']) {
@@ -147,7 +148,7 @@ $('#sendAssetFrom').off('click').on('click', function (e) {
                 }
                 else {
                     alert("Unable to transfer asset");
-                    window.location.href = 'components/sam/transfer';
+                    window.location.href = `${window.location.pathname}`;
                 }
             },
             data: {
