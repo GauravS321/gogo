@@ -16,85 +16,85 @@ $('#createAsset').off('click').on('click', function (e) {
 
     $('#createAsset').val('creating...').attr('disabled', true)
 
-        $.ajax({
-            type: 'POST',
-            url: `${window.location.pathname}`,
-            success: function (res) {
-                if (res['success']) {
-                    $("#asset_form").hide();
+    $.ajax({
+        type: 'POST',
+        url: `${window.location.pathname}`,
+        success: function (res) {
+            if (res['success']) {
+                $("#asset_form").hide();
 
-                    $('#assetStatus').show();
-                    $('#info').html("<h4>Asset has been creating, it takes max of 30 secs...</h4><hr>");
+                $('#assetStatus').show();
+                $('#info').html("<h4>Asset has been creating, it takes max of 30 secs...</h4><hr>");
 
-                    if (res["asset_name"]) {
-                        $('#name').css("color", "green").removeClass("fa-question").addClass("fa-check");
-                        $('#td1').html(res["asset_name"]);
+                if (res["asset_name"]) {
+                    $('#name').css("color", "green").removeClass("fa-question").addClass("fa-check");
+                    $('#td1').html(res["asset_name"]);
 
-                        if (res["asset_quantity"]) {
-                            $('#quantity').css("color", "green").removeClass("fa-question").addClass("fa-check");
-                            $('#td2').html(res["asset_quantity"]);
+                    if (res["asset_quantity"]) {
+                        $('#quantity').css("color", "green").removeClass("fa-question").addClass("fa-check");
+                        $('#td2').html(res["asset_quantity"]);
 
-                            if (res["asset_open"]) {
-                                $('#open').css("color", "green").removeClass("fa-question").addClass("fa-check");
-                                $('#td3').html(res["asset_open"]);
+                        if (res["asset_open"]) {
+                            $('#open').css("color", "green").removeClass("fa-question").addClass("fa-check");
+                            $('#td3').html(res["asset_open"]);
 
-                                if (res["asset_unit"]) {
-                                    $('#unit').css("color", "green").removeClass("fa-question").addClass("fa-check");
-                                    $('#td4').html(res["asset_unit"]);
+                            if (res["asset_unit"]) {
+                                $('#unit').css("color", "green").removeClass("fa-question").addClass("fa-check");
+                                $('#td4').html(res["asset_unit"]);
 
-                                    if (res["asset_description"]) {
-                                        $('#description').css("color", "green").removeClass("fa-question").addClass("fa-check");
-                                        $('#td5').html(res["asset_description"]);
+                                if (res["asset_description"]) {
+                                    $('#description').css("color", "green").removeClass("fa-question").addClass("fa-check");
+                                    $('#td5').html(res["asset_description"]);
 
-                                        if (res["asset_ref"]) {
-                                            $('#reference').css("color", "green").removeClass("fa-question").addClass("fa-check");
-                                            $('#td6').html(res["asset_ref"]);
+                                    if (res["asset_ref"]) {
+                                        $('#reference').css("color", "green").removeClass("fa-question").addClass("fa-check");
+                                        $('#td6').html(res["asset_ref"]);
 
-                                            if (res["txid"]) {
-                                                $('#txid').css("color", "green").removeClass("fa-question").addClass("fa-check");
-                                                $('#td7').html(res["txid"]);
+                                        if (res["txid"]) {
+                                            $('#txid').css("color", "green").removeClass("fa-question").addClass("fa-check");
+                                            $('#td7').html(res["txid"]);
 
-                                                $('#info').html("<h4>Asset created succesfully</h4></h4><hr>");
-                                            }
-                                            else {
-                                                $('#td7').html("failed");
-                                            }
+                                            $('#info').html("<h4>Asset created succesfully</h4></h4><hr>");
                                         }
                                         else {
-                                            $('#td6').html("failed");
+                                            $('#td7').html("failed");
                                         }
                                     }
                                     else {
-                                        $('#td5').html("failed");
+                                        $('#td6').html("failed");
                                     }
                                 }
                                 else {
-                                    $('#td4').html("failed");
+                                    $('#td5').html("failed");
                                 }
                             }
                             else {
-                                $('#td3').html("failed");
+                                $('#td4').html("failed");
                             }
                         }
                         else {
-                            $('#td2').html("failed");
+                            $('#td3').html("failed");
                         }
                     }
                     else {
-                        $('#td1').html("failed");
+                        $('#td2').html("failed");
                     }
                 }
                 else {
-                    alert(res['message']);
-                    window.location.href = `${window.location.pathname}`;
+                    $('#td1').html("failed");
                 }
-            },
-            error: function (error) {
-                alert(error);
+            }
+            else {
+                alert(res['message']);
                 window.location.href = `${window.location.pathname}`;
-            },
-            data: formBody
-        });
+            }
+        },
+        error: function (error) {
+            alert(error);
+           window.location.href = `${window.location.pathname}`;
+        },
+        data: formBody
+    });
 });
 
 $(document).ready(function () {

@@ -22,10 +22,14 @@ module.exports = (from_address, to_address, name, quantity, unit, open, descript
             if (quantity > 0) {
                 if (quantity.length <= 11) {
                     open = (open === 'true') ? true : false;
+
                     const created_asset_info = await APICall.httpPostMethod('create_token', {
                         from_address,
                         to_address,
-                        asset: { name, open },
+                        asset: {
+                            name,
+                            open
+                        },
                         unit: 1,
                         quantity,
                         details: description
@@ -48,7 +52,7 @@ module.exports = (from_address, to_address, name, quantity, unit, open, descript
                     else {
                         return reject({
                             status: 401,
-                            message: "Unable to create asset"
+                            message: created_asset_info.message
                         });
                     }
                 }

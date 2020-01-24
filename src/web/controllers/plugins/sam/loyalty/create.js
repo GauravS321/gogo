@@ -12,16 +12,16 @@ module.exports.get = (req, res) => {
 
 module.exports.post = async (req, res) => {
     try {
-        const { name, quantity, open, unit, description } = req.body;
+        const { asset_name, asset_quantity, asset_open, asset_unit, asset_description } = req.body;
 
-        let response = await create(req.user.primechain_address, req.user.primechain_address, name, quantity, unit, open, description);
+        let response = await create(req.user.primechain_address, req.user.primechain_address, asset_name, asset_quantity, asset_unit, asset_open, asset_description);
 
         if (response.status === 200) {
             return res.json({
                 success: true,
                 asset_name: response.msg.name,
                 asset_quantity: response.msg.quantity,
-                asset_open: open,
+                asset_open: asset_open,
                 asset_unit: response.msg.unit,
                 asset_description: response.msg.description,
                 asset_ref: response.msg.asset_ref,
