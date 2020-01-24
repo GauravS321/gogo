@@ -440,8 +440,6 @@ class MailNotificationEngine {
                     message: true
                 });
             } catch (error) {
-                console.log(error);
-
                 return reject({
                     status: 500,
                     message: error
