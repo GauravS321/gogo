@@ -54,6 +54,8 @@ const pfDecryptController = require('../../controllers/components/file/download-
 // SAM
 // create asset
 const samCreateController = require('../../controllers/components/sam/create');
+// create more asset
+const samCreateMoreController = require('../../controllers/components/sam/create-more');
 // view assets
 const samViewController = require('../../controllers/components/sam/view');
 // transfer assets
@@ -150,6 +152,11 @@ router.post('/file/download-decrypt', pfDecryptController.post);
 // SAM - create asset
 router.get('/sam/create', samCreateController.get);
 router.post('/sam/create', samCreateController.post);
+
+// SAM - create asset
+router.get('/sam/create-more', samCreateMoreController.get);
+router.get('/sam/create-more/:reference', samCreateMoreController.getByAssetReference);
+router.post('/sam/create-more', samCreateMoreController.post);
 
 // SAM - view my asset
 router.get('/sam/view', samViewController.get);

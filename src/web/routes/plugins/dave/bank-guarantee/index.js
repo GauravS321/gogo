@@ -26,4 +26,7 @@ router.post('/share', shareController.post);
 /** Routing for verification */
 router.get('/verification', verifyController.get);
 
+/** Routing for qrcode */
+router.get('/qrcode', verifyController.getQRCode);
+
 module.exports = router;

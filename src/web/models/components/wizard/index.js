@@ -1,10 +1,8 @@
 const mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
-const WizardSchema = new Schema({
+const newSchema = new Schema({
     json: Object
 }, { timestamps: true });
 
-const Wizard = mongoose.model('wizard', WizardSchema);
-
-module.exports = Wizard;
+module.exports = mongoose.model('wizard', newSchema);

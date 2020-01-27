@@ -7,13 +7,4 @@ let activityLogSchema = new mongoose.Schema({
     timestamp: { type: Date, default: Date.now }
 });
 
-/**
- * Save user activites
- */
-activityLogSchema.pre('save', function save(next) {
-    next();
-});
-
-const ActivityLog = mongoose.model('ActivityLog', activityLogSchema);
-
-module.exports = ActivityLog;
+module.exports = mongoose.model('ActivityLog', activityLogSchema);
