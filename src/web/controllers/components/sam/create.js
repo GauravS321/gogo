@@ -15,7 +15,7 @@ module.exports.post = async (req, res) => {
     try {
         const { asset_name, asset_quantity, asset_open, asset_unit, asset_description } = req.body;
 
-        let response = await create(req.user.primechain_address, req.user.primechain_address, asset_name, asset_quantity, asset_open, asset_unit, asset_description);
+        let response = await create(req.user.primechain_address, req.user.primechain_address, asset_name, asset_quantity, asset_unit, asset_open, asset_description);
 
         if (response.status === 200) {
             let open = (asset_open === 'true') ? true : false;

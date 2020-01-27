@@ -27,7 +27,7 @@ module.exports = (from_address, to_address, name, quantity) => {
                     if (created_asset_info.status === 200) {
                         return resolve({
                             status: 200,
-                            msg: created_asset_info.txid
+                            msg: created_asset_info.tx_id
                         });
                     }
                     else {
