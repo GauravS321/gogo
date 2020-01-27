@@ -57,7 +57,7 @@
                                 <hr>
                                 {{#if data}}
                                 <div id="qrcode" style="padding-left: 35%; margin-top: 10%;margin-bottom: 5%;">
-                                    <input type="hidden" id="text" value="{{data}}">
+                                    <input type="hidden" id="text" value={{data}}>
                                 </div>
                                 {{/if}}
                             </div>
@@ -75,7 +75,6 @@
     window.addEventListener('load', function (e) {
         e.preventDefault();
         let text = document.getElementById('text').value;
-        console.log(text)
 
         let qrcode = new QRCode(document.getElementById("qrcode"), {
             text: text,

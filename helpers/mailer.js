@@ -465,7 +465,7 @@ class MailNotificationEngine {
                         </a>
                         <br>
                         
-                        <a href='${this.baseUrl}/plugins/dave/${use_case}/qrcode?text="${this.baseUrl}/plugins/dave/${use_case}/verification/${path}" style='padding: 8px 20px; background-color: #4B72FA; color: #fff; font-weight: bolder; font-size: 16px; display: inline-block; margin: 20px 0px; margin-right: 20px; text-decoration: none;'>View QRcode
+                        <a href='${this.baseUrl}/plugins/dave/${use_case}/qrcode?text="${this.baseUrl}/plugins/dave/${use_case}/verification?${path}" style='padding: 8px 20px; background-color: #4B72FA; color: #fff; font-weight: bolder; font-size: 16px; display: inline-block; margin: 20px 0px; margin-right: 20px; text-decoration: none;'>View QRcode
                         </a>
                         <br>`;
 
