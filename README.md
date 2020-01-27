@@ -1,4 +1,4 @@
-**1. Prerequisites**
+## 1. Prerequisites
 - To setup Primechain you need an 
   - Ubuntu 16.0.4 machine (1 GB RAM, 1 CPU) with CURL and git. 
   - The ports used are 22, 80, 1410, 2512, 15590 and 61172.
@@ -7,7 +7,7 @@
 - For full functionality of PWA, SSL enabed domain is needed. 
 - For system generated emails (password reset etc), enter your sendgrid key.
 
-**2. Getting Started**
+## 2. Getting Started
 Login to server / VM as a sudo or root user. Then run the following:
 ```
 sudo git clone https://primechainuser@github.com/Primechain/primechain
@@ -30,7 +30,7 @@ MAIL_PASSWORD=<your-password>
 ```
 2. Copy Primechain-API username and password if you will be using the API service.
 
-**Updating Primechain**
+## 3. Updating Primechain
 Login to the server / VM as a sudo or root user.
 
 ```
