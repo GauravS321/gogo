@@ -2,23 +2,17 @@ const router = require('express').Router();
 
 // create asset
 const createController = require('../../../../controllers/plugins/sam/loyalty/create');
-// view assets
-const viewController = require('../../../../controllers/plugins/sam/loyalty/view');
-// transfer assets
-const transferController = require('../../../../controllers/plugins/sam/loyalty/transfer');
-// send assets
-const sendController = require('../../../../controllers/plugins/sam/loyalty/send');
+
+// create more asset
+const createMoreController = require('../../../../controllers/plugins/sam/loyalty/create-more');
 
 // SAM - create asset
 router.get('/create', createController.get);
 router.post('/create', createController.post);
 
-// SAM - view my asset
-router.get('/view', viewController.get);
-
-// SAM - transfer asset
-router.get('/transfer', transferController.get);
-router.get('/transfer/:name', sendController.get);
-router.post('/send', sendController.post);
+// SAM - create more units of an asset
+router.get('/create-more', createMoreController.get);
+router.get('/create-more/:reference', createMoreController.getByAssetReference);
+router.post('/create-more', createMoreController.post);
 
 module.exports = router;

@@ -149,7 +149,7 @@ router.post('/file/download-decrypt', pfDecryptController.post);
 router.get('/sam/create', samCreateController.get);
 router.post('/sam/create', samCreateController.post);
 
-// SAM - create asset
+// SAM - create more units of an asset
 router.get('/sam/create-more', samCreateMoreController.get);
 router.get('/sam/create-more/:reference', samCreateMoreController.getByAssetReference);
 router.post('/sam/create-more', samCreateMoreController.post);
