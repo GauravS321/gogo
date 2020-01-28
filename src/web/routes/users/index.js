@@ -58,7 +58,7 @@ router.post('/account/change-password', changePasswordContoller.post);
 
 // My assets - transfer asset
 router.get('/account/myassets/transfer', myAssetsTransferController.get);
-router.get('/account/myassets/:name', myAssetsSendController.get);
+router.get('/account/myassets/transfer/:name', myAssetsSendController.get);
 router.post('/account/myassets/send', myAssetsSendController.post);
 
 // User logout
