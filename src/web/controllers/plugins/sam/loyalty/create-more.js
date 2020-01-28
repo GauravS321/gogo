@@ -1,11 +1,11 @@
-const Sam = require('../../../../models/components/sam');
 const createMore = require('../../../../../../functions/plugins/sam/loyalty/create-more');
+const Loyalty = require('../../../../models/plugins/sam/loyalty');
 
 module.exports.get = async (req, res) => {
     if (req.user && req.isAuthenticated()) {
         try {
             const create_more_asset_list = [];
-            let responseArr = await Sam.find({ issuer: req.user.primechain_address });
+            let responseArr = await Loyalty.find({ issuer: req.user.primechain_address });
 
             responseArr.forEach(asset => {
                 if (asset['open'] === true) {
@@ -60,7 +60,7 @@ module.exports.post = async (req, res) => {
         let response = await createMore(req.user.primechain_address, req.user.primechain_address, asset_name, asset_quantity);
 
         if (response.status === 200) {
-            req.flash("success_msg", "Created more assets, TX ID: " + response.msg);
+            req.flash("success_msg", "Created more units, TX ID: " + response.msg);
             return res.redirect('/plugins/sam/loyalty/create-more');
         }
         else {
