@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const passport = require('passport');
 
 // LogIn controller
 const loginController = require('../../controllers/users/login');
@@ -52,5 +53,14 @@ router.post('/account/change-password', changePasswordContoller.post);
 
 // User logout
 router.get('/account/logout', logoutContoller.get);
+
+/**
+ * OAuth authentication routes. (Sign in)
+ */
+router.get('/auth/google', passport.authenticate('google', { scope: ['profile', 'email'], accessType: 'offline', prompt: 'consent' }));
+
+router.get('/auth/google/callback', passport.authenticate('google', { failureRedirect: '/login' }), (req, res) => {    
+ return res.redirect('/account/my-profile');
+});
 
 module.exports = router;
