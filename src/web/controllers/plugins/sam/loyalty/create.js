@@ -1,4 +1,5 @@
 const create = require('../../../../../../functions/plugins/sam/loyalty/create');
+const Loyalty = require('../../../../models/plugins/sam/loyalty');
 
 module.exports.get = (req, res) => {
     if (req.user && req.isAuthenticated()) {
@@ -17,6 +18,18 @@ module.exports.post = async (req, res) => {
         let response = await create(req.user.primechain_address, req.user.primechain_address, asset_name, asset_quantity, asset_unit, asset_open, asset_description);
 
         if (response.status === 200) {
+            let open = (asset_open === 'true') ? true : false;
+
+            let newAsset = new Loyalty({
+                issuer: req.user.primechain_address,
+                name: asset_name,
+                open,
+                reference: response.msg.asset_ref,
+                transactionid: response.msg.txid
+            });
+
+            await newAsset.save();
+
             return res.json({
                 success: true,
                 asset_name: response.msg.name,

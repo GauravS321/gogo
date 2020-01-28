@@ -1,11 +1,11 @@
-const Sam = require('../../../../models/components/sam');
 const createMore = require('../../../../../../functions/plugins/sam/p2p/create-more');
+const p2p = require('../../../../models/plugins/sam/p2p');
 
 module.exports.get = async (req, res) => {
     if (req.user && req.isAuthenticated()) {
         try {
             const create_more_asset_list = [];
-            let responseArr = await Sam.find({ issuer: req.user.primechain_address });
+            let responseArr = await p2p.find({ issuer: req.user.primechain_address });
 
             responseArr.forEach(asset => {
                 if (asset['open'] === true) {

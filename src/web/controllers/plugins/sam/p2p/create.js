@@ -1,4 +1,5 @@
 const create = require('../../../../../../functions/plugins/sam/p2p/create');
+const p2p = require('../../../../models/plugins/sam/p2p');
 
 module.exports.get = (req, res) => {
     if (req.user && req.isAuthenticated()) {
@@ -17,6 +18,18 @@ module.exports.post = async (req, res) => {
         let response = await create(req.user.primechain_address, req.user.primechain_address, asset_name, asset_quantity, asset_unit, asset_open, asset_description);
 
         if (response.status === 200) {
+            let open = (asset_open === 'true') ? true : false;
+
+            let newAsset = new p2p({
+                issuer: req.user.primechain_address,
+                name: asset_name,
+                open,
+                reference: response.msg.asset_ref,
+                transactionid: response.msg.txid
+            });
+
+            await newAsset.save();
+
             return res.json({
                 success: true,
                 asset_name: response.msg.name,

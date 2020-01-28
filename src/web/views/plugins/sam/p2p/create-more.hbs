@@ -14,18 +14,16 @@
                 <div class="element-box">
                     <form id="formValidate" action="/plugins/sam/p2p/create-more" method="POST">
                         <h5 class="form-header">
-                            Issue more units of an asset
+                            Issue more units of a token
                         </h5>
                         <hr>
 
                         <legend>
-                            <span>Asset reference *</span>
+                            <span>Token Reference ID*</span>
                         </legend>
 
                         <div class="form-group">
-                            <input class="form-control" type="text" autocomplete="off"
-                                data-error="This field is compulsory" id="asset_name" required="required"
-                                name="asset_name" maxlength="32" value="{{reference}}" readonly>
+                            <input class="form-control" type="text" autocomplete="off" data-error="This field is compulsory" id="asset_name" required="required" name="asset_name" maxlength="32" value="{{reference}}" readonly>
                             <div class="help-block form-text with-errors form-control-feedback"></div>
                         </div>
 
@@ -38,7 +36,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <legend>
-                                    <span>Quantity / Fractions *</span>
+                                    <span>Number of new units to be issued *</span>
                                 </legend>
 
                                 <div class="form-group">
