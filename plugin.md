@@ -26,6 +26,12 @@ SAM plugins
 2. Replicate and rename the loyalty folder in `src/web/routes/plugins/sam/`
 Replace loyalty in all lines.
 
-3. Replicate and rename the loyalty folder in `src/web/controllers/plugins/dave/`
+3. Replicate and rename the loyalty folder in `src/web/controllers/plugins/sam`
 In both files, rename loyalty.
+
+4. Replicate and rename the loyalty folder in `src/web/views/plugins/sam`
+Make appropriate changes.
+
+5. Replicate and rename the loyalty folder in `functions/plugins/sam/`
+Make appropriate changes.
 
