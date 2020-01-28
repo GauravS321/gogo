@@ -48,7 +48,7 @@ module.exports = (from_address, to_address, name, quantity, unit, open, descript
                     else {
                         return reject({
                             status: 401,
-                            message: "Unable to create asset"
+                            message: created_asset_info.message
                         });
                     }
                 }
