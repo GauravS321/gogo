@@ -35,3 +35,5 @@ Make appropriate changes.
 5. Replicate and rename the loyalty folder in `functions/plugins/sam/`
 Make appropriate changes.
 
+6. Replicate and rename the loyalty folder in src/web/models/plugins/sam
+
