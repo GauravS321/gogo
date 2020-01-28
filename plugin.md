@@ -17,7 +17,7 @@ Change key fields in line 10 of `--academic--.js`. Max 5 fields.
 
 6. Replicate and rename the academic folder in `src/web/models/plugins/dave`
 
-7. Change main menu and mobile number in `src/web/views/partials`
+7. Change main menu and mobile menu in `src/web/views/partials`
 
 SAM plugins
 -------------
@@ -37,3 +37,4 @@ Make appropriate changes.
 
 6. Replicate and rename the loyalty folder in src/web/models/plugins/sam
 
+7. Change main menu and mobile menu in `src/web/views/partials`
