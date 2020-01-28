@@ -1,10 +1,12 @@
 <body class="auth-wrapper">
     <div class="all-wrapper menu-side with-pattern">
-        <div class="auth-box-w" style="max-width: 800px;">
-            {{!-- <div class="logo-w">
-               <a href="/"><img alt="" src="https://www.primechaintech.com/images/logo.png"></a>
-            </div> --}}
-            <h4 class="auth-header" style="margin-top: 1%; padding-top: 20px;">Primechain</h4>
+      <div class="auth-box-w">
+        <div class="logo-w">
+          <a href="/"><img alt="" src="/web/img/logo-big.png"></a>
+        </div>
+        <h4 class="auth-header">
+          Login to Primechain
+        </h4>
             {{#if success_msg}}
             {{message}}
             <div class="alert alert-info" style="margin: 0px 15px 10px" role="alert">{{success_msg}}</div>
@@ -15,67 +17,22 @@
             {{#if errors}}{{#each errors}}
             <div class="alert alert-danger" style="margin: 0px 15px 0px" role="alert">{{msg}}</div>
             {{/each}} {{/if}}
-            <div class="row">
-                <div class="col-sm-6 col-xxl-6">
-                    <form id="formValidate" novalidate="true" action="/login" method="POST"
-                        onsubmit="login.disabled=true">
-                        <div class="form-group">
-                            <label for="">Email Address</label>
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <div class="input-group-text os-icon os-icon-mail"></div>
-                                </div>
-                                <input class="form-control" data-error="Email address is invalid"
-                                    placeholder="Email address" type="email" name="email" required="required">
-                            </div>
-                            <div class="help-block form-text with-errors form-control-feedback"></div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="">Password</label>
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <div class="input-group-text os-icon os-icon-fingerprint"></div>
-                                </div>
-                                <input class="form-control" data-error="Password is required" placeholder="Password"
-                                    type="password" name="password" required="required">
-                            </div>
-                            <div class="help-block form-text with-errors form-control-feedback"></div>
-                        </div>
-
-                        <div class="buttons-w">
-                            <input type="submit" class="btn btn-primary btn-md" value="Log me in" name="login">
-                            <div class="form-check-inline" style="float: right;margin-top: 10px;">
-                                <label class="form-check-label">
-                                    <a href="/lost-password">Lost Password?</a>
-                                </label>
-                            </div>
-
-                            <div class="form-check-inline" style="align: center ;margin-top: 25px;">
-                                <label class="form-check-label">
-                                    <a href="/signup">Don't have an account?</a>
-                                </label>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-
-                <div class="col-sm-6 col-xxl-6">
-                    <div class="element-box-tp" style="margin:10% 0 0 10%;">
-                        <div class="el-buttons-list">
-                            <a class="btn btn-success btn-lg" href="/auth/google" style="font-size: larger;">
-                                <i class="fa fa-google"></i>
-                                <span style=" padding:0 10px 0 10px">Google</span>
-                            </a>
-                            <br>
-                            <a class="btn btn-primary btn-lg" href="/auth/facebook" style="font-size: larger;">
-                                <i class="fa fa-facebook"></i>
-                                <span style=" padding:0 10px 0 10px">Facebook</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
+        <form id="formValidate" novalidate="true" action="/login" method="POST" onsubmit="login.disabled=true">
+          <div class="form-group">
+            <label for="">Email</label><input class="form-control" placeholder="Enter your email address" type="email" name="email">
+            <div class="pre-icon os-icon os-icon-email"></div>
+          </div>
+          <div class="form-group">
+            <label for="">Password</label><input class="form-control" placeholder="Enter your password" type="password" name="password">
+            <div class="pre-icon os-icon os-icon-fingerprint"></div>
+          </div>
+          <div class="buttons-w">
+            <button class="btn btn-primary">Log me in</button>
+            <div class="form-check-inline">
+              <label class="form-check-label"><input class="form-check-input" type="checkbox">Remember Me</label>
             </div>
-        </div>
+          </div>
+        </form>
+      </div>
     </div>
-</body>
+  </body>
