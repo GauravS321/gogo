@@ -51,14 +51,6 @@ const pfEncryptController = require('../../controllers/components/file/publish-e
 // Decrypt download file
 const pfDecryptController = require('../../controllers/components/file/download-decrypt');
 
-// SAM
-// create asset
-const samCreateController = require('../../controllers/components/sam/create');
-// create more asset
-const samCreateMoreController = require('../../controllers/components/sam/create-more');
-// view assets
-const samViewController = require('../../controllers/components/sam/view');
-
 // CURD-WIZARD
 // Create
 const wizardCreateController = require('../../controllers/components/wizard/create');
@@ -70,7 +62,6 @@ const wizardViewController = require('../../controllers/components/wizard/view')
 const wizardUpdateController =require('../../controllers/components/wizard/update');
 // Delete
 const wizardDeleteContoller = require('../../controllers/components/wizard/delete');
-
 
 // Blockchain Administration
 router.get('/blockchain/parameters', parametersController.get);
@@ -144,18 +135,6 @@ router.post('/file/publish-encrypt', pfEncryptController.post);
 // File - download plian file
 router.get('/file/download-decrypt', pfDecryptController.get);
 router.post('/file/download-decrypt', pfDecryptController.post);
-
-// SAM - create asset
-router.get('/sam/create', samCreateController.get);
-router.post('/sam/create', samCreateController.post);
-
-// SAM - create more units of an asset
-router.get('/sam/create-more', samCreateMoreController.get);
-router.get('/sam/create-more/:reference', samCreateMoreController.getByAssetReference);
-router.post('/sam/create-more', samCreateMoreController.post);
-
-// SAM - view my asset
-router.get('/sam/view', samViewController.get);
 
 // CURD WIZARD - Form wizards create
 router.get('/curd-wizard/create', wizardCreateController.get);

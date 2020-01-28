@@ -1,4 +1,4 @@
-const listAssets = require('../../../../../../functions/components/sam/list');
+const listAssets = require('../../../../../../functions/users/account/myassets/list');
 
 module.exports.get = async (req, res) => {
     if (req.user && req.isAuthenticated()) {
