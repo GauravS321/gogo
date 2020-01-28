@@ -58,10 +58,6 @@ const samCreateController = require('../../controllers/components/sam/create');
 const samCreateMoreController = require('../../controllers/components/sam/create-more');
 // view assets
 const samViewController = require('../../controllers/components/sam/view');
-// transfer assets
-const samTransferController = require('../../controllers/components/sam/transfer');
-// send assets
-const samSendController = require('../../controllers/components/sam/send');
 
 // CURD-WIZARD
 // Create
@@ -153,18 +149,13 @@ router.post('/file/download-decrypt', pfDecryptController.post);
 router.get('/sam/create', samCreateController.get);
 router.post('/sam/create', samCreateController.post);
 
-// SAM - create asset
+// SAM - create more units of an asset
 router.get('/sam/create-more', samCreateMoreController.get);
 router.get('/sam/create-more/:reference', samCreateMoreController.getByAssetReference);
 router.post('/sam/create-more', samCreateMoreController.post);
 
 // SAM - view my asset
 router.get('/sam/view', samViewController.get);
-
-// SAM - transfer asset
-router.get('/sam/transfer', samTransferController.get);
-router.get('/sam/transfer/:name', samSendController.get);
-router.post('/sam/send', samSendController.post);
 
 // CURD WIZARD - Form wizards create
 router.get('/curd-wizard/create', wizardCreateController.get);

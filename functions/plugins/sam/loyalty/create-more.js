@@ -2,15 +2,13 @@ const validator = require('validator');
 
 const APICall = require('../../../../helpers/request');
 
-module.exports = (from_address, to_address, asset_name, quantity, details) => {
+module.exports = (from_address, to_address, name, quantity) => {
     return new Promise(async (resolve, reject) => {
         try {
             const validationErrors = [];
 
-            if (!validator.isLength(to_address)) validationErrors.push({ msg: 'Please provide address of the receiver' })
-            if (!validator.isLength(asset_name)) validationErrors.push({ msg: 'Please provide a asset name' });
-            if (!validator.isLength(details)) validationErrors.push({ msg: 'Please provide a asset description' });
-
+            if (!validator.isLength(name)) validationErrors.push({ msg: 'Please provide an asset name' })
+            if (!validator.isLength(quantity)) validationErrors.push({ msg: 'Please provide an asset quantity' });
             if (validationErrors.length) {
                 return reject({
                     status: 401,
@@ -19,33 +17,30 @@ module.exports = (from_address, to_address, asset_name, quantity, details) => {
             }
             if (quantity > 0) {
                 if (quantity.length <= 11) {
-                    let response = await APICall.httpPostMethod('send_asset', {
+                    const created_asset_info = await APICall.httpPostMethod('create_more_token', {
                         from_address,
                         to_address,
-                        asset_name,
-                        quantity: parseInt(quantity),
-                        details
+                        asset_name: name,
+                        quantity: parseInt(quantity)
                     });
 
-                    if (response.status === 200) {
+                    if (created_asset_info.status === 200) {
                         return resolve({
                             status: 200,
-                            success: true,
-                            msg: response.tx_id
+                            msg: created_asset_info.tx_id
                         });
                     }
                     else {
                         return reject({
-                            status: 404,
-                            success: false,
-                            message: response.message
+                            status: 401,
+                            message: created_asset_info.message
                         });
                     }
                 }
                 else {
                     return reject({
                         status: 401,
-                        message: "Asset quantity should not exceed 11 character"
+                        message: "Asset quantity should not exceed 11 digits"
                     });
                 }
             }
@@ -58,7 +53,7 @@ module.exports = (from_address, to_address, asset_name, quantity, details) => {
         } catch (error) {
             return reject({
                 status: 500,
-                error: error
+                message: error
             });
         }
     });

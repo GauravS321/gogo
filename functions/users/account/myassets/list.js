@@ -15,7 +15,7 @@ module.exports = (primechain_address) => {
         } catch (error) {
             return reject({
                 status: 500,
-                message: "Internal server error!!!"
+                message: "Blockchain has reported an error"
             });
         }
     });

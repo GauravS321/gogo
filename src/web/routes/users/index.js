@@ -19,6 +19,12 @@ const profileController = require('../../controllers/users/account/profile');
 // User activity-logs controller
 const activityLogsContoller = require('../../controllers/users/account/activity-logs');
 
+// My assets transfer controller
+const myAssetsTransferController = require('../../controllers/users/account/myassets/transfer');
+
+// My assets send controller
+const myAssetsSendController = require('../../controllers/users/account/myassets/send');
+
 // User change-password controller
 const changePasswordContoller = require('../../controllers/users/account/change-password');
 
@@ -50,6 +56,11 @@ router.get('/account/activity-logs', activityLogsContoller.get);
 // Router user account change password
 router.get('/account/change-password', changePasswordContoller.get);
 router.post('/account/change-password', changePasswordContoller.post);
+
+// My assets - transfer asset
+router.get('/account/myassets/transfer', myAssetsTransferController.get);
+router.get('/account/myassets/transfer/:name', myAssetsSendController.get);
+router.post('/account/myassets/send', myAssetsSendController.post);
 
 // User logout
 router.get('/account/logout', logoutContoller.get);

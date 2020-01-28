@@ -12,10 +12,10 @@
         <div class="row">
             <div class="col-sm-12 col-xxl-12">
                 <div class="element-box">
-                    <form id="formValidate" action="/components/sam/send" method="POST">
+                    <form id="formValidate" action="/account/myassets/send" method="POST">
 
                         <h5 class="form-header">
-                            Transfer Loyalty Points
+                            Transfer asset
                         </h5>
                         <hr>
                         <br>
@@ -25,22 +25,25 @@
 
                         <div class="form-group">
                             <input class="form-control" type="text" autocomplete="off"
-                                data-error="This field is compulsory" id="to_address" name="receiver_address" required="required" maxlength="38">
+                                data-error="This field is compulsory" id="to_address" name="receiver_address"
+                                required="required" maxlength="38">
                             <div class="help-block form-text with-errors form-control-feedback"></div>
                         </div>
 
                         <div class="help-block form-text text-muted form-control-feedback">
-                            The entity that receives the loyalty points. It must have receive permission.
+                            The entity that receives the newly created asset. It must have receive permission.
                         </div>
 
                         <div class="form-desc"></div>
 
                         <legend>
-                            <span>2. Name of the Loyalty Program *</span>
+                            <span>2. Name of the asset *</span>
                         </legend>
 
                         <div class="form-group">
-                            <input class="form-control" type="text" autocomplete="off" data-error="This field is compulsory" name="asset_name" required="required" maxlength="32" value="{{asset_name}}">
+                            <input class="form-control" type="text" autocomplete="off"
+                                data-error="This field is compulsory" name="asset_name"
+                                required="required" maxlength="32" value="{{asset_name}}">
                             <div class="help-block form-text with-errors form-control-feedback"></div>
                         </div>
 
@@ -52,12 +55,13 @@
 
                         <div class="form-group">
                             <input class="form-control" type="number" autocomplete="off"
-                                data-error="This field is compulsory" id="asset_quantity" name="quantity" required="required" onkeypress="return event.charCode >= 48" min="1">
+                                data-error="This field is compulsory" id="asset_quantity" name="quantity"
+                                required="required" onkeypress="return event.charCode >= 48" min="1">
                             <div class="help-block form-text with-errors form-control-feedback"></div>
                         </div>
 
                         <div class="help-block form-text text-muted form-control-feedback">
-                            Number of loyalty points to be transferred
+                            Enter the quantity of the asset / number of fractions e.g. <code>1250 </code>
                         </div>
                         <div class="form-desc"></div>
 
@@ -70,7 +74,7 @@
                         </div>
 
                         <div class="help-block form-text text-muted form-control-feedback">
-                            Enter a brief description of the Loyalty Program.
+                            Enter a brief description of the transaction.
                         </div>
 
                         <div class="form-buttons-w">
