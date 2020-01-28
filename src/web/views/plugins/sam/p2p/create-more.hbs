@@ -1,0 +1,63 @@
+<!-- BEGIN Content-->
+<div class="content-i">
+    <div class="content-box" style="padding-bottom: 200px;">
+        {{#if success_msg}}
+        <div class="alert alert-info" role="alert">{{success_msg}}</div>
+        {{/if}} {{#if error_msg}}
+        <div class="alert alert-warning" role="alert">{{error_msg}}</div>
+        {{/if}} {{#if error}}
+        <div class="alert alert-danger" role="alert">{{error}}</div>
+        {{/if}}
+
+        <div class="row" id="asset_form">
+            <div class="col-sm-12 col-xxl-12">
+                <div class="element-box">
+                    <form id="formValidate" action="/plugins/sam/p2p/create-more" method="POST">
+                        <h5 class="form-header">
+                            Issue more units of an asset
+                        </h5>
+                        <hr>
+
+                        <legend>
+                            <span>Asset reference *</span>
+                        </legend>
+
+                        <div class="form-group">
+                            <input class="form-control" type="text" autocomplete="off"
+                                data-error="This field is compulsory" id="asset_name" required="required"
+                                name="asset_name" maxlength="32" value="{{reference}}" readonly>
+                            <div class="help-block form-text with-errors form-control-feedback"></div>
+                        </div>
+
+                        <div class="help-block form-text text-muted form-control-feedback">
+                     
+                        </div>
+
+                        <div class="form-desc"></div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <legend>
+                                    <span>Quantity / Fractions *</span>
+                                </legend>
+
+                                <div class="form-group">
+                                    <input class="form-control" type="number" autocomplete="off"
+                                        data-error="This field is compulsory" id="asset_quantity" required="required"
+                                        name="asset_quantity" onkeypress="return event.charCode >= 48" min="1">
+                                    <div class="help-block form-text with-errors form-control-feedback"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-buttons-w">
+                            <input class="btn btn-md btn-primary" value="Issue more" type="submit">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- END Content-->
