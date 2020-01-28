@@ -86,6 +86,7 @@ app.use('/components', componentsRoutes);
 app.use('/plugins/dave/bank-guarantee', bgRoutes);
 app.use('/plugins/dave/academic', academicRoutes);
 app.use('/plugins/sam/loyalty', loyaltyRoutes);
+app.use('/plugins/sam/p2p', p2pRoutes);
 
 app.get('/', function (req, res) {
   return res.redirect('/login');
