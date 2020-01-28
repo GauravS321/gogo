@@ -1,0 +1,88 @@
+<!-- BEGIN Content-->
+<div class="content-i">
+    <div class="content-box" style="padding-bottom: 200px;">
+        {{#if success_msg}}
+        <div class="alert alert-info" role="alert">{{success_msg}}</div>
+        {{/if}} {{#if error_msg}}
+        <div class="alert alert-warning" role="alert">{{error_msg}}</div>
+        {{/if}} {{#if error}}
+        <div class="alert alert-danger" role="alert">{{error}}</div>
+        {{/if}}
+
+        <div class="row">
+            <div class="col-sm-12 col-xxl-12">
+                <div class="element-box">
+                    <form id="formValidate" action="/account/myassets/send" method="POST">
+
+                        <h5 class="form-header">
+                            Transfer asset
+                        </h5>
+                        <hr>
+                        <br>
+                        <legend>
+                            <span>1. Receiver's blockchain address *</span>
+                        </legend>
+
+                        <div class="form-group">
+                            <input class="form-control" type="text" autocomplete="off"
+                                data-error="This field is compulsory" id="to_address" name="receiver_address"
+                                required="required" maxlength="38">
+                            <div class="help-block form-text with-errors form-control-feedback"></div>
+                        </div>
+
+                        <div class="help-block form-text text-muted form-control-feedback">
+                            The entity that receives the newly created asset. It must have receive permission.
+                        </div>
+
+                        <div class="form-desc"></div>
+
+                        <legend>
+                            <span>2. Name of the asset *</span>
+                        </legend>
+
+                        <div class="form-group">
+                            <input class="form-control" type="text" autocomplete="off"
+                                data-error="This field is compulsory" name="asset_name"
+                                required="required" maxlength="32" value="{{asset_name}}">
+                            <div class="help-block form-text with-errors form-control-feedback"></div>
+                        </div>
+
+                        <div class="form-desc"></div>
+
+                        <legend>
+                            <span>4. Quantity *</span>
+                        </legend>
+
+                        <div class="form-group">
+                            <input class="form-control" type="number" autocomplete="off"
+                                data-error="This field is compulsory" id="asset_quantity" name="quantity"
+                                required="required" onkeypress="return event.charCode >= 48" min="1">
+                            <div class="help-block form-text with-errors form-control-feedback"></div>
+                        </div>
+
+                        <div class="help-block form-text text-muted form-control-feedback">
+                            Enter the quantity of the asset / number of fractions e.g. <code>1250 </code>
+                        </div>
+                        <div class="form-desc"></div>
+
+                        <legend>
+                            <span>5. Transaction description *</span>
+                        </legend>
+
+                        <div class="form-group">
+                            <textarea class="form-control" required="required" data-error="This field is compulsory" cols="80" id="ckeditor1" name="asset_description" rows="10" style="visibility: hidden; display: none;"></textarea>
+                        </div>
+
+                        <div class="help-block form-text text-muted form-control-feedback">
+                            Enter a brief description of the transaction.
+                        </div>
+
+                        <div class="form-buttons-w">
+                            <button class="btn btn-primary" type="submit"> Transfer</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
