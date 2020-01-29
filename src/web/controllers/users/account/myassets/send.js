@@ -19,7 +19,7 @@ module.exports.post = async (req, res) => {
             let response = await send(req.user.primechain_address, receiver_address, asset_name, quantity, asset_description);
 
             if (response.status === 200) {
-                req.flash('success_msg', "Asset successfully transferred!!, TX ID" + response.msg)
+                req.flash('success_msg', "Asset successfully transferred.")
                 return res.redirect('/account/myassets/transfer')
             }
         } catch (error) {

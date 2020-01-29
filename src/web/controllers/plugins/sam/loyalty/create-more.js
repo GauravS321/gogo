@@ -60,7 +60,7 @@ module.exports.post = async (req, res) => {
         let response = await createMore(req.user.primechain_address, req.user.primechain_address, asset_name, asset_quantity);
 
         if (response.status === 200) {
-            req.flash("success_msg", "Created more units, TX ID: " + response.msg);
+            req.flash("success_msg", "Created additional units");
             return res.redirect('/plugins/sam/loyalty/create-more');
         }
         else {

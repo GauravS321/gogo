@@ -1,9 +1,12 @@
 const send = require('.././../../../../functions/components/sam/send')
 module.exports.get = (req, res) => {
     if (req.user && req.isAuthenticated()) {
+        const asset_name = req.params.name || "";
+        const primechain_address = req.params || "";
         return res.render('components/sam/send',
             {
-                asset_name: req.params.name,
+                asset_name,
+                primechain_address
                 username: req.user.username,
                 email: req.user.email,
             });

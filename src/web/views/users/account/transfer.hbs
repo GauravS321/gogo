@@ -18,20 +18,46 @@
                             <th>Name</th>
                             <th>reference</th>
                             <th>balance</th>
-                            <th>Action</th>
+                            <th>Transfer</th>
+                            <th>QR</th>
                         </tr>
                     </thead>
                     <tbody>
                         {{#if assets}} {{#each assets}}
                         <tr>
-                            <td>{{name}}</td>
+                            <td id="name">{{name}}</td>
                             <td>{{assetref}}</td>
                             <td>{{qty}}</td>
+                            <td style="display:none" id="primechain_address">{{../primechain_address}}</td>
                             <td>
                                 <form action='/account/myassets/transfer/{{name}}'>
                                     {{!-- // <input type="hidden" name="name" value="{{name}}"> --}}
                                     <button class="btn btn-md btn-primary" type="submit">Transfer</button>
                                 </form>
+                            </td>
+                            <td>
+                                <div class="md4">
+                                    <button class="btn btn-primary" data-target=".bd-example-modal-sm"
+                                        data-toggle="modal" type="button">Share</button>
+
+                                    <div aria-labelledby="mySmallModalLabel"
+                                        class="modal fade bd-example-modal-sm show" role="dialog"
+                                        tabindex="-1" aria-modal="true"
+                                        style="padding-right: 16px; display: none;">
+                                        <div class="modal-dialog modal-sm">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Show QR</h5><button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">×</span></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <div id="qrcode" style="padding-left: 35%; margin-top: 10%;margin-bottom: 5%;">
+                                                        <input type="hidden" id="text" value={{data}}>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </td>
                         </tr>
                         {{/each}} {{/if}}
@@ -42,4 +68,23 @@
     </div>
 </div>
 
+
+<script>
+    window.addEventListener('load', function (e) {
+        e.preventDefault();
+        let name = document.getElementById('name').value;
+        let primechain_address = document.getElementById('primechain_address').value;
+
+        let text = `/account/myassets/transfer/${name}/${primechain_address}`;
+
+        let qrcode = new QRCode(document.getElementById("qrcode"), {
+            text: text,
+            width: 256,
+            height: 256,
+            colorDark: "#000000",
+            colorLight: "#ffffff",
+            correctLevel: QRCode.CorrectLevel.H
+        });
+    });
+</script>
 <!-- END Content-->

@@ -15,7 +15,7 @@ module.exports.post = async (req, res) => {
         if (req.user && req.isAuthenticated()) {
             let response = await create(req.body);
 
-            req.flash("success_msg", "Data instered and id", response.msg['_id']);
+            req.flash("success_msg", "Data instered. Txid:", response.msg['_id']);
             return res.redirect('/components/curd-wizard/create');
         }
     } catch (error) {

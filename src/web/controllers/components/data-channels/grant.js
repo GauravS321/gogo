@@ -17,7 +17,7 @@ module.exports.post = async (req, res) => {
 
             let response = await grant(trade_channel_writer, trade_channel_name, req.user.primechain_address);
 
-            req.flash("success_msg", "Permissions granted TX ID: " + response.msg)
+            req.flash("success_msg", "Permissions granted")
             return res.redirect('/components/data-channels/grant');
         } catch (error) {
             req.flash('error_msg', error.message);

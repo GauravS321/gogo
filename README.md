@@ -37,5 +37,5 @@ Login to the server / VM as a sudo or root user.
 sudo su primechain-user 
 cd ~
 cd primechain
-git pull && pm2 restart bin/www
+sudo git pull && pm2 restart bin/www
 ```

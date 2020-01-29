@@ -178,7 +178,7 @@ Dropzone.options.myDropzone = {
                 $('#td6').html(responseText["stream_name"]);
             }
             else {
-                alert("This file was already exist!!")
+                alert("This file has already been uploaded.")
                 window.location.href = "/components/file/publish-encrypt"
             }
         });

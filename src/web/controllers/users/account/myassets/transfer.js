@@ -9,11 +9,13 @@ module.exports.get = async (req, res) => {
                 assets: response.msg,
                 username: req.user.username,
                 email: req.user.email,
+                primechain_address: req.user.primechain_address
             });
         } catch (error) {
             return res.render('users/account/transfer', {
                 username: req.user.username,
                 email: req.user.email,
+                primechain_address: req.user.primechain_address
             });
         }
 
