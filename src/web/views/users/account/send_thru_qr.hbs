@@ -13,10 +13,12 @@
             <div class="col-sm-12 col-xxl-12">
                 <div class="element-box">
                     <form id="formValidate" action="/account/myassets/send" method="POST">
-                        <h5 class="form-header">
-                            Transfer {{asset_name}}
-                        </h5>
+                        <h6 class="form-header">
+                            Transfer {{asset_name}} to {{username}}
+                        </h6>
                         <hr>
+                        {{asset_name}}<br/>
+                        {{username}}<hr/>
                         <input type="hidden" id="to_address" name="receiver_address" value="{{primechain_address}}">    
                         <input type="hidden" id="asset_name" name="asset_name" value="{{asset_name}}">    
                         <legend>
