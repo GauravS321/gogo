@@ -24,9 +24,15 @@
                         </legend>
 
                         <div class="form-group">
+                        {{#if primechain_address}}
                             <input class="form-control" type="text" autocomplete="off"
                                 data-error="This field is compulsory" id="to_address" name="receiver_address"
+                                required="required" maxlength="38" value="{{primechain_address}}">
+                                {{else}}
+                                 <input class="form-control" type="text" autocomplete="off"
+                                data-error="This field is compulsory" id="to_address" name="receiver_address"
                                 required="required" maxlength="38">
+                                {{/if}}
                             <div class="help-block form-text with-errors form-control-feedback"></div>
                         </div>
 
@@ -41,9 +47,15 @@
                         </legend>
 
                         <div class="form-group">
+                        {{#if asset_name}}
                             <input class="form-control" type="text" autocomplete="off"
                                 data-error="This field is compulsory" name="asset_name"
                                 required="required" maxlength="32" value="{{asset_name}}">
+                                {{else}}
+                                 <input class="form-control" type="text" autocomplete="off"
+                                data-error="This field is compulsory" name="asset_name"
+                                required="required" maxlength="32" value="">
+                                {{/if}}
                             <div class="help-block form-text with-errors form-control-feedback"></div>
                         </div>
 
