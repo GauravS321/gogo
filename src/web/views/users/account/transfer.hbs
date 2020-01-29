@@ -36,8 +36,9 @@
                             </td>
                             <td>
                                 <div class="md4">
-                                    <button class="btn btn-primary" data-target="#{{assetref}}"
-                                        data-toggle="modal" type="button" onclick="showQRcode('{{name}}', '{{assetref}}', '{{../primechain_address}}')">Share</button>
+                                    <button class="btn btn-primary" data-target="#{{assetref}}" data-toggle="modal"
+                                        type="button"
+                                        onclick="showQRcode('{{name}}', '{{assetref}}', '{{../primechain_address}}')">Share</button>
 
                                     <div aria-labelledby="mySmallModalLabel" class="modal fade bd-example-modal-sm show"
                                         role="dialog" tabindex="-1" aria-modal="true"
@@ -70,15 +71,18 @@
 <script>
     function showQRcode(asset_name, assetref, primechain_address) {
         let text = `${window.location.origin}/account/myassets/transfer/${asset_name}/${primechain_address}`;
+        
+        let output = document.getElementById(`qrcode#${assetref}`);
+        output.innerHTML = '';
 
-        let qrcode = new QRCode(document.getElementById(`qrcode#${assetref}`), {
+        let qrcode= new QRCode(output, {
             text: text,
             width: 256,
             height: 256,
             colorDark: "#000000",
             colorLight: "#ffffff",
             correctLevel: QRCode.CorrectLevel.H
-        });
+        }); 
     }
 </script>
 <!-- END Content-->
