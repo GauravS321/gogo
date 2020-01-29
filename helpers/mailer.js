@@ -117,10 +117,7 @@ class MailNotificationEngine {
         return new Promise((resolve, reject) => {
             let activateUserUrl = `${this.baseUrl}/account-activation?email_address=${email}&random=${random}`;
             let subject = `Account Activation <> ${username}`;
-            let fromAddress = {
-                name: `${this.productName}`,
-                email: 'info@primechain.in'
-            };
+            let fromAddress = `no-reply@primechaintech.com`;
 
             let emailBody = `<p>Hi ${username}!
                                 <br>
@@ -168,10 +165,7 @@ class MailNotificationEngine {
     sendLoginCredentials(email, username, password) {
         return new Promise((resolve, reject) => {
             let subject = `Login Credentials <> ${username}`;
-            let fromAddress = {
-                name: `${this.productName}`,
-                email: 'info@primechain.in'
-            };
+            let fromAddress = `no-reply@primechaintech.com`;
 
             let emailBody = `<p>Hi ${username}!
                                 <br>
@@ -214,10 +208,7 @@ class MailNotificationEngine {
     signInAttemptFailed(email) {
         return new Promise((resolve, reject) => {
             let subject = `Unauthorized Sign-in Attempt`;
-            let fromAddress = {
-                name: `${this.productName}`,
-                email: 'info@primechain.in'
-            };
+            let fromAddress = `no-reply@primechaintech.com`;
 
             let emailBody = ` <img alt="" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBwm00KpSezs3zCdjq_nqIUI6o5kS2K1CLYJPoSfmFBuq87C5-" style="width: 64px; margin-left:40%">
            
@@ -246,10 +237,7 @@ class MailNotificationEngine {
     sendLoginNotification(username, email, ip, browser, timestamp) {
         return new Promise((resolve, reject) => {
             let subject = `Login from <> ${ip}`;
-            let fromAddress = {
-                name: `${this.productName}`,
-                email: 'info@primechain.in'
-            };
+            let fromAddress = `no-reply@primechaintech.com`;
 
             let emailBody = `<p>Hello ${username}!
                                 <br>
@@ -299,10 +287,7 @@ class MailNotificationEngine {
     sendAuthenticationCodeByEmail(email, username, authenticationCode) {
         return new Promise((resolve, reject) => {
             let subject = 'Authentication code for login';
-            let fromAddress = {
-                name: `${this.productName}`,
-                email: 'info@primechain.in'
-            };
+            let fromAddress = `no-reply@primechaintech.com`;
             let emailBody = `<p> Hello ${username}!
                                 <br>
                                 <br>
@@ -326,10 +311,7 @@ class MailNotificationEngine {
     sendOtpByEmail(email, username, authenticationCode) {
         return new Promise((resolve, reject) => {
             let subject = 'OTP for signing';
-            let fromAddress = {
-                name: `${this.productName}`,
-                email: 'info@primechain.in'
-            };
+            let fromAddress = `no-reply@primechaintech.com`;
             let emailBody = `<p> Hello ${username}!
                             <br>
                             <br>
@@ -355,10 +337,7 @@ class MailNotificationEngine {
         return new Promise(async (resolve, reject) => {
             try {
                 let subject = 'Password reset instructions';
-                let fromAddress = {
-                    name: `${this.productName}`,
-                    email: 'info@primechain.in'
-                };
+                let fromAddress = `no-reply@primechaintech.com`;
 
                 let emailBody = `<p>Hello ${username}!
                                 <br>
@@ -403,10 +382,7 @@ class MailNotificationEngine {
         return new Promise(async (resolve, reject) => {
             try {
                 let subject = `Your ${this.productName} password has changed`;
-                let fromAddress = {
-                    name: `${this.productName}`,
-                    email: 'info@primechain.in'
-                };
+                let fromAddress = `no-reply@primechaintech.com`;
 
                 let emailBody = `Hello ${username}!
                             <br>
@@ -454,8 +430,8 @@ class MailNotificationEngine {
     shareVerificationMail(sender_email, receiver_name, email, use_case, path) {
         return new Promise((resolve, reject) => {
             let subject = `Blockchain protected document`;
-            let fromAddress = `${sender_email}`;
-
+            //let fromAddress = `${sender_email}`;
+            let fromAddress = `no-reply@primechaintech.com`;
             let emailBody = `<p><strong>
                                 Hello ${receiver_name}!
                             </strong></p>
