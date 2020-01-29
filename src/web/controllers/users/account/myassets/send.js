@@ -1,8 +1,8 @@
 const send = require('../../../../../../functions/users/account/myassets/send')
 module.exports.get = (req, res) => {
     if (req.user && req.isAuthenticated()) {
-        const name = req.params.name || "";
-        const primechain_address = req.user.primechain_address || "";
+        const name = (req.params.name) ? req.params.name : "";
+        const primechain_address = (req.params.primechain_address) ? req.params.primechain_address : "";
 
         return res.render('users/account/send',
             {
