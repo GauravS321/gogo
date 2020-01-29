@@ -28,7 +28,7 @@
                             <td id="name">{{name}}</td>
                             <td>{{assetref}}</td>
                             <td>{{qty}}</td>
-                            <td style="display:none" id="primechain_address">{{primechain_address}}</td>
+                            <td style="display:none" id="primechain_address">{{../primechain_address}}</td>
                             <td>
                                 <form action='/account/myassets/transfer/{{name}}'>
                                     {{!-- // <input type="hidden" name="name" value="{{name}}"> --}}
@@ -75,7 +75,7 @@
         let name = document.getElementById('name').value;
         let primechain_address = document.getElementById('primechain_address').value;
 
-        let text = /account/myassets/transfer/name/primechain_address;
+        let text = `/account/myassets/transfer/${name}/${primechain_address}`;
 
         let qrcode = new QRCode(document.getElementById("qrcode"), {
             text: text,
