@@ -51,7 +51,7 @@ module.exports.post = async (req, res) => {
                 return res.redirect('/account/myassets/transfer');
             }
             else {
-                req.flash('error_msg', "Internal server error!!!");
+                req.flash('error_msg', error.msg);
                 return res.redirect('/account/myassets/transfer');
             }
         }
