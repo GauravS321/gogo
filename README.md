@@ -28,6 +28,8 @@ MAIL_SERVICE_NAME=SENDGRID
 MAIL_USERNAME=<your-username>
 MAIL_PASSWORD=<your-password>
 ```
+Enter your google and facebook credentials if you want to use login through these services. If not, comment out the relevant code in `src/web/views/users/account/login.hbs`
+
 2. Copy Primechain-API username and password if you will be using the API service.
 
 ## 3. Updating Primechain
