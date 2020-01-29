@@ -33,7 +33,7 @@ module.exports.get_thru_qr = (req, res) => {
 module.exports.post = async (req, res) => {
     if (req.user && req.isAuthenticated()) {
         try {
-            const { receiver_address, asset_name, quantity, asset_description=null } = req.body;
+            const { receiver_address, asset_name, quantity, asset_description } = req.body;
 
             let response = await send(req.user.primechain_address, receiver_address, asset_name, quantity, asset_description);
 
@@ -42,7 +42,6 @@ module.exports.post = async (req, res) => {
                 return res.redirect('/account/myassets/transfer')
             }
         } catch (error) {
-            console.log(error)
             if (error.errors) {
                 req.flash('errors', error.errors);
                 return res.redirect('/account/myassets/transfer');

@@ -9,7 +9,7 @@ module.exports = (from_address, to_address, asset_name, quantity, details) => {
 
             if (!validator.isLength(to_address)) validationErrors.push({ msg: 'Please provide the address of the reveiver' })
             if (!validator.isLength(asset_name)) validationErrors.push({ msg: 'Please provide an asset name' });
-            // if (!validator.isLength(details)) validationErrors.push({ msg: 'Please provide an asset description' });
+            if (!validator.isLength(details)) validationErrors.push({ msg: 'Please provide an asset description' });
 
             if (validationErrors.length) {
                 return reject({
