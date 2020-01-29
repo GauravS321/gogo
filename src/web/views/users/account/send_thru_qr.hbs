@@ -1,0 +1,55 @@
+<!-- BEGIN Content-->
+<div class="content-i">
+    <div class="content-box" style="padding-bottom: 200px;">
+        {{#if success_msg}}
+        <div class="alert alert-info" role="alert">{{success_msg}}</div>
+        {{/if}} {{#if error_msg}}
+        <div class="alert alert-warning" role="alert">{{error_msg}}</div>
+        {{/if}} {{#if error}}
+        <div class="alert alert-danger" role="alert">{{error}}</div>
+        {{/if}}
+
+        <div class="row">
+            <div class="col-sm-12 col-xxl-12">
+                <div class="element-box">
+                    <form id="formValidate" action="/account/myassets/send" method="POST">
+                        <h5 class="form-header">
+                            Transfer asset
+                        </h5>
+                        <hr>
+                        <input type="hidden" id="to_address" name="receiver_address" value="{{primechain_address}}">    
+                        <input type="hidden" id="asset_name" name="asset_name" value="{{asset_name}}">    
+                        <legend>
+                            <span>Quantity *</span>
+                        </legend>
+
+                        <div class="form-group">
+                            <input class="form-control" type="number" autocomplete="off" data-error="This field is compulsory" id="asset_quantity" name="quantity" required="required" onkeypress="return event.charCode >= 48" min="1">
+                            <div class="help-block form-text with-errors form-control-feedback"></div>
+                        </div>
+                        <div class="help-block form-text text-muted form-control-feedback">
+                            Enter the quantity of the quantity / amount e.g. <code>1250 </code>
+                        </div>
+                        <div class="form-desc"></div>
+
+                        <legend>
+                            <span>5. Transaction description </span>
+                        </legend>
+
+                        <div class="form-group">
+                            <textarea class="form-control" required="required" data-error="This field is compulsory" cols="80" name="asset_description" rows="2" style="visibility: hidden; display: none;"></textarea>
+                        </div>
+
+                        <div class="help-block form-text text-muted form-control-feedback">
+                            Enter a brief description of the transaction.
+                        </div>
+
+                        <div class="form-buttons-w">
+                            <button class="btn btn-primary" type="submit"> Transfer</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
