@@ -14,6 +14,21 @@ module.exports.get = (req, res) => {
     }
     return res.redirect('/login');
 }
+module.exports.get_thru_qr = (req, res) => {
+    if (req.user && req.isAuthenticated()) {
+        const name = (req.params.name) ? req.params.name : "";
+        const primechain_address = (req.params.primechain_address) ? req.params.primechain_address : "";
+
+        return res.render('users/account/send_thru_qr',
+            {
+                asset_name: name,
+                primechain_address,
+                username: req.user.username,
+                email: req.user.email,
+            });
+    }
+    return res.redirect('/login');
+}
 
 module.exports.post = async (req, res) => {
     if (req.user && req.isAuthenticated()) {
