@@ -14,10 +14,9 @@
                 <div class="element-box">
                     <form id="formValidate" action="/account/myassets/send" method="POST">
                         <h5 class="form-header">
-                            Transfer asset
+                            Transfer {{asset_name}}
                         </h5>
                         <hr>
-                        {{primechain_address}}
                         <input type="hidden" id="to_address" name="receiver_address" value="{{primechain_address}}">    
                         <input type="hidden" id="asset_name" name="asset_name" value="{{asset_name}}">    
                         <legend>
