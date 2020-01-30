@@ -36,17 +36,11 @@
                                         <td>{{ShopName}}</td>
                                         <td>
                                             <div class="md4">
-                                                <form id="viewForm#{{tx_id_enc_data}}" action="/plugins/dave/academic/verification" method="GET" target="_blank">
-                                                    <input type="hidden" name="txid_data" value="{{tx_id_enc_data}}">
-                                                    <input type="hidden" name="txid_signature"
-                                                        value="{{tx_id_signature}}">
-                                                    <input type="hidden" name="password" value="{{aes_password}}">
-                                                    <input type="hidden" name="iv" value="{{aes_iv}}">
-                                                    <input type="hidden" name="trade_channel_name"
-                                                        value="{{trade_channel_name}}">
+                                                <form id="viewForm#{{uuid}}" action="/plugins/primemason/shoppermits/view/{{uuid}}" method="GET" target="_blank">
+                                                    <input type="hidden" name="uuid" value="{{uuid}}">
                                                 </form>
                                                 <button class="btn btn-success"
-                                                    onclick="document.getElementById('viewForm#{{tx_id_enc_data}}').submit();">View</button>
+                                                    onclick="document.getElementById('viewForm#{{uuid}}').submit();">View</button>
                                             </div>
                                         </td>
                                         <td>

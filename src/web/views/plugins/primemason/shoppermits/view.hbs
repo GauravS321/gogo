@@ -1,0 +1,37 @@
+<div class="content-i">
+    <div class="content-box">
+        <div class="element-wrapper">
+            <h6 class="element-header">View permits</h6>
+
+            {{#if error_msg}}
+            <div class="alert alert-danger" role="alert">{{error_msg}}</div>
+            {{/if}}
+            <div class="element-box">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h5 class="form-header">View permits</h5>
+                    </div>
+                </div>
+                <hr>
+                <div class="table-responsive">
+                    <table class="table table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Parameter</th>
+                                <th>Value</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{#if dataArr}} {{#each dataArr}}
+                            <tr>
+                                <td>{{displayName}}</td>
+                                <td>{{{value}}}</td> 
+                            </tr>
+                            {{/each}}{{/if}}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

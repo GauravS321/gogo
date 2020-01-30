@@ -7,8 +7,8 @@ const createController = require('../../../../controllers/plugins/primemason/sho
 // Manage
 const manageController = require('../../../../controllers/plugins/primemason/shoppermits/manage');
 
-// Share
-//const shareController = require('../../../../controllers/plugins/primemason/shoppermits/share');
+// View
+const viewController = require('../../../../controllers/plugins/primemason/shoppermits/view');
 
 // Verification
 //const verifyController = require('../../../../controllers/plugins/primemason/shoppermits/verify');
@@ -19,6 +19,9 @@ router.post('/create', createController.post);
 
 // /** Routing for manage */
 router.get('/manage', manageController.get);
+
+// /** Routing for view */
+router.get('/view/:uuid', viewController.get);
 
 // /** Routing for share */
 // router.post('/share', shareController.post);
