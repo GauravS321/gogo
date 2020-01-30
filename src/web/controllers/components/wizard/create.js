@@ -16,11 +16,11 @@ module.exports.post = async (req, res) => {
             let response = await create(req.body);
 
             req.flash("success_msg", "Data instered. Txid:", response.msg['_id']);
-            return res.redirect('/components/curd-wizard/create');
+            return res.redirect('/components/wizard/create');
         }
     } catch (error) {
         req.flash('error_msg', "Internal server error!!!");
-        return res.redirect('/components/curd-wizard/create');
+        return res.redirect('/components/wizard/create');
     }
 
 }
