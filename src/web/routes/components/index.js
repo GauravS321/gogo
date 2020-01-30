@@ -51,7 +51,7 @@ const pfEncryptController = require('../../controllers/components/file/publish-e
 // Decrypt download file
 const pfDecryptController = require('../../controllers/components/file/download-decrypt');
 
-// CURD-WIZARD
+// CRUD-WIZARD
 // Create
 const wizardCreateController = require('../../controllers/components/wizard/create');
 // List
@@ -136,22 +136,21 @@ router.post('/file/publish-encrypt', pfEncryptController.post);
 router.get('/file/download-decrypt', pfDecryptController.get);
 router.post('/file/download-decrypt', pfDecryptController.post);
 
-// CURD WIZARD - Form wizards create
-router.get('/curd-wizard/create', wizardCreateController.get);
-router.post('/curd-wizard/create', wizardCreateController.post);
+// CRUD WIZARD - Form wizards create
+router.get('/wizard/create', wizardCreateController.get);
+router.post('/wizard/create', wizardCreateController.post);
 
-// CURD WIZARD - Form wizards List
-router.get('/curd-wizard/list', wizardListController.get);
+// CRUD WIZARD - Form wizards List
+router.get('/wizard/list', wizardListController.get);
 
-// CURD WIZARD - Form wizards view
-router.get('/curd-wizard/view/:id', wizardViewController.get);
+// CRUD WIZARD - Form wizards view
+router.get('/wizard/view/:id', wizardViewController.get);
 
-// CURD WIZARD -form wizard update
-router.get('/curd-wizard/edit/:id', wizardUpdateController.get);
-router.post('/curd-wizard/update', wizardUpdateController.post);
+// CRUD WIZARD -form wizard update
+router.get('/wizard/edit/:id', wizardUpdateController.get);
+router.post('/wizard/update', wizardUpdateController.post);
 
 // ELEMENT - Form wizards delete
-router.get('/curd-wizard/delete/:id', wizardDeleteContoller.get);
-
+router.get('/wizard/delete/:id', wizardDeleteContoller.get);
 
 module.exports = router;

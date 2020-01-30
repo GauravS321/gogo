@@ -1,3 +1,4 @@
+const uuidv1 = require('uuid/v1');
 const Wizards = require('../../../src/web/models/components/wizard');
 var ObjectId = require('mongoose').Types.ObjectId;
 
@@ -5,6 +6,7 @@ module.exports.create = (json) => {
     return new Promise(async (resolve, reject) => {
         try {
             const newWizard = new Wizards({
+                uuid: uuidv1(),
                 json
             });
 
