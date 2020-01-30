@@ -21,7 +21,7 @@ router.post('/create', createController.post);
 router.get('/manage', manageController.get);
 
 // /** Routing for view */
-router.get('/view/:uuid', viewController.get);
+router.get('/view', viewController.get);
 
 // /** Routing for share */
 // router.post('/share', shareController.post);

@@ -36,8 +36,11 @@
                                         <td>{{ShopName}}</td>
                                         <td>
                                             <div class="md4">
-                                                <form></form>
-                                                <button class="btn btn-success" formaction="view/{{uuid}}" formmethod="GET" formtarget="_blank">View</button>
+                                                <form id="viewForm#{{uuid}}" action="/plugins/primemason/shoppermits/view" method="GET" target="_blank">
+                                                    <input type="hidden" name="uuid" value="{{uuid}}">
+                                                </form>
+                                                <button class="btn btn-success"
+                                                    onclick="document.getElementById('viewForm#{{uuid}}').submit();">View</button>
                                             </div>
                                         </td>
                                         <td>
