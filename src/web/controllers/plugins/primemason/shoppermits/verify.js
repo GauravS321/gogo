@@ -2,7 +2,7 @@ const shoppermits = require('../../../../models/plugins/primemason/shoppermits')
 
 module.exports.get = async (req, res) => {
     try {
-          const record = await shoppermits.findOne({req.query.uuid});
+          const record = await shoppermits.findOne({uuid:req.query.uuid});
 
             return res.render('plugins/primemason/shoppermits/view', {
                 dataArr: record.json,
@@ -20,7 +20,7 @@ module.exports.get = async (req, res) => {
 
 module.exports.getQRCode = async (req, res) => {
     try {
-        const uuid= req.query.uuid;
+        const uuid = req.query.uuid;
 
         return res.render('plugins/primemason/shoppermits/qrcode', {
             data: `${uuid}`,
