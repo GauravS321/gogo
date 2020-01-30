@@ -1,4 +1,4 @@
-//const { create } = require('../../../../../../functions/plugins/primemason/shoppermits');
+const shoppermits = require('../../../../models/plugins/primemason/shoppermits');
 
 module.exports.get = (req, res) => {
     if (req.user && req.isAuthenticated()) {
@@ -11,16 +11,17 @@ module.exports.get = (req, res) => {
     return res.redirect('/login');
 }
 
-// module.exports.post = async (req, res) => {
-//     try {
-//         if (req.user && req.isAuthenticated()) {
-//             let response = await create(req.body);
+module.exports.post = async (req, res) => {
+    try {
+        if (req.user && req.isAuthenticated()) {
+            let uuid = req.body.uuid;
+            await shoppermits.findOneAndUpdate({uuid},{permits:req.body});
 
-//             req.flash("success_msg", "Shop created. ", response.msg['uuid']);
-//             return res.redirect('/plugins/primemason/shoppermits/create');
-//         }
-//     } catch (error) {
-//         req.flash('error_msg', "Oops. Something went wrong.");
-//         return res.redirect('/plugins/primemason/shoppermits/create');
-//     }
-// }
+            req.flash("success_msg", "Permit added. ", uuid);
+            return res.redirect('/plugins/primemason/shoppermits/manage-permits');
+        }
+    } catch (error) {
+        req.flash('error_msg', "Oops. Something went wrong.");
+        return res.redirect('/plugins/primemason/shoppermits/manage-permits');
+    }
+}

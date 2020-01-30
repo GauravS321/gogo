@@ -3,7 +3,8 @@ const mongoose = require('mongoose'),
 
 const newSchema = new Schema({
 	uuid: String,
-    json: Object
+    json: Object,
+    permits: Array
 }, { timestamps: true });
 
 module.exports = mongoose.model('shoppermits', newSchema);

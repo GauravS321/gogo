@@ -51,6 +51,7 @@ router.get('/manage-permits', managePermitsController.get);
 
 /** Routing for add permits */
 router.get('/add-permits', addPermitsController.get);
+router.post('/add-permits', addPermitsController.post);
 
 // * Routing for verfication 
 // router.get('/verification', verifyController.get);
