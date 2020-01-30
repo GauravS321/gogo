@@ -24,8 +24,8 @@
                         <tbody>
                             {{#if dataArr}} {{#each dataArr}}
                             <tr>
-                                <td>{{displayName}}</td>
-                                <td>{{{value}}}</td> 
+                                <td>{{@key}}</td>
+                                <td>{{{this}}}</td> 
                             </tr>
                             {{/each}}{{/if}}
                         </tbody>
