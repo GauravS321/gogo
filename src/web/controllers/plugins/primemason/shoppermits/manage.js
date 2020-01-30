@@ -9,7 +9,7 @@ module.exports.get = async (req, res) => {
             records.forEach(record => {
                 records_list.push({
                     uuid: record.uuid,
-                    "Shop Name": record.json["Shop Name"]
+                    "ShopName": record.json["Shop Name"]
                 });
             });
 
