@@ -4,8 +4,11 @@ const router = require('express').Router();
 // Create
 const createController = require('../../../../controllers/plugins/primemason/shoppermits/create');
 
-// Manage
-const manageController = require('../../../../controllers/plugins/primemason/shoppermits/manage');
+// Manage shops
+const manageShopsController = require('../../../../controllers/plugins/primemason/shoppermits/manage-shops');
+
+// Manage permits
+const managePermitsController = require('../../../../controllers/plugins/primemason/shoppermits/manage-permits');
 
 // View
 const viewController = require('../../../../controllers/plugins/primemason/shoppermits/view');
@@ -23,8 +26,8 @@ const deleteController = require('../../../../controllers/plugins/primemason/sho
 router.get('/create', createController.get);
 router.post('/create', createController.post);
 
-/** Routing for manage */
-router.get('/manage', manageController.get);
+/** Routing for manage shops */
+router.get('/manage-shops', manageShopsController.get);
 
 /** Routing for view */
 router.get('/view', viewController.get);
@@ -38,6 +41,9 @@ router.post('/delete', deleteController.post);
 
 // /** Routing for share */
 // router.post('/share', shareController.post);
+
+/** Routing for manage permits */
+router.get('/manage-permits', managePermitsController.get);
 
 // * Routing for verfication 
 // router.get('/verification', verifyController.get);

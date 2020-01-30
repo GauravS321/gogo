@@ -13,13 +13,13 @@ module.exports.get = async (req, res) => {
                 });
             });
 
-            return res.render('plugins/primemason/shoppermits/manage', {
+            return res.render('plugins/primemason/shoppermits/manage-permits', {
                 dataArr: records_list,
                 username: req.user.username,
                 email: req.user.email
             });
         } catch (error) {
-            return res.render('plugins/primemason/shoppermits/manage', {
+            return res.render('plugins/primemason/shoppermits/manage-permits', {
                 username: req.user.username,
                 email: req.user.email
             });

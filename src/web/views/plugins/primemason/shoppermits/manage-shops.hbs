@@ -1,7 +1,7 @@
 <div class="content-i">
     <div class="content-box">
         <div class="element-wrapper">
-            <h6 class="element-header">List all Shops</h6>
+            <h6 class="element-header">Manage Shops</h6>
             {{#if success_msg}}
             <div class="alert alert-success" role="alert">{{success_msg}}</div>
             {{/if}}
@@ -11,7 +11,7 @@
             <div class="element-box">
                 <div class="row">
                     <div class="col-md-12">
-                        <h5 class="form-header">List all Shops</h5>
+                        <h5 class="form-header">Manage Shops</h5>
                     </div>
                 </div>
                 <hr>
@@ -61,15 +61,7 @@
                                                     onclick="document.getElementById('deleteForm#{{uuid}}').submit();">Delete</button>
                                             </div>
                                         </td>
-                                        <td>
-                                            <div class="md4">
-                                                <form id="updateForm#{{uuid}}" action="/plugins/primemason/shoppermits/update" method="GET" target="_blank">
-                                                    <input type="hidden" name="uuid" value="{{uuid}}">
-                                                </form>
-                                                <button class="btn btn-warning"
-                                                    onclick="document.getElementById('updateForm#{{uuid}}').submit();">Update</button>
-                                            </div>
-                                        </td>
+
                                         <td>
                                             <div class="md4">
 
