@@ -1,7 +1,6 @@
 const shoppermits = require('../../../../models/plugins/primemason/shoppermits');
 
 module.exports.get = async (req, res) => {
-    if (req.user && req.isAuthenticated()) {
         try {
             const uuid = req.query.uuid;
             
@@ -20,6 +19,4 @@ module.exports.get = async (req, res) => {
                 email: req.user.email
             });
         }
-    }
-    return res.redirect('/login');
 }
