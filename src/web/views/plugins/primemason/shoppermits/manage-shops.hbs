@@ -82,18 +82,9 @@
                                                                         ×</span></button>
                                                             </div>
                                                             <div class="modal-body">
-                                                                <form id="shareForm"
-                                                                    action="/plugins/dave/academic/share"
-                                                                    method="POST">
-                                                                    <input type="hidden" name="txid_data"
-                                                                        value="{{tx_id_enc_data}}">
-                                                                    <input type="hidden" name="txid_signature"
-                                                                        value="{{tx_id_signature}}">
-                                                                    <input type="hidden" name="password"
-                                                                        value="{{aes_password}}">
-                                                                    <input type="hidden" name="iv" value="{{aes_iv}}">
-                                                                    <input type="hidden" name="trade_channel_name"
-                                                                        value="{{trade_channel_name}}">
+                                                                <form id="shareForm#{{uuid}}" action="/plugins/primemason/shoppermits/share" method="POST">
+                                                                    <input type="hidden" name="uuid"
+                                                                        value="{{uuid}}">
                                                                     <div class="form-group"><label for="">Full
                                                                             Name</label><input class="form-control"
                                                                             placeholder="Enter Full name" type="text"
@@ -110,7 +101,7 @@
                                                                     data-dismiss="modal" type="button">
                                                                     Close</button>
                                                                 <button class="btn btn-primary"
-                                                                    onclick="document.getElementById('shareForm').submit();">
+                                                                    onclick="document.getElementById('shareForm#{{uuid}}').submit();">
                                                                     Share</button>
                                                             </div>
                                                         </div>
