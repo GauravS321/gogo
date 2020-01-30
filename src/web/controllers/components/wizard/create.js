@@ -15,11 +15,11 @@ module.exports.post = async (req, res) => {
         if (req.user && req.isAuthenticated()) {
             let response = await create(req.body);
 
-            req.flash("success_msg", "Data instered. Txid:", response.msg['uuid']);
+            req.flash("success_msg", "Data instered. ", response.msg['uuid']);
             return res.redirect('/components/wizard/create');
         }
     } catch (error) {
-        req.flash('error_msg', "Internal server error!!!");
+        req.flash('error_msg', "Oops. Something went wrong.");
         return res.redirect('/components/wizard/create');
     }
 
