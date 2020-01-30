@@ -15,18 +15,18 @@ const createController = require('../../../../controllers/plugins/primemason/sho
 
 /* Routing for create */
 router.get('/create', createController.get);
-router.post('/issue', createController.post);
+router.post('/create', createController.post);
 
-/** Routing for view */
-router.get('/view', viewController.get);
+// /** Routing for view */
+// router.get('/view', viewController.get);
 
-/** Routing for share */
-router.post('/share', shareController.post);
+// /** Routing for share */
+// router.post('/share', shareController.post);
 
-/** Routing for verfication */
-router.get('/verification', verifyController.get);
+// * Routing for verfication 
+// router.get('/verification', verifyController.get);
 
-/** Routing for qrcode */
-router.get('/qrcode', verifyController.getQRCode);
+// /** Routing for qrcode */
+// router.get('/qrcode', verifyController.getQRCode);
 
 module.exports = router;
