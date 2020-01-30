@@ -1,0 +1,122 @@
+<!-- BEGIN Content-->
+<div class="content-i">
+    <div class="content-box">
+        {{#if success_msg}}
+        <div class="alert alert-success" role="alert">{{success_msg}}</div>
+        {{/if}}
+        {{#if error_msg}}
+        <div class="alert alert-warning" role="alert">{{error_msg}}</div>
+        {{/if}}
+
+        <div class="element-box">
+            <div class="row">
+                <div class="col-sm-12 col-xxl-12">
+                    <h5 class="form-header">
+                        Update Shop
+                    </h5>
+                    <hr>
+                </div>
+            </div>
+            {{#if dataArr}}
+            <form id="formValidate" action="/plugins/primemason/shoppermits/update" method="post">
+            <input type="hidden" name="uuid" value="{{uuid}}">
+                <fieldset class="form-group">
+                    <legend><span>Primary information</span></legend>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="">Shop Name *</label>
+                                <input class="form-control" data-error="This field is compulsory" id="Shop Name"
+                                    name="Shop Name" required="required" type="text" value="{{dataArr.[Shop Name]}}">
+                                <div class="help-block form-text with-errors form-control-feedback"></div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="">Owner Name *</label>
+                                <input class="form-control" data-error="This field is compulsory" id="Owner Name"
+                                    name="Owner Name" required="required" type="text" value="{{dataArr.[Owner Name]}}">
+                                <div class="help-block form-text with-errors form-control-feedback"></div>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <fieldset class="form-group">
+                    <legend><span>Address</span></legend>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="">Shop No. & Building *</label>
+                                <input class="form-control" data-error="This field is compulsory"
+                                    id="Shop No. & Building" name="Shop No & Building" required="required" type="text"
+                                    value="{{dataArr.[Shop No & Building]}}">
+                                <div class="help-block form-text with-errors form-control-feedback"></div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="">Street / Road *</label>
+                                <input class="form-control" data-error="This field is compulsory" id="Street / Road"
+                                    name="Street / Road" required="required" type="text"
+                                    value="{{dataArr.[Street / Road]}}">
+                                <div class="help-block form-text with-errors form-control-feedback"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="">Locality / Landmark *</label>
+                                <input class="form-control" data-error="This field is compulsory"
+                                    id="Locality / Landmark" name="Locality / Landmark" required="required" type="text"
+                                    value="{{dataArr.[Locality / Landmark]}}">
+                                <div class="help-block form-text with-errors form-control-feedback"></div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="">Town / City *</label>
+                                <input class="form-control" data-error="This field is compulsory" id="Town / City"
+                                    name="Town / City" required="required" type="text"
+                                    value="{{dataArr.[Town / City]}}">
+                                <div class="help-block form-text with-errors form-control-feedback"></div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label for="">Pincode *</label>
+                                    <input class="form-control" data-error="This field is compulsory" id="Pincode"
+                                        name="Pincode" required="required" type="text" value="{{dataArr.[Pincode]}}">
+                                    <div class="help-block form-text with-errors form-control-feedback"></div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label for="">State *</label>
+                                    <input class="form-control" data-error="This field is compulsory" id="State"
+                                        name="State" required="required" type="text" value="{{dataArr.[State]}}">
+                                    <div class="help-block form-text with-errors form-control-feedback"></div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label for="">Country *</label>
+                                    <input class="form-control" data-error="This field is compulsory" id="Country"
+                                        name="Country" required="required" type="text" value="{{dataArr.[Country]}}">
+                                    <div class="help-block form-text with-errors form-control-feedback"></div>
+                                </div>
+                            </div>
+                </fieldset>
+
+                <div class="form-buttons-w">
+                    <button type="submit" class="btn btn-primary"> Update</button>
+                </div>
+            </form>
+            {{/if}}
+        </div>
+    </div>
+</div>
+<!-- END Content-->

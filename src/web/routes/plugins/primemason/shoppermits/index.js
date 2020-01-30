@@ -10,6 +10,12 @@ const manageController = require('../../../../controllers/plugins/primemason/sho
 // View
 const viewController = require('../../../../controllers/plugins/primemason/shoppermits/view');
 
+// Update
+const updateController = require('../../../../controllers/plugins/primemason/shoppermits/update');
+
+// Delete
+const deleteController = require('../../../../controllers/plugins/primemason/shoppermits/delete');
+
 // Verification
 //const verifyController = require('../../../../controllers/plugins/primemason/shoppermits/verify');
 
@@ -17,11 +23,18 @@ const viewController = require('../../../../controllers/plugins/primemason/shopp
 router.get('/create', createController.get);
 router.post('/create', createController.post);
 
-// /** Routing for manage */
+/** Routing for manage */
 router.get('/manage', manageController.get);
 
-// /** Routing for view */
+/** Routing for view */
 router.get('/view', viewController.get);
+
+/** Routing for update */
+router.get('/update', updateController.get);
+router.post('/update', updateController.post);
+
+/** Routing for delete */
+router.post('/delete', deleteController.post);
 
 // /** Routing for share */
 // router.post('/share', shareController.post);

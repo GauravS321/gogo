@@ -43,6 +43,24 @@
                                                     onclick="document.getElementById('viewForm#{{uuid}}').submit();">View</button>
                                             </div>
                                         </td>
+                                          <td>
+                                            <div class="md4">
+                                                <form id="updateForm#{{uuid}}" action="/plugins/primemason/shoppermits/update" method="GET">
+                                                    <input type="hidden" name="uuid" value="{{uuid}}">
+                                                </form>
+                                                <button class="btn btn-warning"
+                                                    onclick="document.getElementById('updateForm#{{uuid}}').submit();">Update</button>
+                                            </div>
+                                        </td>
+                                          <td>
+                                            <div class="md4">
+                                                <form id="deleteForm#{{uuid}}" action="/plugins/primemason/shoppermits/delete" method="POST">
+                                                    <input type="hidden" name="uuid" value="{{uuid}}">
+                                                </form>
+                                                <button class="btn btn-danger"
+                                                    onclick="document.getElementById('deleteForm#{{uuid}}').submit();">Delete</button>
+                                            </div>
+                                        </td>
                                         <td>
                                             <div class="md4">
 
