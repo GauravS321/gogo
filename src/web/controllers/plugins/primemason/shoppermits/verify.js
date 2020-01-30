@@ -10,7 +10,7 @@ module.exports.get = async (req, res) => {
                 email: req.user.email
             });
     } catch (error) {
-        rreturn res.render('plugins/primemason/shoppermits/view', {
+        return res.render('plugins/primemason/shoppermits/view', {
             error_msg: error.error,
             username: (req.user) ? req.user.username : false,
             email: (req.user) ? req.user.email : false
