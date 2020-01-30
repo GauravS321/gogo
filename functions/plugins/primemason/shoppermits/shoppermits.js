@@ -30,12 +30,10 @@ module.exports.create = (json) => {
 }
 
 
-module.exports.share = (sender_mail, recevier_name, receiver_email, body, use_case) => {
+module.exports.share = (sender_mail, recevier_name, receiver_email, uuid, use_case) => {
     return new Promise(async (resolve, reject) => {
         try {
-            const uuid = body.uuid;
-
-            const path = `uuid=${uuid}`;
+            const path = `uuid=${body}`;
 
             await Mailer.sharePrimeMasonMail(sender_mail, recevier_name, receiver_email, use_case, path)
 
