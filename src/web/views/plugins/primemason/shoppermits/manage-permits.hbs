@@ -34,6 +34,15 @@
                                         <td>{{ShopName}}</td>
                                         <td>
                                             <div class="md4">
+                                                <form id="addForm#{{uuid}}" action="/plugins/primemason/shoppermits/add-permit" method="GET">
+                                                    <input type="hidden" name="uuid" value="{{uuid}}">
+                                                </form>
+                                                <button class="btn btn-primary"
+                                                    onclick="document.getElementById('addForm#{{uuid}}').submit();">Add</button>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="md4">
                                                 <form id="viewForm#{{uuid}}" action="/plugins/primemason/shoppermits/view" method="GET" target="_blank">
                                                     <input type="hidden" name="uuid" value="{{uuid}}">
                                                 </form>
@@ -41,15 +50,7 @@
                                                     onclick="document.getElementById('viewForm#{{uuid}}').submit();">View</button>
                                             </div>
                                         </td>
-                                          <td>
-                                            <div class="md4">
-                                                <form id="updateForm#{{uuid}}" action="/plugins/primemason/shoppermits/update" method="GET">
-                                                    <input type="hidden" name="uuid" value="{{uuid}}">
-                                                </form>
-                                                <button class="btn btn-warning"
-                                                    onclick="document.getElementById('updateForm#{{uuid}}').submit();">Update</button>
-                                            </div>
-                                        </td>
+                                          
                                     </tr>
                                     {{/each}} {{/if}}
                                 </tbody>
