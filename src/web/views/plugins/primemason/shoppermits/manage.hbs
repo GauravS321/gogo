@@ -63,6 +63,15 @@
                                         </td>
                                         <td>
                                             <div class="md4">
+                                                <form id="updateForm#{{uuid}}" action="/plugins/primemason/shoppermits/update" method="GET" target="_blank">
+                                                    <input type="hidden" name="uuid" value="{{uuid}}">
+                                                </form>
+                                                <button class="btn btn-warning"
+                                                    onclick="document.getElementById('updateForm#{{uuid}}').submit();">Update</button>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="md4">
 
                                                 <button class="btn btn-primary" data-target=".bd-example-modal-sm"
                                                     data-toggle="modal" type="button">Share</button>

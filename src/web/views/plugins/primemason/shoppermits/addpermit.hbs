@@ -1,0 +1,67 @@
+<!-- BEGIN Content-->
+<div class="content-i">
+    <div class="content-box">
+        {{#if success_msg}}
+        <div class="alert alert-success" role="alert">{{success_msg}}</div>
+        {{/if}}
+        {{#if error_msg}}
+        <div class="alert alert-warning" role="alert">{{error_msg}}</div>
+        {{/if}}
+
+        <div class="element-box">
+            <div class="row">
+                <div class="col-sm-12 col-xxl-12">
+                    <h5 class="form-header">
+                        Add permit / license
+                    </h5>
+                    <hr>
+                </div>
+            </div>
+
+            <form id="formValidate" action="/plugins/primemason/shoppermits/addpermit" method="post">
+            <input type="hidden" name="uuid" value="{{uuid}}">
+            <fieldset class="form-group">
+            <legend><span>Permit information</span></legend>
+            <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group">
+                  <label for="">Permit / License *</label>   
+                    <select class="form-control" id="Permit" name="Permit">
+                            <option value="" selected="selected">Select permit</option>
+                            <option value="Food Safety License">Food Safety License</option>
+                            <option value="Health / Trade License">Health / Trade License</option>
+                            <option value="Eating House License">Eating House License</option>
+                            <option value="Liquor License ">Liquor License </option>
+                            <option value="Approval / Re-Approval of Restaurants">Approval / Re-Approval of Restaurants</option>
+                            <option value="Playing of Music in restaurants – License">Playing of Music in restaurants – License</option>
+                            <option value="Environment Clearance for Grease Trap/ETP ">Environment Clearance for Grease Trap/ETP </option>
+                            <option value="Environment Clearance for Generator Sets">Environment Clearance for Generator Sets</option>
+                            <option value="NOC from Fire Department">NOC from Fire Department</option>
+                            <option value="Weights and Measures">Weights and Measures</option>
+                            <option value="Lift License">Lift License</option>
+                            <option value="Employees State Insurance">Employees State Insurance</option>
+                            <option value="Insurance">Insurance</option>
+                            <option value="Shop and Establishment Act">Shop and Establishment Act</option>
+                            <option value="Signage License">Signage License</option>
+                        </select>
+                        <div class="help-block form-text with-errors form-control-feedback"></div>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                  <label for="">Permit details *</label>   
+                    <textarea class="permit_details" required="required" data-error="This field is compulsory" cols="80" id="ckeditor1" name="Details" rows="10" style="visibility: hidden; display: none;"></textarea>
+                    <div class="help-block form-text with-errors form-control-feedback"></div>
+                  </div>
+                </div>
+            </div>
+            </fieldset>
+
+            <div class="form-buttons-w">
+                <button type="submit" class="btn btn-primary"> Add Permit</button>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- END Content-->
