@@ -8,12 +8,12 @@ module.exports.post = async (req, res) => {
             await share(req.user.email, receiver_name, receiver_email, uuid, use_case);
 
             req.flash("success_msg", "Permits detail e-mail sent successfully!!!")
-            return res.redirect('/plugins/primemason/shoppermits/view-permits');
+            return res.redirect('/plugins/primemason/shoppermits/manage-permits');
           
         } catch (error) {
             req.flash("error_msg", error.message);
-            return res.redirect('/plugins/primemason/shoppermits/view-permits');
+            return res.redirect('/plugins/primemason/shoppermits/manage-permits');
         }
     }
-    return res.redirect('/login')
+    return res.redirect('/login');
 }
