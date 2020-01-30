@@ -22,6 +22,9 @@ const deleteController = require('../../../../controllers/plugins/primemason/sho
 // Add permits
 const addPermitsController = require('../../../../controllers/plugins/primemason/shoppermits/add-permits');
 
+// View permits
+const viewPermitsController = require('../../../../controllers/plugins/primemason/shoppermits/view-permits');
+
 
 // Verification
 //const verifyController = require('../../../../controllers/plugins/primemason/shoppermits/verify');
@@ -52,6 +55,9 @@ router.get('/manage-permits', managePermitsController.get);
 /** Routing for add permits */
 router.get('/add-permits', addPermitsController.get);
 router.post('/add-permits', addPermitsController.post);
+
+/** Routing for view permits */
+router.get('/view-permits', viewPermitsController.get);
 
 // * Routing for verfication 
 // router.get('/verification', verifyController.get);
