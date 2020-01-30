@@ -4,8 +4,8 @@ const router = require('express').Router();
 // Create
 const createController = require('../../../../controllers/plugins/primemason/shoppermits/create');
 
-// View
-//const viewController = require('../../../../controllers/plugins/primemason/shoppermits/view');
+// Manage
+const manageController = require('../../../../controllers/plugins/primemason/shoppermits/manage');
 
 // Share
 //const shareController = require('../../../../controllers/plugins/primemason/shoppermits/share');
@@ -17,8 +17,8 @@ const createController = require('../../../../controllers/plugins/primemason/sho
 router.get('/create', createController.get);
 router.post('/create', createController.post);
 
-// /** Routing for view */
-// router.get('/view', viewController.get);
+// /** Routing for manage */
+router.get('/manage', manageController.get);
 
 // /** Routing for share */
 // router.post('/share', shareController.post);

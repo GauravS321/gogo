@@ -1,7 +1,7 @@
 <div class="content-i">
     <div class="content-box">
         <div class="element-wrapper">
-            <h6 class="element-header">List all Academic Records</h6>
+            <h6 class="element-header">List all Shops</h6>
             {{#if success_msg}}
             <div class="alert alert-success" role="alert">{{success_msg}}</div>
             {{/if}}
@@ -11,7 +11,7 @@
             <div class="element-box">
                 <div class="row">
                     <div class="col-md-12">
-                        <h5 class="form-header">List all Academic Records</h5>
+                        <h5 class="form-header">List all Shops</h5>
                     </div>
                 </div>
                 <hr>
@@ -21,27 +21,22 @@
                             <table id="dataTable1" width="100%" class="table table-striped table-lightfont dataTable">
                                 <thead>
                                     <tr>
-                                        <th>Full name</th>
-                                        <th>Date of birth</th>
-                                        <th>Father's name</th>
-                                        <th>Mother's name</th>
-                                        <th>Mobile number</th>
+                                        <th>UUID</th>
+                                        <th>Shop Name</th>
                                         <th>View</th>
+                                        <th>Update</th>
+                                        <th>Delete</th>
                                         <th>Share</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     {{#if dataArr}} {{#each dataArr}}
                                     <tr>
-                                        <td>{{fullname}}</td>
-                                        <td>{{dob}}</td>
-                                        <td>{{father}}</td>
-                                        <td>{{mother}}</td>
-                                        <td>{{mobile}}</td>
+                                        <td>{{uuid}}</td>
+                                        <td>{{Shop Name}}</td>
                                         <td>
                                             <div class="md4">
-                                                <form id="viewForm#{{tx_id_enc_data}}" action="/plugins/dave/academic/verification"
-                                                    method="GET" target="_blank">
+                                                <form id="viewForm#{{tx_id_enc_data}}" action="/plugins/dave/academic/verification" method="GET" target="_blank">
                                                     <input type="hidden" name="txid_data" value="{{tx_id_enc_data}}">
                                                     <input type="hidden" name="txid_signature"
                                                         value="{{tx_id_signature}}">
