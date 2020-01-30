@@ -19,6 +19,7 @@ module.exports.post = async (req, res) => {
             return res.redirect('/plugins/primemason/shoppermits/create');
         }
     } catch (error) {
+        console.log(error)
         req.flash('error_msg', "Oops. Something went wrong.");
         return res.redirect('/plugins/primemason/shoppermits/create');
     }
