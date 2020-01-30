@@ -12,6 +12,7 @@ module.exports.get = (req, res) => {
 
 module.exports.post = async (req, res) => {
     try {
+        console.log(req.body)
         if (req.user && req.isAuthenticated()) {
             let response = await create(req.body);
 
