@@ -21,16 +21,14 @@
                                 <th>Value</th>
                             </tr>
                         </thead>
-                        {{#if dataArr}} {{#each dataArr}}
                         <tbody>
-                            <tr>
                             {{#if dataArr}} {{#each dataArr}}
+                            <tr>
                                 <td>{{@key}}</td>
-                                <td>{{{value}}}</td> 
-                            {{/each}}{{/if}}
+                                <td>{{{this}}}</td> 
                             </tr>
+                            {{/each}}{{/if}}
                         </tbody>
-                        {{/each}}{{/if}}
                     </table>
                 </div>
             </div>
