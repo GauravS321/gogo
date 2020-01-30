@@ -5,6 +5,7 @@ module.exports.post = async (req, res) => {
         try {
             let use_case = req.baseUrl.split('/')[3];
             const {receiver_name, receiver_email, uuid} = req.body;
+            
             await share(req.user.email, receiver_name, receiver_email, uuid, use_case);
 
             req.flash("success_msg", "Permits detail e-mail sent successfully!!!")

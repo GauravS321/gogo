@@ -1,7 +1,5 @@
 const uuidv1 = require('uuid/v1');
 
-const APICall = require('../../../../helpers/request');
-
 const shoppermits = require('../../../../src/web/models/plugins/primemason/shoppermits');
 
 const Mailer = require('../../../../helpers/mailer');
