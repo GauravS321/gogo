@@ -1,33 +1,34 @@
-const { retrieve } = require('../../../../../../functions/plugins/dave/academic');
+const shoppermits = require('../../../../models/plugins/primemason/shoppermits');
 
 module.exports.get = async (req, res) => {
     try {
-        let response = await retrieve(req.query);
+          const record = await shoppermits.findOne({req.query.uuid});
 
-        return res.render('plugins/dave/academic/verification', {
-            data: response.msg['data'],
-            username: (req.user) ? req.user.username : false,
-            email: (req.user) ? req.user.email : false
-        });
+            return res.render('plugins/primemason/shoppermits/view', {
+                dataArr: record.json,
+                username: req.user.username,
+                email: req.user.email
+            });
     } catch (error) {
-        return res.render('plugins/dave/academic/verification', {
+        rreturn res.render('plugins/primemason/shoppermits/view', {
             error_msg: error.error,
             username: (req.user) ? req.user.username : false,
             email: (req.user) ? req.user.email : false
         });
     }
 }
+
 module.exports.getQRCode = async (req, res) => {
     try {
-        const { text, txid_signature, password, iv, trade_channel_name } = req.query;
+        const uuid= req.query.uuid;
 
-        return res.render('plugins/dave/academic/qrcode', {
-            data: `${text}&txid_signature=${txid_signature}&password=${password}&iv=${iv}&trade_channel_name=${trade_channel_name}`,
+        return res.render('plugins/primemason/shoppermits/qrcode', {
+            data: `${uuid}`,
             username: (req.user) ? req.user.username : false,
             email: (req.user) ? req.user.email : false
         });
     } catch (error) {
-        return res.render('plugins/dave/academic/verification', {
+        return res.render('plugins/primemason/shoppermits/qrcode', {
             error_msg: error.error,
             username: (req.user) ? req.user.username : false,
             email: (req.user) ? req.user.email : false

@@ -72,13 +72,9 @@ module.exports.retrieve = (json) => {
 module.exports.share = (sender_mail, recevier_name, receiver_email, body, use_case) => {
     return new Promise(async (resolve, reject) => {
         try {
-            const tx_id_enc_data = body.txid_data.trim();
-            const tx_id_signature = body.txid_signature.trim();
-            const aes_password = body.password.trim();
-            const aes_iv = body.iv.trim();
-            const trade_channel_name = body.trade_channel_name.trim();
+            const uuid = body.uuid;
 
-            const path = `txid_data=${tx_id_enc_data}&txid_signature=${tx_id_signature}&password=${aes_password}&iv=${aes_iv}&trade_channel_name=${trade_channel_name}`;
+            const path = `uuid=${uuid}`;
 
             await Mailer.shareVerificationMail(sender_mail, recevier_name, receiver_email, use_case, path)
 

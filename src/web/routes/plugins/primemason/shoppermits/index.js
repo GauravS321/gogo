@@ -25,9 +25,11 @@ const addPermitsController = require('../../../../controllers/plugins/primemason
 // View permits
 const viewPermitsController = require('../../../../controllers/plugins/primemason/shoppermits/view-permits');
 
+// Share permits
+const sharePermitsController = require('../../../../controllers/plugins/primemason/shoppermits/share');
 
 // Verification
-//const verifyController = require('../../../../controllers/plugins/primemason/shoppermits/verify');
+const verifyController = require('../../../../controllers/plugins/primemason/shoppermits/verify');
 
 /* Routing for create */
 router.get('/create', createController.get);
@@ -47,7 +49,7 @@ router.post('/update', updateController.post);
 router.post('/delete', deleteController.post);
 
 // /** Routing for share */
-// router.post('/share', shareController.post);
+router.post('/share', sharePermitsController.post);
 
 /** Routing for manage permits */
 router.get('/manage-permits', managePermitsController.get);
@@ -59,10 +61,10 @@ router.post('/add-permits', addPermitsController.post);
 /** Routing for view permits */
 router.get('/view-permits', viewPermitsController.get);
 
-// * Routing for verfication 
-// router.get('/verification', verifyController.get);
+/* Routing for verfication */
+router.get('/verification', verifyController.get);
 
-// /** Routing for qrcode */
-// router.get('/qrcode', verifyController.getQRCode);
+/** Routing for qrcode */
+router.get('/qrcode', verifyController.getQRCode);
 
 module.exports = router;

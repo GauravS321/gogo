@@ -1,32 +1,18 @@
-const { share } = require('../../../../../../functions/plugins/dave/academic');
+const { share } = require('../../../../../../functions/plugins/primemason/shoppermits');
 
 module.exports.post = async (req, res) => {
     if (req.user && req.isAuthenticated()) {
         try {
             let use_case = req.baseUrl.split('/')[3];
-            const { txid_data, txid_signature, password, iv, trade_channel_name, receiver_name, receiver_email } = req.body;
+            const {receiver_name, receiver_email, uuid} = req.body;
+            await share(req.user.email, receiver_name, receiver_email, uuid, use_case);
 
-            if (txid_data && txid_signature && password && iv && trade_channel_name && receiver_name && receiver_email) {
-                const body = {
-                    txid_data,
-                    txid_signature,
-                    password,
-                    iv,
-                    trade_channel_name,
-                }
-
-                await share(req.user.email, receiver_name, receiver_email, body, use_case);
-
-                req.flash("success_msg", "Document link e-mail sent successfully!!!")
-                return res.redirect('/plugins/dave/academic/view');
-            }
-            else {
-                req.flash("error_msg", "Missing inputs");
-                return res.redirect('/plugins/dave/academic/view');
-            }
+            req.flash("success_msg", "Permits detail e-mail sent successfully!!!")
+            return res.redirect('/plugins/primemason/shoppermits/view-permits');
+          
         } catch (error) {
             req.flash("error_msg", error.message);
-            return res.redirect('/plugins/dave/academic/view');
+            return res.redirect('/plugins/primemason/shoppermits/view-permits');
         }
     }
     return res.redirect('/login')
