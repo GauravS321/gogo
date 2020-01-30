@@ -12,16 +12,16 @@
             <div class="row">
                 <div class="col-sm-12 col-xxl-12">
                     <h5 class="form-header">
-                        Create Shop
+                        Add permit / license
                     </h5>
                     <hr>
                 </div>
             </div>
 
             <form id="formValidate" action="/plugins/primemason/shoppermits/addpermit" method="post">
-
+            <input type="hidden" name="uuid" value="{{uuid}}">
             <fieldset class="form-group">
-            <legend><span>Permit details</span></legend>
+            <legend><span>Permit information</span></legend>
             <div class="row">
                 <div class="col-sm-6">
                   <div class="form-group">
@@ -57,9 +57,9 @@
             </div>
             </fieldset>
 
-                <div class="form-buttons-w">
-                    <button type="submit" class="btn btn-primary"> Add Permit</button>
-                </div>
+            <div class="form-buttons-w">
+                <button type="submit" class="btn btn-primary"> Add Permit</button>
+            </div>
             </form>
         </div>
     </div>
