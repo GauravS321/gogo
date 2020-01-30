@@ -15,7 +15,9 @@ module.exports.post = async (req, res) => {
     try {
         if (req.user && req.isAuthenticated()) {
             let uuid = req.body.uuid;
-            await shoppermits.findOneAndUpdate({uuid},{permits:req.body});
+            let json = req.body;
+            delete json['uuid'];
+            await shoppermits.findOneAndUpdate({uuid},{permits:json});
 
             req.flash("success_msg", "Permit added. ", uuid);
             return res.redirect('/plugins/primemason/shoppermits/manage-permits');
