@@ -32,10 +32,10 @@ module.exports.post = async (req, res) => {
            await shoppermits.findOneAndUpdate({ uuid }, { json });
 
             req.flash("success_msg", "Shop details updated. ", uuid);
-            return res.redirect('/plugins/primemason/shoppermits/manage');
+            return res.redirect('/plugins/primemason/shoppermits/manage-shops');
         }
     } catch (error) {
         req.flash('error_msg', "Oops. Something went wrong.");
-        return res.redirect('/plugins/primemason/shoppermits/manage');
+        return res.redirect('/plugins/primemason/shoppermits/manage-shops');
     }
 }
