@@ -8,6 +8,8 @@ module.exports.get = async (req, res) => {
             const record = await shoppermits.findOne({uuid});
 
             return res.render('plugins/primemason/shoppermits/view-permits', {
+                shopname: record.json['Shop Name'],
+                ownername: record.json['Owner Name'],
                 dataArr: record.permits,
                 username: req.user.username,
                 email: req.user.email
