@@ -1,5 +1,6 @@
 const send = require('../../../../../../functions/users/account/myassets/send');
 const list = require('../../../../../../functions/users/account/myassets/list');
+const User = require('../../../../models/users/user');
 
 
 module.exports.get = (req, res) => {
