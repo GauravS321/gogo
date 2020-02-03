@@ -64,12 +64,13 @@ module.exports.post = async (req, res) => {
     if (req.user && req.isAuthenticated()) {
         try {
             const { receiver_address, asset_name, quantity, asset_description } = req.body;
+            console.log(receiver_address, asset_name, quantity, asset_description);
 
             let response = await send(req.user.primechain_address, receiver_address, asset_name, quantity, asset_description);
 
             if (response.status === 200) {
-                req.flash('success_msg', "Asset successfully transferred.")
-                return res.redirect('/account/myassets/transfer')
+                req.flash('success_msg', "Asset successfully transferred.");
+                return res.redirect('/account/myassets/transfer');
             }
         } catch (error) {
             if (error.errors) {
