@@ -1,5 +1,9 @@
-const send = require('../../../../../../functions/users/account/myassets/send')
+const send = require('../../../../../../functions/users/account/myassets/send');
+const list = require('../../../../../../functions/users/account/myassets/list');
+
+
 module.exports.get = (req, res) => {
+    ;
     if (req.user && req.isAuthenticated()) {
         const name = (req.params.name) ? req.params.name : "";
         const primechain_address = (req.params.primechain_address) ? req.params.primechain_address : "";
@@ -14,18 +18,42 @@ module.exports.get = (req, res) => {
     }
     return res.redirect('/login');
 }
-module.exports.get_thru_qr = (req, res) => {
+
+module.exports.get_thru_qr = async (req, res) => {
     if (req.user && req.isAuthenticated()) {
-        const name = (req.params.name) ? req.params.name : "";
+        const assetref = (req.params.assetref) ? req.params.assetref : "";
         const primechain_address = (req.params.primechain_address) ? req.params.primechain_address : "";
 
-        return res.render('users/account/send_thru_qr',
-            {
-                asset_name: name,
-                primechain_address,
-                username: req.user.username,
-                email: req.user.email,
+        if (assetref && primechain_address) {
+            let asset_details_arr = await list(req.user.primechain_address);
+            let asset_name;
+            let asset_found_count = 0;
+
+            asset_details_arr.msg.forEach(asset => {
+                if (assetref === asset.assetref) {
+                    asset_name = asset.name;
+                    asset_found_count++;
+                }
             });
+
+            if (asset_found_count === 1) {
+                return res.render('users/account/send_thru_qr',
+                    {
+                        asset_name,
+                        primechain_address,
+                        username: req.user.username,
+                        email: req.user.email,
+                    });
+            }
+            else {
+                req.flash('error_msg', "Unable to find asset");
+                return res.redirect('/account/myassets/transfer');
+            }
+        }
+        else {
+            req.flash('error_msg', "Authentication failed");
+            return res.redirect('/account/myassets/transfer');
+        }
     }
     return res.redirect('/login');
 }

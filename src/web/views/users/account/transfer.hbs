@@ -73,7 +73,7 @@
 
 <script>
     function showQRcode(asset_name, assetref, primechain_address) {
-        let text = `${window.location.origin}/account/myassets/transfer/${asset_name}/${primechain_address}`;
+        let text = `${window.location.origin}/account/myassets/transfer/${assetref}/${primechain_address}`;
         
         let output = document.getElementById(`qrcode#${assetref}`);
         output.innerHTML = '';
