@@ -26,6 +26,7 @@ module.exports.get_thru_qr = async (req, res) => {
 
         if (assetref && primechain_address) {
             let asset_details_arr = await list(req.user.primechain_address);
+            let { username } = await User.findOne({ primechain_address: primechain_address })
             let asset_name;
             let asset_found_count = 0;
 
@@ -41,7 +42,7 @@ module.exports.get_thru_qr = async (req, res) => {
                     {
                         asset_name,
                         primechain_address,
-                        username: req.user.username,
+                        username,
                         email: req.user.email,
                     });
             }
