@@ -38,3 +38,24 @@ Make appropriate changes.
 6. Replicate and rename the loyalty folder in src/web/models/plugins/sam
 
 7. Change main menu and mobile menu in `src/web/views/partials`
+
+PrimeMason plugins
+-------------
+1. Edit app.js and replicate and rename `const logisticsRoutes` in 2 places.
+
+2. Replicate and rename the logistics folder in `src/web/routes/plugins/primemason/`
+Replace logistics in all lines.
+
+3. Replicate and rename the logistics folder in `src/web/controllers/plugins/primemason/`
+In all 4 files, rename logistics
+
+4. Replicate and rename the logistics folder in `src/web/views/plugins/primemason`
+Change input names as required
+
+5. Replicate and rename the logistics folder in `functions/plugins/primemason/`
+Change name in `index.js`
+Change key fields in line 10 of `--academic--.js`. Max 5 fields.
+
+6. Replicate and rename the logistics folder in `src/web/models/plugins/primemason`
+
+7. Change main menu and mobile menu in `src/web/views/partials`
