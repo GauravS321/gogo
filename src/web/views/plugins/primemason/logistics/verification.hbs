@@ -1,0 +1,295 @@
+{{#if user}}
+<div class="content-i">
+    <div class="content-box">
+        {{#if error_msg}}
+        <div class="alert alert-warning" role="alert">{{error_msg}}</div>
+        {{/if}}
+        {{#if data}}
+        <div class="row" id="uploadDaveStatus">
+            <div class="col-sm-12 col-xxl-12">
+                <div class="element-box">
+                    <h5 class="form-header" id="uploadingDaveHeader">Record retrieved
+                        successfully.
+                    </h5>
+                    <hr>
+                    <table class="table table-striped" style="width: 100%">
+                        <thead>
+                            <th style="width: 90%;">Description</th>
+                            <th style="width: 10%;">Actions</th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>The digital signature, hash and the primechain address of
+                                    the signing
+                                    entity are
+                                    retrieved from the blockchain.</td>
+                                <td>
+                                    <i id="doc_hash" class="fa fa-check"
+                                        style="font-size:16px;color:green; align: center;"></i>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>The encrypted data and tag are retrieved from the blockchain.</td>
+                                <td>
+                                    <i id="doc_enc" class="fa fa-check" style="font-size:16px;color:green"></i>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>The encrypted data is decrypted.</td>
+                                <td>
+                                    <i id="doc_txid" class="fa fa-check" style="font-size:16px;color:green"></i>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>The digital signature is verified.</td>
+                                <td>
+                                    <i id="d_sign" class="fa fa-check" style="font-size:16px;color:green"></i>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        {{else}}
+        <div class="row">
+            <div class="col-sm-12 col-xxl-12">
+                <div class="element-box">
+                    <h5 class="form-header" id="uploadingDaveHeader">Failed to retrieve record.
+                    </h5>
+                    <hr>
+                    <table class="table table-striped" style="width: 100%">
+                        <thead>
+                            <th style="width: 90%;">Description</th>
+                            <th style="width: 10%;">Actions</th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>The digital signature, hash and the primechain address of
+                                    the signing
+                                    entity are
+                                    retrieved from the blockchain.</td>
+                                <td>
+                                    <i id="doc_hash" class="fa fa-times"
+                                        style="font-size:16px;color:red; align: center;"></i>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>The encrypted data and tag are retrieved from the blockchain.</td>
+                                <td>
+                                    <i id="doc_enc" class="fa fa-times" style="font-size:16px;color:red"></i>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>The encrypted data is decrypted.</td>
+                                <td>
+                                    <i id="doc_txid" class="fa fa-times" style="font-size:16px;color:red"></i>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>The digital signature is verified.</td>
+                                <td>
+                                    <i id="d_sign" class="fa fa-times" style="font-size:16px;color:red"></i>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        {{/if}}
+
+        {{#if data}}
+        <div class="row" id="DaveRetrieveStatus">
+            <div class="col-sm-12 col-xxl-12">
+                <div class="element-box">
+                    <h5 class="form-header">Record has been retrieved. This is the
+                        output:
+                    </h5>
+                    <hr>
+                    <div class='table-responsive'>
+                        <table class='table table-striped table-bordered'>
+                            <thead>
+                                <tr>
+                                    <th style="width: 35%;">Field</th>
+                                    <th style="width: 65%;">Value</th>
+                                </tr>
+                            </thead>
+                            {{#each data}}
+                            <tbody>
+                                <tr>
+                                    <td>{{@key}}</td>
+                                    <td>{{{this}}}</td>
+                                </tr>
+                            </tbody>
+                            {{/each}}
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{/if}}
+    </div>
+</div>
+{{else}}
+<div class="layout-w">
+    <div class="menu-mobile menu-activated-on-click color-scheme-dark">
+        <div class="mm-logo-buttons-w">
+            <a class="mm-logo" href="/web/account/my-profile"><img src="/web/img/logo.png"><span>Primechain</span></a>
+            <div class="mm-buttons">
+                <div class="mobile-menu-trigger">
+                    <div class=""></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div
+        class="menu-w color-scheme-light color-style-transparent menu-position-side menu-side-left menu-layout-compact sub-menu-style-over sub-menu-color-bright selected-menu-color-light menu-activated-on-hover menu-has-selected-link">
+        <div class="logo-w" style="background-color:#1b55e2;">
+            <a class="logo" href="#">
+                <div class="logo-element"></div>
+                <div class="logo-label" style="color: #ffff">
+                    Primechain
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <div class="all-wrapper with-side-panel solid-bg-all">
+        <div class="layout-w">
+            <div class="content-i">
+                <div class="content-box">
+                    {{#if error_msg}}
+                    <div class="alert alert-warning" role="alert">{{error_msg}}</div>
+                    {{/if}}
+
+                    {{#if data}}
+                    <div class="row" id="uploadDaveStatus">
+                        <div class="col-sm-12 col-xxl-12">
+                            <div class="element-box">
+                                <h5 class="form-header" id="uploadingDaveHeader">Record retrieved
+                                    successfully.
+                                </h5>
+                                <hr>
+                                <table class="table table-striped" style="width: 100%">
+                                    <thead>
+                                        <th style="width: 90%;">Description</th>
+                                        <th style="width: 10%;">Actions</th>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>The digital signature, hash and the primechain address of
+                                                the signing
+                                                entity are
+                                                retrieved from the blockchain.</td>
+                                            <td>
+                                                <i id="doc_hash" class="fa fa-check"
+                                                    style="font-size:16px;color:green; align: center;"></i>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>The encrypted data and tag are retrieved from the blockchain.</td>
+                                            <td>
+                                                <i id="doc_enc" class="fa fa-check"
+                                                    style="font-size:16px;color:green"></i>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>The encrypted data is decrypted.</td>
+                                            <td>
+                                                <i id="doc_txid" class="fa fa-check"
+                                                    style="font-size:16px;color:green"></i>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>The digital signature is verified.</td>
+                                            <td>
+                                                <i id="d_sign" class="fa fa-check"
+                                                    style="font-size:16px;color:green"></i>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    {{else}}
+                    <div class="row">
+                        <div class="col-sm-12 col-xxl-12">
+                            <div class="element-box">
+                                <h5 class="form-header" id="uploadingDaveHeader">Failed to retrieve record.
+                                </h5>
+                                <hr>
+                                <table class="table table-striped" style="width: 100%">
+                                    <thead>
+                                        <th style="width: 90%;">Description</th>
+                                        <th style="width: 10%;">Actions</th>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>The digital signature, hash and the primechain address of
+                                                the signing
+                                                entity are
+                                                retrieved from the blockchain.</td>
+                                            <td>
+                                                <i id="doc_hash" class="fa fa-times"
+                                                    style="font-size:16px;color:red; align: center;"></i>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>The encrypted data and tag are retrieved from the blockchain.</td>
+                                            <td>
+                                                <i id="doc_enc" class="fa fa-times"
+                                                    style="font-size:16px;color:red"></i>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>The encrypted data is decrypted.</td>
+                                            <td>
+                                                <i id="doc_txid" class="fa fa-times"
+                                                    style="font-size:16px;color:red"></i>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>The digital signature is verified.</td>
+                                            <td>
+                                                <i id="d_sign" class="fa fa-times" style="font-size:16px;color:red"></i>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    {{/if}}
+
+                    {{#if data}}
+                    <div class="row">
+                        <div class="col-sm-12 col-xxl-12">
+                            <div class="element-box">
+                                <h5 class="form-header">Recordhas been retrieved. This is the
+                                    output:
+                                </h5>
+                                <hr>
+                                <table class='table table-striped' style="width: 100%">
+                                    <thead>
+                                        <th style="width: 35%;">Field</th>
+                                        <th style="width: 65%;">Value</th>
+                                    </thead>
+                                    {{#each data}}
+                                    <tbody>
+                                        <td>{{@key}}</td>
+                                        <td>{{{this}}}</td>
+                                    </tbody>
+                                    {{/each}}
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    {{/if}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{/if}}

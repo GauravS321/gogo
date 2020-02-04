@@ -1,0 +1,88 @@
+{{#if user}}
+<div class="content-i">
+    <div class="content-box">
+        <div class="row">
+            <div class="col-sm-12 col-xxl-12">
+                <div class="element-box">
+                    <h5 class="form-header" id="uploadingDaveHeader">QR code for this record</h5>
+                    <hr>
+                    {{#if data}}
+                    <div id="qrcode" style="padding-left: 35%; margin-top: 10%;margin-bottom: 5%;">
+                        <input type="hidden" id="text" value={{data}}>
+                    </div>
+                    {{/if}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{else}}
+<div class="layout-w">
+    <div class="menu-mobile menu-activated-on-click color-scheme-dark">
+        <div class="mm-logo-buttons-w">
+            <a class="mm-logo" href="/web/account/my-profile"><img src="/web/img/logo.png"><span>Primechain</span></a>
+            <div class="mm-buttons">
+                <div class="mobile-menu-trigger">
+                    <div class=""></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div
+        class="menu-w color-scheme-light color-style-transparent menu-position-side menu-side-left menu-layout-compact sub-menu-style-over sub-menu-color-bright selected-menu-color-light menu-activated-on-hover menu-has-selected-link">
+        <div class="logo-w" style="background-color:#1b55e2;">
+            <a class="logo" href="#">
+                <div class="logo-element"></div>
+                <div class="logo-label" style="color: #ffff">
+                    Primechain
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <div class="all-wrapper with-side-panel solid-bg-all">
+        <div class="layout-w">
+            <div class="content-i">
+                <div class="content-box">
+                    {{#if error_msg}}
+                    <div class="alert alert-warning" role="alert">{{error_msg}}</div>
+                    {{/if}}
+
+                    <div class="row" id="uploadDaveStatus">
+                        <div class="col-sm-12 col-xxl-12">
+                            <div class="element-box">
+                                <h5 class="form-header" id="uploadingDaveHeader">Scan QR code.
+                                </h5>
+                                <hr>
+                                {{#if data}}
+                                <div id="qrcode" style="padding-left: 35%; margin-top: 10%;margin-bottom: 5%;">
+                                    <input type="hidden" id="text" value={{data}}>
+                                </div>
+                                {{/if}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{/if}}
+
+{{#if data}}
+<script>
+    window.addEventListener('load', function (e) {
+        e.preventDefault();
+        let text = document.getElementById('text').value;
+
+        let qrcode = new QRCode(document.getElementById("qrcode"), {
+            text: text,
+            width: 256,
+            height: 256,
+            colorDark: "#000000",
+            colorLight: "#ffffff",
+            correctLevel: QRCode.CorrectLevel.H
+        });
+    });
+</script>
+{{/if}}
