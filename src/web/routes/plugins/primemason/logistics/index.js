@@ -26,7 +26,7 @@ const deleteController = require('../../../../controllers/plugins/primemason/log
 // const viewPermitsController = require('../../../../controllers/plugins/primemason/logistics/view-permits');
 
 // Share permits
-const sharePermitsController = require('../../../../controllers/plugins/primemason/logistics/share');
+const shareController = require('../../../../controllers/plugins/primemason/logistics/share');
 
 // Verification
 const verifyController = require('../../../../controllers/plugins/primemason/logistics/verify');
