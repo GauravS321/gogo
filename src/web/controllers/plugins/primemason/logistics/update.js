@@ -31,7 +31,7 @@ module.exports.post = async (req, res) => {
 
            await logistics.findOneAndUpdate({ uuid }, { json });
 
-            req.flash("success_msg", "Shop details updated. ", uuid);
+            req.flash("success_msg", "Input updated. ", uuid);
             return res.redirect('/plugins/primemason/logistics/manage');
         }
     } catch (error) {
