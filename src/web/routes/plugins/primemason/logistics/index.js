@@ -20,7 +20,7 @@ const updateController = require('../../../../controllers/plugins/primemason/log
 const deleteController = require('../../../../controllers/plugins/primemason/logistics/delete');
 
 // Add new input to existing record
-const addInputController = require('../../../../controllers/plugins/primemason/logistics/add-inputs');
+const addInputController = require('../../../../controllers/plugins/primemason/logistics/add-input');
 
 // // View permits
 // const viewPermitsController = require('../../../../controllers/plugins/primemason/logistics/view-permits');
