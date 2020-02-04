@@ -64,7 +64,6 @@ module.exports.post = async (req, res) => {
     if (req.user && req.isAuthenticated()) {
         try {
             const { receiver_address, asset_name, quantity, asset_description } = req.body;
-            console.log(receiver_address, asset_name, quantity, asset_description);
 
             let response = await send(req.user.primechain_address, receiver_address, asset_name, quantity, asset_description);
 

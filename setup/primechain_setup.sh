@@ -3,6 +3,7 @@
 source primechain-api.conf
 
 ipaddress=$1
+emailaddress=$2
 
 outputfilepath=~/primechain-api.out
 rm -rf $outputfilepath
@@ -28,6 +29,11 @@ rpcpassword=`< /dev/urandom tr -dc A-Za-z0-9 | head -c40; echo`
 dbuser=`< /dev/urandom tr -dc A-Za-z0-9 | head -c20; echo`
 dbpass=`< /dev/urandom tr -dc A-Za-z0-9^_ | head -c40; echo`
 dbrootpass=`< /dev/urandom tr -dc A-Za-z0-9^_ | head -c40; echo`
+
+MongoDBUser='primechain'
+MongoDBpass=`< /dev/urandom tr -dc A-Za-z0-9^_ | head -c40; echo`
+
+
 
 echo ''
 echo ''
@@ -131,7 +137,7 @@ echo ''
 echo ''
 
 ### INSTALLING MongoDB
-bash -e ubuntu_mongodb_setup.sh 
+bash -e ubuntu_mongodb_setup.sh $MongoDBUser $MongoDBpass $emailaddress $rpcuser $rpcpassword
 
 echo ''
 echo ''
@@ -146,11 +152,22 @@ sleep 1
 
 echo -e \
 '--------------------------------------------'"\n"\
-'DATABASE CREDENTIALS'"\n"\
+'MYSQL DATABASE CREDENTIALS'"\n"\
 '--------------------------------------------'"\n"\
 'dbrootpass='$dbrootpass"\n"\
 'dbuser='$dbuser"\n"\
 'dbpass='$dbpass"\n\n"\
+ > $outputfilepath
+
+ echo -e \
+'--------------------------------------------'"\n"\
+'MONGODB DATABASE CREDENTIALS'"\n"\
+'--------------------------------------------'"\n"\
+'dbname= primechain'"\n"\
+'dbuser='$MongoDBUser"\n"\
+'dbpass='$MongoDBpass"\n"\
+'emailaddress='$emailaddress"\n\n"\
+'password='$MongoDBpass"\n\n"\
  > $outputfilepath
 
 echo ''
@@ -243,6 +260,14 @@ echo ''
 echo ''
 echo ''
 
+echo -e '======================================'
+echo -e 'LOGIN CREDENTIALS FOR WEB APPLICATION'
+echo -e '======================================'
+
+echo '###################################################'
+echo "#    emailaddress='$emailaddress                  #"          
+echo "#    password='$MongoDBpass                       #"
+echo '###################################################'
 echo ''
 echo ''
 echo -e '==================================================='
