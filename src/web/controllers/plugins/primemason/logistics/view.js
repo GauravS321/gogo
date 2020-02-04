@@ -9,6 +9,7 @@ module.exports.get = async (req, res) => {
 
             return res.render('plugins/primemason/logistics/view', {
                 dataArr: record.json,
+                inputsArr: record.json,
                 uuid: req.query.uuid,
                 username: req.user.username,
                 email: req.user.email

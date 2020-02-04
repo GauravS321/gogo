@@ -4,7 +4,7 @@ module.exports.post = async (req, res) => {
     try {
         if (req.user && req.isAuthenticated()) {
             let uuid = req.body.uuid;
-            let json = req.body;
+            let inputs = req.body;
             delete json['uuid'];
             await logistics.findOneAndUpdate({uuid},{$push: {inputs:json}});
 

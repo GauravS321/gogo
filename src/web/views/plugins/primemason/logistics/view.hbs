@@ -28,6 +28,12 @@
                                 <td>{{{this}}}</td> 
                             </tr>
                             {{/each}}{{/if}}
+                             {{#if inputsArr}} {{#each inputsArr}}
+                            <tr>
+                                <td>{{@key}}</td>
+                                <td>{{{this}}}</td> 
+                            </tr>
+                            {{/each}}{{/if}}
                         </tbody>
                     </table>
                 </div>
