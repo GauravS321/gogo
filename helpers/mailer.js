@@ -489,7 +489,7 @@ class MailNotificationEngine {
                 .catch(err => reject(err));
         });
     }
-}
+
 
      /*******************************************************************************************************************
     Send document and QR code related email (Logistics)
