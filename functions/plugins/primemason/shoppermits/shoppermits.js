@@ -33,7 +33,7 @@ module.exports.share = (sender_mail, recevier_name, receiver_email, uuid, use_ca
         try {
             const path = `uuid=${uuid}`;
 
-            await Mailer.sharePrimeMasonMail(sender_mail, recevier_name, receiver_email, use_case, path)
+            await Mailer.shareShopPermitsPrimeMasonMail(sender_mail, recevier_name, receiver_email, use_case, path)
 
             return resolve({
                 status: 200,

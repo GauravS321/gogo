@@ -4,7 +4,7 @@ const mongoose = require('mongoose'),
 const newSchema = new Schema({
 	uuid: String,
     json: Object,
-    permits: Array
+    inputs: Array
 }, { timestamps: true });
 
 module.exports = mongoose.model('logistics', newSchema);

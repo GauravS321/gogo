@@ -458,9 +458,9 @@ class MailNotificationEngine {
     }
 
      /*******************************************************************************************************************
-    Send password changed notification
+    Send document and QR code related email (Shop permits)
     *******************************************************************************************************************/
-    sharePrimeMasonMail(sender_email, receiver_name, email, use_case, path) {
+    shareShopPermitsPrimeMasonMail(sender_email, receiver_name, email, use_case, path) {
         return new Promise((resolve, reject) => {
             let subject = `Blockchain protected document`;
             //let fromAddress = `${sender_email}`;
@@ -475,6 +475,40 @@ class MailNotificationEngine {
                         <br>
                         
                         <a href=${this.baseUrl}/plugins/primemason/${use_case}/qrcode?text=${this.baseUrl}/plugins/primemason/${use_case}/view-permits?${path} style='padding: 8px 20px; background-color: #4B72FA; color: #fff; font-weight: bolder; font-size: 16px; display: inline-block; margin: 20px 0px; margin-right: 20px; text-decoration: none;'>View QRcode
+                        </a>
+                        <br>
+                        <br>`;
+
+            this.sendEmailNotification(fromAddress, [email], subject, emailBody, null, null)
+                .then(emailSent => {
+                    if (emailSent)
+                        resolve(true);
+                    else
+                        resolve(false);
+                })
+                .catch(err => reject(err));
+        });
+    }
+}
+
+     /*******************************************************************************************************************
+    Send document and QR code related email (Logistics)
+    *******************************************************************************************************************/
+    shareLogisticsPrimeMasonMail(sender_email, receiver_name, email, use_case, path) {
+        return new Promise((resolve, reject) => {
+            let subject = `Blockchain protected document`;
+            //let fromAddress = `${sender_email}`;
+            let fromAddress = `no-reply@primechaintech.com`;
+            let emailBody = `<p><strong>
+                                Hello ${receiver_name}!
+                            </strong></p>
+                            <p>A document has been shared with you.</p>
+
+                        <a href='${this.baseUrl}/plugins/primemason/${use_case}/view?${path}' style='padding: 8px 20px; background-color: #4B72FA; color: #fff; font-weight: bolder; font-size: 16px; display: inline-block; margin: 20px 0px; margin-right: 20px; text-decoration: none;'>View document
+                        </a>
+                        <br>
+                        
+                        <a href=${this.baseUrl}/plugins/primemason/${use_case}/qrcode?text=${this.baseUrl}/plugins/primemason/${use_case}/view?${path} style='padding: 8px 20px; background-color: #4B72FA; color: #fff; font-weight: bolder; font-size: 16px; display: inline-block; margin: 20px 0px; margin-right: 20px; text-decoration: none;'>View QRcode
                         </a>
                         <br>
                         <br>`;

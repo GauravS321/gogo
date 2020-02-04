@@ -19,8 +19,8 @@ const updateController = require('../../../../controllers/plugins/primemason/log
 // Delete
 const deleteController = require('../../../../controllers/plugins/primemason/logistics/delete');
 
-// // Add permits
-// const addPermitsController = require('../../../../controllers/plugins/primemason/logistics/add-permits');
+// Add new input to existing record
+const addInputController = require('../../../../controllers/plugins/primemason/logistics/add-inputs');
 
 // // View permits
 // const viewPermitsController = require('../../../../controllers/plugins/primemason/logistics/view-permits');
@@ -55,8 +55,8 @@ router.post('/share', shareController.post);
 // router.get('/manage-permits', managePermitsController.get);
 
 // * Routing for add permits 
-// router.get('/add-permits', addPermitsController.get);
-// router.post('/add-permits', addPermitsController.post);
+ //router.get('/add-inputs', addPermitsController.get);
+ router.post('/add-inputs', addInputController.post);
 
 // /** Routing for view permits */
 // router.get('/view-permits', viewPermitsController.get);
