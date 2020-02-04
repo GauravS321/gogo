@@ -2,7 +2,6 @@ const logistics = require('../../../../models/plugins/primemason/logistics');
 
 module.exports.post = async (req, res) => {
     try {
-        console.log(req.body);
         if (req.user && req.isAuthenticated()) {
             let uuid = req.body.uuid;
             let inputs = req.body;

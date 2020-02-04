@@ -7,6 +7,7 @@ module.exports.get = async (req, res) => {
         const record = await logistics.findOne({ uuid });
 
         return res.render('plugins/primemason/logistics/view-inputs', {
+            uuid,
             data: record.json,
             dataArr: record.inputs,
             username: (req.user) ? req.user.username : false,

@@ -99,7 +99,6 @@
         </div>
         {{/if}}
 
-        {{#if data}}
         <div class="row" id="DaveRetrieveStatus">
             <div class="col-sm-12 col-xxl-12">
                 <div class="element-box">
@@ -115,15 +114,17 @@
                                     <th style="width: 65%;">Value</th>
                                 </tr>
                             </thead>
-                            {{#each data}}
+                            {{#if data}} {{#each data}}
                             <tbody>
                                 <tr>
                                     <td>{{@key}}</td>
                                     <td>{{{this}}}</td>
                                 </tr>
                             </tbody>
-                            {{/each}}
+                            {{/each}}{{/if}}
                              {{#if dataArr}}{{#each dataArr}}
+                            }
+                            }
                             <tbody>
                                 <tr>
                                     <td>{{@key}}</td>
@@ -134,7 +135,6 @@
                         </table>
                          <form id="formValidate" action="/plugins/primemason/logistics/add-inputs" method="post">
                          <input type="hidden" name="uuid" value="{{uuid}}">
-                         <input type="hidden" name="json" value="{{data}}">
                             <fieldset class="form-group">
                                 <legend><span>Primary information</span></legend>
                                     <div class="row">
@@ -151,13 +151,11 @@
                         <div class="form-buttons-w">
                             <button type="submit" class="btn btn-primary"> Update</button>
                         </div>
-
                          </form>
                     </div>
                 </div>
             </div>
         </div>
-        {{/if}}
     </div>
 </div>
 {{else}}
@@ -292,7 +290,6 @@
                     </div>
                     {{/if}}
 
-                    {{#if data}}
                     <div class="row">
                         <div class="col-sm-12 col-xxl-12">
                             <div class="element-box">
@@ -305,12 +302,12 @@
                                         <th style="width: 35%;">Field</th>
                                         <th style="width: 65%;">Value</th>
                                     </thead>
-                                    {{#each data}}
+                                   {{#if data}} {{#each data}}
                                     <tbody>
                                         <td>{{@key}}</td>
                                         <td>{{{this}}}</td>
                                     </tbody>
-                                    {{/each}}
+                                    {{/each}}{{/if}}
                                      {{#if dataArr}}{{#each dataArr}}
                                     <tbody>
                                         <td>{{@key}}</td>
@@ -320,7 +317,6 @@
                                 </table>
                                 <form id="formValidate" action="/plugins/primemason/logistics/add-inputs" method="post">
                                  <input type="hidden" name="uuid" value="{{uuid}}">
-                                 <input type="hidden" name="json" value="{{data}}">
                                     <fieldset class="form-group">
                                         <legend><span>Primary information</span></legend>
                                             <div class="row">
@@ -337,7 +333,6 @@
                             </div>
                         </div>
                     </div>
-                    {{/if}}
                 </div>
             </div>
         </div>
