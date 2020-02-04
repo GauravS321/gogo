@@ -1,13 +1,13 @@
 const uuidv1 = require('uuid/v1');
 
-const logistics = require('../../../../src/web/models/plugins/primemason/logistics');
+const shoppermits = require('../../../../src/web/models/plugins/primemason/shoppermits');
 
 const Mailer = require('../../../../helpers/mailer');
 
 module.exports.create = (json) => {
     return new Promise(async (resolve, reject) => {
         try {
-            const newrecord = new logistics({
+            const newrecord = new shoppermits({
                 uuid: uuidv1(),
                 json
             });

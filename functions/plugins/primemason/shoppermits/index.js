@@ -1,4 +1,4 @@
-const { create, retrieve, share } = require('./logistics');
+const { create, retrieve, share } = require('./shoppermits');
 
 module.exports = {
     create,
