@@ -41,7 +41,7 @@ Make appropriate changes.
 
 PrimeMason plugins
 -------------
-1. Edit app.js and replicate and rename `const logisticsRoutes` in 2 places.
+1. Edit app.js and replicate and rename `logisticsRoutes` in 2 places.
 
 2. Replicate and rename the logistics folder in `src/web/routes/plugins/primemason/`
 Replace logistics in all lines.
