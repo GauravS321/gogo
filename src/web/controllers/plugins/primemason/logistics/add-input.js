@@ -4,8 +4,7 @@ module.exports.post = async (req, res) => {
     try {
         let uuid = req.body.uuid;
         let json = req.body;
-        delete json['uuid']
-
+        delete json['uuid'];
 
         await logistics.findOneAndUpdate({ uuid }, { $push: { inputs: json } });
         const record = await logistics.findOne({ uuid });

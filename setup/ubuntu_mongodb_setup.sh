@@ -18,14 +18,14 @@ echo '----------------------------------------'
 echo -e 'STARTING MONGODB.....'
 echo '----------------------------------------'
 
+sudo systemctl start mongod
 
 echo '----------------------------------------'
 echo -e 'Creating new user in MONGODB.....'
 echo '----------------------------------------'
 
-sudo sh -c "mongo --port 27017"
-sudo sh -c "use primechain"
-sudo sh -c "db.createUser({user: 'primechainuser', pwd: $MongoDBpass, roles: [ { role: 'root', db: 'primechain' } ]})"
+echo 'use primechain \n db.createUser( { user: "primechainuser", pwd: $MongoDBpass, roles: [ { role: "root", db: "primechain" } ]});' > file.js
+mongo primechain file.js
 sudo sh -c 'echo "security:\n  authorization : enabled" >> /etc/mongod.conf'
 
 sudo systemctl restart mongod
