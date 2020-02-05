@@ -5,7 +5,7 @@ module.exports.post = async (req, res) => {
         let uuid = req.body.uuid;
         let json = req.body;
         delete json['uuid'];
-        json['date'] = new Date.now();
+        json['date'] = Date.now();
 
         await logistics.findOneAndUpdate({ uuid }, { $push: { inputs: json } });
         const record = await logistics.findOne({ uuid });
