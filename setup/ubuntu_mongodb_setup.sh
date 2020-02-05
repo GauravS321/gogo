@@ -3,9 +3,7 @@ source primechain-api.conf
 
 MongoDBUser=$1
 MongoDBpass=$2
-emailaddress=$3
-rpcuser=$4
-rpcpassword=$5
+
 
 echo '----------------------------------------'
 echo -e 'INSTALLING MONGODB.....'
@@ -20,29 +18,18 @@ echo '----------------------------------------'
 echo -e 'STARTING MONGODB.....'
 echo '----------------------------------------'
 
-sudo systemctl start mongod
-
-echo ''
-echo ''
-echo '----------------------------------------'
-echo ''
-echo ''
-echo ''
-
-addr=`curl --user $rpcuser:$rpcpassword --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getaddresses", "params": [] }' -H 'content-type: text/json;' http://127.0.0.1:$rpcport | jq -r '.result[0]'`
 
 echo '----------------------------------------'
 echo -e 'Creating new user in MONGODB.....'
 echo '----------------------------------------'
 
-echo -e "use admin"
-echo -e "db.addUser($MongoDBUser, $MongoDBpass')"
-echo -e "db.auth($MongoDBUser', $MongoDBpass)"
+echo -e "use primechain"
 
-sudo systemctl restart mongod --auth $MongoDBUser  -u $MongoDBUser -p $MongoDBpass 
+echo -e "db.createUser({user: primechainuser, pwd: $MongoDBpass, roles: [ 'readWrite', 'dbAdmin']})"
+echo -e "db.auth(primechainuser, $MongoDBpass)"
 
-use primechain;
-echo -e "db.users.insert( { email: $emailaddress, password: $MongoDBpass, primechain_address: $addr})"
+sudo systemctl restart mongod
+
 
 echo ''
 echo ''
