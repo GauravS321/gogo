@@ -216,7 +216,7 @@
                                             <th style="width: 35%;">Field</th>
                                             <th style="width: 65%;">Value</th>
                                         </thead>
-                                        {{/if this}}
+                                        {{#if this}}
                                             <tbody>
                                                 {{#each this}}
                                                 <tr>
@@ -226,12 +226,12 @@
                                                 {{/each}}
                                              </tbody>
                                         {{else}}
-                                         <tbody>
-                                            <tr>
-                                                <td>{{@key}}</td>
-                                                <td>{{{this}}}</td>
-                                            </tr>
-                                         </tbody>
+                                            <tbody>
+                                                <tr>
+                                                    <td>{{@key}}</td>
+                                                    <td>{{{this}}}</td>
+                                                </tr>
+                                            </tbody>
                                         {{/if}}
                                     </table>
                                 </div>
