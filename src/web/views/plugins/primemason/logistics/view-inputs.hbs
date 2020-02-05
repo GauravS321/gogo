@@ -4,7 +4,7 @@
         {{#if error_msg}}
         <div class="alert alert-warning" role="alert">{{error_msg}}</div>
         {{/if}}
-        {{#if dataArr}}
+        {{#if inputsArr}}
         <div class="row" id="uploadDaveStatus">
             <div class="col-sm-12 col-xxl-12">
                 <div class="element-box">
@@ -98,7 +98,7 @@
             </div>
         </div>
         {{/if}}
-
+        {{#if inputsArr}}
         <div class="row" id="DaveRetrieveStatus">
             <div class="col-sm-12 col-xxl-12">
                 <div class="element-box">
@@ -158,6 +158,7 @@
                 </div>
             </div>
         </div>
+        {{/if}}
     </div>
 </div>
 {{else}}
@@ -192,7 +193,7 @@
                     <div class="alert alert-warning" role="alert">{{error_msg}}</div>
                     {{/if}}
 
-                    {{#if data}}
+                    {{#if inputsArr}}
                     <div class="row" id="uploadDaveStatus">
                         <div class="col-sm-12 col-xxl-12">
                             <div class="element-box">
@@ -292,6 +293,7 @@
                     </div>
                     {{/if}}
 
+                    {{#if inputsArr}}
                     <div class="row">
                         <div class="col-sm-12 col-xxl-12">
                             <div class="element-box">
@@ -343,6 +345,7 @@
                             </div>
                         </div>
                     </div>
+                    {{/if}}
                 </div>
             </div>
         </div>
