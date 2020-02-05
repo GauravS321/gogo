@@ -25,13 +25,15 @@
                             {{#if dataArr}} {{#each dataArr}}
                             <tr>
                                 <td>{{@key}}</td>
-                                <td>{{{this}}}</td> 
+                                <td>{{{this}}}</td>
                             </tr>
                             {{/each}}{{/if}}
-                             {{#if inputsArr}} {{#each inputsArr}}
+                            {{#if inputsArr}} {{#each inputsArr}}
                             <tr>
+                                {{#if this}} {{#each this}}
                                 <td>{{@key}}</td>
-                                <td>{{{this}}}</td> 
+                                <td>{{{this}}}</td>
+                                {{/each}}{{/if}}
                             </tr>
                             {{/each}}{{/if}}
                         </tbody>
