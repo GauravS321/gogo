@@ -118,26 +118,25 @@
                     <div class="alert alert-info" role="alert">
                     <div class="row">
                         <div class="col-sm-12 col-xxl-12">
-                    <form id="formValidate" action="/plugins/primemason/logistics/add-inputs" method="post">
-                        <input type="hidden" name="uuid" value="{{uuid}}">
-                        <fieldset class="form-group">
-                            <legend><span>Add information</span></legend>
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <label for="">User input *</label>
-                                        <input class="form-control" data-error="This field is compulsory"
-                                            id="User input" name="User input" required="required" type="text" value="">
-                                        <div class="help-block form-text with-errors form-control-feedback">
+                            <form id="formValidate" action="/plugins/primemason/logistics/add-inputs" method="post">
+                                <input type="hidden" name="uuid" value="{{uuid}}">
+                                <fieldset class="form-group">
+                                    <legend><span>Add information</span></legend>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label for="">User input *</label>
+                                                <input class="form-control" data-error="This field is compulsory" id="User input" name="User input" required="required" type="text" value="">
+                                                <div class="help-block form-text with-errors form-control-feedback">
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
+                                </fieldset>
+                                <div class="form-buttons-w">
+                                    <button type="submit" class="btn btn-primary"> Add</button>
                                 </div>
-                            </div>
-                        </fieldset>
-                        <div class="form-buttons-w">
-                            <button type="submit" class="btn btn-primary"> Add</button>
-                        </div>
-                    </form>
+                            </form>
 
                 </div>
             </div>
