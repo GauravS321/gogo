@@ -1,13 +1,13 @@
 const uuidv1 = require('uuid/v1');
 
-const shoppermits = require('../../../../src/web/models/plugins/primemason/shoppermits');
+const logistics = require('../../../../src/web/models/plugins/primemason/logistics');
 
 const Mailer = require('../../../../helpers/mailer');
 
 module.exports.create = (json) => {
     return new Promise(async (resolve, reject) => {
         try {
-            const newrecord = new shoppermits({
+            const newrecord = new logistics({
                 uuid: uuidv1(),
                 json
             });
@@ -33,7 +33,7 @@ module.exports.share = (sender_mail, recevier_name, receiver_email, uuid, use_ca
         try {
             const path = `uuid=${uuid}`;
 
-            await Mailer.shareShopPermitsPrimeMasonMail(sender_mail, recevier_name, receiver_email, use_case, path)
+            await Mailer.shareLogisticsPrimeMasonMail(sender_mail, recevier_name, receiver_email, use_case, path)
 
             return resolve({
                 status: 200,
