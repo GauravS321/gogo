@@ -137,12 +137,12 @@ echo ''
 echo ''
 
 ### INSTALLING MongoDB
-bash -e ubuntu_mongodb_setup.sh $MongoDBUser $MongoDBpass $emailaddress $rpcuser $rpcpassword
+bash -e ubuntu_mongodb_setup.sh $MongoDBpass
 
 echo ''
 echo ''
 echo -e '=================================='
-echo -e 'Mongodb INSTALLATION COMPLETED!!!'
+echo -e 'MongoDB INSTALLATION COMPLETED!!!'
 echo -e '=================================='
 echo ''
 echo ''
@@ -164,10 +164,8 @@ echo -e \
 'MONGODB DATABASE CREDENTIALS'"\n"\
 '--------------------------------------------'"\n"\
 'dbname= primechain'"\n"\
-'dbuser='$MongoDBUser"\n"\
-'dbpass='$MongoDBpass"\n"\
-'emailaddress='$emailaddress"\n\n"\
-'password='$MongoDBpass"\n\n"\
+'dbuser= primechainuser'"\n"\
+'dbpass='$MongoDBpass"\n\n"\
  > $outputfilepath
 
 echo ''
@@ -246,6 +244,22 @@ echo ''
 echo -e '========================================'
 echo -e 'Primechain SETUP COMPLETED SUCCESSFULLY!'
 echo -e '========================================'
+echo ''
+echo ''
+echo ''
+
+addr=`curl --user $rpcuser:$rpcpassword --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getaddresses", "params": [] }' -H 'content-type: text/json;' http://127.0.0.1:$rpcport | jq -r '.result[0]'`
+
+echo '----------------------------------------'
+echo -e 'Creating new user in MONGODB.....'
+echo '----------------------------------------'
+
+mongo --port 27017 -u "primechainuser" -p $MongoDBpass --authenticationDatabase "primechain"
+db.users.insert( { email: $emailaddress, password: $MongoDBpass, primechain_address: $addr})
+
+echo ''
+echo ''
+echo '----------------------------------------'
 echo ''
 echo ''
 echo ''
