@@ -60,7 +60,7 @@
         <div class="row">
             <div class="col-sm-12 col-xxl-12">
                 <div class="element-box">
-                    <h5 class="form-header">Record details:</h5>
+                    <h5 class="form-header">Record details</h5>
                     <hr>
                     <table class='table table-striped' style="width: 100%">
                         <thead>
@@ -74,7 +74,6 @@
                         </tbody>
                         {{/each}}{{/if}}
                     </table>
-                    <hr/>
                 </div>
             </div>
         </div>
@@ -222,7 +221,7 @@
                     <div class="row">
                         <div class="col-sm-12 col-xxl-12">
                             <div class="element-box">
-                                <h5 class="form-header">Record details:</h5>
+                                <h5 class="form-header">Record details</h5>
                                 <hr>
                                 <table class='table table-striped' style="width: 100%">
                                     <thead>
@@ -236,7 +235,6 @@
                                     </tbody>
                                     {{/each}}{{/if}}
                                 </table>
-                                <hr />
                             </div>
                         </div>
                     </div>
@@ -272,6 +270,12 @@
                                 </div>
                                 {{/each}}
 
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12 col-xxl-12">
+                            <div class="element-box">
                                 <form id="formValidate" action="/plugins/primemason/logistics/add-inputs" method="post">
                                     <input type="hidden" name="uuid" value="{{uuid}}">
                                     <fieldset class="form-group">
@@ -280,9 +284,7 @@
                                             <div class="col-sm-6">
                                                 <div class="form-group">
                                                     <label for="">User input *</label>
-                                                    <input class="form-control" data-error="This field is compulsory"
-                                                        id="User input" name="User input" required="required"
-                                                        type="text" value="">
+                                                    <input class="form-control" data-error="This field is compulsory" id="User input" name="User input" required="required" type="text" value="">
                                                     <div class="help-block form-text with-errors form-control-feedback">
                                                     </div>
                                                 </div>
