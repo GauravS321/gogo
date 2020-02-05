@@ -1,3 +1,4 @@
+<!-- if the user is loggedin -->
 {{#if user}}
 <div class="content-i">
     <div class="content-box">
@@ -19,8 +20,7 @@
                             <tr>
                                 <td>Record retrieved successfully.</td>
                                 <td>
-                                    <i id="doc_hash" class="fa fa-check"
-                                        style="font-size:16px;color:green; align: center;"></i>
+                                    <i id="doc_hash" class="fa fa-check" style="font-size:16px;color:green; align: center;"></i>
                                 </td>
                             </tr>
                         </tbody>
@@ -42,9 +42,7 @@
                         <tbody>
                             <tr>
                                 <td>Failed to retrieve record.</td>
-                                <td>
-                                    <i id="doc_hash" class="fa fa-times" style="font-size:16px;color:red; align: center;"></i>
-                                </td>
+                                <td><i id="doc_hash" class="fa fa-times" style="font-size:16px;color:red; align: center;"></i></td>
                             </tr>
                         </tbody>
                     </table>
@@ -93,9 +91,7 @@
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label for="">User input *</label>
-                                            <input class="form-control" data-error="This field is compulsory"
-                                                id="User input" name="User input" required="required" type="text"
-                                                value="">
+                                            <input class="form-control" data-error="This field is compulsory" id="User input" name="User input" required="required" type="text" value="">
                                             <div class="help-block form-text with-errors form-control-feedback"></div>
                                         </div>
                                     </div>
@@ -113,6 +109,7 @@
         {{/if}}
     </div>
 </div>
+<!-- if the user is not loggedin -->
 {{else}}
 <div class="layout-w">
     <div class="menu-mobile menu-activated-on-click color-scheme-dark">
@@ -125,14 +122,11 @@
             </div>
         </div>
     </div>
-    <div
-        class="menu-w color-scheme-light color-style-transparent menu-position-side menu-side-left menu-layout-compact sub-menu-style-over sub-menu-color-bright selected-menu-color-light menu-activated-on-hover menu-has-selected-link">
+    <div class="menu-w color-scheme-light color-style-transparent menu-position-side menu-side-left menu-layout-compact sub-menu-style-over sub-menu-color-bright selected-menu-color-light menu-activated-on-hover menu-has-selected-link">
         <div class="logo-w" style="background-color:#1b55e2;">
             <a class="logo" href="#">
                 <div class="logo-element"></div>
-                <div class="logo-label" style="color: #ffff">
-                    Primechain
-                </div>
+                <div class="logo-label" style="color: #ffff">Primechain</div>
             </a>
         </div>
     </div>
@@ -240,7 +234,7 @@
                                             <div class="col-sm-6">
                                                 <div class="form-group">
                                                     <label for="">User input *</label>
-                                                    <input class="form-control" data-error="This field is compulsory" id="User input" name="inputs" required="required" type="text" value="">
+                                                    <input class="form-control" data-error="This field is compulsory" id="User input" name="User input" required="required" type="text" value="">
                                                     <div class="help-block form-text with-errors form-control-feedback">
                                                     </div>
                                                 </div>
