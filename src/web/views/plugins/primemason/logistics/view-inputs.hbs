@@ -208,7 +208,7 @@
                                 </table>
                                 <hr/>
 
-                                {{#if inputsArr}}{{#each inputsArr}}
+                                {{#each inputsArr}}
                                 <h5 class="form-header">Additional data:</h5>
                                 <div class="table-responsive">
                                     <table class="table table-striped table-bordered">
@@ -216,22 +216,21 @@
                                             <th style="width: 35%;">Field</th>
                                             <th style="width: 65%;">Value</th>
                                         </thead>
-                                        {{#if this}}
                                         <tbody>
                                         {{#each this}}
                                             <tr>
                                                 <td>{{@key}}</td>
                                                 <td>{{{this}}}</td>
                                             </tr>
-                                            {{/each}}
-                                            {{else}}
-                                            <tr>
-                                                <td>{{@key}}</td>
-                                                <td>{{{this}}}</td>
-                                            </tr>
-                                            {{/if}}
+                                        {{/each}}
+                                        {{else}}
+                                        <tr>
+                                            <td>{{@key}}</td>
+                                            <td>{{{this}}}</td>
+                                        </tr>
+                                        {{/if}}
                                         </tbody>
-                                        {{/each}}{{/if}}
+                                        {{/each}}
                                     </table>
                                 </div>
 
