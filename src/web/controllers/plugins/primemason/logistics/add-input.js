@@ -8,9 +8,15 @@ module.exports.post = async (req, res) => {
 
 
         await logistics.findOneAndUpdate({ uuid }, { $push: { inputs: json } });
-
-        req.flash("success_msg", "Input added. ", uuid);
-        return res.redirect('/plugins/primemason/logistics/manage');
+        const record = await logistics.findOne({ uuid });
+        return res.render('plugins/primemason/logistics/view-inputs', {
+            uuid,
+            data: true,
+            dataArr: record.json,
+            inputsArr: record.inputs,
+            username: (req.user) ? req.user.username : false,
+            email: (req.user) ? req.user.email : false
+        });
 
     } catch (error) {
         req.flash('error_msg', "Oops. Something went wrong.");
