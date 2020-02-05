@@ -1,10 +1,12 @@
 const logistics = require('../../../../models/plugins/primemason/logistics');
+const moment = require('moment');
 
 module.exports.post = async (req, res) => {
     try {
         let uuid = req.body.uuid;
         let json = req.body;
         delete json['uuid'];
+        json['date'] = moment(Date.now()).format('MMMM Do YYYY, h:mm:ss a');
 
         await logistics.findOneAndUpdate({ uuid }, { $push: { inputs: json } });
         const record = await logistics.findOne({ uuid });
