@@ -36,25 +36,29 @@
                                         <td>{{ShopName}}</td>
                                         <td>
                                             <div class="md4">
-                                                <form id="viewForm#{{uuid}}" action="/plugins/primemason/shoppermits/view" method="GET" target="_blank">
+                                                <form id="viewForm#{{uuid}}"
+                                                    action="/plugins/primemason/shoppermits/view" method="GET"
+                                                    target="_blank">
                                                     <input type="hidden" name="uuid" value="{{uuid}}">
                                                 </form>
                                                 <button class="btn btn-success"
                                                     onclick="document.getElementById('viewForm#{{uuid}}').submit();">View</button>
                                             </div>
                                         </td>
-                                          <td>
+                                        <td>
                                             <div class="md4">
-                                                <form id="updateForm#{{uuid}}" action="/plugins/primemason/shoppermits/update" method="GET">
+                                                <form id="updateForm#{{uuid}}"
+                                                    action="/plugins/primemason/shoppermits/update" method="GET">
                                                     <input type="hidden" name="uuid" value="{{uuid}}">
                                                 </form>
                                                 <button class="btn btn-warning"
                                                     onclick="document.getElementById('updateForm#{{uuid}}').submit();">Update</button>
                                             </div>
                                         </td>
-                                          <td>
+                                        <td>
                                             <div class="md4">
-                                                <form id="deleteForm#{{uuid}}" action="/plugins/primemason/shoppermits/delete" method="POST">
+                                                <form id="deleteForm#{{uuid}}"
+                                                    action="/plugins/primemason/shoppermits/delete" method="POST">
                                                     <input type="hidden" name="uuid" value="{{uuid}}">
                                                 </form>
                                                 <button class="btn btn-danger"
@@ -64,14 +68,13 @@
 
                                         <td>
                                             <div class="md4">
-
-                                                <button class="btn btn-primary" data-target=".bd-example-modal-sm"
+                                                <button class="btn btn-primary" data-target="#{{uuid}}"
                                                     data-toggle="modal" type="button">Share</button>
 
                                                 <div aria-labelledby="mySmallModalLabel"
                                                     class="modal fade bd-example-modal-sm show" role="dialog"
                                                     tabindex="-1" aria-modal="true"
-                                                    style="padding-right: 16px; display: none;">
+                                                    style="padding-right: 16px; display: none;" id="{{uuid}}">
                                                     <div class="modal-dialog modal-sm">
                                                         <div class="modal-content">
                                                             <div class="modal-header">
@@ -82,9 +85,10 @@
                                                                         ×</span></button>
                                                             </div>
                                                             <div class="modal-body">
-                                                                <form id="shareForm#{{uuid}}" action="/plugins/primemason/shoppermits/share" method="POST">
-                                                                    <input type="hidden" name="uuid"
-                                                                        value="{{uuid}}">
+                                                                <form id="shareForm#{{uuid}}"
+                                                                    action="/plugins/primemason/shoppermits/share"
+                                                                    method="POST">
+                                                                    <input type="hidden" name="uuid" value="{{uuid}}">
                                                                     <div class="form-group"><label for="">Full
                                                                             Name</label><input class="form-control"
                                                                             placeholder="Enter Full name" type="text"
