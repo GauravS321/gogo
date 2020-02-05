@@ -218,6 +218,26 @@
                                         {{#if inputsArr}}{{#each inputsArr}}
                                         <tbody>
                                             {{#if this}}{{#each this}}
+                                            <tr>
+                                                <td>{{@key}}</td>
+                                                <td>{{{this}}}</td>
+                                            </tr>
+                                            {{/each}}{{/if}}
+                                        </tbody>
+                                        {{/each}}{{/if}}
+                                    </table>
+                                </div>
+
+                                <h5 class="form-header">Additional data:</h5>
+                                <div class="table-responsive">
+                                    <table class="table table-striped table-bordered">
+                                        <thead>
+                                            <th style="width: 35%;">Field</th>
+                                            <th style="width: 65%;">Value</th>
+                                        </thead>
+                                        {{#if inputsArr}}{{#each inputsArr}}
+                                        <tbody>
+                                            {{#if this}}{{#each this}}
                                             <td>{{@key}}</td>
                                             <td>{{{this}}}</td>
                                             {{/each}}{{/if}}
