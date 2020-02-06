@@ -1,0 +1,123 @@
+<div class="content-i">
+    <div class="content-box">
+        <div class="element-wrapper">
+            <h6 class="element-header">List all KYC Records</h6>
+            {{#if success_msg}}
+            <div class="alert alert-success" role="alert">{{success_msg}}</div>
+            {{/if}}
+            {{#if error_msg}}
+            <div class="alert alert-danger" role="alert">{{error_msg}}</div>
+            {{/if}}
+            <div class="element-box">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h5 class="form-header">List all KYC Records</h5>
+                    </div>
+                </div>
+                <hr>
+                <div class="table-responsive">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <table id="dataTable1" width="100%" class="table table-striped table-lightfont dataTable">
+                                <thead>
+                                    <tr>
+                                        <th>Full name</th>
+                                        <th>Date of birth</th>
+                                        <th>Father's name</th>
+                                        <th>Mother's name</th>
+                                        <th>Mobile number</th>
+                                        <th>View</th>
+                                        <th>Share</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {{#if dataArr}} {{#each dataArr}}
+                                    <tr>
+                                        <td>{{fullname}}</td>
+                                        <td>{{dob}}</td>
+                                        <td>{{father}}</td>
+                                        <td>{{mother}}</td>
+                                        <td>{{mobile}}</td>
+                                        <td>
+                                            <div class="md4">
+                                                <form id="viewForm#{{tx_id_enc_data}}" action="/plugins/dave/indkyc/verification"
+                                                    method="GET" target="_blank">
+                                                    <input type="hidden" name="txid_data" value="{{tx_id_enc_data}}">
+                                                    <input type="hidden" name="txid_signature"
+                                                        value="{{tx_id_signature}}">
+                                                    <input type="hidden" name="password" value="{{aes_password}}">
+                                                    <input type="hidden" name="iv" value="{{aes_iv}}">
+                                                    <input type="hidden" name="trade_channel_name"
+                                                        value="{{trade_channel_name}}">
+                                                </form>
+                                                <button class="btn btn-success"
+                                                    onclick="document.getElementById('viewForm#{{tx_id_enc_data}}').submit();">View</button>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="md4">
+
+                                                <button class="btn btn-primary" data-target=".bd-example-modal-sm"
+                                                    data-toggle="modal" type="button">Share</button>
+
+                                                <div aria-labelledby="mySmallModalLabel"
+                                                    class="modal fade bd-example-modal-sm show" role="dialog"
+                                                    tabindex="-1" aria-modal="true"
+                                                    style="padding-right: 16px; display: none;">
+                                                    <div class="modal-dialog modal-sm">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title" id="exampleModalLabel">Share
+                                                                    KYC Record</h5><button aria-label="Close"
+                                                                    class="close" data-dismiss="modal"
+                                                                    type="button"><span aria-hidden="true">
+                                                                        ×</span></button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <form id="shareForm"
+                                                                    action="/plugins/dave/indkyc/share"
+                                                                    method="POST">
+                                                                    <input type="hidden" name="txid_data"
+                                                                        value="{{tx_id_enc_data}}">
+                                                                    <input type="hidden" name="txid_signature"
+                                                                        value="{{tx_id_signature}}">
+                                                                    <input type="hidden" name="password"
+                                                                        value="{{aes_password}}">
+                                                                    <input type="hidden" name="iv" value="{{aes_iv}}">
+                                                                    <input type="hidden" name="trade_channel_name"
+                                                                        value="{{trade_channel_name}}">
+                                                                    <div class="form-group"><label for="">Full
+                                                                            Name</label><input class="form-control"
+                                                                            placeholder="Enter Full name" type="text"
+                                                                            name="receiver_name">
+                                                                    </div>
+                                                                    <div class="form-group"><label for=""> Email
+                                                                            address</label><input class="form-control"
+                                                                            placeholder="Enter email" type="email"
+                                                                            name="receiver_email">
+                                                                    </div>
+                                                                </form>
+                                                            </div>
+                                                            <div class="modal-footer"><button class="btn btn-secondary"
+                                                                    data-dismiss="modal" type="button">
+                                                                    Close</button>
+                                                                <button class="btn btn-primary"
+                                                                    onclick="document.getElementById('shareForm').submit();">
+                                                                    Share</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    {{/each}} {{/if}}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

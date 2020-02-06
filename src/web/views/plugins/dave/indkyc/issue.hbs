@@ -1,0 +1,271 @@
+<!-- BEGIN Content-->
+<div class="content-i">
+    <div class="content-box">
+        {{#if error_msg}}
+        <div class="alert alert-warning" role="alert">{{error_msg}}</div>
+        {{/if}}
+
+        <div class="progressResult" id="progressDaveResult" style="display: none;">
+            <div class="col-sm-12 col-xxl-12">
+                <div class="element-box">
+
+                    <div class="progress" style="display: none;">
+                        <div class="scrollup"></div>
+                        <div class="progress-bar progress-bar-striped">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" id="uploadDaveStatus" style="display: none;">
+            <div class="col-sm-12 col-xxl-12">
+                <div class="element-box">
+                    <h5 class="form-header" id="uploadingDaveHeader">Uploading KYC Record to Primechain</h5>
+                    <hr>
+                    <table class="table table-striped" style="width: 100%">
+                        <thead>
+                            <th style="width: 90%;">Description</th>
+                            <th style="width: 10%;">Actions</th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>The SHA-512 hash of the data is computed</td>
+                                <td>
+                                    <i id="doc_hash" class="fa fa-question"
+                                        style="font-size:16px;color:orange; align: center;"></i>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>The hash is signed using the private key of the provided primechain address (using ECDSA)</td>
+                                <td>
+                                    <i id="doc_enc" class="fa fa-question" style="font-size:16px;color:orange"></i>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>The digital signature, hash and the primechain address of the signer are stored in the blockchain</td>
+                                <td>
+                                    <i id="doc_txid" class="fa fa-question" style="font-size:16px;color:orange"></i>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>The data is encrypted using the AES (Advanced Encryption Standard) algorithm</td>
+                                <td>
+                                    <i id="d_sign" class="fa fa-question" style="font-size:16px;color:orange"></i>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>The encrypted data and the tag are published to the specified trade channel</td>
+                                <td>
+                                    <i id="sign_txid" class="fa fa-question" style="font-size:16px;color:orange"></i>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="element-box" id="form_uploaded_id">
+            <div class="row">
+                <div class="col-sm-12 col-xxl-12">
+                    <h5 class="form-header">
+                        Issue KYC Record
+                    </h5>
+                    <hr>
+                </div>
+            </div>
+
+            <form id="formValidate" class="plugins_dave_form">
+                <input type="hidden" id="trade_channel_name" name="trade_channel_name" value="DATA_MASTERLIST">
+
+            <fieldset class="form-group">
+            <legend><span>Primary information</span></legend>
+            <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group">
+                  <label for="">Full name *</label>   
+                    <input class="form-control" data-error="This field is compulsory" id="Full name" name="Full name" required="required" type="text" value="">
+                    <div class="help-block form-text with-errors form-control-feedback"></div>
+                  </div>
+                </div>
+                <div class="col-sm-3">
+                  <div class="form-group">
+                  <label for="">Date of birth *</label>   
+                    <input class="form-control" data-error="This field is compulsory" id="Date of birth" name="Date of birth" required="required" type="date" value="">
+                    <div class="help-block form-text with-errors form-control-feedback"></div>
+                  </div>
+                </div>
+                <div class="col-sm-3">
+                  <div class="form-group">
+                  <label for="">Mobile number *</label>   
+                    <input class="form-control" data-error="This field is compulsory" id="Mobile number" name="Mobile number" required="required" type="text" value="">
+                    <div class="help-block form-text with-errors form-control-feedback"></div>
+                  </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group">
+                  <label for="">Father's name *</label>   
+                    <input class="form-control" data-error="This field is compulsory" id="Father's name" name="Father's name" required="required" type="text" value="">
+                    <div class="help-block form-text with-errors form-control-feedback"></div>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                  <label for="">Mother's name *</label>   
+                    <input class="form-control" data-error="This field is compulsory" id="Mother's name" name="Mother's name" required="required" type="text" value="">
+                    <div class="help-block form-text with-errors form-control-feedback"></div>
+                  </div>
+                </div>
+            </div>
+            </fieldset>
+
+            <fieldset class="form-group">
+            <legend><span>All India Secondary School Examination (Class 10)</span></legend>
+            <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group">
+                  <label for="">Board of Education *</label>   
+                        <select class="form-control" id="Board of Education" name="Board of Education">
+                            <option value="Central Board of Secondary Education" selected="selected">Central Board of Secondary Education (CBSE)</option>
+                            <option value="Indian Certificate of Secondary Education">Indian Certificate of Secondary Education (ICSE)</option>
+                            <option value="Maharashtra State Board of Secondary & Higher Secondary Education">Maharashtra State Board of Secondary & Higher Secondary Education</option>
+                        </select>
+                        <div class="help-block form-text with-errors form-control-feedback"></div>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                  <label for="">Date of certificate *</label>   
+                    <input class="form-control" data-error="This field is compulsory" id="Date of certificate" name="Date of certificate" required="required" type="date" value="">
+                    <div class="help-block form-text with-errors form-control-feedback"></div>
+                  </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-5">
+                  <div class="form-group">
+                  <label for="">Roll number *</label>   
+                    <input class="form-control" data-error="This field is compulsory" id="Roll number" name="Roll number" required="required" type="text" value="">
+                    <div class="help-block form-text with-errors form-control-feedback"></div>
+                  </div>
+                </div>
+                <div class="col-sm-7">
+                  <div class="form-group">
+                  <label for="">Marks *</label>   
+                    <input class="form-control" data-error="This field is compulsory" id="Marks" name="Marks" required="required" type="text" value="">
+                    <div class="help-block form-text with-errors form-control-feedback"></div>
+                  </div>
+                </div>
+            </div>
+            </fieldset>
+
+                <div class="form-buttons-w">
+                    <button type="submit" class="btn btn-primary" id="issue_dave"> Issue</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="row" id="DaveIssueStatus" style="display: none;">
+            <div class="col-sm-12 col-xxl-12">
+                <div class="element-box">
+                    <h5 class="form-header">KYC record has been issued. This is the output: </h5>
+                    <hr>
+                    <div class='table-responsive'>
+                    <table class='table table-striped'>
+                        <thead>
+                            <th>Field</th>
+                            <th>Value</th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="width: 10%;">tx_id_enc_data</td>
+                                <td style="width: 90%;" id="td1"></td>
+                            </tr>
+                            <tr>
+                                <td style="width: 10%;">tx_id_signature</td>
+                                <td style="width: 90%;" id="td2"></td>
+                            </tr>
+                            <tr>
+                                <td style="width: 10%;">signature</td>
+                                <td style="width: 90%;" id="td3"></td>
+                            </tr>
+                            <tr>
+                                <td style="width: 10%;">aes_password</td>
+                                <td style="width: 90%;" id="td4"></td>
+                            </tr>
+                            <tr>
+                                <td style="width: 10%;">aes_iv</td>
+                                <td style="width: 90%;" id="td5"></td>
+                            </tr>
+                            <tr>
+                                <td style="width: 10%;">trade_channel_name</td>
+                                <td style="width: 90%;" id="td6"></td>
+                            </tr>
+                             <tr>
+                                <td style="width: 10%;">Verification url</td>
+                                <td style="width: 90%;" id="td7"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" id="DaveIssueDesc" style="display: none;">
+            <div class="col-sm-12 col-xxl-12">
+                <div class="element-box">
+                    <h5 class="form-header">Explanation of the output: </h5>
+                    <hr>
+                    <table class='table table-striped'>
+                        <thead>
+                            <th>Field</th>
+                            <th>Value</th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="width: 10%;">tx_id_enc_data</td>
+                                <td style="width: 90%; word-wrap:break-word;">the id of the transaction in which the
+                                    encrypted data and tag
+                                    were
+                                    published
+                                    to
+                                    the trade channel</td>
+                            </tr>
+                            <tr>
+                                <td style="width: 10%;">tx_id_signature</td>
+                                <td style="width: 90%; word-wrap:break-word;">the id of the
+                                    transaction in which the
+                                    digital signature, hash and the
+                                    signer's
+                                    primechain address were published to the the trade channel</td>
+                            </tr>
+                            <tr>
+                                <td style="width: 10%;">signature</td>
+                                <td style="width: 90%; word-wrap:break-word;">the digital signature</td>
+                            </tr>
+                            <tr>
+                                <td style="width: 10%;">aes_password</td>
+                                <td style="width: 90%;" id="td4">the AES password</td>
+                            </tr>
+                            <tr>
+                                <td style="width: 10%;">aes_iv</td>
+                                <td style="width: 90%;">the Initialization Vector (IV)</td>
+                            </tr>
+                            <tr>
+                                <td style="width: 10%;">trade_channel_name</td>
+                                <td style="width: 90%; word-wrap:break-word;">the name of the trade channel to which
+                                    the data is
+                                    published</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END Content-->
