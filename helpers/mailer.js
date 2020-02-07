@@ -32,7 +32,7 @@ class MailNotificationEngine {
 
         this.emailBottom = `        Have an amazing day!<br>Team Primechain<br/><br/>
 
-                                    This email contains a secure link to ${this.productName}. Please do not share this email, link, or access code with unauthorised persons.
+                                    Please do not share this email, link, or access code with unauthorised persons.
                                         
                                     </div>
                                     <div style="background-color: #F5F5F5; padding: 0px; text-align: center;">
