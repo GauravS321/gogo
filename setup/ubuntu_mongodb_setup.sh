@@ -24,8 +24,8 @@ echo '----------------------------------------'
 echo -e 'Creating new user in MONGODB.....'
 echo '----------------------------------------'
 
-echo 'use primechain \n db.createUser( { user: "primechainuser", pwd: $MongoDBpass, roles: [ { role: "root", db: "primechain" } ]});' > file.js
-mongo primechain file.js
+#mongo admin -u admin -p admin --eval "db.getSiblingDB('dummydb').createUser({user: 'dummyuser', pwd: 'dummysecret', roles: ['readWrite']})"
+mongo --eval "db.createUser( { user: 'primechainuser', pwd: $MongoDBpass, roles: [ { role: 'root', db: 'primechain' } ]});"
 sudo sh -c 'echo "security:\n  authorization : enabled" >> /etc/mongod.conf'
 
 sudo systemctl restart mongod

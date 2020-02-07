@@ -54,13 +54,13 @@
                                         </td>
                                         <td>
                                             <div class="md4">
-                                                <button class="btn btn-primary" data-target=".bd-example-modal-sm"
+                                                <button class="btn btn-primary" data-target="#shareForm{{tx_id_enc_data}}"
                                                     data-toggle="modal" type="button">Share</button>
 
                                                 <div aria-labelledby="mySmallModalLabel"
                                                     class="modal fade bd-example-modal-sm show" role="dialog"
                                                     tabindex="-1" aria-modal="true"
-                                                    style="padding-right: 16px; display: none;">
+                                                    style="padding-right: 16px; display: none;" id="shareForm{{tx_id_enc_data}}">
                                                     <div class="modal-dialog modal-sm">
                                                         <div class="modal-content">
                                                             <div class="modal-header">
@@ -99,7 +99,7 @@
                                                                     data-dismiss="modal" type="button">
                                                                     Close</button>
                                                                 <button class="btn btn-primary"
-                                                                    onclick="document.getElementById('shareForm').submit();">
+                                                                    onclick="document.getElementById('shareForm{{tx_id_enc_data}}').submit();">
                                                                     Share</button>
                                                             </div>
                                                         </div>
