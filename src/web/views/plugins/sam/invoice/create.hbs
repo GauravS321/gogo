@@ -87,13 +87,15 @@
                 <div class="element-box">
                     <form id="formValidate" class="plugins_sam_form">
                     <input type="hidden" name="asset_unit" id="asset_unit" value="1">
+                    <input type="hidden" name="asset_open" id="asset_open" value="false">
+
                         <h5 class="form-header">
                             Publish an invoice for discounting
                         </h5>
                         <hr>
 
                         <legend>
-                            <span>Name of the Loyalty Point program *</span>
+                            <span>Name of the Invoice [<Matury-date>][Payer][Number]*</span>
                         </legend>
 
                         <div class="form-group">
@@ -102,7 +104,7 @@
                         </div>
 
                         <div class="help-block form-text text-muted form-control-feedback">
-                            Enter the name of your Loyalty Point program e.g. <code>Zimblia Coffee Points</code>
+                            Name the invoice e.g. <code>[2020-12-31][Zimblia LLC][ABC123:444]</code>
                         </div>
 
                         <div class="form-desc"></div>
@@ -119,7 +121,8 @@
                                 </div>
                             </div>
 
-                            <div class="col-md-6">
+                             <!--
+                             <div class="col-md-6">
                                 <legend>
                                     <span>Type *</span>
                                 </legend>
@@ -133,7 +136,7 @@
                                 </div>
                             </div>
 
-                            <!--<div class="col-md-4">
+                           <div class="col-md-4">
                                 <legend>
                                     <span>Min divisible quantity *</span>
                                 </legend>
@@ -142,7 +145,8 @@
                                     <input class="form-control" type="number" autocomplete="off" data-error="This field is compulsory" name="asset_unit" id="asset_unit" required="required" onkeypress="return event.charCode >= 48" min="1">
                                     <div class="help-block form-text with-errors form-control-feedback"></div>
                                 </div>
-                            </div>-->
+                            </div>
+                            -->
                         </div>
 
                         <div class="form-desc"></div>
