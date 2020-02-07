@@ -462,19 +462,19 @@ class MailNotificationEngine {
     *******************************************************************************************************************/
     shareShopPermitsPrimeMasonMail(sender_email, receiver_name, email, use_case, path) {
         return new Promise((resolve, reject) => {
-            let subject = `Blockchain protected document`;
+            let subject = `Blockchain secured Shop Permits record`;
             //let fromAddress = `${sender_email}`;
             let fromAddress = `no-reply@primechaintech.com`;
             let emailBody = `<p><strong>
                                 Hello ${receiver_name}!
                             </strong></p>
-                            <p>A document has been shared with you.</p>
+                            <p>A blockchain secured Shop Permits record has been shared with you.</p>
 
                         <a href='${this.baseUrl}/plugins/primemason/${use_case}/view-permits?${path}' style='padding: 8px 20px; background-color: #4B72FA; color: #fff; font-weight: bolder; font-size: 16px; display: inline-block; margin: 20px 0px; margin-right: 20px; text-decoration: none;'>View document
                         </a>
                         <br>
                         
-                        <a href=${this.baseUrl}/plugins/primemason/${use_case}/qrcode?text=${this.baseUrl}/plugins/primemason/${use_case}/view-permits?${path} style='padding: 8px 20px; background-color: #4B72FA; color: #fff; font-weight: bolder; font-size: 16px; display: inline-block; margin: 20px 0px; margin-right: 20px; text-decoration: none;'>View QRcode
+                        <a href='${this.baseUrl}/plugins/primemason/${use_case}/qrcode?text=${this.baseUrl}/plugins/primemason/${use_case}/view-permits?${path}'' style='padding: 8px 20px; background-color: #4B72FA; color: #5db41b; font-weight: bolder; font-size: 16px; display: inline-block; margin: 20px 0px; margin-right: 20px; text-decoration: none;'>View QRcode
                         </a>
                         <br>
                         <br>`;
