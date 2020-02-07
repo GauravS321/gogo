@@ -1,0 +1,190 @@
+<!-- BEGIN Content-->
+<div class="content-i">
+    <div class="content-box" style="padding-bottom: 200px;">
+        {{#if success_msg}}
+        <div class="alert alert-info" role="alert">{{success_msg}}</div>
+        {{/if}} {{#if error_msg}}
+        <div class="alert alert-warning" role="alert">{{error_msg}}</div>
+        {{/if}} {{#if error}}
+        <div class="alert alert-danger" role="alert">{{error}}</div>
+        {{/if}}
+
+        <div class="row" id="assetStatus" style="display: none;">
+            <div class="col-sm-12 col-xxl-12">
+                <div class="element-box">
+                    <div id="info"></div>
+                    <div class='table-responsive'>
+                    <table class="table table-striped" style="width: 100%">
+                        <thead>
+                            <th style="width: 45%;">Description</th>
+                            <th style="width: 10%;">Actions</th>
+                            <th style="width: 45%;">value</th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Asset Name</td>
+                                <td>
+                                    <i id="name" class="fa fa-question"
+                                        style="font-size:16px;color:orange; align: center;"></i>
+                                </td>
+                                <td id="td1"></td>
+                            </tr>
+                            <tr>
+                                <td>Asset Quantity</td>
+                                <td>
+                                    <i id="quantity" class="fa fa-question" style="font-size:16px;color:orange"></i>
+                                </td>
+                                <td id="td2"></td>
+                            </tr>
+                            <tr>
+                                <td>Asset Open</td>
+                                <td>
+                                    <i id="open" class="fa fa-question" style="font-size:16px;color:orange"></i>
+                                </td>
+                                <td id="td3"></td>
+                            </tr>
+                            <tr>
+                                <td>Asset unit</td>
+                                <td>
+                                    <i id="unit" class="fa fa-question" style="font-size:16px;color:orange"></i>
+                                </td>
+                                <td id="td4"></td>
+                            </tr>
+                            <tr>
+                                <td>Asset description</td>
+                                <td>
+                                    <i id="description" class="fa fa-question" style="font-size:16px;color:orange"></i>
+                                </td>
+                                <td id="td5"></td>
+                            </tr>
+                            <tr>
+                                <td>Asset Reference ID</td>
+                                <td>
+                                    <i id="reference" class="fa fa-question" style="font-size:16px;color:orange"></i>
+                                </td>
+                                <td id="td6"></td>
+                            </tr>
+                            <tr>
+                                <td>Transaction ID</td>
+                                <td>
+                                    <i id="txid" class="fa fa-question" style="font-size:16px;color:orange"></i>
+                                </td>
+                                <td id="td7"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    </div>
+
+                    <div id="assetResult">
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="row" id="asset_form">
+            <div class="col-sm-12 col-xxl-12">
+                <div class="element-box">
+                    <form id="formValidate" class="plugins_sam_form">
+                    <input type="hidden" name="asset_unit" id="asset_unit" value="1">
+                    <input type="hidden" name="asset_open" id="asset_open" value="false">
+
+                    <h5 class="form-header">Publish an invoice for discounting</h5>
+                    <hr>
+
+                    <fieldset class="form-group">
+                        <div class="row">
+                            <div class="col-sm-9">
+                                <div class="form-group">
+                                    <label for=""> Name (max 32 characters)*</label>
+                                    <input class="form-control" type="text" autocomplete="off" data-error="This field is compulsory" id="asset_name" name="asset_name" required="required" maxlength="32">
+                                    <div class="help-block form-text text-muted form-control-feedback">Payer_Maturity_Currency_Amount e.g. <code>ZimbliaCo_Dec2020_USD_200000</code></div>
+                                    <div class="help-block form-text with-errors form-control-feedback"></div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <label for=""> Fractions *</label>
+                                    <input class="form-control" type="number" autocomplete="off" data-error="This field is compulsory" id="asset_quantity" name="asset_quantity" required="required" onkeypress="return event.charCode >= 48" min="1">
+                                    <div class="help-block form-text with-errors form-control-feedback"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <div class="form-desc"></div>
+
+                    <legend><span>Invoice Details *</span></legend>
+
+                    <div class="form-group">
+                        <textarea class="form-control" required="required" data-error="This field is compulsory" cols="80" id="ckeditor1" name="asset_description" rows="20" style="visibility: hidden; display: none;">
+                            <table border="1" cellpadding="1" cellspacing="1" style="width:500px">
+                                <tbody>
+                                    <tr>
+                                        <td>Payer</td>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Payee</td>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Invoice number</td>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Currency</td>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Amount in figures</td>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Amount in words</td>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Date of issue</td>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Scheduled date of payment</td>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Investor to pay&nbsp;</td>
+                                        <td>Payer / Payee</td>
+                                    </tr>
+                                    <tr>
+                                        <td>The investor will be repaid by</td>
+                                        <td>Payer / Payee</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Comments by payee</td>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Comments by payer</td>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </textarea>
+                    </div>
+
+                        <div class="help-block form-text text-muted form-control-feedback">
+                            Enter invoice details.
+                        </div>
+
+                        <div class="form-buttons-w">
+                            <input class="btn btn-md btn-primary" id="createAsset" value="Publish Invoice">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- END Content-->

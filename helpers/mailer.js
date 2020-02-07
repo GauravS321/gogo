@@ -32,7 +32,7 @@ class MailNotificationEngine {
 
         this.emailBottom = `        Have an amazing day!<br>Team Primechain<br/><br/>
 
-                                    This email contains a secure link to ${this.productName}. Please do not share this email, link, or access code with unauthorised persons.
+                                    Please do not share this email, link, or access code with unauthorised persons.
                                         
                                     </div>
                                     <div style="background-color: #F5F5F5; padding: 0px; text-align: center;">
@@ -462,22 +462,18 @@ class MailNotificationEngine {
     *******************************************************************************************************************/
     shareShopPermitsPrimeMasonMail(sender_email, receiver_name, email, use_case, path) {
         return new Promise((resolve, reject) => {
-            let subject = `Blockchain protected document`;
+            let subject = `Blockchain secured Shop Permits record`;
             //let fromAddress = `${sender_email}`;
             let fromAddress = `no-reply@primechaintech.com`;
             let emailBody = `<p><strong>
                                 Hello ${receiver_name}!
                             </strong></p>
-                            <p>A document has been shared with you.</p>
+                            <p>A blockchain secured Shop Permits record has been shared with you.</p>
 
-                        <a href='${this.baseUrl}/plugins/primemason/${use_case}/view-permits?${path}' style='padding: 8px 20px; background-color: #4B72FA; color: #fff; font-weight: bolder; font-size: 16px; display: inline-block; margin: 20px 0px; margin-right: 20px; text-decoration: none;'>View document
-                        </a>
-                        <br>
+                        <a href='${this.baseUrl}/plugins/primemason/${use_case}/view-permits?${path}' style='padding: 8px 20px; background-color: #4B72FA; color: #fff; font-weight: bolder; font-size: 16px; display: inline-block; margin: 20px 0px; margin-right: 20px; text-decoration: none;'>View record</a>
                         
-                        <a href=${this.baseUrl}/plugins/primemason/${use_case}/qrcode?text=${this.baseUrl}/plugins/primemason/${use_case}/view-permits?${path} style='padding: 8px 20px; background-color: #4B72FA; color: #fff; font-weight: bolder; font-size: 16px; display: inline-block; margin: 20px 0px; margin-right: 20px; text-decoration: none;'>View QRcode
-                        </a>
-                        <br>
-                        <br>`;
+                        <a href='${this.baseUrl}/plugins/primemason/${use_case}/qrcode?text=${this.baseUrl}/plugins/primemason/${use_case}/view-permits?${path}'' style='padding: 8px 20px; background-color: #5db41b; color: #fff; font-weight: bolder; font-size: 16px; display: inline-block; margin: 20px 0px; margin-right: 20px; text-decoration: none;'>View QRcode
+                        </a><br><br>`;
 
             this.sendEmailNotification(fromAddress, [email], subject, emailBody, null, null)
                 .then(emailSent => {
@@ -496,22 +492,16 @@ class MailNotificationEngine {
     *******************************************************************************************************************/
     shareLogisticsPrimeMasonMail(sender_email, receiver_name, email, use_case, path) {
         return new Promise((resolve, reject) => {
-            let subject = `Blockchain protected document`;
+            let subject = `Blockchain secured logistics record`;
             //let fromAddress = `${sender_email}`;
             let fromAddress = `no-reply@primechaintech.com`;
             let emailBody = `<p><strong>
                                 Hello ${receiver_name}!
                             </strong></p>
-                            <p>A document has been shared with you.</p>
-
-                        <a href='${this.baseUrl}/plugins/primemason/${use_case}/view-inputs?${path}' style='padding: 8px 20px; background-color: #4B72FA; color: #fff; font-weight: bolder; font-size: 16px; display: inline-block; margin: 20px 0px; margin-right: 20px; text-decoration: none;'>View document
-                        </a>
-                        <br>
-                        
-                        <a href=${this.baseUrl}/plugins/primemason/${use_case}/qrcode?text=${this.baseUrl}/plugins/primemason/${use_case}/view-inputs?${path} style='padding: 8px 20px; background-color: #4B72FA; color: #fff; font-weight: bolder; font-size: 16px; display: inline-block; margin: 20px 0px; margin-right: 20px; text-decoration: none;'>View QRcode
-                        </a>
-                        <br>
-                        <br>`;
+                            <p>A blockchain secured logistics record has been shared with you.</p>
+                            <a href='${this.baseUrl}/plugins/primemason/${use_case}/view-inputs?${path}' style='padding: 8px 20px; background-color: #4B72FA; color: #fff; font-weight: bolder; font-size: 16px; display: inline-block; margin: 20px 0px; margin-right: 20px; text-decoration: none;'>View record</a>
+                            <a href='${this.baseUrl}/plugins/primemason/${use_case}/qrcode?text=${this.baseUrl}/plugins/primemason/${use_case}/view-inputs?${path}' style='padding: 8px 20px; background-color: #5db41b; color: #fff; font-weight: bolder; font-size: 16px; display: inline-block; margin: 20px 0px; margin-right: 20px; text-decoration: none;'>View QRcode</a><br>
+                            <br>`;
 
             this.sendEmailNotification(fromAddress, [email], subject, emailBody, null, null)
                 .then(emailSent => {
@@ -524,5 +514,4 @@ class MailNotificationEngine {
         });
     }
 }
-
 module.exports = new MailNotificationEngine(process.env.APPLICATION_NAME);
