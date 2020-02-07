@@ -504,7 +504,7 @@ class MailNotificationEngine {
                             </strong></p>
                             <p>A blockchain secured logistics record has been shared with you.</p>
                             <a href='${this.baseUrl}/plugins/primemason/${use_case}/view-inputs?${path}' style='padding: 8px 20px; background-color: #4B72FA; color: #fff; font-weight: bolder; font-size: 16px; display: inline-block; margin: 20px 0px; margin-right: 20px; text-decoration: none;'>View record</a>
-                            <a href='${this.baseUrl}/plugins/primemason/${use_case}/qrcode?text=${this.baseUrl}/plugins/primemason/${use_case}/view-inputs?${path}' style='padding: 8px 20px; background-color: #eedc82; color: #fff; font-weight: bolder; font-size: 16px; display: inline-block; margin: 20px 0px; margin-right: 20px; text-decoration: none;'>View QRcode</a><br>
+                            <a href='${this.baseUrl}/plugins/primemason/${use_case}/qrcode?text=${this.baseUrl}/plugins/primemason/${use_case}/view-inputs?${path}' style='padding: 8px 20px; background-color: #5db41b; color: #fff; font-weight: bolder; font-size: 16px; display: inline-block; margin: 20px 0px; margin-right: 20px; text-decoration: none;'>View QRcode</a><br>
                             <br>`;
 
             this.sendEmailNotification(fromAddress, [email], subject, emailBody, null, null)
