@@ -80,6 +80,24 @@
                 <input type="hidden" id="trade_channel_name" name="trade_channel_name" value="DATA_MASTERLIST">
 
             <fieldset class="form-group">
+              <legend>
+                  <span>Student's photo *</span>
+              </legend>
+
+            <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group">
+                  <input class="form-control" type="file" id="primechainImage" name="primechainImages" required="required">
+                  <img id="primechainImagePreview" class='responsive-img' src="" style="height:256px;width:256px;padding-top:25px;display:none;">
+                  <div class="help-block form-text with-errors form-control-feedback"></div>
+                </div>
+                <div class="help-block form-text text-muted form-control-feedback">
+                   Supported image types are jpg, png.
+                </div>
+            </div>
+            </fieldset>
+
+            <fieldset class="form-group">
             <legend><span>Primary information</span></legend>
             <div class="row">
                 <div class="col-sm-6">
