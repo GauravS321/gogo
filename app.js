@@ -82,11 +82,10 @@ app.use((req, res, next) => {
   next();
 });
 
-
-
 app.use('/', userRoutes);
 app.use('/components', componentsRoutes);
 app.use('/plugins/dave/bank-guarantee', bgRoutes);
+app.use('/plugins/dave/academic', academicRoutes);
 app.use('/plugins/dave/indkyc', indkycRoutes);
 app.use('/plugins/sam/loyalty', loyaltyRoutes);
 app.use('/plugins/sam/p2p', p2pRoutes);
