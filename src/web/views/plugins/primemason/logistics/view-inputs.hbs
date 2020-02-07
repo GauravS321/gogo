@@ -57,10 +57,11 @@
         {{/if}}
 
         {{#if dataArr}}
+        <div class="alert alert-info" role="alert">
         <div class="row">
             <div class="col-sm-12 col-xxl-12">
                 <div class="element-box">
-                    <h5 class="form-header">Record details:</h5>
+                    <h5 class="form-header">Record details</h5>
                     <hr>
                     <table class='table table-striped' style="width: 100%">
                         <thead>
@@ -74,10 +75,17 @@
                         </tbody>
                         {{/each}}{{/if}}
                     </table>
-                    <hr />
+                </div>
+            </div>
+        </div>
+        </div>
 
-                    {{#each inputsArr}}
-                    <h5 class="form-header">Additional data:</h5>
+        {{#each inputsArr}}
+        <div class="alert alert-warning" role="alert">
+        <div class="row">
+            <div class="col-sm-12 col-xxl-12">
+                <div class="element-box">
+                    <h5 class="form-header"></h5>
                     <div class="table-responsive">
                         <table class="table table-striped table-bordered">
                             <thead>
@@ -103,28 +111,40 @@
                             {{/if}}
                         </table>
                     </div>
-                    {{/each}}
+                </div>
+            </div>
+        </div>
+        </div>
+        {{/each}}
 
-                    <form id="formValidate" action="/plugins/primemason/logistics/add-inputs" method="post">
-                        <input type="hidden" name="uuid" value="{{uuid}}">
-                        <fieldset class="form-group">
-                            <legend><span>Add information</span></legend>
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <label for="">User input *</label>
-                                        <input class="form-control" data-error="This field is compulsory"
-                                            id="User input" name="User input" required="required" type="text" value="">
-                                        <div class="help-block form-text with-errors form-control-feedback">
+                    <div class="alert alert-info" role="alert">
+                        <div class="row">
+                            <div class="col-sm-12 col-xxl-12">
+                                <div class="element-box">
+                                    <form id="formValidate" action="/plugins/primemason/logistics/add-inputs" method="post">
+                                        <input type="hidden" name="uuid" value="{{uuid}}">
+                                        <fieldset class="form-group">
+                                            
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <label for="">Add comments *</label>
+                                                        <input class="form-control" data-error="This field is compulsory" id="Comments" name="Comments" required="required" type="text" value="">
+                                                        <div class="help-block form-text with-errors form-control-feedback">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </fieldset>
+                                        <div class="form-buttons-w">
+                                            <button type="submit" class="btn btn-primary"> Add</button>
                                         </div>
-                                    </div>
+                                    </form>
                                 </div>
                             </div>
-                        </fieldset>
-                        <div class="form-buttons-w">
-                            <button type="submit" class="btn btn-primary"> Add</button>
                         </div>
-                    </form>
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -213,10 +233,11 @@
                     {{/if}}
 
                     {{#if dataArr}}
+                    <div class="alert alert-info" role="alert">
                     <div class="row">
                         <div class="col-sm-12 col-xxl-12">
                             <div class="element-box">
-                                <h5 class="form-header">Record details:</h5>
+                                <h5 class="form-header">Record details</h5>
                                 <hr>
                                 <table class='table table-striped' style="width: 100%">
                                     <thead>
@@ -230,10 +251,16 @@
                                     </tbody>
                                     {{/each}}{{/if}}
                                 </table>
-                                <hr />
-
-                                {{#each inputsArr}}
-                                <h5 class="form-header">Additional data:</h5>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                    {{#each inputsArr}}
+                    <div class="alert alert-warning" role="alert">
+                    <div class="row">
+                        <div class="col-sm-12 col-xxl-12">
+                            <div class="element-box">
+                                <h5 class="form-header"></h5>
                                 <div class="table-responsive">
                                     <table class="table table-striped table-bordered">
                                         <thead>
@@ -259,19 +286,24 @@
                                         {{/if}}
                                     </table>
                                 </div>
-                                {{/each}}
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                    {{/each}}
 
+                    <div class="alert alert-info" role="alert">
+                    <div class="row">
+                        <div class="col-sm-12 col-xxl-12">
+                            <div class="element-box">
                                 <form id="formValidate" action="/plugins/primemason/logistics/add-inputs" method="post">
                                     <input type="hidden" name="uuid" value="{{uuid}}">
                                     <fieldset class="form-group">
-                                        <legend><span>Add information</span></legend>
                                         <div class="row">
                                             <div class="col-sm-6">
                                                 <div class="form-group">
-                                                    <label for="">User input *</label>
-                                                    <input class="form-control" data-error="This field is compulsory"
-                                                        id="User input" name="User input" required="required"
-                                                        type="text" value="">
+                                                    <label for="">Add comments</label>
+                                                    <input class="form-control" data-error="This field is compulsory" id="Comments" name="Comments" required="required" type="text" value="">
                                                     <div class="help-block form-text with-errors form-control-feedback">
                                                     </div>
                                                 </div>
@@ -284,6 +316,7 @@
                                 </form>
                             </div>
                         </div>
+                    </div>
                     </div>
                     {{/if}}
                 </div>

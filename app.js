@@ -18,6 +18,7 @@ const userRoutes = require('./src/web/routes/users');
 const componentsRoutes = require('./src/web/routes/components');
 const bgRoutes = require('./src/web/routes/plugins/dave/bank-guarantee');
 const academicRoutes = require('./src/web/routes/plugins/dave/academic');
+const indkycRoutes = require('./src/web/routes/plugins/dave/indkyc');
 const loyaltyRoutes = require('./src/web/routes/plugins/sam/loyalty');
 const p2pRoutes = require('./src/web/routes/plugins/sam/p2p');
 const shoppermitsRoutes = require('./src/web/routes/plugins/primemason/shoppermits');
@@ -86,7 +87,7 @@ app.use((req, res, next) => {
 app.use('/', userRoutes);
 app.use('/components', componentsRoutes);
 app.use('/plugins/dave/bank-guarantee', bgRoutes);
-app.use('/plugins/dave/academic', academicRoutes);
+app.use('/plugins/dave/indkyc', indkycRoutes);
 app.use('/plugins/sam/loyalty', loyaltyRoutes);
 app.use('/plugins/sam/p2p', p2pRoutes);
 app.use('/plugins/primemason/shoppermits', shoppermitsRoutes);
