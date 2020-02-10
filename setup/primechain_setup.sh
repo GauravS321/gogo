@@ -3,7 +3,6 @@
 source primechain-api.conf
 
 ipaddress=$1
-emailaddress=$2
 
 outputfilepath=~/primechain-api.out
 rm -rf $outputfilepath
@@ -29,10 +28,6 @@ rpcpassword=`< /dev/urandom tr -dc A-Za-z0-9 | head -c40; echo`
 dbuser=`< /dev/urandom tr -dc A-Za-z0-9 | head -c20; echo`
 dbpass=`< /dev/urandom tr -dc A-Za-z0-9^_ | head -c40; echo`
 dbrootpass=`< /dev/urandom tr -dc A-Za-z0-9^_ | head -c40; echo`
-
-MongoDBUser='primechain'
-MongoDBpass=`< /dev/urandom tr -dc A-Za-z0-9^_ | head -c40; echo`
-
 
 
 echo ''
@@ -130,19 +125,19 @@ sleep 1
 echo ''
 echo ''
 echo -e '==============================='
-echo -e 'INSTALLING Mongodb INITIATED...'
+echo -e 'INSTALLING MONGODB INITIATED...'
 echo -e '==============================='
 echo ''
 echo ''
 echo ''
 
 ### INSTALLING MongoDB
-bash -e ubuntu_mongodb_setup.sh $MongoDBpass
+bash -e ubuntu_mongodb_setup.sh
 
 echo ''
 echo ''
 echo -e '=================================='
-echo -e 'MongoDB INSTALLATION COMPLETED!!!'
+echo -e 'MONGODB INSTALLATION COMPLETED!!!'
 echo -e '=================================='
 echo ''
 echo ''
@@ -242,20 +237,11 @@ echo ''
 echo ''
 
 echo -e '========================================'
-echo -e 'Primechain SETUP COMPLETED SUCCESSFULLY!'
+echo -e 'PRIMECHAIN SETUP COMPLETED SUCCESSFULLY!'
 echo -e '========================================'
 echo ''
 echo ''
 echo ''
-
-addr=`curl --user $rpcuser:$rpcpassword --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getaddresses", "params": [] }' -H 'content-type: text/json;' http://127.0.0.1:$rpcport | jq -r '.result[0]'`
-
-echo '----------------------------------------'
-echo -e 'Creating new user in MONGODB.....'
-echo '----------------------------------------'
-
-mongo --port 27017 -u "primechainuser" -p $MongoDBpass --authenticationDatabase "primechain"
-db.users.insert( { email: $emailaddress, password: $MongoDBpass, primechain_address: $addr})
 
 echo ''
 echo ''
@@ -273,15 +259,6 @@ echo -e 'http://'$ipaddress':1410'
 echo ''
 echo ''
 echo ''
-
-echo -e '======================================'
-echo -e 'LOGIN CREDENTIALS FOR WEB APPLICATION'
-echo -e '======================================'
-
-echo '###################################################'
-echo "#    emailaddress='$emailaddress                  #"          
-echo "#    password='$MongoDBpass                       #"
-echo '###################################################'
 echo ''
 echo ''
 echo -e '==================================================='

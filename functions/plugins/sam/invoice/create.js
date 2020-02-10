@@ -34,6 +34,7 @@ module.exports = (from_address, to_address, name, quantity, unit, open, descript
                         quantity,
                         details: description
                     });
+                    console.log(created_asset_info)
 
                     if (created_asset_info.status === 200) {
                         return resolve({

@@ -1,10 +1,3 @@
-#!/bin/bash
-source primechain-api.conf
-
-MongoDBUser=$1
-MongoDBpass=$2
-
-
 echo '----------------------------------------'
 echo -e 'INSTALLING MONGODB.....'
 echo '----------------------------------------'
@@ -19,17 +12,6 @@ echo -e 'STARTING MONGODB.....'
 echo '----------------------------------------'
 
 sudo systemctl start mongod
-
-echo '----------------------------------------'
-echo -e 'Creating new user in MONGODB.....'
-echo '----------------------------------------'
-
-#mongo admin -u admin -p admin --eval "db.getSiblingDB('dummydb').createUser({user: 'dummyuser', pwd: 'dummysecret', roles: ['readWrite']})"
-mongo --eval "db.createUser( { user: 'primechainuser', pwd: $MongoDBpass, roles: [ { role: 'root', db: 'primechain' } ]});"
-sudo sh -c 'echo "security:\n  authorization : enabled" >> /etc/mongod.conf'
-
-sudo systemctl restart mongod
-
 
 echo ''
 echo ''
