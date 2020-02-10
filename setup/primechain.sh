@@ -84,13 +84,17 @@ echo -e \
 
 echo -e \
 '--------------------------------------------'"\n"\
-'OAUTH API CREDENTIALS'"\n"\
+'GOOGLE API CREDENTIALS'"\n"\
 '--------------------------------------------'"\n"\
 'GOOGLE_ID=<your-id>'"\n"\
-'GOOGLE_SECRET=<your-secret>'"\n\n"\
+'GOOGLE_SECRET=<your-secret>'"\n\n" >> $appdir/.env
 
+echo -e \
+'--------------------------------------------'"\n"\
+'FACEBOOK API CREDENTIALS'"\n"\
+'--------------------------------------------'"\n"\
 'FACEBOOK_ID=<your-id>'"\n"\
-'FACEBOOK_SECRET=<your-secret>'"\n\n"\ >> $appdir/.env 
+'FACEBOOK_SECRET=<your-secret>'"\n\n" >> $appdir/.env 
 
 echo -e \
 '--------------------------------------------'"\n"\
