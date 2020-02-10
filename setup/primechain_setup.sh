@@ -251,6 +251,24 @@ echo ''
 echo ''
 echo ''
 
+homedir=`su -l $linux_admin_user -c 'cd ~ && pwd'`
+
+appdir=$homedir/primechain
+
+content=$(curl -s GET http://$ipaddress:2512/api/v1/get_api_key)
+username=$(jq -r '.api_key.username' <<< "${content}")
+password=$(jq -r '.api_key.password' <<< "${content}")
+
+
+echo -e \
+'--------------------------------------------'"\n"\
+'PRIMECHAIN-API INFORMATION'"\n"\
+'--------------------------------------------'"\n"\
+'PRIMECHAIN_USERNAME='$username"\n"\
+'PRIMECHAIN_PASSWORD='$password"\n"\
+'PRIMECHAIN_API_URN='$ipaddress"\n"\
+'PRIMECHAIN_API_PORT=2512'"\n\n" >> $appdir/.env
+
 sleep 1
 
 echo -e '==================================================='

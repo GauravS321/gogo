@@ -24,10 +24,6 @@ echo ''
 echo ''
 echo ''
 
-content=$(sudo curl -s GET http://$ipaddress:2512/api/v1/get_api_key)
-echo $content
-username=$(jq -r '.api_key.username' <<< "${content}")
-password=$(jq -r '.api_key.password' <<< "${content}")
 
 echo '--------------------------------'
 echo -e 'SETTING UP APPLICATIONS.....'
@@ -64,15 +60,6 @@ echo -e \
 'APPLICATION_PORT=1410'"\n"\
 'APPLICATION_NAME=primechain'"\n"\
 'APPLICATION_SESSION_SECRET='$sessionkey"\n\n" >>  $appdir/.env
-
-echo -e \
-'--------------------------------------------'"\n"\
-'PRIMECHAIN-API INFORMATION'"\n"\
-'--------------------------------------------'"\n"\
-'PRIMECHAIN_USERNAME='$username"\n"\
-'PRIMECHAIN_PASSWORD='$password"\n"\
-'PRIMECHAIN_API_URN='$ipaddress"\n"\
-'PRIMECHAIN_API_PORT=2512'"\n\n" >> $appdir/.env
 
 echo -e \
 '--------------------------------------------'"\n"\
