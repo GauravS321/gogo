@@ -25,6 +25,7 @@ echo ''
 echo ''
 
 content=$(curl -s GET http://$ipaddress:2512/api/v1/get_api_key)
+echo $content
 username=$(jq -r '.api_key.username' <<< "${content}")
 password=$(jq -r '.api_key.password' <<< "${content}")
 
