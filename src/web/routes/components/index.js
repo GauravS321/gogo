@@ -4,6 +4,7 @@ const router = require('express').Router();
 const parametersController = require('../../controllers/components/blockchain/parameters');
 const informationController = require('../../controllers/components/blockchain/information');
 const runtimeParametersController = require('../../controllers/components/blockchain/runtime-parameters');
+const peerinfoController = require('../../controllers/components/blockchain/peerinfo');
 
 // User management
 const userManagementController = require('../../controllers/components/user-management');
@@ -67,6 +68,7 @@ const wizardDeleteContoller = require('../../controllers/components/wizard/delet
 router.get('/blockchain/parameters', parametersController.get);
 router.get('/blockchain/information', informationController.get);
 router.get('/blockchain/runtime-parameters', runtimeParametersController.get);
+router.get('/blockchain/peer_info', peerinfoController.get);
 
 // User management
 // User list
