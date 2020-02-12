@@ -35,19 +35,19 @@ module.exports.issue = (primechain_address, json) => {
 
                 await newRecord.save();
 
-                return resolve({
+                resolve({
                     status: 200,
                     msg: response.response
                 });
             }
             else {
-                return reject({
+                reject({
                     status: 500,
                     error: response.message
                 });
             }
         } catch (error) {
-            return reject({
+            reject({
                 status: 500,
                 message: error.message
             });

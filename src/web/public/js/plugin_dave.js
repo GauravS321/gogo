@@ -1,16 +1,20 @@
 $('#issue_dave').off('click').on('click', function (e) {
     e.preventDefault();
 
-    var formBody = {};
+    var formData = new FormData();
     var elem = document.getElementsByClassName('plugins_dave_form')[0].elements;
 
     for (var i = 0; i < elem.length; i++) {
         if (elem[i].name !== "") {
             if (elem[i].type === "textarea") {
-                formBody[elem[i].name] = CKEDITOR.instances.ckeditor1.getData();
+                formData.append([elem[i].name], CKEDITOR.instances.ckeditor1.getData())
+            }
+            else if (elem[i].type === "file") {
+                var image = $(`#${elem[i].id}`).get(0).files;
+                formData.append([elem[i].name], image[0], image[0].name);
             }
             else {
-                formBody[elem[i].name] = elem[i].value;
+                formData.append([elem[i].name], elem[i].value);
             }
         }
     }
@@ -20,6 +24,8 @@ $('#issue_dave').off('click').on('click', function (e) {
         url: `${window.location.pathname}`,
 
         success: function (res) {
+            console.log(res);
+
             if (res && res["success"]) {
                 var bar = $(".progress-bar");
 
@@ -131,10 +137,15 @@ $('#issue_dave').off('click').on('click', function (e) {
             }
             else {
                 alert(res['message']);
-                window.location.href = `${window.location.pathname}`;
+                // window.location.href = `${window.location.pathname}`;
             }
         },
-        data: formBody,
+        async: true,
+        data: formData,
+        contentType: false,
+        cache: false,
+        processData: false,
+        timeout: 50000
     });
 });
 

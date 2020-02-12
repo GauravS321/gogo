@@ -115,14 +115,24 @@
                                     <th style="width: 65%;">Value</th>
                                 </tr>
                             </thead>
-                            {{#each data}}
+
                             <tbody>
+                                {{#if image}}
+                                <tr>
+                                    <td>Image</td>
+                                    <td><img id="primechainImagePreview" class='responsive-img row'
+                                            onerror="this.src='/web/img/buddha.jpg';" ; alt="Image" src="{{image}}"
+                                            style="width:128px;height:128px; margin-left: 10px;"></td>
+                                </tr>
+                                {{/if}}
+                                {{#each data}}
                                 <tr>
                                     <td>{{@key}}</td>
                                     <td>{{{this}}}</td>
                                 </tr>
+                                {{/each}}
                             </tbody>
-                            {{/each}}
+
                         </table>
                     </div>
                 </div>
@@ -276,12 +286,24 @@
                                         <th style="width: 35%;">Field</th>
                                         <th style="width: 65%;">Value</th>
                                     </thead>
-                                    {{#each data}}
                                     <tbody>
-                                        <td>{{@key}}</td>
-                                        <td>{{{this}}}</td>
+                                        {{#if image}}
+                                        <tr>
+                                            <td>Image</td>
+                                            <td> <img id="primechainImagePreview" class='responsive-img row'
+                                                    onerror="this.src='/web/img/avatar.jpg';" ; alt="Image"
+                                                    src="{{image}}" style="width:128px;height:128px;margin-left:10px;">
+                                            </td>
+                                            {{/if}}
+                                        </tr>
+                                        {{#each data}}
+                                        <tr>
+                                            <td>{{@key}}</td>
+                                            <td>{{{this}}}</td>
+                                        </tr>
+                                        {{/each}}
                                     </tbody>
-                                    {{/each}}
+
                                 </table>
                             </div>
                         </div>

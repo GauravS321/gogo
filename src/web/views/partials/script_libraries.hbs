@@ -94,6 +94,12 @@
         });
     });
 
+    $("#primechainImage").change(function (e) {
+        e.preventDefault();
+        readURLImage(this);
+    });
+
+
     function readURLImage(input) {
         $("#primechainImagePreview").val('');
 

@@ -4,7 +4,6 @@ const cookieParser = require('cookie-parser');
 const flash = require('connect-flash');
 const express = require('express');
 const expressHbs = require('express-handlebars');
-const expressFileupload = require('express-fileupload');
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 const path = require('path');
@@ -55,7 +54,6 @@ app.use(session({
     url: process.env.MONGODB_URI
   })
 }));
-app.use(expressFileupload());
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -74,6 +72,8 @@ expressHbs.create({
 });
 
 app.use('/web', express.static(path.join(__dirname, '/src/web/public')));
+
+app.use('/plugins/dave/indkyc/uploads', express.static('uploads'));
 
 app.use((req, res, next) => {
   res.locals.user = req.isAuthenticated();

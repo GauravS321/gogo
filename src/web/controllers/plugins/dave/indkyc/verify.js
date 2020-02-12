@@ -3,9 +3,13 @@ const { retrieve } = require('../../../../../../functions/plugins/dave/indkyc');
 module.exports.get = async (req, res) => {
     try {
         let response = await retrieve(req.query);
-
+        let data = response.msg.data;      
+        let image = data['image'];
+    
+        delete data['image'];
         return res.render('plugins/dave/indkyc/verification', {
-            data: response.msg['data'],
+            data,
+            image,
             username: (req.user) ? req.user.username : false,
             email: (req.user) ? req.user.email : false
         });
