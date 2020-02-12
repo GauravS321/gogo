@@ -41,3 +41,5 @@ cd ~
 cd primechain
 sudo git pull && npm i && pm2 restart 1
 ```
+## 4. Adding nodes
+https://github.com/Primechain/primechain_nodes/blob/master/README.md

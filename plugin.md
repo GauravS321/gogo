@@ -59,3 +59,4 @@ Change key fields in line 10 of `--academic--.js`. Max 5 fields.
 6. Replicate and rename the logistics folder in `src/web/models/plugins/primemason`
 
 7. Change main menu and mobile menu in `src/web/views/partials`
+
