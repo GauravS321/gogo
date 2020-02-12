@@ -68,7 +68,7 @@ const wizardDeleteContoller = require('../../controllers/components/wizard/delet
 router.get('/blockchain/parameters', parametersController.get);
 router.get('/blockchain/information', informationController.get);
 router.get('/blockchain/runtime-parameters', runtimeParametersController.get);
-router.get('/blockchain/peer_info', peerinfoController.get);
+router.get('/blockchain/peer-info', peerinfoController.get);
 
 // User management
 // User list
