@@ -7,10 +7,10 @@ module.exports = (primechain_address, ask_asset_name, ask_asset_quantity, offer_
                 {
                     "primechain_address": primechain_address,
                     "ask_asset": {
-                        [ask_asset_name]:ask_asset_quantity
+                        [ask_asset_name]: parseInt(ask_asset_quantity)
                     },
                     "offer_asset": {
-                        [offer_asset_name]:offer_asset_quantity
+                        [offer_asset_name]: parseInt(offer_asset_quantity)
                 }
             });
 
