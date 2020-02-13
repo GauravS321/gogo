@@ -68,7 +68,7 @@ router.post('/account/myassets/send', myAssetsSendController.post);
 
 // My assets - offer asset
 //router.get('/account/myassets/offer', myAssetsCreateOfferController.get);
-router.get('/account/myassets/transfer/:name', myAssetsSendController.get);
+router.get('/account/myassets/offer/:name', myAssetsCreateOfferController.get);
 //router.get('/account/myassets/transfer/:assetref/:primechain_address', myAssetsSendController.get_thru_qr);
 //router.post('/account/myassets/send', myAssetsSendController.post);
 
