@@ -26,7 +26,7 @@ const myAssetsTransferController = require('../../controllers/users/account/myas
 const myAssetsSendController = require('../../controllers/users/account/myassets/send');
 
 // My assets create offer controller
-const myAssetsCreateOfferController = require('../../controllers/users/account/myassets/create');
+const myAssetsCreateOfferController = require('../../controllers/users/account/myassets/offer');
 
 // User change-password controller
 const changePasswordContoller = require('../../controllers/users/account/change-password');
