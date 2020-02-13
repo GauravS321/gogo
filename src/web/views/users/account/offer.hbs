@@ -19,32 +19,35 @@
 
                         <fieldset class="form-group">
                             <legend>
-                                <span>Asset asked for *</span>
+                                <span>Asset offerred *</span>
                             </legend>
 
                             <div class="row">
-                                <div class="col-sm-6">
+                                <div class="col-sm-9">
                                     <div class="form-group">
                                         <label for="">Asset name *</label>
-                                        <input>
+                                    {{#if asset_name}}
+                                        <input class="form-control" type="text" autocomplete="off"
+                                            data-error="This field is compulsory" name="asset_name"
+                                            required="required" maxlength="32" value="{{asset_name}}" readonly>
+                                            {{else}}
+                                             <input class="form-control" type="text" autocomplete="off"
+                                            data-error="This field is compulsory" name="asset_name"
+                                            required="required" maxlength="32" value="">
+                                            {{/if}}
                                         <div class="help-block form-text with-errors form-control-feedback"></div>
-                                    </div>
-                                    <div class="help-block form-text text-muted form-control-feedback">
-                                        Supported image types are jpg, png.
                                     </div>
                                 </div>
-                                <div class="col-sm-6">
+                                <div class="col-sm-3">
                                     <div class="form-group">
-                                        <label for="">Asset name *</label>
-                                        <input>
+                                        <label for="">Asset quantity *</label>
+                                        <input class="form-control" type="number" autocomplete="off"
+                                            data-error="This field is compulsory" id="asset_quantity" name="quantity"
+                                            required="required" onkeypress="return event.charCode >= 48" min="1">
                                         <div class="help-block form-text with-errors form-control-feedback"></div>
-                                    </div>
-                                    <div class="help-block form-text text-muted form-control-feedback">
-                                        Supported image types are jpg, png.
                                     </div>
                                 </div>
                         </fieldset>
-
 
                         <fieldset class="form-group">
                             <legend>
@@ -77,7 +80,7 @@
                                     </div>
                                 </div>
                         </fieldset>
-
+                        
                     </form>
                 </div>
             </div>
