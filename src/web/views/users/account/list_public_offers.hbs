@@ -23,8 +23,8 @@
                     <tbody>
                         {{#if assets}} {{#each assets}}
                         <tr>
-                            <td>{{ask_asset}} {{bid_amount}}</td>
-                            <td>{{offer_asset}} {{offer_amount}}</td>
+                            <td>{{ask_asset}} ({{bid_amount}})</td>
+                            <td>{{offer_asset}} ({{offer_amount}})</td>
                             <td>
                                 <form action='/account/myassets/offer/{{name}}'>
                                     <button class="btn btn-md btn-danger" type="submit">Cancel</button>
