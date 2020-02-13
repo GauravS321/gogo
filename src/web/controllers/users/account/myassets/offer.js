@@ -3,6 +3,7 @@ const listAssets = require('../../../../../../functions/users/account/myassets/l
 module.exports.get = async (req, res) => {
     if (req.user && req.isAuthenticated()) {
         try {
+            const name = (req.params.name) ? req.params.name : "";
             let response = await listAssets(req.user.primechain_address);
 
             return res.render('users/account/offer', {
