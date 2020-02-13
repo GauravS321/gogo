@@ -13,17 +13,20 @@
                             style="table-layout: fixed; width: 100%">
                             <thead>
                                 <tr>
-                                    <th>id</th>
+                                    <th>IP address</th>
+                                    <th>Version</th>
+                                    <th>Sub-version</th>
                                     <th>handshakelocal</th>
                                     <th>handshake</th>
-
                                 </tr>
                             </thead>
 
                             <tbody>
                                 {{#if peerinfo}}{{#each peerinfo}}
                                 <tr>
-                                    <td style="word-wrap: break-word">{{id}}</td>
+                                    <td style="word-wrap: break-word">{{addr}}</td>
+                                    <td style="word-wrap: break-word">{{version}}</td>
+                                    <td style="word-wrap: break-word">{{subver}}</td>
                                     <td style="word-wrap: break-word">{{handshakelocal}}</td>
                                     <td style="word-wrap: break-word">{{handshake}}</td>
                                 </tr>

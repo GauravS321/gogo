@@ -7,7 +7,7 @@ const Mailer = require('../../../../helpers/mailer');
 module.exports.issue = (primechain_address, json) => {
     return new Promise(async (resolve, reject) => {
         try {
-            const keys = [json["Full name"], json["Date of birth"], json["Father's name"], json["Mother's name"], json["Mobile number"]];
+            const keys = [json["Account no"], json["Full name"], json["Date of birth"], json["Father's name"], json["Mobile number"]];
 
             let trade_channel_name = json.trade_channel_name;
 
@@ -106,7 +106,7 @@ module.exports.share = (sender_mail, recevier_name, receiver_email, body, use_ca
 
             const path = `txid_data=${tx_id_enc_data}&txid_signature=${tx_id_signature}&password=${aes_password}&iv=${aes_iv}&trade_channel_name=${trade_channel_name}`;
 
-            await Mailer.shareVerificationMail(sender_mail, recevier_name, receiver_email, use_case, path)
+            await Mailer.individualKYCMail(sender_mail, recevier_name, receiver_email, use_case, path)
 
             return resolve({
                 status: 200,

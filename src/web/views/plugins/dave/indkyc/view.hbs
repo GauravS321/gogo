@@ -21,22 +21,23 @@
                             <table id="dataTable1" width="100%" class="table table-striped table-lightfont dataTable">
                                 <thead>
                                     <tr>
+                                        <th>Address</th>
                                         <th>Full name</th>
                                         <th>Date of birth</th>
                                         <th>Father's name</th>
-                                        <th>Mother's name</th>
                                         <th>Mobile number</th>
                                         <th>View</th>
                                         <th>Share</th>
+                                        <th>QR</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     {{#if dataArr}} {{#each dataArr}}
                                     <tr>
+                                        <td>{{primechainaddress}}</td>
                                         <td>{{fullname}}</td>
                                         <td>{{dob}}</td>
                                         <td>{{father}}</td>
-                                        <td>{{mother}}</td>
                                         <td>{{mobile}}</td>
                                         <td>
                                             <div class="md4">
@@ -110,6 +111,32 @@
                                                 </div>
                                             </div>
                                         </td>
+                                        <td>
+                                            <div class="md4">
+                                                <button class="btn btn-success" data-target="#qr#{{tx_id_enc_data}}" data-toggle="modal"
+                                                    type="button" onclick="displayQRcode('{{tx_id_enc_data}}', '{{tx_id_signature}}', '{{aes_password}}', '{{aes_iv}}', '{{trade_channel_name}}')">QR</button>
+
+                                                <div aria-labelledby="mySmallModalLabel" class="modal fade bd-example-modal-sm show"
+                                                    role="dialog" tabindex="-1" aria-modal="true"
+                                                    style="padding-right: 16px; display: none;" id="qr#{{tx_id_enc_data}}">
+                                                    <div class="modal-dialog modal-sm">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title" id="exampleModalLabel">Primechain</h5><button
+                                                                    aria-label="Close" class="close" data-dismiss="modal"
+                                                                    type="button"><span aria-hidden="true">×</span></button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <p>{{fullname}}</p>
+                                                                <hr/>
+                                                                <div id="qrcode#{{tx_id_enc_data}}"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+
                                     </tr>
                                     {{/each}} {{/if}}
                                 </tbody>
@@ -121,3 +148,20 @@
         </div>
     </div>
 </div>
+<script>
+    function displayQRcode(tx_id_enc_data, tx_id_signature, aes_password, aes_iv, trade_channel_name) {
+        let text = `${window.location.origin}/plugins/dave/indkyc/verification?txid_data=${tx_id_enc_data}&txid_signature=${tx_id_signature}&password=${aes_password}&iv=${aes_iv}&trade_channel_name=${trade_channel_name}`;
+        
+        let output = document.getElementById(`qrcode#${tx_id_enc_data}`);
+        output.innerHTML = '';
+
+        let qrcode= new QRCode(output, {
+            text: text,
+            width: 256,
+            height: 256,
+            colorDark: "#000000",
+            colorLight: "#ffffff",
+            correctLevel: QRCode.CorrectLevel.H
+        }); 
+    }
+</script>
