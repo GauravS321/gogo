@@ -3,12 +3,10 @@ const createOffer = require('../../../../../../functions/users/account/myassets/
 module.exports.get = async (req, res) => {
     if (req.user && req.isAuthenticated()) {
         try {
-            const name = (req.params.name) ? req.params.name : "";
-            console.log(name, req.params.name);
-            let response = await listAssets(req.user.primechain_address);
+            const asset_name = (req.params.name) ? req.params.name : "";
 
             return res.render('users/account/offer', {
-                asset_name: name,
+                asset_name,
                 username: req.user.username,
                 email: req.user.email,
                 primechain_address: req.user.primechain_address
@@ -20,7 +18,6 @@ module.exports.get = async (req, res) => {
                 primechain_address: req.user.primechain_address
             });
         }
-
     }
     return res.redirect('/login');
 }
