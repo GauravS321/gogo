@@ -1,4 +1,4 @@
-const listOffers = require('../../../../../../functions/users/account/myassets/offer/list-offer');
+const listOffers = require('../../../../../../functions/users/account/myassets/list-offers');
 
 module.exports.get = async (req, res) => {
     if (req.user && req.isAuthenticated()) {
