@@ -8,10 +8,10 @@ module.exports.get = async (req, res) => {
 
             records.forEach(record => {
                 records_list.push({
-                    fullname: record.keys[0],
-                    dob: record.keys[1],
-                    father: record.keys[2],
-                    mother: record.keys[3],
+                    primechainaddress: record.keys[0],
+                    fullname: record.keys[1],
+                    dob: record.keys[2],
+                    father: record.keys[3],
                     mobile: record.keys[4],
                     tx_id_enc_data: record.tx_id_enc_data,
                     tx_id_signature: record.tx_id_signature,
