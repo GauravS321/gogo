@@ -6,7 +6,7 @@ module.exports.get = async (req, res) => {
             let response = await listAssets(req.user.primechain_address);
 
             return res.render('users/account/offer', {
-                assets: response.msg,
+                asset_name: name,
                 username: req.user.username,
                 email: req.user.email,
                 primechain_address: req.user.primechain_address
