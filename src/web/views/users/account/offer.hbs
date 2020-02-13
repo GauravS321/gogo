@@ -13,7 +13,7 @@
             <div class="col-sm-12 col-xxl-12">
                 <div class="element-box">
                     <form id="formValidate" action="/account/myassets/send" method="POST">
-                        <h5 class="form-header">Create an offer</h5>
+                        <h5 class="form-header">Create a public offer</h5>
                         <hr>
                         <input class="form-control" type="hidden" id="offer_creator_address" name="offer_creator_address" value="{{primechain_address}}">
 
@@ -51,7 +51,7 @@
 
                         <fieldset class="form-group">
                             <legend>
-                                <span>Asset offerred *</span>
+                                <span>Asset asked for *</span>
                             </legend>
 
                             <div class="row">
@@ -80,7 +80,9 @@
                                     </div>
                                 </div>
                         </fieldset>
-                        
+                    <div class="form-buttons-w">
+                        <button type="submit" class="btn btn-primary" id="issue_dave"> Issue</button>
+                    </div>
                     </form>
                 </div>
             </div>
