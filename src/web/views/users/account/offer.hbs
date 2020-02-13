@@ -13,84 +13,67 @@
             <div class="col-sm-12 col-xxl-12">
                 <div class="element-box">
                     <form id="formValidate" action="/account/myassets/send" method="POST">
-                        <h5 class="form-header">
-                            Create an offer
-                        </h5>
+                        <h5 class="form-header">Create an offer</h5>
                         <hr>
-                        <br>
-                        <legend>
-                            <span>1. Receiver's blockchain address *</span>
-                        </legend>
+                        <input class="form-control" type="hidden" id="offer_creator_address" name="offer_creator_address" value="{{primechain_address}}">
 
-                        <div class="form-group">
-                        {{#if primechain_address}}
-                            <input class="form-control" type="text" autocomplete="off"
-                                data-error="This field is compulsory" id="to_address" name="receiver_address"
-                                required="required" maxlength="38" value="{{primechain_address}}" readonly>
-                                {{else}}
-                                 <input class="form-control" type="text" autocomplete="off"
-                                data-error="This field is compulsory" id="to_address" name="receiver_address"
-                                required="required" maxlength="38">
-                                {{/if}}
-                            <div class="help-block form-text with-errors form-control-feedback"></div>
-                        </div>
+                        <fieldset class="form-group">
+                            <legend>
+                                <span>Asset asked for *</span>
+                            </legend>
 
-                        <div class="help-block form-text text-muted form-control-feedback">
-                            The entity that receives the newly created asset. It must have receive permission.
-                        </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <input>
+                                        <div class="help-block form-text with-errors form-control-feedback"></div>
+                                    </div>
+                                    <div class="help-block form-text text-muted form-control-feedback">
+                                        Supported image types are jpg, png.
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <input>
+                                        <div class="help-block form-text with-errors form-control-feedback"></div>
+                                    </div>
+                                    <div class="help-block form-text text-muted form-control-feedback">
+                                        Supported image types are jpg, png.
+                                    </div>
+                                </div>
+                        </fieldset>
 
-                        <div class="form-desc"></div>
 
-                        <legend>
-                            <span>2. Name of the asset *</span>
-                        </legend>
+                        <fieldset class="form-group">
+                            <legend>
+                                <span>Asset offerred *</span>
+                            </legend>
 
-                        <div class="form-group">
-                        {{#if asset_name}}
-                            <input class="form-control" type="text" autocomplete="off"
-                                data-error="This field is compulsory" name="asset_name"
-                                required="required" maxlength="32" value="{{asset_name}}" readonly>
-                                {{else}}
-                                 <input class="form-control" type="text" autocomplete="off"
-                                data-error="This field is compulsory" name="asset_name"
-                                required="required" maxlength="32" value="">
-                                {{/if}}
-                            <div class="help-block form-text with-errors form-control-feedback"></div>
-                        </div>
+                            <div class="row">
+                                <div class="col-sm-9">
+                                    <div class="form-group">
+                                    {{#if asset_name}}
+                                        <input class="form-control" type="text" autocomplete="off"
+                                            data-error="This field is compulsory" name="asset_name"
+                                            required="required" maxlength="32" value="{{asset_name}}" readonly>
+                                            {{else}}
+                                             <input class="form-control" type="text" autocomplete="off"
+                                            data-error="This field is compulsory" name="asset_name"
+                                            required="required" maxlength="32" value="">
+                                            {{/if}}
+                                        <div class="help-block form-text with-errors form-control-feedback"></div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <input class="form-control" type="number" autocomplete="off"
+                                            data-error="This field is compulsory" id="asset_quantity" name="quantity"
+                                            required="required" onkeypress="return event.charCode >= 48" min="1">
+                                        <div class="help-block form-text with-errors form-control-feedback"></div>
+                                    </div>
+                                </div>
+                        </fieldset>
 
-                        <div class="form-desc"></div>
-
-                        <legend>
-                            <span>4. Quantity *</span>
-                        </legend>
-
-                        <div class="form-group">
-                            <input class="form-control" type="number" autocomplete="off"
-                                data-error="This field is compulsory" id="asset_quantity" name="quantity"
-                                required="required" onkeypress="return event.charCode >= 48" min="1">
-                            <div class="help-block form-text with-errors form-control-feedback"></div>
-                        </div>
-
-                        <div class="help-block form-text text-muted form-control-feedback">
-                            Enter the quantity of the asset / number of fractions e.g. <code>1250 </code>
-                        </div>
-                        <div class="form-desc"></div>
-
-                        <legend>
-                            <span>5. Transaction description *</span>
-                        </legend>
-
-                        <div class="form-group">
-                            <textarea class="form-control" required="required" data-error="This field is compulsory" cols="80" id="ckeditor1" name="asset_description" rows="10" style="visibility: hidden; display: none;"></textarea>
-                        </div>
-
-                        <div class="help-block form-text text-muted form-control-feedback">
-                            Enter a brief description of the transaction.
-                        </div>
-
-                        <div class="form-buttons-w">
-                            <button class="btn btn-primary" type="submit"> Transfer</button>
-                        </div>
                     </form>
                 </div>
             </div>
