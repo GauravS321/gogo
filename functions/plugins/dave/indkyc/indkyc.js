@@ -7,7 +7,7 @@ const Mailer = require('../../../../helpers/mailer');
 module.exports.issue = (primechain_address, json) => {
     return new Promise(async (resolve, reject) => {
         try {
-            const keys = [json["Full name"], json["Date of birth"], json["Father's name"], json["Mother's name"], json["Mobile number"]];
+            const keys = [json["Account no"], json["Full name"], json["Date of birth"], json["Father's name"], json["Mobile number"]];
 
             let trade_channel_name = json.trade_channel_name;
 
