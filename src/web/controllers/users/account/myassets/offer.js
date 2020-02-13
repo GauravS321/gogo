@@ -31,7 +31,7 @@ module.exports.post = async (req, res) => {
             const ask_asset_name = req.body.ask_asset_name;
             const ask_asset_quantity = req.body.ask_asset_quantity;
             let response = await createOffer(primechain_address, ask_asset_name, ask_asset_quantity, offer_asset_name, offer_asset_quantity);
-            req.flash('success_msg', 'Public offer created successfully', response.offer_txid);
+            req.flash('success_msg', 'Public offer created successfully', response.offer_tx_id);
             res.redirect('/account/myassets/offer/list');
 
         } catch (error) {
