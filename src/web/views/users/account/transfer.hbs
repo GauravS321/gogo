@@ -17,9 +17,10 @@
                         <tr>
                             <th>Asset Name</th>
                             <th>Asset ID</th>
-                            <th>balance</th>
+                            <th>Balance</th>
                             <th>Transfer</th>
                             <th>QR</th>
+                            <th>Offer</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -60,6 +61,11 @@
                                         </div>
                                     </div>
                                 </div>
+                            </td>
+                            <td>
+                                <form action='/account/myassets/offer/{{name}}'>
+                                    <button class="btn btn-md btn-warning" type="submit">Offer</button>
+                                </form>
                             </td>
                         </tr>
                         {{/each}} {{/if}}
