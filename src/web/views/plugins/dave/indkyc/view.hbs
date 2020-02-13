@@ -113,12 +113,12 @@
                                         </td>
                                         <td>
                                             <div class="md4">
-                                                <button class="btn btn-success" data-target="#{{tx_id_enc_data}}" data-toggle="modal"
+                                                <button class="btn btn-success" data-target="#qr#{{tx_id_enc_data}}" data-toggle="modal"
                                                     type="button" onclick="displayQRcode('{{tx_id_enc_data}}', '{{tx_id_signature}}', '{{aes_password}}', '{{aes_iv}}', '{{trade_channel_name}}')">QR</button>
 
                                                 <div aria-labelledby="mySmallModalLabel" class="modal fade bd-example-modal-sm show"
                                                     role="dialog" tabindex="-1" aria-modal="true"
-                                                    style="padding-right: 16px; display: none;" id="{{assetref}}">
+                                                    style="padding-right: 16px; display: none;" id="qr#{{tx_id_enc_data}}">
                                                     <div class="modal-dialog modal-sm">
                                                         <div class="modal-content">
                                                             <div class="modal-header">
