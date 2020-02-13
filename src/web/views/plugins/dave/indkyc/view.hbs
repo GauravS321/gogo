@@ -113,8 +113,8 @@
                                         </td>
                                         <td>
                                             <div class="md4">
-                                                <button class="btn btn-success" data-target="#{{assetref}}" data-toggle="modal"
-                                                    type="button" onclick="showQRcode('{{name}}', '{{assetref}}', '{{../primechain_address}}')">QR</button>
+                                                <button class="btn btn-success" data-target="#{{tx_id_enc_data}}" data-toggle="modal"
+                                                    type="button" onclick="displayQRcode('{{tx_id_enc_data}}', '{{tx_id_signature}}', '{{aes_password}}', '{{aes_iv}}', '{{trade_channel_name}}')">QR</button>
 
                                                 <div aria-labelledby="mySmallModalLabel" class="modal fade bd-example-modal-sm show"
                                                     role="dialog" tabindex="-1" aria-modal="true"
@@ -127,10 +127,9 @@
                                                                     type="button"><span aria-hidden="true">×</span></button>
                                                             </div>
                                                             <div class="modal-body">
-                                                                <p>{{../username}}<br/>
-                                                                {{name}}</p>
+                                                                <p>{{fullname}}</p>
                                                                 <hr/>
-                                                                <div id="qrcode#{{assetref}}"></div>
+                                                                <div id="qrcode#{{tx_id_enc_data}}"></div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -149,3 +148,20 @@
         </div>
     </div>
 </div>
+<script>
+    function displayQRcode(tx_id_enc_data, tx_id_signature, aes_password, aes_iv, trade_channel_name) {
+        let text = `${window.location.origin}/plugins/dave/indkyc/verification?txid_data=${tx_id_enc_data}&txid_signature=${txid_signature}&password=${password}&iv=${iv}&trade_channel_name=${trade_channel_name}`;
+        
+        let output = document.getElementById(`qrcode#${tx_id_enc_data}`);
+        output.innerHTML = '';
+
+        let qrcode= new QRCode(output, {
+            text: text,
+            width: 256,
+            height: 256,
+            colorDark: "#000000",
+            colorLight: "#ffffff",
+            correctLevel: QRCode.CorrectLevel.H
+        }); 
+    }
+</script>
