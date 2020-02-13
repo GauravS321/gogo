@@ -28,6 +28,7 @@
                                         <th>Mobile number</th>
                                         <th>View</th>
                                         <th>Share</th>
+                                        <th>QR</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -110,6 +111,33 @@
                                                 </div>
                                             </div>
                                         </td>
+                                        <td>
+                                            <div class="md4">
+                                                <button class="btn btn-success" data-target="#{{assetref}}" data-toggle="modal"
+                                                    type="button" onclick="showQRcode('{{name}}', '{{assetref}}', '{{../primechain_address}}')">QR</button>
+
+                                                <div aria-labelledby="mySmallModalLabel" class="modal fade bd-example-modal-sm show"
+                                                    role="dialog" tabindex="-1" aria-modal="true"
+                                                    style="padding-right: 16px; display: none;" id="{{assetref}}">
+                                                    <div class="modal-dialog modal-sm">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title" id="exampleModalLabel">Primechain</h5><button
+                                                                    aria-label="Close" class="close" data-dismiss="modal"
+                                                                    type="button"><span aria-hidden="true">×</span></button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <p>{{../username}}<br/>
+                                                                {{name}}</p>
+                                                                <hr/>
+                                                                <div id="qrcode#{{assetref}}"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+
                                     </tr>
                                     {{/each}} {{/if}}
                                 </tbody>
