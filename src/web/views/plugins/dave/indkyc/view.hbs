@@ -150,7 +150,7 @@
 </div>
 <script>
     function displayQRcode(tx_id_enc_data, tx_id_signature, aes_password, aes_iv, trade_channel_name) {
-        let text = `${window.location.origin}/plugins/dave/indkyc/verification?txid_data=${tx_id_enc_data}&txid_signature=${txid_signature}&password=${password}&iv=${iv}&trade_channel_name=${trade_channel_name}`;
+        let text = `${window.location.origin}/plugins/dave/indkyc/verification?txid_data=${tx_id_enc_data}&txid_signature=${tx_id_signature}&password=${aes_password}&iv=${aes_iv}&trade_channel_name=${trade_channel_name}`;
         
         let output = document.getElementById(`qrcode#${tx_id_enc_data}`);
         output.innerHTML = '';
