@@ -31,7 +31,6 @@
                             <td>{{qty}}</td>
                             <td>
                                 <form action='/account/myassets/transfer/{{name}}'>
-                                    {{!-- // <input type="hidden" name="name" value="{{name}}"> --}}
                                     <button class="btn btn-md btn-primary" type="submit">Transfer</button>
                                 </form>
                             </td>
@@ -63,7 +62,7 @@
                                 </div>
                             </td>
                             <td>
-                                <form action='/account/myassets/offer/create/{{name}}' method="GET">
+                                <form action='/account/myassets/offer/create/{{name}}'>
                                     <button class="btn btn-md btn-warning" type="submit">Offer</button>
                                 </form>
                             </td>
