@@ -31,9 +31,11 @@
                                 <div class="col-sm-9">
                                     <div class="form-group">
                                         <label for="">Asset name *</label>
+                                        {{#if asset_name}}
                                         <input class="form-control" type="text" autocomplete="off"
                                             data-error="This field is compulsory" id="offer_asset_name" name="offer_asset_name"
                                             required="required" maxlength="32" value="{{asset_name}}" readonly>
+                                            {{/if}}
                                         <div class="help-block form-text with-errors form-control-feedback"></div>
                                     </div>
                                 </div>
