@@ -25,18 +25,18 @@ module.exports.get = async (req, res) => {
 module.exports.post = async (req, res) => {
     if (req.user && req.isAuthenticated()) {
         try {
-            const primechain_address = req.body.primechain_address;
-            const offer_asset_name = req.body.offer_asset_name;
-            const offer_asset_quantity = req.body.offer_asset_quantity;
-            const ask_asset_name = req.body.ask_asset_name;
-            const ask_asset_quantity = req.body.ask_asset_quantity;
+            const { primechain_address, offer_asset_name, offer_asset_quantity, ask_asset_name, ask_asset_quantity } = req.body;
+
             let response = await createOffer(primechain_address, ask_asset_name, ask_asset_quantity, offer_asset_name, offer_asset_quantity);
-            req.flash('success_msg', 'Public offer created successfully', response.offer_tx_id);
-            res.redirect('/account/myassets/offer/list');
+
+            req.flash('success_msg', 'Public offer created successfully', response.msg.offer_tx_id);
+            return res.redirect('/account/myassets/offer/list');
 
         } catch (error) {
+            console.log(error);
+
             req.flash('error_msg', 'Public offer not created');
-            res.redirect('/account/myassets/offer/transfer');
+            return res.redirect('/account/myassets/offer/transfer');
         }
 
     }

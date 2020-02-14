@@ -14,8 +14,6 @@ module.exports = (primechain_address, ask_asset_name, ask_asset_quantity, offer_
                 }
             });
 
-            console.log(response)
-
             return resolve({
                 status: 200,
                 msg: response.response
