@@ -7,6 +7,9 @@ module.exports = (primechain_address) => {
                 primechain_address
             });
 
+            console.log(response);
+
+
             return resolve({
                 status: 200,
                 msg: response.response
