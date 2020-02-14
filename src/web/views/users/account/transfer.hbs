@@ -8,7 +8,14 @@
             {{/if}} {{#if error}}
             <div class="alert alert-danger" role="alert">{{error}}</div>
             {{/if}}
+            <div class="element-wrapper compact pt-4">
+                <div class="element-actions">
+                  <a class="btn btn-danger btn-sm" href="/account/myassets/offer/list"><i class="os-icon os-icon-ui-22"></i><span>My open offers</span></a>
+                  <a class="btn btn-success btn-sm" href="/account/myassets/offer/list-all"><i class="os-icon os-icon-grid-10"></i><span>All open offers</span></a>
+                </div>
+            </div>
             <h5 class="form-header">Manage assets</h5>
+
             <hr>
 
             <div class="table-responsive">
@@ -17,9 +24,10 @@
                         <tr>
                             <th>Asset Name</th>
                             <th>Asset ID</th>
-                            <th>balance</th>
+                            <th>Balance</th>
                             <th>Transfer</th>
                             <th>QR</th>
+                            <th>Offer</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -30,7 +38,6 @@
                             <td>{{qty}}</td>
                             <td>
                                 <form action='/account/myassets/transfer/{{name}}'>
-                                    {{!-- // <input type="hidden" name="name" value="{{name}}"> --}}
                                     <button class="btn btn-md btn-primary" type="submit">Transfer</button>
                                 </form>
                             </td>
@@ -60,6 +67,11 @@
                                         </div>
                                     </div>
                                 </div>
+                            </td>
+                            <td>
+                                <form action='/account/myassets/offer/create/{{name}}'>
+                                    <button class="btn btn-md btn-warning" type="submit">Offer</button>
+                                </form>
                             </td>
                         </tr>
                         {{/each}} {{/if}}

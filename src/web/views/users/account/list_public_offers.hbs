@@ -1,0 +1,60 @@
+<div class="content-i">
+    <div class="content-box">
+        <div class="element-box">
+            {{#if success_msg}}
+            <div class="alert alert-info" role="alert">{{success_msg}}</div>
+            {{/if}} {{#if error_msg}}
+            <div class="alert alert-warning" role="alert">{{error_msg}}</div>
+            {{/if}} {{#if error}}
+            <div class="alert alert-danger" role="alert">{{error}}</div>
+            {{/if}}
+            <h5 class="form-header">List of public offers made by me</h5>
+            <hr>
+
+            <div class="table-responsive">
+                <table id="dataTable1" width="100%" class="table table-striped table-lightfont dataTable">
+                    <thead>
+                        <tr>
+                            <th>Asset asked for</th>
+                            <th>Asset offerred</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#if assets}} {{#each assets}}
+                        <tr>
+                            <td>{{ask_asset}} ({{bid_amount}})</td>
+                            <td>{{offer_asset}} ({{offer_amount}})</td>
+                            <td>
+                                <form action='/account/myassets/offer/{{name}}'>
+                                    <button class="btn btn-md btn-danger" type="submit">Cancel</button>
+                                </form>
+                            </td>
+                        </tr>
+                        {{/each}} {{/if}}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    function showQRcode(asset_name, assetref, primechain_address) {
+        let text = `${window.location.origin}/account/myassets/transfer/${assetref}/${primechain_address}`;
+        
+        let output = document.getElementById(`qrcode#${assetref}`);
+        output.innerHTML = '';
+
+        let qrcode= new QRCode(output, {
+            text: text,
+            width: 256,
+            height: 256,
+            colorDark: "#000000",
+            colorLight: "#ffffff",
+            correctLevel: QRCode.CorrectLevel.H
+        }); 
+    }
+</script>
+<!-- END Content-->

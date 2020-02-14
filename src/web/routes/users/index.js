@@ -25,6 +25,11 @@ const myAssetsTransferController = require('../../controllers/users/account/myas
 // My assets send controller
 const myAssetsSendController = require('../../controllers/users/account/myassets/send');
 
+// My assets create offer controller
+const myAssetsCreateOfferController = require('../../controllers/users/account/myassets/offer');
+const myAssetsListMyPublicOffersController = require('../../controllers/users/account/myassets/list');
+//const myAssetsListAllPublicOffersController = require('../../controllers/users/account/myassets/list-all');
+
 // User change-password controller
 const changePasswordContoller = require('../../controllers/users/account/change-password');
 
@@ -62,6 +67,13 @@ router.get('/account/myassets/transfer', myAssetsTransferController.get);
 router.get('/account/myassets/transfer/:name', myAssetsSendController.get);
 router.get('/account/myassets/transfer/:assetref/:primechain_address', myAssetsSendController.get_thru_qr);
 router.post('/account/myassets/send', myAssetsSendController.post);
+
+// My assets - offer asset
+//router.get('/account/myassets/offer', myAssetsCreateOfferController.get);
+router.get('/account/myassets/offer/create/:name', myAssetsCreateOfferController.get);
+router.post('/account/myassets/offer/create', myAssetsCreateOfferController.post);
+router.get('/account/myassets/offer/list', myAssetsListMyPublicOffersController.get);
+//router.get('/account/myassets/offer/list-all', myAssetsListAllPublicOffersController.get);
 
 // User logout
 router.get('/account/logout', logoutContoller.get);

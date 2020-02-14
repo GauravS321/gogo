@@ -1,0 +1,84 @@
+<!-- BEGIN Content-->
+<div class="content-i">
+    <div class="content-box" style="padding-bottom: 200px;">
+        {{#if success_msg}}
+        <div class="alert alert-info" role="alert">{{success_msg}}</div>
+        {{/if}} {{#if error_msg}}
+        <div class="alert alert-warning" role="alert">{{error_msg}}</div>
+        {{/if}} {{#if error}}
+        <div class="alert alert-danger" role="alert">{{error}}</div>
+        {{/if}}
+            <div class="element-wrapper compact pt-4">
+                <div class="element-actions">
+                  <a class="btn btn-primary btn-sm" href="account/myassets/offer/list"><i class="os-icon os-icon-ui-22"></i><span>List of open offers</span></a><a class="btn btn-success btn-sm" href="#"><i class="os-icon os-icon-grid-10"></i><span>Create an offer</span></a>
+                </div>
+            </div>
+
+        <div class="row">
+            <div class="col-sm-12 col-xxl-12">
+                <div class="element-box">
+                    <form id="formValidate" action="/account/myassets/offer/create" method="POST">
+                        <h5 class="form-header">Create a public offer</h5>
+                        <hr>
+                        <input class="form-control" type="hidden" id="primechain_address" name="primechain_address" value="{{primechain_address}}">
+
+                        <fieldset class="form-group">
+                            <legend>
+                                <span>Asset offerred *</span>
+                            </legend>
+
+                            <div class="row">
+                                <div class="col-sm-9">
+                                    <div class="form-group">
+                                        <label for="">Asset name *</label>
+                                        <input class="form-control" type="text" autocomplete="off"
+                                            data-error="This field is compulsory" id="offer_asset_name" name="offer_asset_name"
+                                            required="required" maxlength="32" value="{{asset_name}}" readonly>
+                                        <div class="help-block form-text with-errors form-control-feedback"></div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label for="">Asset quantity *</label>
+                                        <input class="form-control" type="number" autocomplete="off"
+                                            data-error="This field is compulsory" id="offer_asset_quantity" name="offer_asset_quantity"
+                                            required="required" onkeypress="return event.charCode >= 48" min="1">
+                                        <div class="help-block form-text with-errors form-control-feedback"></div>
+                                    </div>
+                                </div>
+                        </fieldset>
+
+                        <fieldset class="form-group">
+                            <legend>
+                                <span>Asset asked for *</span>
+                            </legend>
+
+                            <div class="row">
+                                <div class="col-sm-9">
+                                    <div class="form-group">
+                                        <label for="">Asset name *</label>
+                                             <input class="form-control" type="text" autocomplete="off"
+                                            data-error="This field is compulsory" id="ask_asset_name" name="ask_asset_name"
+                                            required="required" maxlength="32" value="">
+                                        <div class="help-block form-text with-errors form-control-feedback"></div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label for="">Asset quantity *</label>
+                                        <input class="form-control" type="number" autocomplete="off"
+                                            data-error="This field is compulsory" id="ask_asset_quantity" name="ask_asset_quantity"
+                                            required="required" onkeypress="return event.charCode >= 48" min="1">
+                                        <div class="help-block form-text with-errors form-control-feedback"></div>
+                                    </div>
+                                </div>
+                        </fieldset>
+                    <div class="form-buttons-w">
+                        <button type="submit" class="btn btn-primary"> Create a public offer</button>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

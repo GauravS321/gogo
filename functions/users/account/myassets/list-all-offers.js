@@ -1,10 +1,12 @@
-const APICall = require('../../../helpers/request');
+const APICall = require('../../../../helpers/request');
 
 module.exports = (primechain_address) => {
     return new Promise(async (resolve, reject) => {
         try {
-            const response = await APICall.httpPostMethod('assets_held_by_entity', {
-                primechain_address
+            const response = await APICall.httpPostMethod('list_stream_items', {
+                "stream_name": "OFFER_DETAIL_STREAM",
+                "count": 99999,
+                "index": 0
             });
 
             return resolve({
@@ -15,7 +17,7 @@ module.exports = (primechain_address) => {
         } catch (error) {
             return reject({
                 status: 500,
-                message: "Internal server error!!!"
+                message: "Blockchain has reported an error"
             });
         }
     });
