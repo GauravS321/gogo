@@ -28,14 +28,14 @@ module.exports.get = (req, res) => {
 
 module.exports.post = (req, res) => {
     if (req.user && req.isAuthenticated()) {
-        Uploads(req, res, (err) => {
+        Uploads(req, res, (err) => {            
             if (err) {
                 res.json({
                     success: false,
                     message: err
                 });
             }
-
+            
             let json = req.body;
             json['image'] = req.files[0].path;
 

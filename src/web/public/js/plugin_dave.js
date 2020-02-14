@@ -7,7 +7,7 @@ $('#issue_dave').off('click').on('click', function (e) {
     for (var i = 0; i < elem.length; i++) {
         if (elem[i].name !== "") {
             if (elem[i].type === "textarea") {
-                formData.append([elem[i].name], CKEDITOR.instances.ckeditor1.getData())
+                formData.append([elem[i].name], CKEDITOR.instances.ckeditor1.getData());
             }
             else if (elem[i].type === "file") {
                 var image = $(`#${elem[i].id}`).get(0).files;
@@ -24,13 +24,9 @@ $('#issue_dave').off('click').on('click', function (e) {
         url: `${window.location.pathname}`,
 
         success: function (res) {
-            console.log(res);
-
             if (res && res["success"]) {
                 var bar = $(".progress-bar");
-
                 $('#form_uploaded_id').hide();
-
                 var percentVal = '0%';
 
                 bar.removeClass('bar-danger');
