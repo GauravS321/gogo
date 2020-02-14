@@ -38,5 +38,5 @@ module.exports.post = async (req, res) => {
         }
 
     }
-    return res.redirect('/login');
+   // return res.redirect('/login');
 }

@@ -3207,6 +3207,8 @@ router.post('/api/v1/create_public_offer', common.checkToken, (req, res) => {
       let ask_asset = req.body.ask_asset;
       let offer_asset = req.body.offer_asset;
 
+      console.log(primechain_address, ask_asset, offer_asset);
+
       if (!primechain_address || !ask_asset || !offer_asset) {
         res
           .status(422)
