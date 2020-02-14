@@ -24,42 +24,27 @@ limitations under the License.
 
 var bcSdk = require('multichainsdk');
 
-exports.get_open_offer = (primechain_address) => {
+exports.get_all_open_offer = () => {
     return new Promise(async function (resolve, reject) {
         var offer_detail = [];
         let get_offer = await bcSdk.listStreamKeyItemsStream({
             key: primechain_address,
             stream: "OFFER_DETAIL_STREAM"
-        }).then((get_offer) => {
+        }).then((get_all_offer) => {
 
-            get_offer.response.forEach(element => {
+            get_all_offer.response.forEach(element => {
                 var offer_info = JSON.parse(element.data);
 
-                bcSdk.listStreamKeyItemsStream({
-                    key: offer_info.txid,
-                    stream_name: "OFFER_STATUS_STREAM"
+                offer_detail.push({
+                    "primechain_address": offer_info.primechain_address,
+                    "ask_asset": offer_info.ask_asset,
+                    "offer_asset": offer_info.offerAsset,
+                    "bid_amount": offer_info.bid_amount,
+                    "offer_amount": offer_info.offer_amount,
+                    "txid": offer_info.txid,
+                    "vout": offer_info.vout,
+                    "offer_blob": offer_info.offer_blob
                 })
-                    .then((res) => {
-                        let offer_status_details = res.response;
-                        let offer_sorted_details = offer_status_details.sort((a, b) => {
-                            return a.time - b.time;
-                        }).limit(1);
-                        let offer_status_parsed_data = JSON.parse(offer_sorted_details[0].data);
-                        let offer_status = offer_status_parsed_data.status;
-                        offer_detail.push({
-                            "primechain_address": offer_info.primechain_address,
-                            "ask_asset": offer_info.ask_asset,
-                            "offer_asset": offer_info.offerAsset,
-                            "bid_amount": offer_info.bid_amount,
-                            "offer_amount": offer_info.offer_amount,
-                            "txid": offer_info.txid,
-                            "vout": offer_info.vout,
-                            "offer_blob": offer_info.offer_blob
-
-                        })
-                    })
-
-
             });
             return resolve({
                 status: 200,
