@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const passport = require('passport');
+const User = require('../../models/users/user');
 
 // LogIn controller
 const loginController = require('../../controllers/users/login');
@@ -56,6 +57,27 @@ router.get('/account/my-profile', profileController.get);
 
 // Router get user account activity logs
 router.get('/account/activity-logs', activityLogsContoller.get);
+
+// Router for change mobile number
+
+router.post('/account/update-mobile-number', async (req, res) => {
+    try {
+        console.log(req.body);
+
+        await User.findOneAndUpdate({ email: req.user.email }, { mobile: req.body.mobile });
+
+        return res.json({
+            success: true,
+            message: "Update mobile"
+        })
+    } catch (error) {
+        return res.json({
+            success: false,
+            message: "Not updated"
+        })
+    }
+
+})
 
 // Router user account change password
 router.get('/account/change-password', changePasswordContoller.get);

@@ -43,9 +43,11 @@
                     <div class="os-tabs-w">
                         <div class="os-tabs-controls">
                             <ul class="nav nav-tabs smaller">
-                                <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#general_info">General</a></li>
+                                <li class="nav-item"><a class="nav-link active" data-toggle="tab"
+                                        href="#general_info">General</a></li>
                                 <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#qr">QR</a></li>
-                                <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#address">Address</a></li>
+                                <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#address">Address</a>
+                                </li>
                             </ul>
                             <ul class="nav nav-pills smaller d-none d-md-flex">
                             </ul>
@@ -53,19 +55,23 @@
                         <div class="tab-content">
                             <div class="tab-pane active" id="general_info">
                                 <div class="table-responsive">
-                                    <table class="table table-lightborder">
+                                    <table class="table table-lightborder" id="editableTable">
                                         <tbody>
                                             <tr>
-                                                <td>Name</td>
-                                                <td>{{username}}</td>
+                                                <td style="pointer-events: none;">Name</td>
+                                                <td style="pointer-events: none;">{{username}}</td>
                                             </tr>
                                             <tr>
-                                                <td>Email address</td>
-                                                <td>{{email}}</td>
+                                                <td style="pointer-events: none;">Email address</td>
+                                                <td style="pointer-events: none;">{{email}}</td>
                                             </tr>
                                             <tr>
-                                                <td>Primechain address</td>
-                                                <td>{{primechain_address}}</td>
+                                                <td style="pointer-events: none;">Mobile  (Click to edit)</td>
+                                                <td id="user_mobile" value="{{mobile}}"> {{mobile}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="pointer-events: none;">Primechain address</td>
+                                                <td style="pointer-events: none;">{{primechain_address}}</td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -86,7 +92,7 @@
                                             <tr>
                                                 <td>Country</td>
                                                 <td>{{username}}</td>
-                                            </tr>                                            
+                                            </tr>
                                         </tbody>
                                     </table>
                                 </div>
@@ -98,7 +104,7 @@
                                             <tr>
                                                 <td>QR</td>
                                                 <td></td>
-                                            </tr>                                            
+                                            </tr>
                                         </tbody>
                                     </table>
                                 </div>
@@ -110,3 +116,4 @@
         </div>
     </div>
 </div>
+

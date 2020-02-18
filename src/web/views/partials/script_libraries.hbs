@@ -73,7 +73,6 @@
 {{#if user}}
 <script>
     //Added for preventing browser back button
-
     $('#charge_template').ready(function () {
         $(".show-more a").on("click", function (e) {
             e.preventDefault();
@@ -122,6 +121,34 @@
             }
         }
     }
+
+    $("#user_mobile").change(function (e) {
+        e.preventDefault();
+        var user_mobile = $.trim($('#user_mobile').html());
+
+        $.ajax({
+            url: '/account/update-mobile-number',
+            method: 'POST',
+            success: function (res) {
+                window.location.href = '/account/my-profile';
+            },
+            data: { mobile: user_mobile }
+        })
+
+    });
+
+    (function () {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition);
+        } else {
+            x.innerHTML = "Geolocation is not supported by this browser.";
+        }
+
+        function showPosition(position) {
+            document.getElementById('geo_latitude').value = position.coords.latitude;
+            document.getElementById('geo_longitude').value = position.coords.longitude;
+        }
+    })();
 
 </script>
 {{/if}}

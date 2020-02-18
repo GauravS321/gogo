@@ -35,6 +35,18 @@ Main javascript functions to init most of the elements
 // HELPER FUNCTIONS TO TEST FOR SPECIFIC DISPLAY SIZE (RESPONSIVE HELPERS)
 // ------------------------------------
 
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function () {
+    navigator.serviceWorker.register('/web/sw.js').then(function (registration) {
+      // Registration was successful
+      console.log('ServiceWorker registration successful with scope: ', registration.scope);
+    }, function (err) {
+      // registration failed :(
+      console.log('ServiceWorker registration failed: ', err);
+    });
+  });
+}
+
 function is_display_type(display_type) {
   return $('.display-type').css('content') == display_type || $('.display-type').css('content') == '"' + display_type + '"';
 }
@@ -114,7 +126,7 @@ $(function () {
       header: {
         left: "prev",
         center: "title",
-       right: "next"
+        right: "next"
       },
       // events: [{
       //   title: "Long Event",
@@ -737,7 +749,7 @@ $(function () {
   // #15. CRM PIPELINE
   if ($('.pipeline').length) {
     // INIT DRAG AND DROP FOR PIPELINE ITEMS
-    var dragulaObj = dragula($('.pipeline-body').toArray(), {}).on('drag', function () {}).on('drop', function (el) {}).on('over', function (el, container) {
+    var dragulaObj = dragula($('.pipeline-body').toArray(), {}).on('drag', function () { }).on('drop', function (el) { }).on('over', function (el, container) {
       $(container).closest('.pipeline-body').addClass('over');
     }).on('out', function (el, container, source) {
 
@@ -790,7 +802,7 @@ $(function () {
       moves: function moves(el, container, handle) {
         return handle.classList.contains('drag-handle');
       }
-    }).on('drag', function () {}).on('drop', function (el) {}).on('over', function (el, container) {
+    }).on('drag', function () { }).on('drop', function (el) { }).on('over', function (el, container) {
       $(container).closest('.tasks-list').addClass('over');
     }).on('out', function (el, container, source) {
 

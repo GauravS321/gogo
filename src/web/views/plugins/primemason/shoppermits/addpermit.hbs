@@ -19,52 +19,96 @@
             </div>
 
             <form id="formValidate" action="/plugins/primemason/shoppermits/add-permits" method="post">
-            <input type="hidden" name="uuid" value="{{uuid}}">
-            <fieldset class="form-group">
-            <legend><span>Permit information</span></legend>
-            <div class="row">
-                <div class="col-sm-12">
-                  <div class="form-group">
-                  <label for="">Permit / License *</label>   
-                    <select class="form-control" id="Permit" name="Permit">
-                            <option value="" selected="selected">Select permit</option>
-                            <option value="Food Safety License">Food Safety License</option>
-                            <option value="Health / Trade License">Health / Trade License</option>
-                            <option value="Eating House License">Eating House License</option>
-                            <option value="Liquor License ">Liquor License </option>
-                            <option value="Approval / Re-Approval of Restaurants">Approval / Re-Approval of Restaurants</option>
-                            <option value="Playing of Music in restaurants – License">Playing of Music in restaurants – License</option>
-                            <option value="Environment Clearance for Grease Trap/ETP ">Environment Clearance for Grease Trap/ETP </option>
-                            <option value="Environment Clearance for Generator Sets">Environment Clearance for Generator Sets</option>
-                            <option value="NOC from Fire Department">NOC from Fire Department</option>
-                            <option value="Weights and Measures">Weights and Measures</option>
-                            <option value="Lift License">Lift License</option>
-                            <option value="Employees State Insurance">Employees State Insurance</option>
-                            <option value="Insurance">Insurance</option>
-                            <option value="Shop and Establishment Act">Shop and Establishment Act</option>
-                            <option value="Signage License">Signage License</option>
-                        </select>
-                        <div class="help-block form-text with-errors form-control-feedback"></div>
-                  </div>
-                </div>
-            </div>
-            <hr/>
-            <div class="row">
-                <div class="col-sm-12">
-                  <div class="form-group">
-                  <label for="">Permit details *</label>   
-                    <textarea class="permit_details" required="required" data-error="This field is compulsory" cols="80" id="ckeditor1" name="Details" rows="10" style="visibility: hidden; display: none;"></textarea>
-                    <div class="help-block form-text with-errors form-control-feedback"></div>
-                  </div>
-                </div>
-            </div>
-            </fieldset>
+                <input type="hidden" name="uuid" value="{{uuid}}">
 
-            <div class="form-buttons-w">
-                <button type="submit" class="btn btn-primary"> Add Permit</button>
-            </div>
+                <fieldset class="form-group">
+                    <legend><span>Permit information</span></legend>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label for="">Permit / License *</label>
+                                <select class="form-control" id="Permit" name="Permit">
+                                    <option value="" selected="selected">Select permit</option>
+                                    <option value="Food Safety License">Food Safety License</option>
+                                    <option value="Health / Trade License">Health / Trade License</option>
+                                    <option value="Eating House License">Eating House License</option>
+                                    <option value="Liquor License ">Liquor License </option>
+                                    <option value="Approval / Re-Approval of Restaurants">Approval / Re-Approval of
+                                        Restaurants</option>
+                                    <option value="Playing of Music in restaurants – License">Playing of Music in
+                                        restaurants – License</option>
+                                    <option value="Environment Clearance for Grease Trap/ETP ">Environment Clearance for
+                                        Grease Trap/ETP </option>
+                                    <option value="Environment Clearance for Generator Sets">Environment Clearance for
+                                        Generator Sets</option>
+                                    <option value="NOC from Fire Department">NOC from Fire Department</option>
+                                    <option value="Weights and Measures">Weights and Measures</option>
+                                    <option value="Lift License">Lift License</option>
+                                    <option value="Employees State Insurance">Employees State Insurance</option>
+                                    <option value="Insurance">Insurance</option>
+                                    <option value="Shop and Establishment Act">Shop and Establishment Act</option>
+                                    <option value="Signage License">Signage License</option>
+                                </select>
+                                <div class="help-block form-text with-errors form-control-feedback"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr />
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label for="">Permit details *</label>
+                                <textarea class="permit_details" required="required"
+                                    data-error="This field is compulsory" cols="80" id="ckeditor1" name="Details"
+                                    rows="10" style="visibility: hidden; display: none;"></textarea>
+                                <div class="help-block form-text with-errors form-control-feedback"></div>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <div class="form-buttons-w">
+                    <button type="submit" class="btn btn-primary"> Add Permit</button>
+                </div>
             </form>
         </div>
     </div>
 </div>
+
+<script>
+   
+
+
+    /*function geoFindMe() {
+
+        const status = document.querySelector('#status');
+        const mapLink = document.querySelector('#map-link');
+
+        mapLink.href = '';
+        mapLink.textContent = '';
+
+        function success(position) {
+            const latitude = position.coords.latitude;
+            const longitude = position.coords.longitude;
+
+            status.textContent = '';
+            mapLink.href = `https://www.openstreetmap.org/#map=18/${latitude}/${longitude}`;
+            mapLink.textContent = `Latitude: ${latitude} °, Longitude: ${longitude} °`;
+        }
+
+        function error() {
+            status.textContent = 'Unable to retrieve your location';
+        }
+
+        if (!navigator.geolocation) {
+            status.textContent = 'Geolocation is not supported by your browser';
+        } else {
+            status.textContent = 'Locating...';
+            navigator.geolocation.getCurrentPosition(success, error);
+        }
+
+    }
+
+    document.querySelector('#find-me').addEventListener('click', geoFindMe); */
+</script>
 <!-- END Content-->

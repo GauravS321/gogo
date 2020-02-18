@@ -14,8 +14,8 @@ module.exports.get = (req, res) => {
 */
 module.exports.post = async (req, res) => {
     try {
-        const { username, email, password, confirm_password } = req.body;
-        let response = await create(email, username, password, confirm_password);
+        const { username, email, mobile, password, confirm_password } = req.body;        
+        let response = await create(email, username, mobile, password, confirm_password);
 
         req.flash('success_msg', response.msg);
         return res.redirect('/login');

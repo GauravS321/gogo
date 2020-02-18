@@ -3,11 +3,12 @@ const validator = require('validator');
 const User = require('../../../src/web/models/users/user');
 const APICall = require('./../../../helpers/request');
 
-module.exports.create = (email, username, password, confirm_password) => {
+module.exports.create = (email, username, mobile, password, confirm_password) => {
     return new Promise(async (resolve, reject) => {
         const validationErrors = [];
 
         if (!validator.isLength(username)) validationErrors.push({ msg: 'Please provide a username' })
+        if (!validator.isLength(mobile)) validationErrors.push({ msg: 'Please provide a mobile' })
         if (!validator.isEmail(email)) validationErrors.push({ msg: 'Please enter a valid email address.' });
         if (!validator.isLength(password, { min: 6 })) validationErrors.push({ msg: 'Password must be at least 6 characters long' });
         if (password !== confirm_password) validationErrors.push({ msg: 'Passwords do not match' });
@@ -45,6 +46,7 @@ module.exports.create = (email, username, password, confirm_password) => {
                 username,
                 email,
                 password,
+                mobile: parseInt(mobile),
                 primechain_address: primechain_address.primechain_address
             });
 
@@ -55,6 +57,8 @@ module.exports.create = (email, username, password, confirm_password) => {
                 msg: "Account created!!!"
             });
         } catch (error) {
+            console.log(error);
+
             return reject({
                 status: 500,
                 message: "Internal server error!!!"
