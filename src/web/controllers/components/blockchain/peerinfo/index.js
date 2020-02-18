@@ -11,7 +11,10 @@ module.exports.get = async (req, res) => {
                 email: req.user.email,
             });
         } catch (error) {
-            return res.render('components/blockchain/peerinfo');
+            return res.render('components/blockchain/peerinfo', {
+                username: req.user.username,
+                email: req.user.email,
+            });
         }
     }
     return res.redirect('/login');

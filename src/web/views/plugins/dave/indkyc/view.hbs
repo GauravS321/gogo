@@ -16,133 +16,130 @@
                 </div>
                 <hr>
                 <div class="table-responsive">
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <table id="dataTable1" width="100%" class="table table-striped table-lightfont dataTable">
-                                <thead>
-                                    <tr>
-                                        <th>Address</th>
-                                        <th>Full name</th>
-                                        <th>Date of birth</th>
-                                        <th>Father's name</th>
-                                        <th>Mobile number</th>
-                                        <th>View</th>
-                                        <th>Share</th>
-                                        <th>QR</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {{#if dataArr}} {{#each dataArr}}
-                                    <tr>
-                                        <td>{{primechainaddress}}</td>
-                                        <td>{{fullname}}</td>
-                                        <td>{{dob}}</td>
-                                        <td>{{father}}</td>
-                                        <td>{{mobile}}</td>
-                                        <td>
-                                            <div class="md4">
-                                                <form id="viewForm#{{tx_id_enc_data}}" action="/plugins/dave/indkyc/verification"
-                                                    method="GET" target="_blank">
-                                                    <input type="hidden" name="txid_data" value="{{tx_id_enc_data}}">
-                                                    <input type="hidden" name="txid_signature"
-                                                        value="{{tx_id_signature}}">
-                                                    <input type="hidden" name="password" value="{{aes_password}}">
-                                                    <input type="hidden" name="iv" value="{{aes_iv}}">
-                                                    <input type="hidden" name="trade_channel_name"
-                                                        value="{{trade_channel_name}}">
-                                                </form>
-                                                <button class="btn btn-warning"
-                                                    onclick="document.getElementById('viewForm#{{tx_id_enc_data}}').submit();">View</button>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="md4">
+                    <table id="example23" class="display nowrap table table-hover table-striped table-bordered"
+                        cellspacing="0" width="100%">
+                        <thead>
+                            <tr>
+                                <th>Address</th>
+                                <th>Full name</th>
+                                <th>Date of birth</th>
+                                <th>Father's name</th>
+                                <th>Mobile number</th>
+                                <th>View</th>
+                                <th>Share</th>
+                                <th>QR</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{#if dataArr}} {{#each dataArr}}
+                            <tr>
+                                <td>{{primechainaddress}}</td>
+                                <td>{{fullname}}</td>
+                                <td>{{dob}}</td>
+                                <td>{{father}}</td>
+                                <td>{{mobile}}</td>
+                                <td>
+                                    <div class="md4">
+                                        <form id="viewForm#{{tx_id_enc_data}}"
+                                            action="/plugins/dave/indkyc/verification" method="GET" target="_blank">
+                                            <input type="hidden" name="txid_data" value="{{tx_id_enc_data}}">
+                                            <input type="hidden" name="txid_signature" value="{{tx_id_signature}}">
+                                            <input type="hidden" name="password" value="{{aes_password}}">
+                                            <input type="hidden" name="iv" value="{{aes_iv}}">
+                                            <input type="hidden" name="trade_channel_name"
+                                                value="{{trade_channel_name}}">
+                                        </form>
+                                        <button class="btn btn-primary"
+                                            onclick="document.getElementById('viewForm#{{tx_id_enc_data}}').submit();">View</button>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="md4">
 
-                                                <button class="btn btn-primary" data-target="#{{tx_id_enc_data}}"
-                                                    data-toggle="modal" type="button">Share</button>
+                                        <button class="btn btn-secondary" data-target="#{{tx_id_enc_data}}"
+                                            data-toggle="modal" type="button">Share</button>
 
-                                                <div aria-labelledby="mySmallModalLabel"
-                                                    class="modal fade bd-example-modal-sm show" role="dialog"
-                                                    tabindex="-1" aria-modal="true"
-                                                    style="padding-right: 16px; display: none;" id="{{tx_id_enc_data}}">
-                                                    <div class="modal-dialog modal-sm" >
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <h5 class="modal-title" id="exampleModalLabel">Share
-                                                                    KYC Record</h5><button aria-label="Close"
-                                                                    class="close" data-dismiss="modal"
-                                                                    type="button"><span aria-hidden="true">
-                                                                        ×</span></button>
+                                        <div aria-labelledby="mySmallModalLabel"
+                                            class="modal fade bd-example-modal-sm show" role="dialog" tabindex="-1"
+                                            aria-modal="true" style="padding-right: 16px; display: none;"
+                                            id="{{tx_id_enc_data}}">
+                                            <div class="modal-dialog modal-sm">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="exampleModalLabel">Share
+                                                            KYC Record</h5><button aria-label="Close" class="close"
+                                                            data-dismiss="modal" type="button"><span aria-hidden="true">
+                                                                ×</span></button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <form id="shareForm#{{tx_id_enc_data}}"
+                                                            action="/plugins/dave/indkyc/share" method="POST">
+                                                            <input type="hidden" name="txid_data"
+                                                                value="{{tx_id_enc_data}}">
+                                                            <input type="hidden" name="txid_signature"
+                                                                value="{{tx_id_signature}}">
+                                                            <input type="hidden" name="password"
+                                                                value="{{aes_password}}">
+                                                            <input type="hidden" name="iv" value="{{aes_iv}}">
+                                                            <input type="hidden" name="trade_channel_name"
+                                                                value="{{trade_channel_name}}">
+                                                            <div class="form-group"><label for="">Full
+                                                                    Name</label><input class="form-control"
+                                                                    placeholder="Enter Full name" type="text"
+                                                                    name="receiver_name">
                                                             </div>
-                                                            <div class="modal-body">
-                                                                <form id="shareForm#{{tx_id_enc_data}}"
-                                                                    action="/plugins/dave/indkyc/share"
-                                                                    method="POST">
-                                                                    <input type="hidden" name="txid_data"
-                                                                        value="{{tx_id_enc_data}}">
-                                                                    <input type="hidden" name="txid_signature"
-                                                                        value="{{tx_id_signature}}">
-                                                                    <input type="hidden" name="password"
-                                                                        value="{{aes_password}}">
-                                                                    <input type="hidden" name="iv" value="{{aes_iv}}">
-                                                                    <input type="hidden" name="trade_channel_name"
-                                                                        value="{{trade_channel_name}}">
-                                                                    <div class="form-group"><label for="">Full
-                                                                            Name</label><input class="form-control"
-                                                                            placeholder="Enter Full name" type="text"
-                                                                            name="receiver_name">
-                                                                    </div>
-                                                                    <div class="form-group"><label for=""> Email
-                                                                            address</label><input class="form-control"
-                                                                            placeholder="Enter email" type="email"
-                                                                            name="receiver_email">
-                                                                    </div>
-                                                                </form>
+                                                            <div class="form-group"><label for=""> Email
+                                                                    address</label><input class="form-control"
+                                                                    placeholder="Enter email" type="email"
+                                                                    name="receiver_email">
                                                             </div>
-                                                            <div class="modal-footer"><button class="btn btn-secondary"
-                                                                    data-dismiss="modal" type="button">
-                                                                    Close</button>
-                                                                <button class="btn btn-secondary"
-                                                                    onclick="document.getElementById('shareForm#{{tx_id_enc_data}}').submit();">
-                                                                    Share</button>
-                                                            </div>
-                                                        </div>
+                                                        </form>
+                                                    </div>
+                                                    <div class="modal-footer"><button class="btn btn-success"
+                                                            data-dismiss="modal" type="button">
+                                                            Close</button>
+                                                        <button class="btn btn-secondary"
+                                                            onclick="document.getElementById('shareForm#{{tx_id_enc_data}}').submit();">
+                                                            Share</button>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </td>
-                                        <td>
-                                            <div class="md4">
-                                                <button class="btn btn-success" data-target="#qr#{{tx_id_enc_data}}" data-toggle="modal"
-                                                    type="button" onclick="displayQRcode('{{tx_id_enc_data}}', '{{tx_id_signature}}', '{{aes_password}}', '{{aes_iv}}', '{{trade_channel_name}}')">QR</button>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="md4">
+                                        <button class="btn btn-success" data-target="#qr#{{tx_id_enc_data}}"
+                                            data-toggle="modal" type="button"
+                                            onclick="displayQRcode('{{tx_id_enc_data}}', '{{tx_id_signature}}', '{{aes_password}}', '{{aes_iv}}', '{{trade_channel_name}}')">QR</button>
 
-                                                <div aria-labelledby="mySmallModalLabel" class="modal fade bd-example-modal-sm show"
-                                                    role="dialog" tabindex="-1" aria-modal="true"
-                                                    style="padding-right: 16px; display: none;" id="qr#{{tx_id_enc_data}}">
-                                                    <div class="modal-dialog modal-sm">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <h5 class="modal-title" id="exampleModalLabel">Primechain</h5><button
-                                                                    aria-label="Close" class="close" data-dismiss="modal"
-                                                                    type="button"><span aria-hidden="true">×</span></button>
-                                                            </div>
-                                                            <div class="modal-body">
-                                                                <p>{{fullname}}</p>
-                                                                <hr/>
-                                                                <div id="qrcode#{{tx_id_enc_data}}"></div>
-                                                            </div>
-                                                        </div>
+                                        <div aria-labelledby="mySmallModalLabel"
+                                            class="modal fade bd-example-modal-sm show" role="dialog" tabindex="-1"
+                                            aria-modal="true" style="padding-right: 16px; display: none;"
+                                            id="qr#{{tx_id_enc_data}}">
+                                            <div class="modal-dialog modal-sm">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="exampleModalLabel">
+                                                            Primechain</h5><button aria-label="Close" class="close"
+                                                            data-dismiss="modal" type="button"><span
+                                                                aria-hidden="true">×</span></button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <p>{{fullname}}</p>
+                                                        <hr />
+                                                        <div id="qrcode#{{tx_id_enc_data}}"></div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </td>
+                                        </div>
+                                    </div>
+                                </td>
 
-                                    </tr>
-                                    {{/each}} {{/if}}
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
+                            </tr>
+                            {{/each}} {{/if}}
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
@@ -151,17 +148,17 @@
 <script>
     function displayQRcode(tx_id_enc_data, tx_id_signature, aes_password, aes_iv, trade_channel_name) {
         let text = `${window.location.origin}/plugins/dave/indkyc/verification?txid_data=${tx_id_enc_data}&txid_signature=${tx_id_signature}&password=${aes_password}&iv=${aes_iv}&trade_channel_name=${trade_channel_name}`;
-        
+
         let output = document.getElementById(`qrcode#${tx_id_enc_data}`);
         output.innerHTML = '';
 
-        let qrcode= new QRCode(output, {
+        let qrcode = new QRCode(output, {
             text: text,
             width: 256,
             height: 256,
             colorDark: "#000000",
             colorLight: "#ffffff",
             correctLevel: QRCode.CorrectLevel.H
-        }); 
+        });
     }
 </script>
