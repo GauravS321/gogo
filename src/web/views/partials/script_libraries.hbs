@@ -190,7 +190,15 @@
             url: '/account/update-mobile-number',
             method: 'POST',
             success: function (res) {
-                window.location.href = '/account/my-profile';
+                if (res['success']) {
+                    alert(res['message']);
+
+                }
+                else {
+                    alert(res['message']);
+
+                }
+                return true;
             },
             data: { mobile: user_mobile }
         })
