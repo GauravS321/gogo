@@ -10,7 +10,7 @@ const UserSchema = new mongoose.Schema({
     emailVerificationToken: String,
     emailVerified: Boolean,
     primechain_address: { type: String },
-    mobile: { type: Number },
+    mobile: { type: String },
 
     facebook: String,
     google: String,

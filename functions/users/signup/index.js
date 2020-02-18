@@ -46,7 +46,7 @@ module.exports.create = (email, username, mobile, password, confirm_password) =>
                 username,
                 email,
                 password,
-                mobile: parseInt(mobile),
+                mobile,
                 primechain_address: primechain_address.primechain_address
             });
 

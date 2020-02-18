@@ -14,7 +14,7 @@ module.exports.get = (req, res) => {
 */
 module.exports.post = async (req, res) => {
     try {
-        const { username, email, mobile, password, confirm_password } = req.body;        
+        const { username, email, mobile = 'N/A', password, confirm_password } = req.body;
         let response = await create(email, username, mobile, password, confirm_password);
 
         req.flash('success_msg', response.msg);
