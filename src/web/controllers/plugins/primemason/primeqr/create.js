@@ -35,6 +35,9 @@ module.exports.post = (req, res) => {
                         message: err
                     });
                 }
+
+                console.log(req.body);
+                console.log(req.files);
                 
                 let json = req.body;
                 json['image'] = (req.files.primechainImages)? req.files[0].path: "";
