@@ -75,6 +75,8 @@ expressHbs.create({
 app.use('/web', express.static(path.join(__dirname, '/src/web/public')));
 
 app.use('/plugins/dave/indkyc/uploads', express.static('uploads'));
+app.use('/plugins/primemason/logistics/uploads', express.static('uploads'));
+app.use('/plugins/primemason/primeqr/uploads', express.static('uploads'));
 
 app.use((req, res, next) => {
   res.locals.user = req.isAuthenticated();
