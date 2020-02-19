@@ -410,15 +410,14 @@ class MailNotificationEngine {
                             <br>`;
 
                 await this.sendEmailNotification(fromAddress, [email], subject, emailBody, null, null);
-
                 return resolve({
                     status: 200,
                     message: true
                 });
-            } catch (error) {
+            } catch (error) { 
                 return reject({
                     status: 500,
-                    message: error
+                    message: error.message
                 });
             }
         });
@@ -490,9 +489,9 @@ class MailNotificationEngine {
         });
     }
 
-     /*******************************************************************************************************************
-    Send document and QR code related email (Shop permits)
-    *******************************************************************************************************************/
+    /*******************************************************************************************************************
+   Send document and QR code related email (Shop permits)
+   *******************************************************************************************************************/
     shareShopPermitsPrimeMasonMail(sender_email, receiver_name, email, use_case, path) {
         return new Promise((resolve, reject) => {
             let subject = `Blockchain secured Shop Permits record`;
@@ -520,9 +519,9 @@ class MailNotificationEngine {
     }
 
 
-     /*******************************************************************************************************************
-    Send document and QR code related email (Logistics)
-    *******************************************************************************************************************/
+    /*******************************************************************************************************************
+   Send document and QR code related email (Logistics)
+   *******************************************************************************************************************/
     shareLogisticsPrimeMasonMail(sender_email, receiver_name, email, use_case, path) {
         return new Promise((resolve, reject) => {
             let subject = `Blockchain secured logistics record`;
