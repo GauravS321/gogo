@@ -10,7 +10,7 @@ module.exports.get = async (req, res) => {
         let best_before = moment().isAfter(record.json['Best before date']);
         let expired = moment().isAfter(record.json['Expiry date']);
 
-        delete record.json['image'];
+       // delete record.json['image'];
 
         return res.render('plugins/primemason/primeqr/view-inputs', {
             best_before,
