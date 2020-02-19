@@ -24,24 +24,33 @@
             </div>
         </div>
         {{/if}}
-            {{#if image}}
-            <div class="row">
-                <div class="col-sm-12 col-xxl-12">
-                    <div class="element-box">
-                        <img id="primechainImagePreview" class='responsive-img row' ; alt="" src="{{image}}" style="width:128px;height:128px; margin-left: 10px;">
-                    </div>
+         {{#if expired}}
+        <div class="row">
+            <div class="col-sm-12 col-xxl-12">
+                <div class="alert alert-danger borderless">
+                    Product is past its 'best before' date.
                 </div>
             </div>
-            {{else}}
-            <div class="row">
-                <div class="col-sm-12 col-xxl-12">
-                    <div class="element-box">
-                        <img id="primechainImagePreview" class='responsive-img row' ; alt="Primechain" src="/web/img/download.png" style="text-align:center">
-                    </div>
+        </div>
+        {{/if}}
+        <p>{{image}}</p>
+        {{#if image}}
+        <div class="row">
+            <div class="col-sm-12 col-xxl-12">
+                <div class="element-box">
+                    <img id="primechainImagePreview" class='responsive-img row' ; alt="" src="{{image}}" style="width:128px;height:128px; margin-left: 10px;">
                 </div>
             </div>
-
-            {{/if}}
+        </div>
+        {{else}}
+        <div class="row">
+            <div class="col-sm-12 col-xxl-12">
+                <div class="element-box">
+                    <img id="primechainImagePreview" class='responsive-img row' ; alt="Primechain" src="/web/img/download.png" style="text-align:center">
+                </div>
+            </div>
+        </div>
+        {{/if}}
         {{else}}
         <div class="row">
             <div class="col-sm-12 col-xxl-12">

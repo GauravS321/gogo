@@ -7,11 +7,8 @@ module.exports.get = async (req, res) => {
 
         const record = await primeqr.findOne({ uuid });
         let image = record.json['image'];
-        let best_before = moment().isBefore(record.json['Best before date']);
-        console.log(best_before);
-
-        let expired = moment().isBefore(record.json['Expiry date']);
-        console.log(expired);
+        let best_before = moment().isAfter(record.json['Best before date']);
+        let expired = moment().isAfter(record.json['Expiry date']);
 
         delete record.json['image'];
 
