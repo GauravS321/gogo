@@ -14,6 +14,15 @@
                 </div>
             </div>
         </div>
+        {{#if true}}
+        <div class="row">
+            <div class="col-sm-12 col-xxl-12">
+                <div class="alert alert-danger borderless">
+                    Product has expired
+                </div>
+            </div>
+        </div>
+        {{/if}}
             {{#if image}}
             <div class="row">
                 <div class="col-sm-12 col-xxl-12">
@@ -45,7 +54,6 @@
         {{/if}}
 
         {{#if dataArr}}
-        <div class="alert alert-info" role="alert">
             <div class="row">
                 <div class="col-sm-12 col-xxl-12">
                     <div class="element-box">
@@ -99,8 +107,6 @@
                             {{#if dataArr.[Product usage video]}}
                               <a class="tag" href="{{dataArr.[Product usage video]}}">Video</a>
                             {{/if}}
-                            }
-                            }
                             </div>
                             <a class="extra-info" href="#"><i class="os-icon os-icon-mail-12"></i><span>8 Notes</span></a>
                           </div>
@@ -110,7 +116,6 @@
                     </div>
                 </div>
             </div>
-        </div>
 
         {{#each inputsArr}}
         <div class="alert alert-warning" role="alert">
