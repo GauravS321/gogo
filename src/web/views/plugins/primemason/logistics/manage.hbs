@@ -20,7 +20,8 @@
                         cellspacing="0" width="100%">
                         <thead>
                             <tr>
-                                <th>UUID</th>
+                                <th>ID</th>
+                                <th>uuid</th>
                                 <th>Product Name</th>
                                 <th>View</th>
                                 <th>Update</th>
@@ -32,6 +33,7 @@
                         <tbody>
                             {{#if dataArr}} {{#each dataArr}}
                             <tr>
+                                <td>{{documentId}}</td>
                                 <td>{{uuid}}</td>
                                 <td>{{ProductName}}</td>
                                 <td>
