@@ -23,6 +23,7 @@ const invoiceRoutes = require('./src/web/routes/plugins/sam/invoice');
 const p2pRoutes = require('./src/web/routes/plugins/sam/p2p');
 const shoppermitsRoutes = require('./src/web/routes/plugins/primemason/shoppermits');
 const logisticsRoutes = require('./src/web/routes/plugins/primemason/logistics');
+const primeqrRoutes = require('./src/web/routes/plugins/primemason/primeqr');
 
 const app = express();
 
@@ -93,6 +94,7 @@ app.use('/plugins/sam/invoice', invoiceRoutes);
 app.use('/plugins/sam/p2p', p2pRoutes);
 app.use('/plugins/primemason/shoppermits', shoppermitsRoutes);
 app.use('/plugins/primemason/logistics', logisticsRoutes);
+app.use('/plugins/primemason/primeqr', primeqrRoutes);
 
 app.get('/', function (req, res) {
   return res.redirect('/login');

@@ -1,0 +1,54 @@
+<div class="content-i">
+    <div class="content-box">
+        <div class="element-wrapper">
+            <h6 class="element-header">View PrimeQR details</h6>
+
+            {{#if error_msg}}
+            <div class="alert alert-danger" role="alert">{{error_msg}}</div>
+            {{/if}}
+            <div class="element-box">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h5 class="form-header">View PrimeQR details</h5>
+                    </div>
+                </div>
+                <hr>
+                <div class="table-responsive">
+                    <table class="table table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Parameter</th>
+                                <th>Value</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{#if dataArr}}
+                            {{#if image}}
+                            <tr>
+                                <td>Image</td>
+                                <td><img id="primechainImagePreview" class='responsive-img row'
+                                        onerror="this.src='/web/img/buddha.jpg';" ; alt="Image" src="{{image}}"
+                                        style="width:128px;height:128px; margin-left: 10px;"></td>
+                            </tr>
+                            {{/if}}
+                            {{#each dataArr}}
+                            <tr>
+                                <td>{{@key}}</td>
+                                <td>{{{this}}}</td>
+                            </tr>
+                            {{/each}}{{/if}}
+                            {{#if inputsArr}} {{#each inputsArr}}
+                            <tr>
+                                {{#if this}} {{#each this}}
+                                <td>{{@key}}</td>
+                                <td>{{{this}}}</td>
+                                {{/each}}{{/if}}
+                            </tr>
+                            {{/each}}{{/if}}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
