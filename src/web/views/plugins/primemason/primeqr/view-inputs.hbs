@@ -51,30 +51,28 @@
                     <div class="element-box">
                         <h5 class="form-header">Record details</h5>
                         <hr>
-                        <table class='table table-striped' style="width: 100%">
-                            <thead>
-                                <th style="width: 35%;">Field</th>
-                                <th style="width: 65%;">Value</th>
-                            </thead>
-                            {{#if dataArr}}
-                            <tbody>
-                                {{#if image}}
-                                <tr>
-                                    <td>Image</td>
-                                    <td><img id="primechainImagePreview" class='responsive-img row'
-                                            onerror="this.src='/web/img/buddha.jpg';" ; alt="Image" src="{{image}}"
-                                            style="width:128px;height:128px; margin-left: 10px;"></td>
-                                </tr>
-                                {{/if}}
-                                {{#each dataArr}}
-                                <tr>
-                                    <td>{{@key}}</td>
-                                    <td>{{{this}}}</td>
-                                </tr>
-                                {{/each}}
-                            </tbody>
-                            {{/if}}
-                        </table>
+                        <div class="post-box">
+                            <div class="post-media" style="background-image: url(img/portfolio1.jpg)"></div>
+                            <div class="post-content">
+                              <h6 class="post-title">
+                                Is Crypto the Future of Film Funding?
+                              </h6>
+                              <div class="post-text">
+                                Curiously, view both tone emerged. There should which yards two and concepts amidst liabilities sitting of and, parents it wait 
+                              </div>
+                              <div class="post-foot">
+                                <div class="post-tags">
+                                  <div class="badge badge-primary">
+                                    BTC
+                                  </div>
+                                  <div class="badge badge-primary">
+                                    Crypto
+                                  </div>
+                                </div>
+                                <a class="post-link" href="#"><span>Read Full Story</span><i class="os-icon os-icon-arrow-right7"></i></a>
+                              </div>
+                            </div>
+                          </div>
                     </div>
                 </div>
             </div>
