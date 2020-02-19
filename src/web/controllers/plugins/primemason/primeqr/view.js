@@ -11,12 +11,12 @@ module.exports.get = async (req, res) => {
             const { geo_latitude, geo_longitude } = record.json;
             // let current_date = Date.now();
             
-            let best_before = moment().isBefore(moment(record.json['Best before date']));
+            let best_before = moment().isBefore(record.json['Best before date']);
             console.log(best_before);
 
-            let expired = moment().isBefore(moment(record.json['Expiry date']));
+            let expired = moment().isBefore(record.json['Expiry date']s);
             console.log(expired);
-            
+
             // let expiry_date = moment(record.json['Expiry date']);
             // let best_before = best_before_date.diff(current_date);
             // let expired = expiry_date.diff(current_date);
@@ -27,9 +27,8 @@ module.exports.get = async (req, res) => {
             console.log(record.json);
 
             return res.render('plugins/primemason/primeqr/view', {
-                best_before: moment().isBefore(moment(record.json['Best before date'])), 
-                expired: moment().isAfter(moment(record.json['Expiry date'])), 
-
+                best_before, 
+                expired, 
                 latitude: geo_latitude,
                 longitude: geo_longitude,
                 dataArr: record.json,
