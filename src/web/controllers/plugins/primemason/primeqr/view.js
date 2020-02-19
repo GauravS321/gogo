@@ -21,7 +21,7 @@ module.exports.get = async (req, res) => {
             console.log(record.json);
 
             return res.render('plugins/primemason/primeqr/view', {
-                best_before: moment().isAfter(moment(record.json['Best before date'])), 
+                best_before: moment().isBefore(moment(record.json['Best before date'])), 
                 expired: moment().isAfter(moment(record.json['Expiry date'])), 
 
                 latitude: geo_latitude,
