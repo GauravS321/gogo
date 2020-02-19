@@ -22,19 +22,17 @@
 
         <fieldset class="form-group">
           <legend>
-            <span>Product photo *</span>
+            <span>Product photo</span>
           </legend>
 
           <div class="row">
             <div class="col-sm-6">
               <div class="form-group">
                 <input class="form-control" type="file" id="primechainImage" name="primechainImages">
-                {{!-- <img id="primechainImagePreview" class='responsive-img' src=""
-                                    style="height:256px;width:256px;padding-top:25px;display:none;"> --}}
                 <div class="help-block form-text with-errors form-control-feedback"></div>
               </div>
               <div class="help-block form-text text-muted form-control-feedback">
-                Supported image types are jpg, png.
+                Supported image types are jpg, png, gif.
               </div>
             </div>
             <div class="col-sm-6">
@@ -68,7 +66,7 @@
         <fieldset class="form-group">
           <legend><span>Dates</span></legend>
           <div class="row">
-            <div class="col-sm-6">
+            <div class="col-sm-4">
               <div class="form-group">
                 <label for="">Manufacturing date *</label>
                 <input class="form-control" data-error="This field is compulsory" id="Manufacturing date"
@@ -76,11 +74,41 @@
                 <div class="help-block form-text with-errors form-control-feedback"></div>
               </div>
             </div>
-            <div class="col-sm-6">
+            <div class="col-sm-4">
+              <div class="form-group">
+                <label for="">Best before date *</label>
+                <input class="form-control" data-error="This field is compulsory" id="Best before date" name="Best before date"
+                  required="required" type="date" value="">
+                <div class="help-block form-text with-errors form-control-feedback"></div>
+              </div>
+            </div>
+            <div class="col-sm-4">
               <div class="form-group">
                 <label for="">Expiry date *</label>
                 <input class="form-control" data-error="This field is compulsory" id="Expiry date" name="Expiry date"
                   required="required" type="date" value="">
+                <div class="help-block form-text with-errors form-control-feedback"></div>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset class="form-group">
+          <legend><span>Additional information</span></legend>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="">Product URL</label>
+                <input class="form-control" id="Product URL" name="Product URL"
+                  required="required" type="text" value="">
+                <div class="help-block form-text with-errors form-control-feedback"></div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="">Product usage video</label>
+                <input class="form-control" id="Product usage video" name="Product usage video"
+                  required="required" type="text" value="">
                 <div class="help-block form-text with-errors form-control-feedback"></div>
               </div>
             </div>
