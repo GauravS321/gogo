@@ -5,7 +5,7 @@ const CounterSchema = new mongoose.Schema({
     seq: { type: Number, default: 0 }
 });
 
-var counter = mongoose.model('counter', CounterSchema);
+var counter = mongoose.model('logisticscounter', CounterSchema);
 
 const logisticsSchema = new mongoose.Schema({
     document_id: { type: String },

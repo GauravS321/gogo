@@ -5,7 +5,7 @@ const CounterSchema = new mongoose.Schema({
     seq: { type: Number, default: 0 }
 });
 
-var counter = mongoose.model('counter', CounterSchema);
+var counter = mongoose.model('primeqrcounter', CounterSchema);
 
 const primeqrSchema = new mongoose.Schema({
     document_id: { type: String },
