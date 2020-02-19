@@ -22,32 +22,40 @@ module.exports.changePassword = (email, oldPassword, password, confirm_password)
             const user = await User.findOne({ email });
 
             user.comparePassword(oldPassword, async (err, isMatch) => {
-                if (err) {
-                    throw new Error(err);
-                }
+                try {
+                    if (err) {
+                        throw new Error(err);
+                    }
 
-                if (isMatch) {
-                    user.password = password;
+                    if (isMatch) {
+                        user.password = password;
 
-                    await user.save();
-                    await Mailer.sendPasswordChangedNotification(email, user.username);
+                        await Mailer.sendPasswordChangedNotification(email, user.username);
+                        await user.save();
 
-                    return resolve({
-                        status: 200,
-                        msg: "Password changed!!!"
-                    });
-                }
-                else {
+                        return resolve({
+                            status: 200,
+                            msg: "Password changed!!!"
+                        });
+                    }
+                    else {
+                        return reject({
+                            status: 401,
+                            message: "Old password does not match."
+                        });
+                    }
+                } catch (error) {
                     return reject({
-                        status: 401,
-                        message: "Old password does not match."
+                        status: 500,
+                        message: error.message
                     });
                 }
+
             });
         } catch (error) {
             return reject({
                 status: 500,
-                message: error
+                message: error.message
             });
         }
     });
