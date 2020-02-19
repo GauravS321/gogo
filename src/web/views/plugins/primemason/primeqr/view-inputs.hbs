@@ -9,22 +9,29 @@
         {{#if dataArr}}
         <div class="row">
             <div class="col-sm-12 col-xxl-12">
-                <div class="element-box">
-                    <div class="alert alert-success borderless">
-                        Valid PrimeQR
+                <div class="alert alert-success borderless">
+                    Valid PrimeQR
+                </div>
+            </div>
+        </div>
+            {{#if image}}
+            <div class="row">
+                <div class="col-sm-12 col-xxl-12">
+                    <div class="element-box">
+                        <img id="primechainImagePreview" class='responsive-img row' ; alt="No Image" src="{{image}}" style="width:128px;height:128px; margin-left: 10px;">
                     </div>
                 </div>
             </div>
-        </div>
-        {{#if image}}
-        <div class="row">
-            <div class="col-sm-12 col-xxl-12">
-                <div class="element-box">
-                    <img id="primechainImagePreview" class='responsive-img row' ; alt="No Image" src="{{image}}" style="width:128px;height:128px; margin-left: 10px;">
+            {{else}}
+            <div class="row">
+                <div class="col-sm-12 col-xxl-12">
+                    <div class="element-box">
+                        <img id="primechainImagePreview" class='responsive-img row' ; alt="No Image" src="/web/img/logo-big.png" style="width:128px;height:128px; margin-left: 10px;">
+                    </div>
                 </div>
             </div>
-        </div>
-        {{/if}}
+
+            {{/if}}
         {{else}}
         <div class="row">
             <div class="col-sm-12 col-xxl-12">
