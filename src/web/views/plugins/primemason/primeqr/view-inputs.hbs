@@ -87,14 +87,20 @@
                                 {{dataArr.[Product Name]}}
                               </div>
                               <div class="pi-sub">
-                                John Mayers
+                                {{dataArr.[Batch Number]}}
                               </div>
                             </div>
                           </div>
                           <div class="pi-foot">
                             <div class="tags">
-                              <a class="tag" href="#">Production</a>
-                              <a class="tag" href="#">Sales</a>
+                            {{#if dataArr.[Product URL]}}
+                              <a class="tag" href="{{dataArr.[Product URL]}}">Website</a>
+                            {{/if}}
+                            {{#if dataArr.[Product usage video]}}
+                              <a class="tag" href="{{dataArr.[Product usage video]}}">Video</a>
+                            {{/if}}
+                            }
+                            }
                             </div>
                             <a class="extra-info" href="#"><i class="os-icon os-icon-mail-12"></i><span>8 Notes</span></a>
                           </div>
