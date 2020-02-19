@@ -7,50 +7,31 @@
         {{/if}}
 
         {{#if dataArr}}
-        <div class="row" id="uploadDaveStatus">
+        <div class="row">
             <div class="col-sm-12 col-xxl-12">
                 <div class="element-box">
-                    <h5 class="form-header" id="uploadingDaveHeader">Record retrieved successfully. </h5>
-                    <hr>
-                    <table class="table table-striped" style="width: 100%">
-                        <thead>
-                            <th style="width: 90%;">Action</th>
-                            <th style="width: 10%;">Status</th>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Record retrieved successfully.</td>
-                                <td>
-                                    <i id="doc_hash" class="fa fa-check"
-                                        style="font-size:16px;color:green; align: center;"></i>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <div class="alert alert-success borderless">
+                        Valid PrimeQR
+                    </div>
                 </div>
             </div>
         </div>
+        {{#if image}}
+        <div class="row">
+            <div class="col-sm-12 col-xxl-12">
+                <div class="element-box">
+                    <img id="primechainImagePreview" class='responsive-img row' ; alt="No Image" src="{{image}}" style="width:128px;height:128px; margin-left: 10px;">
+                </div>
+            </div>
+        </div>
+        {{/if}}
         {{else}}
         <div class="row">
             <div class="col-sm-12 col-xxl-12">
                 <div class="element-box">
-                    <h5 class="form-header" id="uploadingDaveHeader">Failed to retrieve record.</h5>
-                    <hr>
-                    <table class="table table-striped" style="width: 100%">
-                        <thead>
-                            <th style="width: 90%;">Action</th>
-                            <th style="width: 10%;">Status</th>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Failed to retrieve record.</td>
-                                <td>
-                                    <i id="doc_hash" class="fa fa-times"
-                                        style="font-size:16px;color:red; align: center;"></i>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <div class="alert alert-danger borderless">
+                        Invalid PrimeQR
+                    </div>
                 </div>
             </div>
         </div>

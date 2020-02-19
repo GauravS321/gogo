@@ -40,7 +40,7 @@ module.exports.post = (req, res) => {
                 json['image'] = (req.files.primechainImages)? req.files[0].path: "";
                 let response = await create(req.body);
 
-                req.flash("success_msg", "LR created. ", response.msg['uuid']);
+                req.flash("success_msg", "PrimeQR created. ", response.msg['uuid']);
                 return res.redirect('/plugins/primemason/primeqr/create');
             })
         }
