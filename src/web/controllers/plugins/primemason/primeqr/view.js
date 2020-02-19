@@ -14,7 +14,7 @@ module.exports.get = async (req, res) => {
             let best_before = moment().isBefore(record.json['Best before date']);
             console.log(best_before);
 
-            let expired = moment().isBefore(record.json['Expiry date']s);
+            let expired = moment().isBefore(record.json['Expiry date']);
             console.log(expired);
 
             // let expiry_date = moment(record.json['Expiry date']);
