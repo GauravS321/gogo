@@ -13,7 +13,6 @@ module.exports.get = async (req, res) => {
             delete record['inputs']['geo_latitude'];
             delete record['inputs']['geo_longitude'];
 
-            console.log(record.json);
 
             return res.render('plugins/primemason/primeqr/view', {
                 latitude: geo_latitude,

@@ -11,7 +11,6 @@ module.exports.get = async (req, res) => {
         let expired = moment().isAfter(record.json['Expiry date']);
 
        // delete record.json['image'];
-       console.log(record.json)
 
         return res.render('plugins/primemason/primeqr/view-inputs', {
             best_before,
