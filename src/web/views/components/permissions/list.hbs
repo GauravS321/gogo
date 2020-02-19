@@ -10,40 +10,35 @@
                 </div>
                 <hr>
                 <div class="table-responsive">
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <table id="dataTable1" width="100%" class="table table-striped table-lightfont dataTable">
-                                <thead>
-                                    <tr>
-                                        <th>Permissions</th>
-                                        <th>Status</th>
-                                        <th class="text-center">Actions</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {{#if list_permissions}}{{#each list_permissions}}
-                                    <tr>
-                                        <td>
-                                            <div class="user-with-avatar"><span>{{type}}</span></div>
-                                        </td>
-                                        <td class="nowrap"><span
-                                                class="status-pill smaller green"></span><span>Active</span>
-                                        </td>
-                                        <td class="row-actions">
-                                            <div class="buttons-w">
-                                                <input id="{{type}}" type="submit" class="btn btn-danger btn-md"
-                                                    value="Revoke" onclick="revoke(this)">
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    {{/each}}{{/if}}
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
+                    <table id="example23" class="display nowrap table table-hover table-striped table-bordered"
+                        cellspacing="0" width="100%">
+                        <thead>
+                            <tr>
+                                <th>Permissions</th>
+                                <th>Status</th>
+                                <th class="text-center">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{#if list_permissions}}{{#each list_permissions}}
+                            <tr>
+                                <td>
+                                    <div class="user-with-avatar"><span>{{type}}</span></div>
+                                </td>
+                                <td class="nowrap"><span class="status-pill smaller green"></span><span>Active</span>
+                                </td>
+                                <td class="row-actions">
+                                    <div class="buttons-w">
+                                        <input id="{{type}}" type="submit" class="btn btn-danger btn-md" value="Revoke"
+                                            onclick="revoke(this)">
+                                    </div>
+                                </td>
+                            </tr>
+                            {{/each}}{{/if}}
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
     </div>
-</div>
 </div>

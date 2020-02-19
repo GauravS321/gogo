@@ -27,11 +27,11 @@ exports.post = async (req, res) => {
             let response = await updateData(req.body);
 
             req.flash('success_msg', response.msg);
-            return res.redirect('/components/curd-wizard/list');
+            return res.redirect('/components/wizard/list');
 
         } catch (error) {
             req.flash('error_msg', "Internal server error!!!");
-            return res.redirect('/components/curd-wizard/list');
+            return res.redirect('/components/wizard/list');
         }
     }
 }

@@ -2,8 +2,7 @@
     <div class="auth-box-w wider">
         <div class="logo-w"><a href="/"><img alt="" src="/web/img/logo-big.png"></a></div>
         <h4 class="auth-header" style="margin-top: -45px;">Create new account</h4>
-        <form id="formValidate" novalidate="true" action="/signup" method="POST"
-            onsubmit="signup.disabled = true; return true;">
+        <form id="formValidate" novalidate="true" action="/signup" method="POST">
             <div class="form-group">
                 <label for="">Full name</label>
                 <div class="input-group">
@@ -24,6 +23,18 @@
                     </div>
                     <input class="form-control" data-error="Email address is invalid" placeholder="Email address"
                         type="email" name="email" required="required">
+                </div>
+                <div class="help-block form-text with-errors form-control-feedback"></div>
+            </div>
+
+               <div class="form-group">
+                <label for="">Mobile number</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text os-icon os-icon-phone"></div>
+                    </div>
+                    <input class="form-control" data-error="Mobile number is invalid" placeholder="Mobile number"
+                        type="number" name="mobile">
                 </div>
                 <div class="help-block form-text with-errors form-control-feedback"></div>
             </div>

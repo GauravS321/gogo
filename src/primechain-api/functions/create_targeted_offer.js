@@ -81,13 +81,30 @@ exports.create_targeted_offer = (from_address, to_address, ask_asset, offer_asse
           value: JSON.stringify(data),
           stream: "OFFER_DETAIL_STREAM"
         }).then((res) => {
-          return resolve({
-            status: 200,
-            response: res.response,
-            offer_blob: raw_exchange,
-            offer_txid: data.txid,
-            offer_vout: data.vout
-          })
+            bcSdk.publish({
+                key: data.txid,
+                value:JSON.stringify({
+                "primechain_address":primechain_address,
+                "offer_blob":data.offer_blob,
+                "tx_id":data.txid,
+                "vout":data.vout,
+                "status":"open"
+                }),
+                stream:"OFFER_STATUS_STREAM"
+            }).then((res)=>{
+                return resolve({
+                    status: 200,
+                    response: res.response,
+                    offer_blob: raw_exchange,
+                    offer_txid: data.txid,
+                    offer_vout: data.vout
+                })
+            }).catch((err)=>{
+                return reject({
+                    status: 401,
+                    message: err.message
+                });
+            })
         }).catch(err => {
 
           return reject({

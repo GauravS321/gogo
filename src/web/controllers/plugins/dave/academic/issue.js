@@ -53,7 +53,10 @@ module.exports.post = async (req, res) => {
                     message: error.message
                 });
             }
-        });
+        })
     }
-   // return res.redirect('/login')
+    else {
+        return res.redirect('/login');
+    }
+
 }

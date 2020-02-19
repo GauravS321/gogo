@@ -4,10 +4,20 @@ module.exports.get = async (req, res) => {
     if (req.user && req.isAuthenticated()) {
         try {
             const uuid = req.query.uuid;
+
+            const record = await logistics.findOne({ uuid });
+
+            const { geo_latitude, geo_longitude } = record.json;
+
+            delete record['inputs']['geo_latitude'];
+            delete record['inputs']['geo_longitude'];
+
+            console.log(record.json);
             
-            const record = await logistics.findOne({uuid});
 
             return res.render('plugins/primemason/logistics/view', {
+                latitude: geo_latitude,
+                longitude: geo_longitude,
                 dataArr: record.json,
                 inputsArr: record.inputs,
                 uuid: req.query.uuid,

@@ -9,7 +9,8 @@ const UserSchema = new mongoose.Schema({
     passwordResetExpires: Date,
     emailVerificationToken: String,
     emailVerified: Boolean,
-    primechain_address: { type: String},
+    primechain_address: { type: String },
+    mobile: { type: String },
 
     facebook: String,
     google: String,
@@ -55,14 +56,14 @@ UserSchema.methods.comparePassword = function comparePassword(candidatePassword,
  */
 UserSchema.methods.gravatar = function gravatar(size) {
     if (!size) {
-      size = 200;
+        size = 200;
     }
     if (!this.email) {
-      return `https://gravatar.com/avatar/?s=${size}&d=retro`;
+        return `https://gravatar.com/avatar/?s=${size}&d=retro`;
     }
     const md5 = crypto.createHash('md5').update(this.email).digest('hex');
     return `https://gravatar.com/avatar/${md5}?s=${size}&d=retro`;
-  };
+};
 
 const User = mongoose.model('User', UserSchema);
 

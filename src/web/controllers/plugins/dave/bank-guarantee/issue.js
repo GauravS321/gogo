@@ -48,12 +48,14 @@ module.exports.post = (req, res) => {
                     trade_channel_name: trade_channel_name
                 });
             } catch (error) {
-                return res.json({
+              return res.json({
                     success: false,
                     message: error.message
                 });
             }
         })
     }
-   // return res.redirect('/login')
+    else {
+        return res.redirect('/login');
+    }
 }

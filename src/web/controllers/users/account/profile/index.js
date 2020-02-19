@@ -7,6 +7,7 @@ module.exports.get = (req, res) => {
         return res.render('users/account/my-profile', {
             username: req.user.username,
             email: req.user.email,
+            mobile: (req.user.mobile) ? req.user.mobile : "N/A",
             primechain_address: req.user.primechain_address
         });
     }

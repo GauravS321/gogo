@@ -58,55 +58,32 @@
 
         {{#if dataArr}}
         <div class="alert alert-info" role="alert">
-        <div class="row">
-            <div class="col-sm-12 col-xxl-12">
-                <div class="element-box">
-                    <h5 class="form-header">Record details</h5>
-                    <hr>
-                    <table class='table table-striped' style="width: 100%">
-                        <thead>
-                            <th style="width: 35%;">Field</th>
-                            <th style="width: 65%;">Value</th>
-                        </thead>
-                        {{#if dataArr}} {{#each dataArr}}
-                        <tbody>
-                            <td>{{@key}}</td>
-                            <td>{{{this}}}</td>
-                        </tbody>
-                        {{/each}}{{/if}}
-                    </table>
-                </div>
-            </div>
-        </div>
-        </div>
-
-        {{#each inputsArr}}
-        <div class="alert alert-warning" role="alert">
-        <div class="row">
-            <div class="col-sm-12 col-xxl-12">
-                <div class="element-box">
-                    <h5 class="form-header"></h5>
-                    <div class="table-responsive">
-                        <table class="table table-striped table-bordered">
+            <div class="row">
+                <div class="col-sm-12 col-xxl-12">
+                    <div class="element-box">
+                        <h5 class="form-header">Record details</h5>
+                        <hr>
+                        <table class='table table-striped' style="width: 100%">
                             <thead>
                                 <th style="width: 35%;">Field</th>
                                 <th style="width: 65%;">Value</th>
                             </thead>
-                            {{#if this}}
+                            {{#if dataArr}}
                             <tbody>
-                                {{#each this}}
+                                {{#if image}}
+                                <tr>
+                                    <td>Image</td>
+                                    <td><img id="primechainImagePreview" class='responsive-img row'
+                                            onerror="this.src='/web/img/buddha.jpg';" ; alt="Image" src="{{image}}"
+                                            style="width:128px;height:128px; margin-left: 10px;"></td>
+                                </tr>
+                                {{/if}}
+                                {{#each dataArr}}
                                 <tr>
                                     <td>{{@key}}</td>
                                     <td>{{{this}}}</td>
                                 </tr>
                                 {{/each}}
-                            </tbody>
-                            {{else}}
-                            <tbody>
-                                <tr>
-                                    <td>{{@key}}</td>
-                                    <td>{{{this}}}</td>
-                                </tr>
                             </tbody>
                             {{/if}}
                         </table>
@@ -114,42 +91,87 @@
                 </div>
             </div>
         </div>
-        </div>
-        {{/each}}
 
-                    <div class="alert alert-info" role="alert">
-                        <div class="row">
-                            <div class="col-sm-12 col-xxl-12">
-                                <div class="element-box">
-                                    <form id="formValidate" action="/plugins/primemason/logistics/add-inputs" method="post">
-                                        <input type="hidden" name="uuid" value="{{uuid}}">
-                                        <fieldset class="form-group">
-                                            
-                                            <div class="row">
-                                                <div class="col-sm-6">
-                                                    <div class="form-group">
-                                                        <label for="">Add comments *</label>
-                                                        <input class="form-control" data-error="This field is compulsory" id="Comments" name="Comments" required="required" type="text" value="">
-                                                        <div class="help-block form-text with-errors form-control-feedback">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </fieldset>
-                                        <div class="form-buttons-w">
-                                            <button type="submit" class="btn btn-primary"> Add</button>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
+        {{#each inputsArr}}
+        <div class="alert alert-warning" role="alert">
+            <div class="row">
+                <div class="col-sm-12 col-xxl-12">
+                    <div class="element-box">
+                        <h5 class="form-header"></h5>
+                        <div class="table-responsive">
+                            <table class="table table-striped table-bordered">
+                                <thead>
+                                    <th style="width: 35%;">Field</th>
+                                    <th style="width: 65%;">Value</th>
+                                </thead>
+                                {{#if this}}
+                                <tbody>
+                                    {{#if this.geo_latitude}}
+                                    <tr>
+                                        <td>Link</td>
+                                        <td><a href='https://www.openstreetmap.org/#map=18/{{this.geo_latitude}}/{{this.geo_longitude}}'
+                                                target="_blank">Link</a></td>
+                                    </tr>
+                                    {{/if}}
+                                    {{#each this}}
+                                    <tr>
+                                        <td>{{@key}}</td>
+                                        <td>{{{this}}}</td>
+                                    </tr>
+                                    {{/each}}
+                                </tbody>
+                                {{else}}
+                                <tbody>
+                                    <tr>
+                                        <td>{{@key}}</td>
+                                        <td>{{{this}}}</td>
+                                    </tr>
+                                </tbody>
+                                {{/if}}
+                            </table>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
-        {{/if}}
+        {{/each}}
+
+        <div class="alert alert-info" role="alert">
+            <div class="row">
+                <div class="col-sm-12 col-xxl-12">
+                    <div class="element-box">
+                        <form id="formValidate" action="/plugins/primemason/logistics/add-inputs" method="post">
+                            <input type="hidden" name="uuid" value="{{uuid}}">
+                            <input type="hidden" name="geo_latitude" id="geo_latitude" value="">
+                            <input type="hidden" name="geo_longitude" id="geo_longitude" value="">
+                            <fieldset class="form-group">
+
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label for="">Add comments *</label>
+                                            <input class="form-control" data-error="This field is compulsory"
+                                                id="Comments" name="Comments" required="required" type="text" value="">
+                                            <div class="help-block form-text with-errors form-control-feedback">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                            <div class="form-buttons-w">
+                                <button type="submit" class="btn btn-primary"> Add</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
+</div>
+</div>
+{{/if}}
+</div>
 </div>
 <!-- if the user is not loggedin -->
 {{else}}
@@ -234,89 +256,115 @@
 
                     {{#if dataArr}}
                     <div class="alert alert-info" role="alert">
-                    <div class="row">
-                        <div class="col-sm-12 col-xxl-12">
-                            <div class="element-box">
-                                <h5 class="form-header">Record details</h5>
-                                <hr>
-                                <table class='table table-striped' style="width: 100%">
-                                    <thead>
-                                        <th style="width: 35%;">Field</th>
-                                        <th style="width: 65%;">Value</th>
-                                    </thead>
-                                    {{#if dataArr}} {{#each dataArr}}
-                                    <tbody>
-                                        <td>{{@key}}</td>
-                                        <td>{{{this}}}</td>
-                                    </tbody>
-                                    {{/each}}{{/if}}
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                    </div>
-                    {{#each inputsArr}}
-                    <div class="alert alert-warning" role="alert">
-                    <div class="row">
-                        <div class="col-sm-12 col-xxl-12">
-                            <div class="element-box">
-                                <h5 class="form-header"></h5>
-                                <div class="table-responsive">
-                                    <table class="table table-striped table-bordered">
+                        <div class="row">
+                            <div class="col-sm-12 col-xxl-12">
+                                <div class="element-box">
+                                    <h5 class="form-header">Record details</h5>
+                                    <hr>
+                                    <table class=' table table-striped' style="width: 100%">
                                         <thead>
                                             <th style="width: 35%;">Field</th>
                                             <th style="width: 65%;">Value</th>
                                         </thead>
-                                        {{#if this}}
+
                                         <tbody>
-                                            {{#each this}}
+                                            {{#if image}}
+                                            <tr>
+                                                <td>Image</td>
+                                                <td><img id="primechainImagePreview" class='responsive-img row'
+                                                        onerror="this.src='/web/img/buddha.jpg';" ; alt="Image"
+                                                        src="{{image}}"
+                                                        style="width:128px;height:128px; margin-left: 10px;"></td>
+                                            </tr>
+                                            {{/if}}
+                                            {{#each dataArr}}
                                             <tr>
                                                 <td>{{@key}}</td>
                                                 <td>{{{this}}}</td>
                                             </tr>
                                             {{/each}}
                                         </tbody>
-                                        {{else}}
-                                        <tbody>
-                                            <tr>
-                                                <td>{{@key}}</td>
-                                                <td>{{{this}}}</td>
-                                            </tr>
-                                        </tbody>
-                                        {{/if}}
+
                                     </table>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    {{#each inputsArr}}
+                    <div class="alert alert-warning" role="alert">
+                        <div class="row">
+                            <div class="col-sm-12 col-xxl-12">
+                                <div class="element-box">
+                                    <h5 class="form-header"></h5>
+                                    <div class="table-responsive">
+                                        <table class="table table-striped table-bordered">
+                                            <thead>
+                                                <th style="width: 35%;">Field</th>
+                                                <th style="width: 65%;">Value</th>
+                                            </thead>
+                                            {{#if this}}
+                                            <tbody>
+                                                {{#if this.geo_latitude}}
+                                                <tr>
+                                                    <td>Link</td>
+                                                    <td><a href='https://www.openstreetmap.org/#map=18/{{this.geo_latitude}}/{{this.geo_longitude}}'
+                                                            target="_blank">Link</a></td>
+                                                </tr>
+                                                {{/if}}
+                                                {{#each this}}
+                                                <tr>
+                                                    <td>{{@key}}</td>
+                                                    <td>{{{this}}}</td>
+                                                </tr>
+                                                {{/each}}
+                                            </tbody>
+                                            {{else}}
+                                            <tbody>
+                                                <tr>
+                                                    <td>{{@key}}</td>
+                                                    <td>{{{this}}}</td>
+                                                </tr>
+                                            </tbody>
+                                            {{/if}}
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     {{/each}}
 
                     <div class="alert alert-info" role="alert">
-                    <div class="row">
-                        <div class="col-sm-12 col-xxl-12">
-                            <div class="element-box">
-                                <form id="formValidate" action="/plugins/primemason/logistics/add-inputs" method="post">
-                                    <input type="hidden" name="uuid" value="{{uuid}}">
-                                    <fieldset class="form-group">
-                                        <div class="row">
-                                            <div class="col-sm-6">
-                                                <div class="form-group">
-                                                    <label for="">Add comments</label>
-                                                    <input class="form-control" data-error="This field is compulsory" id="Comments" name="Comments" required="required" type="text" value="">
-                                                    <div class="help-block form-text with-errors form-control-feedback">
+                        <div class="row">
+                            <div class="col-sm-12 col-xxl-12">
+                                <div class="element-box">
+                                    <form id="formValidate" action="/plugins/primemason/logistics/add-inputs"
+                                        method="post">
+                                        <input type="hidden" name="uuid" value="{{uuid}}">
+                                        <input type="hidden" name="geo_latitude" id="geo_latitude" value="">
+                                        <input type="hidden" name="geo_longitude" id="geo_longitude" value="">
+                                        <fieldset class="form-group">
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <label for="">Add comments</label>
+                                                        <input class="form-control"
+                                                            data-error="This field is compulsory" id="Comments"
+                                                            name="Comments" required="required" type="text" value="">
+                                                        <div
+                                                            class="help-block form-text with-errors form-control-feedback">
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
+                                        </fieldset>
+                                        <div class="form-buttons-w">
+                                            <button type="submit" class="btn btn-primary"> Add</button>
                                         </div>
-                                    </fieldset>
-                                    <div class="form-buttons-w">
-                                        <button type="submit" class="btn btn-primary"> Add</button>
-                                    </div>
-                                </form>
+                                    </form>
+                                </div>
                             </div>
                         </div>
-                    </div>
                     </div>
                     {{/if}}
                 </div>

@@ -6,7 +6,7 @@ module.exports = (primechain_address) => {
             const response = await APICall.httpPostMethod('get_open_offer', {
                 primechain_address
             });
-
+            
             return resolve({
                 status: 200,
                 msg: response.response

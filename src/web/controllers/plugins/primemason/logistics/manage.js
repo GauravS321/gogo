@@ -8,6 +8,7 @@ module.exports.get = async (req, res) => {
 
             records.forEach(record => {
                 records_list.push({
+                    documentId: record.document_id,
                     uuid: record.uuid,
                     "ProductName": record.json["Product Name"]
                 });

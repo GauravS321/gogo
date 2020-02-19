@@ -19,7 +19,10 @@ module.exports.get = async (req, res) => {
             });
         }
     }
-    return res.redirect('/login');
+    else {
+        return res.redirect('/login');
+    }
+
 }
 
 module.exports.post = async (req, res) => {
@@ -40,5 +43,8 @@ module.exports.post = async (req, res) => {
         }
 
     }
-    return res.redirect('/login');
+    else {
+        return res.redirect('/login');
+    }
+
 }
