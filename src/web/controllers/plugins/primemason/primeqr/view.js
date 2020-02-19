@@ -10,7 +10,13 @@ module.exports.get = async (req, res) => {
 
             const { geo_latitude, geo_longitude } = record.json;
             // let current_date = Date.now();
-            // let best_before_date = moment(record.json['Best before date']);
+            
+            let best_before = moment().isBefore(moment(record.json['Best before date']));
+            console.log(best_before);
+
+            let expired = moment().isBefore(moment(record.json['Expiry date']));
+            console.log(expired);
+            
             // let expiry_date = moment(record.json['Expiry date']);
             // let best_before = best_before_date.diff(current_date);
             // let expired = expiry_date.diff(current_date);
