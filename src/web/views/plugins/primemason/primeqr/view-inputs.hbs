@@ -71,18 +71,15 @@
                         </div>
                         <div class="pi-foot">
                             <div class="tags">
-                                {{#if dataArr.[URL]}}
-                                  <a class="tag" target="_blank" href="{{dataArr.[URL]}}">Website</a>
-                                {{/if}}
                                 {{#if dataArr.[Video]}}
                                   <a class="tag" target="_blank" href="{{dataArr.[Video]}}">Video</a>
                                 {{/if}}
                                 </div>
                                 {{#if dataArr.[WhatsApp]}}
-                                  <a class="tag" target="_blank" href="https://api.whatsapp.com/send?phone={{dataArr.[WhatsApp]}}"><i class="fa fa-whatsapp"></i><span>WhatsApp us</span></a>
+                                  <a class="tag" target="_blank" href="https://api.whatsapp.com/send?phone={{dataArr.[WhatsApp]}}"><i class="fa fa-whatsapp"></i> <span>WhatsApp us</span></a>
                                 {{/if}}
                                 {{#if dataArr.[Email]}}
-                                  <span>Email us</span><a class="tag" target="_blank" href="mailto:{{dataArr.[Email]}}"><i class="os-icon os-icon-mail"></i></a>
+                                  <a class="tag" target="_blank" href="mailto:{{dataArr.[Email]}}"><i class="os-icon os-icon-mail"></i> <span>Email us</span></a>
                                 {{/if}}
                             </div>
                         </div>
@@ -94,7 +91,7 @@
             <div class="row">
                 <div class="col-sm-12 col-xxl-12">
                       <div class="alert alert-primary borderless">
-                        <p>
+                        <p style="color:#ffffff">
                           {{{dataArr.[Product Details]}}}
                         </p>
                       </div>
