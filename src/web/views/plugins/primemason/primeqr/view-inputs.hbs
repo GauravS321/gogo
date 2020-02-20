@@ -225,6 +225,36 @@
             </div>
         </div>
         {{/each}}
+        <div class="alert alert-info" role="alert">
+            <div class="row">
+                <div class="col-sm-12 col-xxl-12">
+                    <div class="element-box">
+                        <form id="formValidate" action="/plugins/primemason/logistics/add-inputs" method="post">
+                            <input type="hidden" name="uuid" value="{{uuid}}">
+                            <input type="hidden" name="geo_latitude" id="geo_latitude" value="">
+                            <input type="hidden" name="geo_longitude" id="geo_longitude" value="">
+                            <fieldset class="form-group">
+
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label for="">Add comments *</label>
+                                            <input class="form-control" data-error="This field is compulsory"
+                                                id="Comments" name="Comments" required="required" type="text" value="">
+                                            <div class="help-block form-text with-errors form-control-feedback">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                            <div class="form-buttons-w">
+                                <button type="submit" class="btn btn-primary"> Add</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
         <!-- if the user is not loggedin -->
         {{else}}
         <div class="all-wrapper with-side-panel solid-bg-all">
