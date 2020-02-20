@@ -98,11 +98,7 @@
                                 <div class="status status-green" data-placement="top" data-toggle="tooltip" title="" data-original-title="Active"></div>
                             </div>
                             <div class="pi-body">
-                                <div class="pi-info"><div class="h6 pi-name">{{dataArr.[Product Name]}}</div>
-                                <!--<div class="pi-sub">Batch number: {{dataArr.[Batch Number]}}</div>
-                                <div class="pi-sub">Manufactured: {{dataArr.[manufactured_display]}}</div>
-                                <div class="pi-sub">Best before: {{dataArr.[best_before_display]}}</div>
-                                <div class="pi-sub">Expiry date: {{dataArr.[expiry_display]}}</div>-->
+                                <div class="pi-info"><div class="h6 pi-name">Need help?</div>
                             </div>
                         </div>
                         <div class="pi-foot">
@@ -120,6 +116,34 @@
                                 {{#if dataArr.[Email]}}
                                   <a class="tag" target="_blank" href="mailto:{{dataArr.[Email]}}"><i class="os-icon os-icon-mail"></i></a></a>
                                 {{/if}}
+                                {{#if dataArr.[Facebook]}}
+                                  <a class="tag" target="_blank" href="{{dataArr.[Facebook]}}"><i class="fa fa-facebook"></i></a></a>
+                                {{/if}}
+                                {{#if dataArr.[Instagram]}}
+                                  <a class="tag" target="_blank" href="{{dataArr.[Instagram]}}"><i class="fa fa-instagram"></i></a></a>
+                                {{/if}}
+                                {{#if dataArr.[Youtube]}}
+                                  <a class="tag" target="_blank" href="{{dataArr.[Youtube]}}"><i class="fa fa-youtube"></i></a></a>
+                                {{/if}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12 col-xxl-12">
+                    <div class="element-box">                        
+                        <div class="pipeline-item">
+                            <div class="pi-controls">
+                                <div class="status status-green" data-placement="top" data-toggle="tooltip" title="" data-original-title="Active"></div>
+                            </div>
+                            <div class="pi-body">
+                                <div class="pi-info"><div class="h6 pi-name">Connect with us</div>
+                            </div>
+                        </div>
+                        <div class="pi-foot">
+                            <div class="tags">
                                 {{#if dataArr.[Facebook]}}
                                   <a class="tag" target="_blank" href="{{dataArr.[Facebook]}}"><i class="fa fa-facebook"></i></a></a>
                                 {{/if}}
