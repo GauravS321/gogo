@@ -14,7 +14,11 @@ module.exports.get = async (req, res) => {
         let best_before = moment().isAfter(record.json['Best before date']);
         let expired = moment().isAfter(record.json['Expiry date']);
 
-        // delete record.json['Manufacturing date'];
+        let comment_image = records.inputs['comment_image'];
+        delete records.inputs['comment_image'];
+        let latitude = (records.inputs.geo_latitude.length > 0) ? true: delete records.inputs.geo_latitude;
+        let longtitude = (records.inputs.geo_longitude.length > 0) ? true: delete records.inputs.geo_longitude;
+
         // delete record.json['Best before date'];
         // delete record.json['Expiry date'];
 
