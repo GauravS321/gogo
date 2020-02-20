@@ -139,21 +139,25 @@
                 </div>
             </div>
 
+            {{#if dataArr.[Promotion]}}
             <div class="row">
                 <div class="col-sm-12 col-xxl-12">
+                    <div class="element-box"> 
                       <div class="alert alert-default borderless">
                         <h5 class="alert-heading">
-                          Refer Friends. Get Rewarded
+                          Special Offer !!!
                         </h5>
                         <p>
-                          You can earn: 15,000 Membership Rewards points for each approved referral – up to 55,000 Membership Rewards points per calendar year.
+                          {{{dataArr.[Promotion]}}}
                         </p>
                         <div class="alert-btn">
                           <a class="btn btn-white-gold" href="#"><i class="os-icon os-icon-ui-92"></i><span>Send Referral</span></a>
                         </div>
                       </div>
+                    </div>
                 </div>
             </div>
+            {{/if}}
 
             <div class="row">
                 <div class="col-sm-12 col-xxl-12">
