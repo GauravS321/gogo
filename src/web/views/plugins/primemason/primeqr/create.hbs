@@ -18,105 +18,169 @@
         </div>
       </div>
 
-      <form id="formValidate" action="/plugins/primemason/primeqr/create" method="post" enctype="multipart/form-data">
-
-        <fieldset class="form-group">
-          <legend>
-            <span>Product photo</span>
-          </legend>
-
-          <div class="row">
-            <div class="col-sm-6">
-              <div class="form-group">
-                <input class="form-control" type="file" id="primechainImage" name="primechainImages">
-                <div class="help-block form-text with-errors form-control-feedback"></div>
-              </div>
-              <div class="help-block form-text text-muted form-control-feedback">
-                Supported image types are jpg, png, gif.
-              </div>
-            </div>
-            <div class="col-sm-6">
-              <img id="primechainImagePreview" class='responsive-img' src=""
-                style="height:128px;width:128px;display:none;">
-            </div>
-        </fieldset>
-
-        <fieldset class="form-group">
-          <legend><span>Primary information</span></legend>
-          <div class="row">
-            <div class="col-sm-6">
-              <div class="form-group">
-                <label for="">Product Name *</label>
-                <input class="form-control" data-error="This field is compulsory" id="Product Name" name="Product Name"
-                  required="required" type="text" value="">
-                <div class="help-block form-text with-errors form-control-feedback"></div>
-              </div>
-            </div>
-            <div class="col-sm-6">
-              <div class="form-group">
-                <label for="">Batch Number *</label>
-                <input class="form-control" data-error="This field is compulsory" id="Batch Number" name="Batch Number"
-                  required="required" type="text" value="">
-                <div class="help-block form-text with-errors form-control-feedback"></div>
-              </div>
-            </div>
-          </div>
-        </fieldset>
-
-        <fieldset class="form-group">
-          <legend><span>Dates</span></legend>
-          <div class="row">
-            <div class="col-sm-4">
-              <div class="form-group">
-                <label for="">Manufacturing date *</label>
-                <input class="form-control" data-error="This field is compulsory" id="Manufacturing date"
-                  name="Manufacturing date" required="required" type="date" value="">
-                <div class="help-block form-text with-errors form-control-feedback"></div>
-              </div>
-            </div>
-            <div class="col-sm-4">
-              <div class="form-group">
-                <label for="">Best before date *</label>
-                <input class="form-control" data-error="This field is compulsory" id="Best before date" name="Best before date"
-                  required="required" type="date" value="">
-                <div class="help-block form-text with-errors form-control-feedback"></div>
-              </div>
-            </div>
-            <div class="col-sm-4">
-              <div class="form-group">
-                <label for="">Expiry date *</label>
-                <input class="form-control" data-error="This field is compulsory" id="Expiry date" name="Expiry date"
-                  required="required" type="date" value="">
-                <div class="help-block form-text with-errors form-control-feedback"></div>
-              </div>
-            </div>
-          </div>
-        </fieldset>
-
-        <fieldset class="form-group">
-          <legend><span>Additional information</span></legend>
-          <div class="row">
-            <div class="col-sm-6">
-              <div class="form-group">
-                <label for="">Product URL</label>
-                <input class="form-control" id="Product URL" name="Product URL" type="text" value="">
-                <div class="help-block form-text with-errors form-control-feedback"></div>
-              </div>
-            </div>
-            <div class="col-sm-6">
-              <div class="form-group">
-                <label for="">Product usage video</label>
-                <input class="form-control" id="Product usage video" name="Product usage video" type="text" value="">
-                <div class="help-block form-text with-errors form-control-feedback"></div>
-              </div>
-            </div>
-          </div>
-        </fieldset>
-
-        <div class="form-buttons-w">
-          <button type="submit" class="btn btn-primary"> Create</button>
+<form>
+      <div class="steps-w">
+        <div class="step-triggers">
+          <a class="step-trigger active" href="#stepContent1">First Step</a><a class="step-trigger" href="#stepContent2">Second Step</a><a class="step-trigger" href="#stepContent3">Third Step</a>
         </div>
-      </form>
+        <div class="step-contents">
+          <div class="step-content active" id="stepContent1">
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label for=""> First Name</label><input class="form-control" placeholder="First Name" type="text">
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label for="">Last Name</label><input class="form-control" placeholder="Last Name" type="text">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label for=""> Date of Birth</label><input class="form-control" placeholder="First Name" type="text">
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label for="">Country of Origin</label><input class="form-control" placeholder="Last Name" type="text">
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for=""> States with Offices</label><select class="form-control select2" multiple="true">
+                <option selected="true">
+                  New York
+                </option>
+                <option selected="true">
+                  California
+                </option>
+                <option>
+                  Boston
+                </option>
+                <option>
+                  Texas
+                </option>
+                <option>
+                  Colorado
+                </option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for=""> Regular select</label><select class="form-control">
+                <option>
+                  Select State
+                </option>
+                <option>
+                  New York
+                </option>
+                <option>
+                  California
+                </option>
+                <option>
+                  Boston
+                </option>
+                <option>
+                  Texas
+                </option>
+                <option>
+                  Colorado
+                </option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label> Example textarea</label><textarea class="form-control" rows="3"></textarea>
+            </div>
+            <div class="form-buttons-w text-right">
+              <a class="btn btn-primary step-trigger-btn" href="#stepContent2"> Continue</a>
+            </div>
+          </div>
+          <div class="step-content" id="stepContent2">
+            <div class="form-group">
+              <label for=""> Email address</label><input class="form-control" placeholder="Enter email" type="email">
+            </div>
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label for=""> Password</label><input class="form-control" placeholder="Password" type="password">
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label for="">Confirm Password</label><input class="form-control" placeholder="Password" type="password">
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for=""> Regular select</label><select class="form-control">
+                <option>
+                  Select State
+                </option>
+                <option>
+                  New York
+                </option>
+                <option>
+                  California
+                </option>
+                <option>
+                  Boston
+                </option>
+                <option>
+                  Texas
+                </option>
+                <option>
+                  Colorado
+                </option>
+              </select>
+            </div>
+            <div class="form-buttons-w text-right">
+              <a class="btn btn-primary step-trigger-btn" href="#stepContent3"> Continue</a>
+            </div>
+          </div>
+          <div class="step-content" id="stepContent3">
+            <div class="form-group">
+              <label for=""> Regular select</label><select class="form-control">
+                <option>
+                  Select State
+                </option>
+                <option>
+                  New York
+                </option>
+                <option>
+                  California
+                </option>
+                <option>
+                  Boston
+                </option>
+                <option>
+                  Texas
+                </option>
+                <option>
+                  Colorado
+                </option>
+              </select>
+            </div>
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label for=""> Date of Birth</label><input class="form-control" placeholder="First Name" type="text">
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label for="">Country of Origin</label><input class="form-control" placeholder="Last Name" type="text">
+                </div>
+              </div>
+            </div>
+            <div class="form-buttons-w text-right">
+              <button class="btn btn-primary">Submit Form</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
     </div>
   </div>
 </div>
