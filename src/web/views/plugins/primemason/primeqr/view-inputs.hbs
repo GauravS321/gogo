@@ -9,26 +9,20 @@
         {{#if dataArr}}
         <div class="row">
             <div class="col-sm-12 col-xxl-12">
-                <div class="alert alert-success borderless">
-                    Valid PrimeQR
-                </div>
+                <div class="alert alert-success borderless">Valid PrimeQR</div>
             </div>
         </div>
         {{#if best_before}}
         <div class="row">
             <div class="col-sm-12 col-xxl-12">
-                <div class="alert alert-danger borderless">
-                    Product is past its 'best before' date.
-                </div>
+                <div class="alert alert-danger borderless">Product is past its 'best before' date.</div>
             </div>
         </div>
         {{/if}}
          {{#if expired}}
         <div class="row">
             <div class="col-sm-12 col-xxl-12">
-                <div class="alert alert-danger borderless">
-                    Product is past its 'expiry' date.
-                </div>
+                <div class="alert alert-danger borderless">Product is past its 'expiry' date.</div>
             </div>
         </div>
         {{/if}}
@@ -53,9 +47,7 @@
         <div class="row">
             <div class="col-sm-12 col-xxl-12">
                 <div class="element-box">
-                    <div class="alert alert-danger borderless">
-                        Invalid PrimeQR
-                    </div>
+                    <div class="alert alert-danger borderless">Invalid PrimeQR</div>
                 </div>
             </div>
         </div>
@@ -112,14 +104,17 @@
                           </div>
                           <div class="pi-foot">
                             <div class="tags">
-                            {{#if dataArr.[Product URL]}}
-                              <a class="tag" target="_blank" href="{{dataArr.[Product URL]}}">Website</a>
+                            {{#if dataArr.[URL]}}
+                              <a class="tag" target="_blank" href="{{dataArr.[URL]}}">Website</a>
                             {{/if}}
-                            {{#if dataArr.[Product usage video]}}
-                              <a class="tag" target="_blank" href="{{dataArr.[Product usage video]}}">Video</a>
+                            {{#if dataArr.[Video]}}
+                              <a class="tag" target="_blank" href="{{dataArr.[Video]}}">Video</a>
                             {{/if}}
                             </div>
-                            <a class="extra-info" href="#"><i class="os-icon os-icon-mail"></i></a>
+                            {{#if dataArr.[Email]}}
+                              <a class="tag" target="_blank" href="{{dataArr.[Email]}}"><a class="extra-info" href="{{dataArr.[Email]}}"><i class="os-icon os-icon-mail"></i></a></a>
+                            {{/if}}
+                            
                             <a class="extra-info" href="#"><i class="fa fa-facebook"></i></a>
                             <a class="extra-info" href="#"><i class="fa fa-instagram"></i></a>
                             <a class="extra-info" href="#"><i class="fa fa-youtube"></i></a>
