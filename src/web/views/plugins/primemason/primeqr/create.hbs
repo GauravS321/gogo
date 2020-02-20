@@ -40,15 +40,22 @@
                   style="height:128px;width:128px;display:none;">
               </div>
             </div>
+            <hr/>
             <div class="row">
               <div class="col-sm-6">
                 <div class="form-group">
-                  <label for=""> Date of Birth</label><input class="form-control" placeholder="First Name" type="text">
+                  <label for="">Product Name *</label>
+                  <input class="form-control" data-error="This field is compulsory" id="Product Name" name="Product Name"
+                    required="required" type="text" value="">
+                  <div class="help-block form-text with-errors form-control-feedback"></div>
                 </div>
               </div>
               <div class="col-sm-6">
                 <div class="form-group">
-                  <label for="">Country of Origin</label><input class="form-control" placeholder="Last Name" type="text">
+                  <label for="">Batch Number *</label>
+                  <input class="form-control" data-error="This field is compulsory" id="Batch Number" name="Batch Number"
+                    required="required" type="text" value="">
+                  <div class="help-block form-text with-errors form-control-feedback"></div>
                 </div>
               </div>
             </div>
