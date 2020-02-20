@@ -7,11 +7,11 @@
         {{/if}}
 
         {{#if dataArr}}
-        <div class="row">
+        <!--<div class="row">
             <div class="col-sm-12 col-xxl-12">
                 <div class="alert alert-success borderless">Valid PrimeQR</div>
             </div>
-        </div>
+        </div>-->
         {{#if best_before}}
         <div class="row">
             <div class="col-sm-12 col-xxl-12">
@@ -63,10 +63,10 @@
                             </div>
                             <div class="pi-body">
                                 <div class="pi-info"><div class="h6 pi-name">{{dataArr.[Product Name]}}</div>
-                                <div class="pi-sub">Batch number: {{dataArr.[Batch Number]}}</div>
-                                <div class="pi-sub">Manufactured: {{dataArr.[manufactured_display]}}</div>
-                                <div class="pi-sub">Best before: {{dataArr.[best_before_display]}}</div>
-                                <div class="pi-sub">Expiry date: {{dataArr.[expiry_display]}}</div>
+                                {{#if dataArr.[Batch Number]}}<div class="pi-sub">Batch number: {{dataArr.[Batch Number]}}</div>{{/if}}
+                                {{#if dataArr.[Manufacturing date]}}<div class="pi-sub">Manufactured: {{dataArr.[manufactured_display]}}</div>{{/if}}
+                                {{#if dataArr.[Best before date]}}<div class="pi-sub">Best before: {{dataArr.[best_before_display]}}</div>{{/if}}
+                                {{#if dataArr.[Expiry date]}}<div class="pi-sub">Expiry date: {{dataArr.[expiry_display]}}</div>{{/if}}
                             </div>
                         </div>
                         <div class="pi-foot">
