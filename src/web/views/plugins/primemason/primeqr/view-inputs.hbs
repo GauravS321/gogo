@@ -236,7 +236,7 @@
                             <fieldset class="form-group">
 
                                 <div class="row">
-                                    <div class="col-sm-6">
+                                    <div class="col-sm-12">
                                         <div class="form-group">
                                             <label for="">Add comments *</label>
                                             <input class="form-control" data-error="This field is compulsory"
@@ -244,6 +244,22 @@
                                             <div class="help-block form-text with-errors form-control-feedback">
                                             </div>
                                         </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                          <input class="form-control" type="file" id="primechainImage" name="primechainImages">
+                                          <div class="help-block form-text with-errors form-control-feedback"></div>
+                                        </div>
+                                        <div class="help-block form-text text-muted form-control-feedback">
+                                          Supported image types are jpg, png, gif.
+                                        </div>
+                                      </div>
+
+                                    <div class="col-sm-6">
+                                        <img id="primechainImagePreview" class='responsive-img' src=""
+                                      style="height:128px;width:128px;display:none;">
                                     </div>
                                 </div>
                             </fieldset>

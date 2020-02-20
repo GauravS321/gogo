@@ -5,6 +5,7 @@ module.exports.post = async (req, res) => {
     try {
         let uuid = req.body.uuid;
         let json = req.body;
+        json['image'] = (req.files.length > 0)? req.files[0].path: "";
 
         delete json['uuid'];
         json['Date'] = moment(Date.now()).format('MMMM Do YYYY, h:mm:ss a');

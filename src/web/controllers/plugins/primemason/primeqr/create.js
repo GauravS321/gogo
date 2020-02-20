@@ -35,7 +35,6 @@ module.exports.post = (req, res) => {
                         message: err
                     });
                 }
-                console.log(req.files);
 
                 let json = req.body;
                 json['image'] = (req.files.length > 0)? req.files[0].path: "";
