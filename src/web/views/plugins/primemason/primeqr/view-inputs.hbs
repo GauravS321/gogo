@@ -179,9 +179,10 @@
                 </div>
             </div>
             {{/if}}
+        {{/if}}
 
-{{#if user}}
-    {{#each inputsArr}}
+        {{#if user}}
+        {{#each inputsArr}}
         <div class="alert alert-warning" role="alert">
             <div class="row">
                 <div class="col-sm-12 col-xxl-12">
@@ -223,10 +224,10 @@
                 </div>
             </div>
         </div>
-    {{/each}}
-    <!-- if the user is not loggedin -->
-    {{else}}
-    <div class="all-wrapper with-side-panel solid-bg-all">
+        {{/each}}
+        <!-- if the user is not loggedin -->
+        {{else}}
+        <div class="all-wrapper with-side-panel solid-bg-all">
             <div class="layout-w">
                 <div class="alert alert-info" role="alert">
                     <div class="row">
@@ -258,5 +259,6 @@
                 </div>
             </div>
         </div>
+        {{/if}}
     </div>
-{{/if}}
+</div>
