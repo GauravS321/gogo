@@ -21,7 +21,7 @@
       <form id="formValidate" action="/plugins/primemason/primeqr/create" method="post" enctype="multipart/form-data">
       <div class="steps-w">
         <div class="step-triggers">
-          <a class="step-trigger active" href="#stepContent1">First Step</a><a class="step-trigger" href="#stepContent2">Second Step</a><a class="step-trigger" href="#stepContent3">Third Step</a>
+          <a class="step-trigger active" href="#stepContent1">Primary information</a><a class="step-trigger" href="#stepContent2">Second Step</a><a class="step-trigger" href="#stepContent3">Third Step</a>
         </div>
         <div class="step-contents">
           <div class="step-content active" id="stepContent1">
@@ -41,6 +41,7 @@
               </div>
             </div>
             <hr/>
+
             <div class="row">
               <div class="col-sm-6">
                 <div class="form-group">
@@ -52,57 +53,40 @@
               </div>
               <div class="col-sm-6">
                 <div class="form-group">
-                  <label for="">Batch Number *</label>
-                  <input class="form-control" data-error="This field is compulsory" id="Batch Number" name="Batch Number"
-                    required="required" type="text" value="">
-                  <div class="help-block form-text with-errors form-control-feedback"></div>
+                  <label for="">Batch Number</label>
+                  <input class="form-control" id="Batch Number" name="Batch Number" type="text" value="">
                 </div>
               </div>
             </div>
-            <div class="form-group">
-              <label for=""> States with Offices</label><select class="form-control select2" multiple="true">
-                <option selected="true">
-                  New York
-                </option>
-                <option selected="true">
-                  California
-                </option>
-                <option>
-                  Boston
-                </option>
-                <option>
-                  Texas
-                </option>
-                <option>
-                  Colorado
-                </option>
-              </select>
+            <hr/>
+
+            <div class="row">
+            <div class="col-sm-4">
+              <div class="form-group">
+                <label for="">Manufacturing date *</label>
+                <input class="form-control" data-error="This field is compulsory" id="Manufacturing date"
+                  name="Manufacturing date" required="required" type="date" value="">
+                <div class="help-block form-text with-errors form-control-feedback"></div>
+              </div>
             </div>
-            <div class="form-group">
-              <label for=""> Regular select</label><select class="form-control">
-                <option>
-                  Select State
-                </option>
-                <option>
-                  New York
-                </option>
-                <option>
-                  California
-                </option>
-                <option>
-                  Boston
-                </option>
-                <option>
-                  Texas
-                </option>
-                <option>
-                  Colorado
-                </option>
-              </select>
+            <div class="col-sm-4">
+              <div class="form-group">
+                <label for="">Best before date *</label>
+                <input class="form-control" data-error="This field is compulsory" id="Best before date" name="Best before date"
+                  required="required" type="date" value="">
+                <div class="help-block form-text with-errors form-control-feedback"></div>
+              </div>
             </div>
-            <div class="form-group">
-              <label> Example textarea</label><textarea class="form-control" rows="3"></textarea>
+            <div class="col-sm-4">
+              <div class="form-group">
+                <label for="">Expiry date *</label>
+                <input class="form-control" data-error="This field is compulsory" id="Expiry date" name="Expiry date"
+                  required="required" type="date" value="">
+                <div class="help-block form-text with-errors form-control-feedback"></div>
+              </div>
             </div>
+          </div>
+
             <div class="form-buttons-w text-right">
               <a class="btn btn-primary step-trigger-btn" href="#stepContent2"> Continue</a>
             </div>
