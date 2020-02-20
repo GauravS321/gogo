@@ -13,6 +13,13 @@ echo '----------------------------------------'
 
 sudo systemctl start mongod
 
+
+echo '----------------------------------------'
+echo -e 'ENABLING MONGODB.....'
+echo '----------------------------------------'
+
+sudo systemctl enable mongod
+
 echo ''
 echo ''
 echo '----------------------------------------'
@@ -20,4 +27,16 @@ echo ''
 echo ''
 echo ''
 
+mongo --quiet admin <<EOF
+db.createUser({user: 'adminuser', pwd: 'admin12345', roles:['root']});
+db.auth('adminuser', 'primechain12345');
+use primechain;
+db.createUser({user: 'primechainuser', pwd: 'primechain12345', roles:[{role:'readWrite', db: 'primechain'}]});
+EOF
 
+echo ''
+echo ''
+echo '----------------------------------------'
+echo ''
+echo ''
+echo ''
