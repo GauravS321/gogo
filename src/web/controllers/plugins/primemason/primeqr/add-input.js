@@ -25,27 +25,29 @@ module.exports.post = async (req, res) => {
                     message: err
                 });
             }
+
+            let uuid = req.body.uuid;
+            let json = req.body;
+            console.log(req.body);
+            console.log(req.files);
+            json['image'] = (req.files.length > 0)? req.files[0].path: "";
+
+            delete json['uuid'];
+            json['Date'] = moment(Date.now()).format('MMMM Do YYYY, h:mm:ss a');
+            json['Full name'] = (req.user) ? req.user.username : 'NA';
+            json['Email'] = (req.user) ? req.user.email : 'NA';
+
+            await primeqr.findOneAndUpdate({ uuid }, { $push: { inputs: json } });
+            const record = await primeqr.findOne({ uuid });
+            return res.render('plugins/primemason/primeqr/view-inputs', {
+                uuid,
+                data: true,
+                dataArr: record.json,
+                inputsArr: record.inputs,
+                username: (req.user) ? req.user.username : false,
+                email: (req.user) ? req.user.email : false
+            });
         })
-
-        let uuid = req.body.uuid;
-        let json = req.body;
-        json['image'] = (req.files.length > 0)? req.files[0].path: "";
-
-        delete json['uuid'];
-        json['Date'] = moment(Date.now()).format('MMMM Do YYYY, h:mm:ss a');
-        json['Full name'] = (req.user) ? req.user.username : 'NA';
-        json['Email'] = (req.user) ? req.user.email : 'NA';
-
-        await primeqr.findOneAndUpdate({ uuid }, { $push: { inputs: json } });
-        const record = await primeqr.findOne({ uuid });
-        return res.render('plugins/primemason/primeqr/view-inputs', {
-            uuid,
-            data: true,
-            dataArr: record.json,
-            inputsArr: record.inputs,
-            username: (req.user) ? req.user.username : false,
-            email: (req.user) ? req.user.email : false
-        });
     } catch (error) {
         console.log(error);
         req.flash('error_msg', "Oops. Something went wrong.");
