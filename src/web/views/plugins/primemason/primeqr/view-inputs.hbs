@@ -1,4 +1,4 @@
-{{#if !user}}
+{{#unless user}}
  <div class="layout-w">
     <div class="menu-mobile menu-activated-on-click color-scheme-dark">
         <div class="mm-logo-buttons-w">
@@ -20,7 +20,7 @@
         </div>
     </div>
 </div>
-{{/if}}
+{{/unless}}
 <div class="content-i">
     <div class="content-box">
         {{#if error_msg}}
