@@ -28,9 +28,7 @@ module.exports.post = async (req, res) => {
 
             let uuid = req.body.uuid;
             let json = req.body;
-            console.log(req.body);
-            console.log(req.files);
-            json['image'] = (req.files.length > 0)? req.files[0].path: "";
+            json['custom_image'] = (req.files.length > 0)? req.files[0].path: "";
 
             delete json['uuid'];
             json['Date'] = moment(Date.now()).format('MMMM Do YYYY, h:mm:ss a');
@@ -49,7 +47,6 @@ module.exports.post = async (req, res) => {
             });
         })
     } catch (error) {
-        console.log(error);
         req.flash('error_msg', "Oops. Something went wrong.");
         return res.redirect('/plugins/primemason/primeqr/manage');
     }
