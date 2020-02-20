@@ -19,104 +19,170 @@
       </div>
 
       <form id="formValidate" action="/plugins/primemason/primeqr/create" method="post" enctype="multipart/form-data">
-
-        <fieldset class="form-group">
-          <legend>
-            <span>Product photo</span>
-          </legend>
-
-          <div class="row">
-            <div class="col-sm-6">
-              <div class="form-group">
-                <input class="form-control" type="file" id="primechainImage" name="primechainImages">
-                <div class="help-block form-text with-errors form-control-feedback"></div>
-              </div>
-              <div class="help-block form-text text-muted form-control-feedback">
-                Supported image types are jpg, png, gif.
-              </div>
-            </div>
-            <div class="col-sm-6">
-              <img id="primechainImagePreview" class='responsive-img' src=""
-                style="height:128px;width:128px;display:none;">
-            </div>
-        </fieldset>
-
-        <fieldset class="form-group">
-          <legend><span>Primary information</span></legend>
-          <div class="row">
-            <div class="col-sm-6">
-              <div class="form-group">
-                <label for="">Product Name *</label>
-                <input class="form-control" data-error="This field is compulsory" id="Product Name" name="Product Name"
-                  required="required" type="text" value="">
-                <div class="help-block form-text with-errors form-control-feedback"></div>
-              </div>
-            </div>
-            <div class="col-sm-6">
-              <div class="form-group">
-                <label for="">Batch Number *</label>
-                <input class="form-control" data-error="This field is compulsory" id="Batch Number" name="Batch Number"
-                  required="required" type="text" value="">
-                <div class="help-block form-text with-errors form-control-feedback"></div>
-              </div>
-            </div>
-          </div>
-        </fieldset>
-
-        <fieldset class="form-group">
-          <legend><span>Dates</span></legend>
-          <div class="row">
-            <div class="col-sm-4">
-              <div class="form-group">
-                <label for="">Manufacturing date *</label>
-                <input class="form-control" data-error="This field is compulsory" id="Manufacturing date"
-                  name="Manufacturing date" required="required" type="date" value="">
-                <div class="help-block form-text with-errors form-control-feedback"></div>
-              </div>
-            </div>
-            <div class="col-sm-4">
-              <div class="form-group">
-                <label for="">Best before date *</label>
-                <input class="form-control" data-error="This field is compulsory" id="Best before date" name="Best before date"
-                  required="required" type="date" value="">
-                <div class="help-block form-text with-errors form-control-feedback"></div>
-              </div>
-            </div>
-            <div class="col-sm-4">
-              <div class="form-group">
-                <label for="">Expiry date *</label>
-                <input class="form-control" data-error="This field is compulsory" id="Expiry date" name="Expiry date"
-                  required="required" type="date" value="">
-                <div class="help-block form-text with-errors form-control-feedback"></div>
-              </div>
-            </div>
-          </div>
-        </fieldset>
-
-        <fieldset class="form-group">
-          <legend><span>Additional information</span></legend>
-          <div class="row">
-            <div class="col-sm-6">
-              <div class="form-group">
-                <label for="">Product URL</label>
-                <input class="form-control" id="Product URL" name="Product URL" type="text" value="">
-                <div class="help-block form-text with-errors form-control-feedback"></div>
-              </div>
-            </div>
-            <div class="col-sm-6">
-              <div class="form-group">
-                <label for="">Product usage video</label>
-                <input class="form-control" id="Product usage video" name="Product usage video" type="text" value="">
-                <div class="help-block form-text with-errors form-control-feedback"></div>
-              </div>
-            </div>
-          </div>
-        </fieldset>
-
-        <div class="form-buttons-w">
-          <button type="submit" class="btn btn-primary"> Create</button>
+      <div class="steps-w">
+        <div class="step-triggers">
+          <a class="step-trigger active" href="#stepContent1">Primary information</a><a class="step-trigger" href="#stepContent2">Customer Support</a><a class="step-trigger" href="#stepContent3">Promotions</a>
         </div>
-      </form>
+        <div class="step-contents">
+          <div class="step-content active" id="stepContent1">
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <input class="form-control" type="file" id="primechainImage" name="primechainImages">
+                  <div class="help-block form-text with-errors form-control-feedback"></div>
+                </div>
+                <div class="help-block form-text text-muted form-control-feedback">
+                  Supported image types are jpg, png, gif.
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <img id="primechainImagePreview" class='responsive-img' src=""
+                  style="height:128px;width:128px;display:none;">
+              </div>
+            </div>
+            <hr/>
+
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label for="">Product Name *</label>
+                  <input class="form-control" data-error="This field is compulsory" id="Product Name" name="Product Name"
+                    required="required" type="text" value="">
+                  <div class="help-block form-text with-errors form-control-feedback"></div>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label for="">Batch Number</label>
+                  <input class="form-control" id="Batch Number" name="Batch Number" type="text" value="">
+                </div>
+              </div>
+            </div>
+            <hr/>
+
+            <div class="row">
+              <div class="col-sm-4">
+                <div class="form-group">
+                  <label for="">Manufacturing date</label>
+                  <input class="form-control" id="Manufacturing date" name="Manufacturing date" required="required" type="date" value="">
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="form-group">
+                  <label for="">Best before date</label>
+                  <input class="form-control" id="Best before date" name="Best before date" type="date" value="">
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="form-group">
+                  <label for="">Expiry date</label>
+                  <input class="form-control" id="Expiry date" name="Expiry date" type="date" value="">
+                </div>
+              </div>
+            </div>
+            <hr/>
+
+            <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <label for="">Product details</label>
+                <textarea class="product_details" cols="80" id="ckeditor1" name="Product Details" rows="10" style="visibility: hidden; display: none;"></textarea>
+              </div>
+            </div>
+
+          </div>
+
+
+            <div class="form-buttons-w text-right">
+              <a class="btn btn-primary step-trigger-btn" href="#stepContent2"> Continue</a>
+            </div>
+          </div>
+
+          <div class="step-content" id="stepContent2">
+
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label for="">Product URL</label>
+                  <input class="form-control" id="URL" name="URL" type="text" value="">
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label for="">Product usage video URL</label>
+                  <input class="form-control" id="Video" name="Video" type="text" value="">
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label for="">Email</label>
+                  <input class="form-control" id="Email" name="Email" type="text" value="">
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label for="">WhatsApp</label>
+                  <input class="form-control" id="WhatsApp" name="WhatsApp" type="text" value="">
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label for="">Facebook</label>
+                  <input class="form-control" id="Facebook" name="Facebook" type="text" value="">
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label for="">Instagram</label>
+                  <input class="form-control" id="Instagram" name="Instagram" type="text" value="">
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label for="">Youtube</label>
+                  <input class="form-control" id="Youtube" name="Youtube" type="text" value="">
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <!--<div class="form-group">
+                  <label for="">Instagram</label>
+                  <input class="form-control" id="Product usage video" name="Product usage video" type="text" value="">
+                </div>-->
+              </div>
+            </div>
+
+            <div class="form-buttons-w text-right">
+              <a class="btn btn-primary step-trigger-btn" href="#stepContent3"> Continue</a>
+            </div>
+          </div>
+
+          <div class="step-content" id="stepContent3">
+
+            <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <label for="">Promotional offer / scheme</label>
+                  <input class="form-control" id="Promotion" name="Promotion" type="text" value="">
+              </div>
+            </div>
+
+            <div class="form-buttons-w text-right">
+              <button class="btn btn-primary">Create PrimeQR</button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </form>
     </div>
   </div>
 </div>

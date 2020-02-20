@@ -9,46 +9,45 @@
         {{#if dataArr}}
         <div class="row">
             <div class="col-sm-12 col-xxl-12">
-                <div class="alert alert-success borderless">
-                    Valid PrimeQR
-                </div>
+                <div class="alert alert-success borderless">Valid PrimeQR</div>
             </div>
         </div>
-        <p>{{best_before}}</p>
         {{#if best_before}}
         <div class="row">
             <div class="col-sm-12 col-xxl-12">
-                <div class="alert alert-danger borderless">
-                    Product is past its 'best before' date.
-                </div>
+                <div class="alert alert-danger borderless">Product is past its 'best before' date.</div>
             </div>
         </div>
         {{/if}}
-            {{#if image}}
-            <div class="row">
-                <div class="col-sm-12 col-xxl-12">
-                    <div class="element-box">
-                        <img id="primechainImagePreview" class='responsive-img row' ; alt="" src="{{image}}" style="width:128px;height:128px; margin-left: 10px;">
-                    </div>
+         {{#if expired}}
+        <div class="row">
+            <div class="col-sm-12 col-xxl-12">
+                <div class="alert alert-danger borderless">Product is past its 'expiry' date.</div>
+            </div>
+        </div>
+        {{/if}}
+        {{#if image}}
+        <div class="row">
+            <div class="col-sm-12 col-xxl-12">
+                <div class="element-box">
+                    <img id="primechainImagePreview" class='responsive-img row' alt="Image" src="{{image}}" style="height:256px;width:256px;">
                 </div>
             </div>
-            {{else}}
-            <div class="row">
-                <div class="col-sm-12 col-xxl-12">
-                    <div class="element-box">
-                        <img id="primechainImagePreview" class='responsive-img row' ; alt="Primechain" src="/web/img/download.png" style="text-align:center">
-                    </div>
-                </div>
-            </div>
-
-            {{/if}}
+        </div>
         {{else}}
         <div class="row">
             <div class="col-sm-12 col-xxl-12">
                 <div class="element-box">
-                    <div class="alert alert-danger borderless">
-                        Invalid PrimeQR
-                    </div>
+                    <img id="primechainImagePreview" class='responsive-img row' ; alt="Primechain" src="/web/img/download.png">
+                </div>
+            </div>
+        </div>
+        {{/if}}
+        {{else}}
+        <div class="row">
+            <div class="col-sm-12 col-xxl-12">
+                <div class="element-box">
+                    <div class="alert alert-danger borderless">Invalid PrimeQR</div>
                 </div>
             </div>
         </div>
@@ -85,28 +84,41 @@
                             <div class="status status-green" data-placement="top" data-toggle="tooltip" title="" data-original-title="Active Status"></div>
                           </div>
                           <div class="pi-body">
-                            <div class="avatar">
-                              <img alt="" src="img/avatar1.jpg">
-                            </div>
                             <div class="pi-info">
                               <div class="h6 pi-name">
                                 {{dataArr.[Product Name]}}
                               </div>
                               <div class="pi-sub">
-                                Batch: {{dataArr.[Batch Number]}}
+                                Batch number: {{dataArr.[Batch Number]}}
+                              </div>
+                              <div class="pi-sub">
+                                Manufactured: {{dataArr.[manufactured_display]}}
+                              </div>
+                              <div class="pi-sub">
+                                Best before: {{dataArr.[best_before_display]}}
+                              </div>
+                              <div class="pi-sub">
+                                Expiry date: {{dataArr.[expiry_display]}}
                               </div>
                             </div>
                           </div>
                           <div class="pi-foot">
                             <div class="tags">
-                            {{#if dataArr.[Product URL]}}
-                              <a class="tag" target="_blank" href="{{dataArr.[Product URL]}}">Website</a>
+                            {{#if dataArr.[URL]}}
+                              <a class="tag" target="_blank" href="{{dataArr.[URL]}}">Website</a>
                             {{/if}}
-                            {{#if dataArr.[Product usage video]}}
-                              <a class="tag" target="_blank" href="{{dataArr.[Product usage video]}}">Video</a>
+                            {{#if dataArr.[Video]}}
+                              <a class="tag" target="_blank" href="{{dataArr.[Video]}}">Video</a>
                             {{/if}}
                             </div>
-                            <a class="extra-info" href="#"><i class="os-icon os-icon-mail-12"></i><span>8 Notes</span></a>
+                            {{#if dataArr.[Email]}}
+                              <a class="tag" target="_blank" href="{{dataArr.[Email]}}"><a class="extra-info" href="{{dataArr.[Email]}}"><i class="os-icon os-icon-mail"></i></a></a>
+                            {{/if}}
+                            
+                            <a class="extra-info" href="#"><i class="fa fa-facebook"></i></a>
+                            <a class="extra-info" href="#"><i class="fa fa-instagram"></i></a>
+                            <a class="extra-info" href="#"><i class="fa fa-youtube"></i></a>
+                            <a class="extra-info" href="https://api.whatsapp.com/send?phone=+918806176284"><i class="fa fa-whatsapp"></i></a>
                           </div>
                         </div>
 

@@ -9,26 +9,12 @@ module.exports.get = async (req, res) => {
             const record = await primeqr.findOne({ uuid });
 
             const { geo_latitude, geo_longitude } = record.json;
-            // let current_date = Date.now();
             
-            let best_before = moment().isBefore(record.json['Best before date']);
-            console.log(best_before);
-
-            let expired = moment().isBefore(record.json['Expiry date']);
-            console.log(expired);
-
-            // let expiry_date = moment(record.json['Expiry date']);
-            // let best_before = best_before_date.diff(current_date);
-            // let expired = expiry_date.diff(current_date);
-
             delete record['inputs']['geo_latitude'];
             delete record['inputs']['geo_longitude'];
 
-            console.log(record.json);
 
             return res.render('plugins/primemason/primeqr/view', {
-                best_before, 
-                expired, 
                 latitude: geo_latitude,
                 longitude: geo_longitude,
                 dataArr: record.json,
