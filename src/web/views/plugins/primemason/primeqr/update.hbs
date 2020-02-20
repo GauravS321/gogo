@@ -19,6 +19,7 @@
             </div>
             {{#if dataArr}}
             <form id="formValidate" action="/plugins/primemason/primeqr/update" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="uuid" value="{{uuid}}">
               <div class="steps-w">
                 <div class="step-triggers">
                   <a class="step-trigger active" href="#stepContent1">Primary information</a><a class="step-trigger" href="#stepContent2">Customer Support</a><a class="step-trigger" href="#stepContent3">Promotions</a>
@@ -54,7 +55,7 @@
                       <div class="col-sm-6">
                         <div class="form-group">
                           <label for="">Batch Number</label>
-                          <input class="form-control" id="Batch Number" name="Batch Number" type="text" value="">
+                          <input class="form-control" id="Batch Number" name="Batch Number" type="text" value="{{dataArr.[Batch Number]}}">
                         </div>
                       </div>
                     </div>
@@ -64,19 +65,19 @@
                       <div class="col-sm-4">
                         <div class="form-group">
                           <label for="">Manufacturing date</label>
-                          <input class="form-control" id="Manufacturing date" name="Manufacturing date" required="required" type="date" value="">
+                          <input class="form-control" id="Manufacturing date" name="Manufacturing date" type="date" value="{{dataArr.[Manufacturing date]}}">
                         </div>
                       </div>
                       <div class="col-sm-4">
                         <div class="form-group">
                           <label for="">Best before date</label>
-                          <input class="form-control" id="Best before date" name="Best before date" type="date" value="">
+                          <input class="form-control" id="Best before date" name="Best before date" type="date" value="{{dataArr.[Best before date]}}">
                         </div>
                       </div>
                       <div class="col-sm-4">
                         <div class="form-group">
                           <label for="">Expiry date</label>
-                          <input class="form-control" id="Expiry date" name="Expiry date" type="date" value="">
+                          <input class="form-control" id="Expiry date" name="Expiry date" type="date" value="{{dataArr.[Expiry date]}}">
                         </div>
                       </div>
                     </div>
@@ -86,7 +87,7 @@
                       <div class="col-sm-12">
                         <div class="form-group">
                           <label for="">Product details</label>
-                          <input class="form-control" id="Product details" name="Product details" type="text" value="">
+                          <input class="form-control" id="Product details" name="Product details" type="text" value="{{dataArr.[Product details]}}">
                         </div>
                       </div>
                     </div>
@@ -96,7 +97,7 @@
                       <div class="col-sm-12">
                         <div class="form-group">
                           <label for="">Eshopping URL</label>
-                          <input class="form-control" id="Eshopping URL" name="Eshopping URL" type="text" value="">
+                          <input class="form-control" id="Eshopping URL" name="Eshopping URL" type="text" value="{{dataArr.[Eshopping URL]}}">
                         </div>
                       </div>
                     </div>
@@ -112,13 +113,13 @@
                       <div class="col-sm-6">
                         <div class="form-group">
                           <label for="">Product URL</label>
-                          <input class="form-control" id="URL" name="URL" type="text" value="">
+                          <input class="form-control" id="URL" name="URL" type="text" value="{{dataArr.[URL]}}">
                         </div>
                       </div>
                       <div class="col-sm-6">
                         <div class="form-group">
                           <label for="">Product usage video URL</label>
-                          <input class="form-control" id="Video" name="Video" type="text" value="">
+                          <input class="form-control" id="Video" name="Video" type="text" value="{{dataArr.[Video]}}">
                         </div>
                       </div>
                     </div>
@@ -127,13 +128,13 @@
                       <div class="col-sm-6">
                         <div class="form-group">
                           <label for="">Email</label>
-                          <input class="form-control" id="Email" name="Email" type="text" value="">
+                          <input class="form-control" id="Email" name="Email" type="text" value="{{dataArr.[Email]}}">
                         </div>
                       </div>
                       <div class="col-sm-6">
                         <div class="form-group">
                           <label for="">WhatsApp (e.g. +91xxxxxxxxxx)</label>
-                          <input class="form-control" id="WhatsApp" name="WhatsApp" type="text" value="">
+                          <input class="form-control" id="WhatsApp" name="WhatsApp" type="text" value="{{dataArr.[WhatsApp]}}">
                         </div>
                       </div>
                     </div>
@@ -142,13 +143,13 @@
                       <div class="col-sm-6">
                         <div class="form-group">
                           <label for="">Facebook</label>
-                          <input class="form-control" id="Facebook" name="Facebook" type="text" value="">
+                          <input class="form-control" id="Facebook" name="Facebook" type="text" value="{{dataArr.[Facebook]}}">
                         </div>
                       </div>
                       <div class="col-sm-6">
                         <div class="form-group">
                           <label for="">Instagram</label>
-                          <input class="form-control" id="Instagram" name="Instagram" type="text" value="">
+                          <input class="form-control" id="Instagram" name="Instagram" type="text" value="{{dataArr.[Instagram]}}">
                         </div>
                       </div>
                     </div>
@@ -157,13 +158,13 @@
                       <div class="col-sm-6">
                         <div class="form-group">
                           <label for="">Youtube</label>
-                          <input class="form-control" id="Youtube" name="Youtube" type="text" value="">
+                          <input class="form-control" id="Youtube" name="Youtube" type="text" value="{{dataArr.[Youtube]}}">
                         </div>
                       </div>
                       <div class="col-sm-6">
                         <!--<div class="form-group">
-                          <label for="">Instagram</label>
-                          <input class="form-control" id="Product usage video" name="Product usage video" type="text" value="">
+                          <label for=""></label>
+                          <input class="form-control" id="" name="" type="text" value="{{dataArr.[aaaa]}}">
                         </div>-->
                       </div>
                     </div>
@@ -179,7 +180,7 @@
                     <div class="col-sm-12">
                       <div class="form-group">
                         <label for="">Promotional offer / scheme</label>
-                          <textarea class="Promotion" cols="80" id="ckeditor1" name="Promotion" rows="10" style="visibility: hidden; display: none;"></textarea>
+                          <textarea class="Promotion" cols="80" id="ckeditor1" name="Promotion" rows="10" style="visibility: hidden; display: none;">{{dataArr.[aaaa]}}</textarea>
                       </div>
                     </div>
 
