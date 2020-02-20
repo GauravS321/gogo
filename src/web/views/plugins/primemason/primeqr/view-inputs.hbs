@@ -99,21 +99,16 @@
             </div>
             {{/if}}
 
-            {{#if dataArr.[Product Details]}}
+            {{#if dataArr.[Eshopping URL]}}
             <div class="row">
                 <div class="col-sm-12 col-xxl-12">
                     <div class="element-box"> 
-                      <a class="btn btn-secondary btn-md" href="#" style="width:100%;"><i class="fa fa-heart" style="color:red;"></i> <span>Loved it? Buy more.</span></a><br/><br/>
-                      <button class="mr-2 mb-2 btn btn-warning" type="button" style="width:100%;"> <i class="fa fa-heart" style="color:red;"></i> Loved it? Buy more.</button>
+                      <a class="btn btn-secondary btn-md" href="{{dataArr.[Eshopping URL]}}" style="width:100%;"><i class="fa fa-heart" style="color:red;"></i> <span>Loved it? Buy more.</span></a><br/><br/>
+                      <a href="{{dataArr.[Eshopping URL]}}" target="_blank"><button class="mr-2 mb-2 btn btn-warning" type="button" style="width:100%;"> <i class="fa fa-heart" style="color:red;"></i> Loved it? Buy more.</button></a>
                     </div>
                 </div>
             </div>
             {{/if}}
-
-
-
-<a class="btn btn-success btn-sm" href="#"><i class="os-icon os-icon-grid-10"></i><span>Make Payment</span></a>
-
 
             <div class="row">
                 <div class="col-sm-12 col-xxl-12">
