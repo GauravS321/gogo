@@ -179,6 +179,58 @@
 
         {{#if user}}
         {{#each inputsArr}}
+        <div class="alert alert-danger" role="alert">
+            <div class="row">
+                <div class="col-sm-12 col-xxl-12">
+                    <div class="element-box">
+                        <h5 class="form-header"></h5>
+                        <div class="table-responsive">
+                            <table class="table table-striped table-bordered">
+                                <thead>
+                                    <th style="width: 35%;">Field</th>
+                                    <th style="width: 65%;">Value</th>
+                                </thead>
+                                {{#if this}}
+                                <tbody>
+                                 {{#if comment_image}}
+                                    <div class="row">
+                                        <div class="col-sm-12 col-xxl-12">
+                                            <div class="element-box">
+                                                <img id="commentImagePreview" class='responsive-img row' alt="Image" src="{{comment_image}}" style="height:256px;width:256px;">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {{/if}}
+                                    {{#if this.geo_latitude}}
+                                    <tr>
+                                        <td>Link</td>
+                                        <td><a href='https://www.openstreetmap.org/#map=18/{{this.geo_latitude}}/{{this.geo_longitude}}'
+                                                target="_blank">Link</a></td>
+                                    </tr>
+                                    {{/if}}
+                                    {{#each this}}
+                                    <tr>
+                                        <td>{{@key}}</td>
+                                        <td>{{{this}}}</td>
+                                    </tr>
+                                    {{/each}}
+                                </tbody>
+                                {{else}}
+                                <tbody>
+                                    <tr>
+                                        <td>{{@key}}</td>
+                                        <td>{{{this}}}</td>
+                                    </tr>
+                                </tbody>
+                                {{/if}}
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+        {{#each inputsArr}}
         <div class="alert alert-warning" role="alert">
             <div class="row">
                 <div class="col-sm-12 col-xxl-12">
