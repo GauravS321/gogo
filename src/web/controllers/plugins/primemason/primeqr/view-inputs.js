@@ -7,10 +7,16 @@ module.exports.get = async (req, res) => {
 
         const record = await primeqr.findOne({ uuid });
         let image = record.json['image'];
+        record.json['manufactured_display'] = moment(record.json['Manufacturing date'], "DD-MMM-YYYY");
+        record.json['best_before_display'] = moment(record.json['Best before date'], "DD-MMM-YYYY");
+        record.json['expiry_display'] = moment(record.json['Expiry date'], "DD-MMM-YYYY");
+
         let best_before = moment().isAfter(record.json['Best before date']);
         let expired = moment().isAfter(record.json['Expiry date']);
 
-       // delete record.json['image'];
+        delete record.json['Manufacturing date'];
+        delete record.json['Best before date'];
+        delete record.json['Expiry date'];
 
         return res.render('plugins/primemason/primeqr/view-inputs', {
             best_before,
