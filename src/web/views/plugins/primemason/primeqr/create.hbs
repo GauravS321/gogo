@@ -21,7 +21,7 @@
       <form id="formValidate" action="/plugins/primemason/primeqr/create" method="post" enctype="multipart/form-data">
       <div class="steps-w">
         <div class="step-triggers">
-          <a class="step-trigger active" href="#stepContent1">Primary information</a><a class="step-trigger" href="#stepContent2">Customer Support</a><a class="step-trigger" href="#stepContent3">Schemes</a>
+          <a class="step-trigger active" href="#stepContent1">Primary information</a><a class="step-trigger" href="#stepContent2">Customer Support</a><a class="step-trigger" href="#stepContent3">Promotions</a>
         </div>
         <div class="step-contents">
           <div class="step-content active" id="stepContent1">
@@ -80,6 +80,7 @@
                 </div>
               </div>
             </div>
+            <hr/>
 
             <div class="row">
             <div class="col-sm-12">
@@ -90,8 +91,6 @@
             </div>
 
           </div>
-
-
 
 
             <div class="form-buttons-w text-right">
@@ -154,10 +153,10 @@
                 </div>
               </div>
               <div class="col-sm-6">
-                <div class="form-group">
+                <!--<div class="form-group">
                   <label for="">Instagram</label>
                   <input class="form-control" id="Product usage video" name="Product usage video" type="text" value="">
-                </div>
+                </div>-->
               </div>
             </div>
 
@@ -167,43 +166,19 @@
           </div>
 
           <div class="step-content" id="stepContent3">
-            <div class="form-group">
-              <label for=""> Regular select</label><select class="form-control">
-                <option>
-                  Select State
-                </option>
-                <option>
-                  New York
-                </option>
-                <option>
-                  California
-                </option>
-                <option>
-                  Boston
-                </option>
-                <option>
-                  Texas
-                </option>
-                <option>
-                  Colorado
-                </option>
-              </select>
-            </div>
+
             <div class="row">
-              <div class="col-sm-6">
-                <div class="form-group">
-                  <label for=""> Date of Birth</label><input class="form-control" placeholder="First Name" type="text">
-                </div>
-              </div>
-              <div class="col-sm-6">
-                <div class="form-group">
-                  <label for="">Country of Origin</label><input class="form-control" placeholder="Last Name" type="text">
-                </div>
+            <div class="col-sm-12">
+              <div class="form-group">
+                <label for="">Promotional offer / scheme</label>
+                <textarea class="promo" cols="80" id="ckeditor1" name="Product Details" rows="10" style="visibility: hidden; display: none;"></textarea>
               </div>
             </div>
+
             <div class="form-buttons-w text-right">
-              <button class="btn btn-primary">Submit Form</button>
+              <button class="btn btn-primary">Create PrimeQR</button>
             </div>
+            
           </div>
         </div>
       </div>
