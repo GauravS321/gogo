@@ -61,25 +61,38 @@
             <hr/>
 
             <div class="row">
-            <div class="col-sm-4">
-              <div class="form-group">
-                <label for="">Manufacturing date</label>
-                <input class="form-control" id="Manufacturing date" name="Manufacturing date" required="required" type="date" value="">
+              <div class="col-sm-4">
+                <div class="form-group">
+                  <label for="">Manufacturing date</label>
+                  <input class="form-control" id="Manufacturing date" name="Manufacturing date" required="required" type="date" value="">
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="form-group">
+                  <label for="">Best before date</label>
+                  <input class="form-control" id="Best before date" name="Best before date" type="date" value="">
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="form-group">
+                  <label for="">Expiry date</label>
+                  <input class="form-control" id="Expiry date" name="Expiry date" type="date" value="">
+                </div>
               </div>
             </div>
-            <div class="col-sm-4">
+
+            <div class="row">
+            <div class="col-sm-12">
               <div class="form-group">
-                <label for="">Best before date</label>
-                <input class="form-control" id="Best before date" name="Best before date" type="date" value="">
+                <label for="">Product details</label>
+                <textarea class="product_details" cols="80" id="ckeditor1" name="Product Details" rows="10" style="visibility: hidden; display: none;"></textarea>
               </div>
             </div>
-            <div class="col-sm-4">
-              <div class="form-group">
-                <label for="">Expiry date</label>
-                <input class="form-control" id="Expiry date" name="Expiry date" type="date" value="">
-              </div>
-            </div>
+
           </div>
+
+
+
 
             <div class="form-buttons-w text-right">
               <a class="btn btn-primary step-trigger-btn" href="#stepContent2"> Continue</a>
