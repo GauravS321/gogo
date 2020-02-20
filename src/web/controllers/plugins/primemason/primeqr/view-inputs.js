@@ -13,6 +13,7 @@ module.exports.get = async (req, res) => {
 
         let best_before = moment().isAfter(record.json['Best before date']);
         let expired = moment().isAfter(record.json['Expiry date']);
+        console.log(record.inputs)
 
         let comment_image = record.inputs['comment_image'];
         delete record.inputs['comment_image'];
@@ -21,11 +22,12 @@ module.exports.get = async (req, res) => {
 
         // delete record.json['Best before date'];
         // delete record.json['Expiry date'];
-        console.log(record.json)
+    
         return res.render('plugins/primemason/primeqr/view-inputs', {
             best_before,
             expired,
             image,
+            comment_image,
             uuid,
             dataArr: record.json,
             inputsArr: record.inputs,
