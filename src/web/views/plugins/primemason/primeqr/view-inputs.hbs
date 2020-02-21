@@ -225,6 +225,18 @@
                           </div>
                           <strong class="activity-title">{{Comments}}</strong>
                         </div>
+
+
+                                 {{#if comment_image}}
+                                    <div class="row">
+                                        <div class="col-sm-12 col-xxl-12">
+                                            <div class="element-box">
+                                                <img id="commentImagePreview" class='responsive-img row' alt="Image" src="{{comment_image}}" style="height:256px;width:256px;">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {{/if}}
+                        
                       </div>
                     </div>
                   </div>
