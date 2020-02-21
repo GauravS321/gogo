@@ -1,3 +1,7 @@
+mongopassword=$1
+email=$2
+primechain_address=$3
+
 echo '----------------------------------------'
 echo -e 'INSTALLING MONGODB.....'
 echo '----------------------------------------'
@@ -14,12 +18,6 @@ echo '----------------------------------------'
 sudo systemctl start mongod
 
 
-echo '----------------------------------------'
-echo -e 'ENABLING MONGODB.....'
-echo '----------------------------------------'
-
-sudo systemctl enable mongod
-
 echo ''
 echo ''
 echo '----------------------------------------'
@@ -27,12 +25,50 @@ echo ''
 echo ''
 echo ''
 
-mongo --quiet admin <<EOF
-db.createUser({user: 'adminuser', pwd: 'admin12345', roles:['root']});
-db.auth('adminuser', 'primechain12345');
-use primechain;
-db.createUser({user: 'primechainuser', pwd: 'primechain12345', roles:[{role:'readWrite', db: 'primechain'}]});
+
+echo '----------------------------------------'
+echo -e 'CREATING MONGODB USER'
+echo '----------------------------------------'
+echo ''
+echo ''
+
+mongo --quiet primechain 
+db.createUser({user: primechainuser, pwd: $mongopassword, roles:[{ role: "userAdmin", db: "primechain"}]})
 EOF
+sudo service mongod  stop
+sudo sh -c 'echo "security:\n  authorization : enabled" >> /etc/mongod.conf'
+sudo service mongod  restart
+
+echo ''
+echo ''
+echo '----------------------------------------'
+echo ''
+echo ''
+echo ''
+echo '----------------------------------------'
+echo -e 'AUTHENTICATING MONGODB USER'
+echo '----------------------------------------'
+echo ''
+echo ''
+
+mongo primechain --port 27017 -u primechainuser -p $mongopassword
+
+echo ''
+echo ''
+echo '----------------------------------------'
+echo ''
+echo ''
+
+echo ''
+echo ''
+echo '----------------------------------------'
+echo -e 'INSERTING ADMIN USER INTO COLLECTION'
+echo '----------------------------------------'
+echo ''
+echo ''
+
+# create a document in users collection
+db.users.insert({"username": "admin", "email": "$email", "password": "$mongopassword", "primechain_address": "$primechain_address", "role": "admin"});
 
 echo ''
 echo ''
