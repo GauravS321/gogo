@@ -3,6 +3,7 @@
 source primechain-api.conf
 
 ipaddress=$1
+email=$2
 
 outputfilepath=~/primechain-api.out
 rm -rf $outputfilepath
@@ -122,46 +123,13 @@ echo ''
 
 sleep 1
 
-echo ''
-echo ''
-echo -e '==============================='
-echo -e 'INSTALLING MONGODB INITIATED...'
-echo -e '==============================='
-echo ''
-echo ''
-echo ''
-
-### INSTALLING MongoDB
-bash -e ubuntu_mongodb_setup.sh
-
-echo ''
-echo ''
-echo -e '=================================='
-echo -e 'MONGODB INSTALLATION COMPLETED!!!'
-echo -e '=================================='
-echo ''
-echo ''
-echo ''
-
-sleep 1
-
 echo -e \
 '--------------------------------------------'"\n"\
 'MYSQL DATABASE CREDENTIALS'"\n"\
 '--------------------------------------------'"\n"\
 'dbrootpass='$dbrootpass"\n"\
 'dbuser='$dbuser"\n"\
-'dbpass='$dbpass"\n\n"\
- > $outputfilepath
-
- echo -e \
-'--------------------------------------------'"\n"\
-'MONGODB DATABASE CREDENTIALS'"\n"\
-'--------------------------------------------'"\n"\
-'dbname= primechain'"\n"\
-'dbuser= primechainuser'"\n"\
-'dbpass='$MongoDBpass"\n\n"\
- > $outputfilepath
+'dbpass='$dbpass"\n\n" >> $outputfilepath
 
 echo ''
 echo ''
@@ -190,8 +158,7 @@ echo -e \
 'API CREDENTIALS'"\n"\
 '--------------------------------------------'"\n"\
 'rpcuser='$rpcuser"\n"\
-'rpcpassword='$rpcpassword"\n\n"\
- >> $outputfilepath
+'rpcpassword='$rpcpassword"\n\n" >> $outputfilepath
 
 sleep 1
 
@@ -220,6 +187,37 @@ echo ''
 echo ''
 
 sleep 1
+
+echo ''
+echo ''
+echo -e '==============================='
+echo -e 'INSTALLING MONGODB INITIATED...'
+echo -e '==============================='
+echo ''
+echo ''
+echo ''
+
+addr=`curl --user $rpcuser:$rpcpassword --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getaddresses", "params": [] }' -H 'content-type: text/json;' http://127.0.0.1:$rpcport | jq -r '.result[0]'`
+
+### INSTALLING MongoDB
+bash -e ubuntu_mongodb_setup.sh $dbpass $email $addr
+
+echo ''
+echo ''
+echo -e '=================================='
+echo -e 'MONGODB INSTALLATION COMPLETED!!!'
+echo -e '=================================='
+echo ''
+echo ''
+echo ''
+echo -e \
+'--------------------------------------------'"\n"\
+'MONGODB DATABASE CREDENTIALS'"\n"\
+'--------------------------------------------'"\n"\
+'dbname= primechain'"\n"\
+'dbuser= primechainuser'"\n"\
+'dbpass='$dbpass"\n\n" >> $outputfilepath
+
 
 echo ''
 echo ''
