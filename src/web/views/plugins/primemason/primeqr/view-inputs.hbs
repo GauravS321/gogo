@@ -116,18 +116,6 @@
             </div>
             {{/if}}
 
-            {{#if dataArr.[Product details]}}
-            <div class="row">
-                <div class="col-sm-12 col-xxl-12">
-                      <div class="alert alert-primary borderless">
-                        <p style="color:#ffffff">
-                          {{{dataArr.[Product details]}}}
-                        </p>
-                      </div>
-                </div>
-            </div>
-            {{/if}}
-
             {{#if dataArr.[Eshopping URL]}}
             <div class="row">
                 <div class="col-sm-12 col-xxl-12">
@@ -170,25 +158,41 @@
                 </div>
             </div>
 
+            {{#if dataArr.[Insurance]}}
+            <div class="row">
+                <div class="col-sm-12 col-xxl-12">
+                      <div class="alert alert-primary borderless">
+                        <p style="color:#ffffff">
+                          {{{dataArr.[Insurance]}}}
+                        </p>
+                      </div>
+                </div>
+            </div>
+            {{/if}}
+
             {{#if dataArr.[Promotion]}}
             <div class="row">
                 <div class="col-sm-12 col-xxl-12">
                     <div class="element-box"> 
-                      <div class="alert alert-info borderless">
-                        <h5 class="alert-heading">
-                          Special Offer !!!
-                        </h5>
                         <p>
                           {{{dataArr.[Promotion]}}}
                         </p>
-                        <div class="alert-btn">
-                          <a class="btn btn-white-gold" href="#"><i class="os-icon os-icon-ui-92"></i><span>Send Referral</span></a>
-                        </div>
                       </div>
                     </div>
                 </div>
             </div>
             {{/if}}
+
+            {{#if dataArr.[Other]}}
+            <div class="row">
+                <div class="col-sm-12 col-xxl-12">
+                    <div class="element-box"> 
+                      <a href="{{dataArr.[Other]}}" target="_blank"><button class="mr-2 mb-2 btn btn-warning" type="button" style="width:100%;"> <i class="fa fa-star" style="color:red;"></i> Other link.</button></a>
+                    </div>
+                </div>
+            </div>
+            {{/if}}
+
         {{/if}}
 
         {{#if user}}
