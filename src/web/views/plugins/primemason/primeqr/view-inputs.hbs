@@ -202,6 +202,9 @@
                 <div class="col-sm-12 col-xxl-12">
                     <div class="element-box">
                         <h5 class="form-header">aaaa</h5>
+                        <p><strong>{{Comments}}</strong></p>
+                        <p><a href="mailto:{{Email}}">{{[Full name]}}</a><br/>{{Date}}<br/></p>
+                        {{#if this.geo_latitude}}<p><a href='https://www.openstreetmap.org/#map=18/{{this.geo_latitude}}/{{this.geo_longitude}}' target="_blank">Link</a></p>{{/if}}
                         {{#if comment_image}}
                         <div class="row">
                             <div class="col-sm-12 col-xxl-12">
@@ -211,9 +214,6 @@
                             </div>
                         </div>
                         {{/if}}
-                        <p><strong>{{Comments}}</strong></p>
-                        <p><a href="mailto:{{Email}}">{{[Full name]}}</a><br/>{{Date}}<br/></p>
-                        {{#if this.geo_latitude}}<p><a href='https://www.openstreetmap.org/#map=18/{{this.geo_latitude}}/{{this.geo_longitude}}' target="_blank">Link</a></p>{{/if}}
                     </div>
                 </div>
             </div>
