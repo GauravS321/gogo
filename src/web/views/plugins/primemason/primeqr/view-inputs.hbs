@@ -173,11 +173,9 @@
             {{#if dataArr.[Insurance]}}
             <div class="row">
                 <div class="col-sm-12 col-xxl-12">
-                      <div class="alert alert-primary borderless">
-                        <p style="color:#ffffff">
-                          {{{dataArr.[Insurance]}}}
-                        </p>
-                      </div>
+                    <div class="element-box"> 
+                      <a href="{{dataArr.[Insurance]}}" target="_blank"><button class="mr-2 mb-2 btn btn-primary" type="button" style="width:100%;"> <i class="fa fa-star" style="color:red;"></i> Insurance</button></a>
+                    </div>
                 </div>
             </div>
             {{/if}}
@@ -193,7 +191,6 @@
             {{/if}}
 
         {{/if}}
-
         {{#if user}}
 
         {{#each inputsArr}}
@@ -201,7 +198,6 @@
             <div class="row">
                 <div class="col-sm-12 col-xxl-12">
                     <div class="element-box">
-                        <h5 class="form-header">aaaa</h5>
                         <p><strong>{{Comments}}</strong></p>
                         <p><a href="mailto:{{Email}}">{{[Full name]}}</a><br/>{{Date}}<br/></p>
                         {{#if this.geo_latitude}}<p><a href='https://www.openstreetmap.org/#map=18/{{this.geo_latitude}}/{{this.geo_longitude}}' target="_blank">Link</a></p>{{/if}}
