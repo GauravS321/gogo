@@ -22,7 +22,7 @@
             <input type="hidden" name="uuid" value="{{uuid}}">
               <div class="steps-w">
                 <div class="step-triggers">
-                  <a class="step-trigger active" href="#stepContent1">Primary information</a><a class="step-trigger" href="#stepContent2">Customer Support</a><a class="step-trigger" href="#stepContent3">Promotions</a>
+                  <a class="step-trigger active" href="#stepContent1">Primary information</a><a class="step-trigger" href="#stepContent2">Customer Support</a><a class="step-trigger" href="#stepContent3">Promotions, etc</a>
                 </div>
                 <div class="step-contents">
                   <div class="step-content active" id="stepContent1">
@@ -50,6 +50,23 @@
                           <input class="form-control" data-error="This field is compulsory" id="Product Name" name="Product Name"
                             required="required" type="text" value="{{dataArr.[Product Name]}}">
                           <div class="help-block form-text with-errors form-control-feedback"></div>
+                        </div>
+                      </div>
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                          <label for="">Manufacturer</label>
+                          <input class="form-control" id="Manufacturer" name="Manufacturer" type="text" value="{{dataArr.[Manufacturer]}}">
+                        </div>
+                      </div>
+                    </div>
+                    <hr/>
+
+                    <div class="row">
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                          <label for="">Product ID</label>
+                          <input class="form-control" data-error="This field is compulsory" id="Product ID" name="Product ID"
+                            required="required" type="text" value="{{dataArr.[Product ID]}}">
                         </div>
                       </div>
                       <div class="col-sm-6">
@@ -177,14 +194,30 @@
                   <div class="step-content" id="stepContent3">
 
                     <div class="row">
-                    <div class="col-sm-12">
-                      <div class="form-group">
-                        <label for="">Promotional offer / scheme</label>
-                          <textarea class="Promotion" cols="80" id="ckeditor1" name="Promotion" rows="10" style="visibility: hidden; display: none;">{{dataArr.[aaaa]}}</textarea>
+                      <div class="col-sm-12">
+                        <div class="form-group">
+                          <label for="">Promotional offer / scheme</label>
+                            <textarea class="Promotion" cols="80" id="ckeditor1" name="Promotion" rows="10" style="visibility: hidden; display: none;">{{dataArr.[aaaa]}}</textarea>
+                        </div>
                       </div>
                     </div>
 
-                    <div class="form-buttons-w text-right">
+                    <div class="row">
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                          <label for="">Insurance</label>
+                          <input class="form-control" id="Insurance" name="Insurance" type="text" value="{{dataArr.[Insurance]}}">
+                        </div>
+                      </div>
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                          <label for="">Other</label>
+                          <input class="form-control" id="Other" name="Other" type="text" value="{{dataArr.[Other]}}">
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div class="form-buttons-w text-left">
                       <button class="btn btn-primary">Update PrimeQR</button>
                     </div>
 
