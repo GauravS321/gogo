@@ -35,9 +35,9 @@ module.exports.post = (req, res) => {
                         message: err
                     });
                 }
-                
+
                 let json = req.body;
-                json['image'] = (req.files)? req.files[0].path: "";
+                json['image'] = (req.files.length > 0)? req.files[0].path: "";
                 let response = await create(req.body);
 
                 req.flash("success_msg", "PrimeQR created. ", response.msg['uuid']);
