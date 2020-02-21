@@ -346,41 +346,31 @@
         </div>
         <!-- if the user is not loggedin -->
         {{else}}
-        <!--<div class="all-wrapper with-side-panel solid-bg-all">
-            <div class="layout-w">
-                <div class="alert alert-info" role="alert">-->
-                    <div class="row">
-                        <div class="col-sm-12 col-xxl-12">
+            <div class="row">
+                <div class="col-sm-12 col-xxl-12">
+                    <div class="element-box"> 
                         <h6 class="element-header">Register to earn loyalty points and rewards</h6>
-                            <div class="element-box">
-                                <form id="formValidate" action="/plugins/primemason/primeqr/add-inputs" method="post">
-                                    <input type="hidden" name="uuid" value="{{uuid}}">
-                                    <input type="hidden" name="geo_latitude" id="geo_latitude" value="">
-                                    <input type="hidden" name="geo_longitude" id="geo_longitude" value="">
-                                    <fieldset class="form-group">
-                                        <div class="row">
-                                            <div class="col-sm-12">
-                                                <div class="form-group">
-                                                    <label for="">Mobile</label><br/><input class="form-control" id="Mobile" name="Mobile" type="text" value=""><br/>
-                                                    <label for="">Email</label><br/><input class="form-control" id="Email" name="Email" type="email" value="">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </fieldset>
-                                    <div class="form-check">
-                                        <label class="form-check-label"><input class="form-check-input" type="checkbox">I agree to <a href="">terms and conditions</a></label>
-                                    </div>
-                                    <div class="form-buttons-w">
-                                        <button class="btn btn-primary" type="submit"> Register</button>
-                                      </div>
-                                </form>
+                        <form id="formValidate" action="/plugins/primemason/primeqr/add-inputs" method="post">
+                            <input type="hidden" name="uuid" value="{{uuid}}">
+                            <input type="hidden" name="geo_latitude" id="geo_latitude" value="">
+                            <input type="hidden" name="geo_longitude" id="geo_longitude" value="">
+
+                            <div class="form-group">
+                                <label for="">Mobile</label><br/><input class="form-control" id="Mobile" name="Mobile" type="text" value=""><br/>
+                                <label for="">Email</label><br/><input class="form-control" id="Email" name="Email" type="email" value="">
                             </div>
-                        </div>
-                    <!--</div>
+
+                            <div class="form-check">
+                                <label class="form-check-label"><input class="form-check-input" type="checkbox">I agree to <a href="">terms and conditions</a></label>
+                            </div>
+                            
+                            <div class="form-buttons-w">
+                                <button class="btn btn-primary" type="submit"> Register</button>
+                              </div>
+                        </form>
+                    </div>
                 </div>
-            </div>-->
-        </div>
+            </div>
         {{/if}}
     </div>
 </div>
