@@ -36,7 +36,7 @@
             </div>
         </div>
         {{/if}}
-         {{#if expired}}
+        {{#if expired}}
         <div class="row">
             <div class="col-sm-12 col-xxl-12">
                 <div class="alert alert-danger borderless">Product is past its 'expiry' date.</div>
@@ -195,58 +195,92 @@
         {{/if}}
 
         {{#if user}}
+              <div class="element-wrapper">
+                <h6 class="element-header">
+                  Recent Activity
+                </h6>
+
+
         {{#each inputsArr}}
-        <div class="alert alert-danger" role="alert">
-            <div class="row">
-                <div class="col-sm-12 col-xxl-12">
-                    <div class="element-box">
-                        <h5 class="form-header">{{Comments}} comments</h5>
-                        <div class="table-responsive">
-                            <table class="table table-striped table-bordered">
-                                <thead>
-                                    <th style="width: 35%;">Field</th>
-                                    <th style="width: 65%;">Value</th>
-                                </thead>
-                                {{#if this}}
-                                <tbody>
-                                 {{#if comment_image}}
-                                    <div class="row">
-                                        <div class="col-sm-12 col-xxl-12">
-                                            <div class="element-box">
-                                                <img id="commentImagePreview" class='responsive-img row' alt="Image" src="{{comment_image}}" style="height:256px;width:256px;">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    {{/if}}
-                                    {{#if this.geo_latitude}}
-                                    <tr>
-                                        <td>Link</td>
-                                        <td><a href='https://www.openstreetmap.org/#map=18/{{this.geo_latitude}}/{{this.geo_longitude}}'
-                                                target="_blank">Link</a></td>
-                                    </tr>
-                                    {{/if}}
-                                    {{#each this}}
-                                    <tr>
-                                        <td>{{@key}}</td>
-                                        <td>{{{this}}}</td>
-                                    </tr>
-                                    {{/each}}
-                                </tbody>
-                                {{else}}
-                                <tbody>
-                                    <tr>
-                                        <td>{{@key}}</td>
-                                        <td>{{{this}}}</td>
-                                    </tr>
-                                </tbody>
-                                {{/if}}
-                            </table>
+<!--------------------
+              START - Recent Activity
+              -------------------->
+
+                <div class="element-box-tp">
+                  <div class="activity-boxes-w">
+                    <div class="activity-box-w">
+                      <div class="activity-time">
+                        10 Min
+                      </div>
+                      <div class="activity-box">
+                        <!--<div class="activity-avatar">
+                          <img alt="" src="img/avatar1.jpg">
+                        </div>-->
+                        <div class="activity-info">
+                          <div class="activity-role">
+                            {{Full name}}
+                          </div>
+                          <strong class="activity-title">Opened New Account</strong>
                         </div>
+                      </div>
                     </div>
+                    <div class="activity-box-w">
+                      <div class="activity-time">
+                        2 Hours
+                      </div>
+                      <div class="activity-box">
+                        <div class="activity-avatar">
+                          <img alt="" src="img/avatar2.jpg">
+                        </div>
+                        <div class="activity-info">
+                          <div class="activity-role">
+                            Ben Gossman
+                          </div>
+                          <strong class="activity-title">Posted Comment</strong>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="activity-box-w">
+                      <div class="activity-time">
+                        5 Hours
+                      </div>
+                      <div class="activity-box">
+                        <div class="activity-avatar">
+                          <img alt="" src="img/avatar3.jpg">
+                        </div>
+                        <div class="activity-info">
+                          <div class="activity-role">
+                            Phil Nokorin
+                          </div>
+                          <strong class="activity-title">Opened New Account</strong>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="activity-box-w">
+                      <div class="activity-time">
+                        2 Days
+                      </div>
+                      <div class="activity-box">
+                        <div class="activity-avatar">
+                          <img alt="" src="img/avatar4.jpg">
+                        </div>
+                        <div class="activity-info">
+                          <div class="activity-role">
+                            Jenny Miksa
+                          </div>
+                          <strong class="activity-title">Uploaded Image</strong>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-            </div>
-        </div>
+              </div>
+              <!--------------------
+              END - Recent Activity
+              -------------------->
+
         {{/each}}
+
         {{#each inputsArr}}
         <div class="alert alert-warning" role="alert">
             <div class="row">
@@ -344,6 +378,7 @@
                 </div>
             </div>
         </div>
+    </div>
         <!-- if the user is not loggedin -->
         {{else}}
             {{#if dataArr.[Terms]}}
