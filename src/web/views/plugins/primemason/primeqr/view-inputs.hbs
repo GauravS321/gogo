@@ -80,8 +80,6 @@
                             </div>
                             <div class="pi-body">
                                 <div class="pi-info"><div class="h6 pi-name">{{dataArr.[Product Name]}}</div>
-                                <div class="pi-sub">Manufacturer: {{dataArr.[Manufacturer]}}</div>
-                                {{#if dataArr.[Product ID]}}<div class="pi-sub">Product ID: {{dataArr.[Product ID]}}</div>{{/if}}
                                 {{#if dataArr.[Batch Number]}}<div class="pi-sub">Batch number: {{dataArr.[Batch Number]}}</div>{{/if}}
                                 {{#if dataArr.[Manufacturing date]}}<div class="pi-sub">Manufactured: {{dataArr.[manufactured_display]}}</div>{{/if}}
                                 {{#if dataArr.[Best before date]}}<div class="pi-sub">Best before: {{dataArr.[best_before_display]}}</div>{{/if}}
@@ -116,11 +114,24 @@
             </div>
             {{/if}}
 
+            {{#if dataArr.[Product details]}}
+            <div class="row">
+                <div class="col-sm-12 col-xxl-12">
+                      <div class="alert alert-primary borderless">
+                        <p style="color:#ffffff">
+                          {{{dataArr.[Product details]}}}
+                        </p>
+                      </div>
+                </div>
+            </div>
+            {{/if}}
+
             {{#if dataArr.[Eshopping URL]}}
             <div class="row">
                 <div class="col-sm-12 col-xxl-12">
                     <div class="element-box"> 
                       <a class="btn btn-secondary btn-md" href="{{dataArr.[Eshopping URL]}}" style="width:100%;"><i class="fa fa-heart" style="color:red;"></i> <span>Loved it? Buy more.</span></a><br/><br/>
+                      <a href="{{dataArr.[Eshopping URL]}}" target="_blank"><button class="mr-2 mb-2 btn btn-warning" type="button" style="width:100%;"> <i class="fa fa-heart" style="color:red;"></i> Loved it? Buy more.</button></a>
                     </div>
                 </div>
             </div>
@@ -158,41 +169,25 @@
                 </div>
             </div>
 
-            {{#if dataArr.[Insurance]}}
-            <div class="row">
-                <div class="col-sm-12 col-xxl-12">
-                      <div class="alert alert-primary borderless">
-                        <p style="color:#ffffff">
-                          {{{dataArr.[Insurance]}}}
-                        </p>
-                      </div>
-                </div>
-            </div>
-            {{/if}}
-
             {{#if dataArr.[Promotion]}}
             <div class="row">
                 <div class="col-sm-12 col-xxl-12">
                     <div class="element-box"> 
+                      <div class="alert alert-info borderless">
+                        <h5 class="alert-heading">
+                          Special Offer !!!
+                        </h5>
                         <p>
                           {{{dataArr.[Promotion]}}}
                         </p>
+                        <div class="alert-btn">
+                          <a class="btn btn-white-gold" href="#"><i class="os-icon os-icon-ui-92"></i><span>Send Referral</span></a>
+                        </div>
                       </div>
                     </div>
                 </div>
             </div>
             {{/if}}
-
-            {{#if dataArr.[Other]}}
-            <div class="row">
-                <div class="col-sm-12 col-xxl-12">
-                    <div class="element-box"> 
-                      <a href="{{dataArr.[Other]}}" target="_blank"><button class="mr-2 mb-2 btn btn-warning" type="button" style="width:100%;"> <i class="fa fa-heart" style="color:red;"></i> Other link.</button></a>
-                    </div>
-                </div>
-            </div>
-            {{/if}}
-
         {{/if}}
 
         {{#if user}}
