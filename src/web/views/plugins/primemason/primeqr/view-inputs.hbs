@@ -80,6 +80,8 @@
                             </div>
                             <div class="pi-body">
                                 <div class="pi-info"><div class="h6 pi-name">{{dataArr.[Product Name]}}</div>
+                                {{#if dataArr.[Manufacturer]}}<div class="pi-sub">Manufacturer: {{dataArr.[Manufacturer]}}</div>{{/if}}
+                                {{#if dataArr.[Product ID]}}<div class="pi-sub">Product ID: {{dataArr.[Product ID]}}</div>{{/if}}
                                 {{#if dataArr.[Batch Number]}}<div class="pi-sub">Batch number: {{dataArr.[Batch Number]}}</div>{{/if}}
                                 {{#if dataArr.[Manufacturing date]}}<div class="pi-sub">Manufactured: {{dataArr.[manufactured_display]}}</div>{{/if}}
                                 {{#if dataArr.[Best before date]}}<div class="pi-sub">Best before: {{dataArr.[best_before_display]}}</div>{{/if}}
