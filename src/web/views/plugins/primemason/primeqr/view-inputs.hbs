@@ -195,14 +195,14 @@
         {{/if}}
 
         {{#if user}}
-        {{#each inputsArr}}
+
         <div class="alert alert-danger" role="alert">
             <div class="row">
                 <div class="col-sm-12 col-xxl-12">
                     <div class="element-box">
+        {{#each inputsArr}}
 
-
-<!--------------------
+                <!--------------------
               START - Recent Activity
               -------------------->
               <div class="element-wrapper">
@@ -245,12 +245,12 @@
               END - Recent Activity
               -------------------->
 
-                        
+                                {{/each}}
                     </div>
                 </div>
             </div>
         </div>
-        {{/each}}
+
         {{#each inputsArr}}
         <div class="alert alert-warning" role="alert">
             <div class="row">
