@@ -21,8 +21,7 @@
                         <thead>
                             <tr>
                                 <th>ID</th>
-                                <th>uuid</th>
-                                <th>Product Name</th>
+                                <th>Product</th>
                                 <th>View</th>
                                 <th>Update</th>
                                 <th>Delete</th>
@@ -34,7 +33,7 @@
                             {{#if dataArr}} {{#each dataArr}}
                             <tr>
                                 <td>{{documentId}}</td>
-                                <td>{{uuid}}</td>
+                                <td>{{ProductName}}<br/>{{uuid}}</td>
                                 <td>{{ProductName}}</td>
                                 <td>
                                     <div class="md4">
@@ -48,22 +47,28 @@
                                 </td>
                                 <td>
                                     <div class="md4">
-                                        <form id="updateForm#{{uuid}}" action="/plugins/primemason/primeqr/update"
-                                            method="GET">
+                                        <form id="updateForm#{{uuid}}" action="/plugins/primemason/primeqr/update" method="GET">
                                             <input type="hidden" name="uuid" value="{{uuid}}">
                                         </form>
-                                        <button class="btn btn-warning"
-                                            onclick="document.getElementById('updateForm#{{uuid}}').submit();">Update</button>
+                                        <button class="btn btn-warning" onclick="document.getElementById('updateForm#{{uuid}}').submit();">Update</button>
                                     </div>
                                 </td>
+
                                 <td>
                                     <div class="md4">
-                                        <form id="deleteForm#{{uuid}}" action="/plugins/primemason/primeqr/delete"
-                                            method="POST">
+                                        <form id="recallForm#{{uuid}}" action="/plugins/primemason/primeqr/recall" method="POST">
                                             <input type="hidden" name="uuid" value="{{uuid}}">
                                         </form>
-                                        <button class="btn btn-danger"
-                                            onclick="document.getElementById('deleteForm#{{uuid}}').submit();">Delete</button>
+                                        <button class="btn btn-danger" onclick="document.getElementById('recallForm#{{uuid}}').submit();">Recall</button>
+                                    </div>
+                                </td>
+
+                                <td>
+                                    <div class="md4">
+                                        <form id="deleteForm#{{uuid}}" action="/plugins/primemason/primeqr/delete" method="POST">
+                                            <input type="hidden" name="uuid" value="{{uuid}}">
+                                        </form>
+                                        <button class="btn btn-danger" onclick="document.getElementById('deleteForm#{{uuid}}').submit();">Delete</button>
                                     </div>
                                 </td>
 
@@ -87,24 +92,14 @@
                                                         <form id="shareForm#{{uuid}}"
                                                             action="/plugins/primemason/primeqr/share" method="POST">
                                                             <input type="hidden" name="uuid" value="{{uuid}}">
-                                                            <div class="form-group"><label for="">Full
-                                                                    Name</label><input class="form-control"
-                                                                    placeholder="Enter Full name" type="text"
-                                                                    name="receiver_name">
+                                                            <div class="form-group"><label for="">Full Name</label><input class="form-control" placeholder="Enter Full name" type="text" name="receiver_name">
                                                             </div>
-                                                            <div class="form-group"><label for=""> Email
-                                                                    address</label><input class="form-control"
-                                                                    placeholder="Enter email" type="email"
-                                                                    name="receiver_email">
+                                                            <div class="form-group"><label for=""> Email address</label><input class="form-control" placeholder="Enter email" type="email" name="receiver_email">
                                                             </div>
                                                         </form>
                                                     </div>
-                                                    <div class="modal-footer"><button class="btn btn-secondary"
-                                                            data-dismiss="modal" type="button">
-                                                            Close</button>
-                                                        <button class="btn btn-primary"
-                                                            onclick="document.getElementById('shareForm#{{uuid}}').submit();">
-                                                            Share</button>
+                                                    <div class="modal-footer"><button class="btn btn-secondary" data-dismiss="modal" type="button">Close</button>
+                                                        <button class="btn btn-primary" onclick="document.getElementById('shareForm#{{uuid}}').submit();">Share</button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -123,14 +118,11 @@
                                             <div class="modal-dialog modal-sm">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
-                                                        <h5 class="modal-title" id="exampleModalLabel">
-                                                            Primechain</h5><button aria-label="Close" class="close"
-                                                            data-dismiss="modal" type="button"><span
-                                                                aria-hidden="true">×</span></button>
+                                                        <h5 class="modal-title" id="exampleModalLabel">PrimeQR</h5><button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">×</span></button>
                                                     </div>
                                                     <div class="modal-body">
                                                         <p>{{ProductName}}</p>
-                                                        <hr />
+                                                        <hr/>
                                                         <div id="qrcode#{{uuid}}"></div>
                                                     </div>
                                                 </div>

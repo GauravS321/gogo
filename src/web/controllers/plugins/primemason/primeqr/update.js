@@ -25,8 +25,10 @@ module.exports.get = async (req, res) => {
 module.exports.post = async (req, res) => {
     try {
         if (req.user && req.isAuthenticated()) {
+            console.log(req.body);
             let json = req.body;
             let uuid = req.body.uuid;
+            console.log(uuid)
             delete json['uuid'];
 
            await primeqr.findOneAndUpdate({ uuid }, { json });
@@ -35,6 +37,7 @@ module.exports.post = async (req, res) => {
             return res.redirect('/plugins/primemason/primeqr/manage');
         }
     } catch (error) {
+        console.log(error);
         req.flash('error_msg', "Oops. Something went wrong.");
         return res.redirect('/plugins/primemason/primeqr/manage');
     }
