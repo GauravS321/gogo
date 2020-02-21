@@ -48,8 +48,12 @@ module.exports.post = async (req, res) => {
                         message: err
                     });
                 }
+
+                let original_data = await primeqr.findOne({uuid: req.body.uuid});
+
                 let json = req.body;
                 let uuid = req.body.uuid;
+                json['image'] = (req.files.length > 0)? req.files[0].path: original_data.json['image']; 
 
                 delete json['uuid'];
 
@@ -60,7 +64,6 @@ module.exports.post = async (req, res) => {
             })
         }
     } catch (error) {
-        console.log(error);
         req.flash('error_msg', "Oops. Something went wrong.");
         return res.redirect('/plugins/primemason/primeqr/manage');
     }
