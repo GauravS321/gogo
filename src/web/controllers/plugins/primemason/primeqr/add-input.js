@@ -49,6 +49,7 @@ module.exports.post = async (req, res) => {
             username: (req.user) ? req.user.username : false,
             email: (req.user) ? req.user.email : false
         })
+    })
     } catch (error) {
         req.flash('error_msg', "Oops. Something went wrong.");
         return res.redirect('/plugins/primemason/primeqr/manage');
