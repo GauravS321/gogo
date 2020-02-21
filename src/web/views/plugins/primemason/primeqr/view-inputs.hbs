@@ -131,7 +131,6 @@
                 <div class="col-sm-12 col-xxl-12">
                     <div class="element-box"> 
                       <a class="btn btn-secondary btn-md" href="{{dataArr.[Eshopping URL]}}" style="width:100%;"><i class="fa fa-heart" style="color:red;"></i> <span>Loved it? Buy more.</span></a><br/><br/>
-                      <a href="{{dataArr.[Eshopping URL]}}" target="_blank"><button class="mr-2 mb-2 btn btn-warning" type="button" style="width:100%;"> <i class="fa fa-heart" style="color:red;"></i> Loved it? Buy more.</button></a>
                     </div>
                 </div>
             </div>
@@ -188,6 +187,17 @@
                 </div>
             </div>
             {{/if}}
+
+            {{#if dataArr.[Other]}}
+            <div class="row">
+                <div class="col-sm-12 col-xxl-12">
+                    <div class="element-box"> 
+                      <a href="{{dataArr.[Other]}}" target="_blank"><button class="mr-2 mb-2 btn btn-warning" type="button" style="width:100%;"> <i class="fa fa-star" style="color:red;"></i> Other</button></a>
+                    </div>
+                </div>
+            </div>
+            {{/if}}
+
         {{/if}}
 
         {{#if user}}
