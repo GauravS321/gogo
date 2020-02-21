@@ -37,14 +37,17 @@ module.exports.post = async (req, res) => {
 
             await primeqr.findOneAndUpdate({ uuid }, { $push: { inputs: json } });
             const record = await primeqr.findOne({ uuid });
-            return res.redirect('/plugins/primemason/primeqr/view-inputs', {
-                uuid,
-                data: true,
-                dataArr: record.json,
-                inputsArr: record.inputs,
-                username: (req.user) ? req.user.username : false,
-                email: (req.user) ? req.user.email : false
-            });
+
+            return res.render('plugins/primemason/primeqr/view-inputs', {
+            best_before,
+            expired,
+            image,
+            comment_image,
+            uuid,
+            dataArr: record.json,
+            inputsArr: record.inputs,
+            username: (req.user) ? req.user.username : false,
+            email: (req.user) ? req.user.email : false
         })
     } catch (error) {
         req.flash('error_msg', "Oops. Something went wrong.");
