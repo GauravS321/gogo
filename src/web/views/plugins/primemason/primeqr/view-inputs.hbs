@@ -257,15 +257,16 @@
                 <div class="col-sm-12 col-xxl-12">
                     <div class="element-box">
                         <h5 class="form-header">aaaa</h5>
-                                                         {{#if comment_image}}
-                                    <div class="row">
-                                        <div class="col-sm-12 col-xxl-12">
-                                            <div class="element-box">
-                                                <img id="commentImagePreview" class='responsive-img row' alt="Image" src="{{comment_image}}" style="height:256px;width:256px;">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    {{/if}}
+                        {{#if comment_image}}
+                        <div class="row">
+                            <div class="col-sm-12 col-xxl-12">
+                                <div class="element-box">
+                                    <img id="commentImagePreview" class='responsive-img row' alt="Image" src="{{comment_image}}" style="height:256px;width:256px;">
+                                </div>
+                            </div>
+                        </div>
+                        {{/if}}
+                        <p>{{Email}} {{[Full name]}} {{geo_latitude}} {{geo_longitude}} {{Date}}</p>
                         <div class="table-responsive">
                             <table class="table table-striped table-bordered">
                                 <thead>
