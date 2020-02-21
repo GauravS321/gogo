@@ -11,7 +11,8 @@ const primeqrSchema = new mongoose.Schema({
     document_id: { type: String },
     uuid: String,
     json: Object,
-    inputs: Array
+    inputs: Array,
+    customers: Array
 }, { timestamps: true });
 
 
