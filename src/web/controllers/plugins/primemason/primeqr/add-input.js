@@ -37,7 +37,7 @@ module.exports.post = async (req, res) => {
 
             await primeqr.findOneAndUpdate({ uuid }, { $push: { inputs: json } });
             const record = await primeqr.findOne({ uuid });
-            return res.render('plugins/primemason/primeqr/view-inputs', {
+            return res.redirect('/plugins/primemason/primeqr/view-inputs', {
                 uuid,
                 data: true,
                 dataArr: record.json,
