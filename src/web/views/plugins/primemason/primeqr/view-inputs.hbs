@@ -346,6 +346,7 @@
         </div>
         <!-- if the user is not loggedin -->
         {{else}}
+            {{#if dataArr.[Terms]}}
             <div class="row">
                 <div class="col-sm-12 col-xxl-12">
                     <div class="element-box"> 
@@ -371,6 +372,7 @@
                     </div>
                 </div>
             </div>
+            {{/if}}
         {{/if}}
     </div>
 </div>
