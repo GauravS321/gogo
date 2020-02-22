@@ -26,18 +26,27 @@ echo ''
 echo ''
 
 
+sleep 2
+
 echo '----------------------------------------'
 echo -e 'CREATING MONGODB USER'
 echo '----------------------------------------'
 echo ''
 echo ''
 
-mongo --quiet primechain 
-db.createUser({user: primechainuser, pwd: $mongopassword, roles:[{ role: "userAdmin", db: "primechain"}]})
+sudo mongo <<EOF
+use admin
+db.createUser({user : "adminuser", pwd : "$mongopassword", roles : [{ role : "root", db : "admin"}]})
+db.auth("adminuser", "$mongopassword")
+use primechain
+db.createUser({user : "primechainuser", pwd : "$mongopassword", roles : [{ role : "dbOwner", db : "primechain"}]})
+db.users.insert({"username" : "admin" , "email" : "$email", "password" : "$mongopassword", "primechain_address" : "$primechain_address", "role" : "admin"})
 EOF
-sudo service mongod  stop
-sudo sh -c 'echo "security:\n  authorization : enabled" >> /etc/mongod.conf'
-sudo service mongod  restart
+
+echo '----------------------------------------'
+echo -e 'USER CREATION COMPLETED!!!'
+echo '----------------------------------------'
+
 
 echo ''
 echo ''
@@ -51,24 +60,37 @@ echo '----------------------------------------'
 echo ''
 echo ''
 
-mongo primechain --port 27017 -u primechainuser -p $mongopassword
-
 echo ''
 echo ''
 echo '----------------------------------------'
 echo ''
 echo ''
 
-echo ''
-echo ''
-echo '----------------------------------------'
-echo -e 'INSERTING ADMIN USER INTO COLLECTION'
-echo '----------------------------------------'
+echo '------------------------------------------'
+echo -e 'CONFIGURING AUTHENTICATION MONGODB USER'
+echo '------------------------------------------'
 echo ''
 echo ''
 
-# create a document in users collection
-db.users.insert({"username": "admin", "email": "$email", "password": "$mongopassword", "primechain_address": "$primechain_address", "role": "admin"});
+sudo service mongod  stop
+sleep 1
+sudo sh -c 'echo "security:\n  authorization : enabled" >> /etc/mongod.conf'
+sleep 1
+sudo service mongod  restart
+
+echo ''
+echo ''
+echo '----------------------------------------'
+echo ''
+echo ''
+echo ''
+
+
+echo '------------------------------------------------------'
+echo -e 'MONGODB USER CONFIGURED AUTHENTICATION SUCCESSFULLY'
+echo '------------------------------------------------------'
+echo ''
+echo ''
 
 echo ''
 echo ''
