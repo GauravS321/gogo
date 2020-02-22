@@ -25,6 +25,9 @@ const addInputController = require('../../../../controllers/plugins/primemason/p
 // View permits
 const viewInputsController = require('../../../../controllers/plugins/primemason/primeqr/view-inputs');
 
+// Add customers
+const addCustomersController = require('../../../../controllers/plugins/primemason/primeqr/register_customer');
+
 // Share 
 const shareController = require('../../../../controllers/plugins/primemason/primeqr/share');
 
@@ -57,6 +60,11 @@ router.post('/share', shareController.post);
 // * Routing for add permits 
  //router.get('/add-inputs', addPermitsController.get);
 router.post('/add-inputs', addInputController.post);
+
+// * Routing for add permits 
+ //router.get('/add-inputs', addPermitsController.get);
+router.post('/register_customer', addCustomersController.post);
+
 
 // /** Routing for view permits */
 router.get('/view-inputs', viewInputsController.get);

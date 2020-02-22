@@ -28,18 +28,15 @@ module.exports.post = async (req, res) => {
 
             let uuid = req.body.uuid;
             let json = req.body;
-            json['comment_image'] = (req.files.length > 0)? req.files[0].path: "";
+            console.log(req.files);
+            json['customer_image'] = (req.files.length > 0)? req.files[0].path: "";
 
             delete json['uuid'];
-            json['Date'] = moment(Date.now()).format('MMMM Do YYYY, h:mm:ss a');
-            json['Full name'] = (req.user) ? req.user.username : 'NA';
-            json['Email'] = (req.user) ? req.user.email : 'NA';
 
-            await primeqr.findOneAndUpdate({ uuid }, { $push: { inputs: json } });
-            const record = await primeqr.findOne({ uuid });
-
+            await primeqr.findOneAndUpdate({ uuid }, { $push: { customers: json } });
+           
             return res.redirect(`/plugins/primemason/primeqr/view-inputs?uuid=${uuid}`);
-    })
+        })
     } catch (error) {
         req.flash('error_msg', "Oops. Something went wrong.");
         return res.redirect('/plugins/primemason/primeqr/manage');
