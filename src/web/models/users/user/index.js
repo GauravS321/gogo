@@ -2,14 +2,15 @@ const bcrypt = require('bcrypt');
 const mongoose = require('mongoose');
 
 const UserSchema = new mongoose.Schema({
-    username: String,
-    email: { type: String, unique: true },
-    password: String,
+    username: { type: String },
+    email: { type: String, unique: true, required: true },
+    role: { type: String, enum: ['admin', 'employee', 'customer'], default: 'customer' },
+    password: { type: String, required: true },
     passwordResetToken: String,
     passwordResetExpires: Date,
     emailVerificationToken: String,
     emailVerified: Boolean,
-    primechain_address: { type: String },
+    primechain_address: { type: String, required: true },
     mobile: { type: String },
 
     facebook: String,
