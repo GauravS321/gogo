@@ -39,10 +39,28 @@ exports.cancel_public_offer = (tx_id, primechain_address) => {
                         transactionId: tx_id,
                         vout: 0
                     }).then((res) => {
-
-                        return resolve({
-                            status: 200,
-                            response: res.response
+                        bcSdk.publish({
+                            key: parse_output.txid,
+                            value: JSON.stringify({
+                                "primechain_address": primechain_address,
+                                "offer_blob": parse_output.offer_blob,
+                                "tx_id": parse_output.txid,
+                                "vout": parse_output.vout,
+                                "status": "cancel"
+                            }),
+                            stream: "OFFER_STATUS_STREAM"
+                        }).then((res) => {
+                            return resolve({
+                                status: 200,
+                                response: res.response,
+                                offer_txid: parse_output.txid,
+                                offer_vout: parse_output.vout
+                            })
+                        }).catch((err) => {
+                            return reject({
+                                status: 401,
+                                message: err.message
+                            });
                         })
                     }).catch(err => {
                         return reject({

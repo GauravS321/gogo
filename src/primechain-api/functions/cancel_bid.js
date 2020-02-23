@@ -55,7 +55,7 @@ exports.cancel_bid = (tx_id) => {
                                     let reject_response = res.response;
                                     bcSdk.publish({
                                         key: tx_id,
-                                        value: JSON.stringify({ status: "CANCELLED" }),
+                                        value: JSON.stringify({ status: "cancel" }),
                                         stream: "OFFER_STATUS_STREAM"
                                     }).then((res) => {
                                         return resolve({

@@ -100,6 +100,7 @@ const entity_transaction_list = require('./functions/entity_transaction_list');
 
 const create_public_offer = require('./functions/create_public_offer');
 const get_open_offer = require('./functions/get_open_offer');
+const get_all_open_offer = require('./functions/get_all_open_offer');
 const read_offer = require('./functions/read_offer');
 const accept_offer = require('./functions/accept_offer');
 const cancel_public_offer = require('./functions/cancel_public_offer');
@@ -3437,38 +3438,38 @@ router.post('/api/v1/get_open_offer', common.checkToken, (req, res) => {
     });
 });
 
-// router.post('/api/v1/get_all_open_offer', common.checkToken, (req, res) => {
-//   common
-//     .validateAPIKey(req, res)
-//     .then(() => {
-//       get_all_open_offer
-//         .get_all_open_offer()
-//         .then(result => {
-//           res
-//             .status(result.status)
-//             .json({
-//               status: result.status,
-//               response: result.response
-//             });
-//         })
-//         .catch(err => {
-//           res
-//             .status(err.status)
-//             .json({
-//               status: err.status,
-//               message: err.message
-//             })
-//         });
-//     })
-//   .catch(err => {
-//     res
-//       .status(401)
-//       .json({
-//         status: 401,
-//         message: err_code.errorcode["13030"]
-//       });
-//   });
-// });
+router.get('/api/v1/get_all_open_offer', common.checkToken, (req, res) => {
+  common
+    .validateAPIKey(req, res)
+    .then(() => {
+      get_all_open_offer
+        .get_all_open_offer()
+        .then(result => {
+          res
+            .status(result.status)
+            .json({
+              status: result.status,
+              response: result.response
+            });
+        })
+        .catch(err => {
+          res
+            .status(err.status)
+            .json({
+              status: err.status,
+              message: err.message
+            })
+        });
+    })
+    .catch(err => {
+      res
+        .status(401)
+        .json({
+          status: 401,
+          message: err_code.errorcode["13030"]
+        });
+    });
+});
 
 // api/v1/reject_offer rejects an request of atomic exchange of asset
 router.post('/api/v1/reject_targeted_offer', common.checkToken, (req, res) => {
