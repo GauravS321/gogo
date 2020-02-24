@@ -436,17 +436,10 @@ class MailNotificationEngine {
             let emailBody = `<p><strong>
                                 Hello ${receiver_name}
                             </strong></p>
-                            <p>A blockchain-KYC record has been shared with you.</p>
-
-                            <a href='${this.baseUrl}/plugins/dave/${use_case}/verification?${path}' style="padding: 5px 15px; background-color: #4B72FA; color: #fff; font-weight: bolder; font-size: 14px; display: inline-block; margin: 20px 0px; margin-right: 20px; text-decoration: none;">View KYC record</a>
+                            <p>A blockchain-KYC record has been shared with you. To view the record, click on the blue button titled 'View KYC record'. If you would like to view the QR (Quick Response) code for this record, click on the green button titled 'QR'. QR codes are two-dimensional scannable barcodes. They can be 'scanned' by iPhone, iPad, & iPod touch cameras (without the need for any special app) and Android phones (older Android phones need a generic QR scanning app).</p>
+                            <a href='${this.baseUrl}/plugins/dave/${use_case}/verification?${path}' style="padding: 5px 15px; background-color: #4B72FA; color: #fff; font-weight: bolder; font-size: 14px; display: inline-block; margin: 20px 0px; margin-right: 20px; text-decoration: none;">View record</a>
                             <a href='${this.baseUrl}/plugins/dave/${use_case}/qrcode?text=${this.baseUrl}/plugins/dave/${use_case}/verification?${path}' style="padding: 5px 15px; background-color: #5eb41b; color: #fff; font-weight: bolder; font-size: 14px; display: inline-block; margin: 20px 0px; margin-right: 20px; text-decoration: none;">QR</a>
-
-
-                            <a href='${this.baseUrl}/plugins/dave/${use_case}/verification?${path}' style='padding: 8px 20px; background-color: #057cf9; color: #fff; font-weight: bolder; font-size: 16px; display: inline-block; margin: 20px 0px; margin-right: 20px; text-decoration: none;'>View document</a>
-                        <br>
-                        <a href='${this.baseUrl}/plugins/dave/${use_case}/qrcode?text=${this.baseUrl}/plugins/dave/${use_case}/verification?${path}' style='padding: 8px 20px; background-color: #5eb41b; color: #fff; font-weight: bolder; font-size: 16px; display: inline-block; margin: 20px 0px; margin-right: 20px; text-decoration: none;'>View QRcode</a>
-                        <br>
-                        <br>`;
+                            <br>`;
 
             this.sendEmailNotification(fromAddress, [email], subject, emailBody, null, null)
                 .then(emailSent => {
