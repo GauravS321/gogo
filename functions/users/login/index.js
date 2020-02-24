@@ -32,14 +32,14 @@ exports.authenticate = (req, res, email, password, next) => {
                 if (!user) {
                     return reject({
                         status: 401,
-                        message: "Authentication failed"
+                        message: "Incorrect email / password."
                     });
                 }
                 req.logIn(user, async (err) => {
                     if (err) {
                         return reject({
                             status: 401,
-                            message: "Authentication failed"
+                            message: "Incorrect email / password."
                         });
                     }
 
