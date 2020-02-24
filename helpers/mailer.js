@@ -24,7 +24,7 @@ class MailNotificationEngine {
                                     <table style="width: 100%;">
                                         <tr>
                                             <td style="background-color: #fff;">
-                                                <img alt="" src="https://www.primechaintech.com/images/logo-2.png" style="width: 208px; padding: 20px">
+                                                <img alt="" src="https://www.primechaintech.com/images/logo-2.png" padding: 20px">
                                             </td>
                                         </tr>
                                     </table>
