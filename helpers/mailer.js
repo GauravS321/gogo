@@ -33,19 +33,35 @@ class MailNotificationEngine {
                               </table><img alt="" src="https://www.primechaintech.com/images/primechain_email_image.jpg" style="max-width: 100%; height: auto;">`;
 
         this.emailBottom = `        Have an amazing day!<br>Team Primechain<br/><br/>
-
                                     Please do not share this email, link, or access code with unauthorised persons.
-                                        
                                     </div>
-                                    <div style="background-color: #F5F5F5; padding: 0px; text-align: center;">
-                                        <div style="padding-top: 5px; padding-bottom: 5px; border-top: 1px solid rgba(0,0,0,0.05);">
-                                        
-                                            <div style="color: #A5A5A5; font-size: 10px;">Copyright © 2016-20 Primechain Technologies Pvt. Ltd. All Rights Reserved.</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </body>
-                        </html>`;
+
+                                    <div style="background-color: #F5F5F5; padding: 40px; text-align: center;">
+
+        <div style="margin-bottom: 20px;">
+          <a href="#" style="display: inline-block; margin: 0px 10px;"><img alt="" src="images/social-icons/twitter.png" style="width: 28px;"></a>
+          <a href="#" style="display: inline-block; margin: 0px 10px;"><img alt="" src="images/social-icons/facebook.png" style="width: 28px;"></a>
+          <a href="#" style="display: inline-block; margin: 0px 10px;"><img alt="" src="images/social-icons/linkedin.png" style="width: 28px;"></a>
+          <a href="#" style="display: inline-block; margin: 0px 10px;"><img alt="" src="images/social-icons/instagram.png" style="width: 28px;"></a>
+        </div>
+        <div style="margin-bottom: 20px;">
+          <a href="#" style="text-decoration: underline; font-size: 14px; letter-spacing: 1px; margin: 0px 15px; color: #261D1D;">Contact Us</a><a href="#" style="text-decoration: underline; font-size: 14px; letter-spacing: 1px; margin: 0px 15px; color: #261D1D;">Privacy Policy</a><a href="#" style="text-decoration: underline; font-size: 14px; letter-spacing: 1px; margin: 0px 15px; color: #261D1D;">Unsubscribe</a>
+        </div>
+        <div style="color: #A5A5A5; font-size: 12px; margin-bottom: 20px; padding: 0px 50px;">
+          You are receiving this email because you signed up for Light Admin. We use Light Admin to send our emails
+        </div>
+        <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid rgba(0,0,0,0.05);">
+          <div style="color: #A5A5A5; font-size: 10px; margin-bottom: 5px;">
+            1073 Madison Ave, suite 649, New York, NY 10001
+          </div>
+          <div style="color: #A5A5A5; font-size: 10px;">
+            Copyright © 2016-20 Primechain Technologies Pvt. Ltd. All Rights Reserved.
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>`;
     }
 
     /*******************************************************************************************************************
@@ -439,7 +455,7 @@ class MailNotificationEngine {
                             <p>A blockchain-KYC record has been shared with you. To view the record, click on the blue button titled 'View KYC record'. If you would like to view the QR (Quick Response) code for this record, click on the green button titled 'QR'.</p>
                             <a href='${this.baseUrl}/plugins/dave/${use_case}/verification?${path}' style="padding: 5px 15px; background-color: #4B72FA; color: #fff; font-weight: bolder; font-size: 14px; display: inline-block; margin: 20px 0px; margin-right: 20px; text-decoration: none;">View record</a>
                             <a href='${this.baseUrl}/plugins/dave/${use_case}/qrcode?text=${this.baseUrl}/plugins/dave/${use_case}/verification?${path}' style="padding: 5px 15px; background-color: #5eb41b; color: #fff; font-weight: bolder; font-size: 14px; display: inline-block; margin: 20px 0px; margin-right: 20px; text-decoration: none;">QR</a>
-                            <br><br/>QR codes are two-dimensional scannable barcodes. They can be 'scanned' by iPhone, iPad, & iPod touch cameras (without the need for any special app) and Android phones (older Android phones need a generic QR scanning app).`;
+                            <br><br/>QR codes are two-dimensional scannable barcodes. They can be 'scanned' by iPhone, iPad, & iPod touch cameras (without the need for any special app) and Android phones (older Android phones need a generic QR scanning app).<br/><br/>`;
 
             this.sendEmailNotification(fromAddress, [email], subject, emailBody, null, null)
                 .then(emailSent => {
