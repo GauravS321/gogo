@@ -428,20 +428,17 @@ class MailNotificationEngine {
     *******************************************************************************************************************/
     individualKYCMail(sender_email, receiver_name, email, use_case, path) {
         return new Promise((resolve, reject) => {
-            let subject = `Blockchain KYC`;
+            let subject = `Blockchain KYC record`;
             //let fromAddress = `${sender_email}`;
             let fromAddress = `no-reply@primechaintech.com`;
             let emailBody = `<p><strong>
-                                Hello ${receiver_name}!
+                                Hello ${receiver_name}
                             </strong></p>
                             <p>A blockchain-KYC record has been shared with you.</p>
 
-                        <a href='${this.baseUrl}/plugins/dave/${use_case}/verification?${path}' style='padding: 8px 20px; background-color: #4B72FA; color: #fff; font-weight: bolder; font-size: 16px; display: inline-block; margin: 20px 0px; margin-right: 20px; text-decoration: none;'>View document
-                        </a>
+                        <a href='${this.baseUrl}/plugins/dave/${use_case}/verification?${path}' style='padding: 8px 20px; background-color: #057cf9; color: #fff; font-weight: bolder; font-size: 16px; display: inline-block; margin: 20px 0px; margin-right: 20px; text-decoration: none;'>View document</a>
                         <br>
-                        
-                        <a href='${this.baseUrl}/plugins/dave/${use_case}/qrcode?text=${this.baseUrl}/plugins/dave/${use_case}/verification?${path}' style='padding: 8px 20px; background-color: #4B72FA; color: #fff; font-weight: bolder; font-size: 16px; display: inline-block; margin: 20px 0px; margin-right: 20px; text-decoration: none;'>View QRcode
-                        </a>
+                        <a href='${this.baseUrl}/plugins/dave/${use_case}/qrcode?text=${this.baseUrl}/plugins/dave/${use_case}/verification?${path}' style='padding: 8px 20px; background-color: #5eb41b; color: #fff; font-weight: bolder; font-size: 16px; display: inline-block; margin: 20px 0px; margin-right: 20px; text-decoration: none;'>View QRcode</a>
                         <br>
                         <br>`;
 
