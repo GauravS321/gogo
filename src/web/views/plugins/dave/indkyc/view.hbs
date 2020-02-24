@@ -40,17 +40,14 @@
                                 <td>{{mobile}}</td>
                                 <td>
                                     <div class="md4">
-                                        <form id="viewForm#{{tx_id_enc_data}}"
-                                            action="/plugins/dave/indkyc/verification" method="GET" target="_blank">
+                                        <form id="viewForm#{{tx_id_enc_data}}" action="/plugins/dave/indkyc/verification" method="GET" target="_blank">
                                             <input type="hidden" name="txid_data" value="{{tx_id_enc_data}}">
                                             <input type="hidden" name="txid_signature" value="{{tx_id_signature}}">
                                             <input type="hidden" name="password" value="{{aes_password}}">
                                             <input type="hidden" name="iv" value="{{aes_iv}}">
-                                            <input type="hidden" name="trade_channel_name"
-                                                value="{{trade_channel_name}}">
+                                            <input type="hidden" name="trade_channel_name" value="{{trade_channel_name}}">
                                         </form>
-                                        <button class="btn btn-primary"
-                                            onclick="document.getElementById('viewForm#{{tx_id_enc_data}}').submit();">View</button>
+                                        <button class="btn btn-primary" onclick="document.getElementById('viewForm#{{tx_id_enc_data}}').submit();">View</button>
                                     </div>
                                 </td>
                                 <td>

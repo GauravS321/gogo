@@ -30,18 +30,13 @@ class MailNotificationEngine {
                                     <a href="https://www.primechaintech.com/" style="color: #261D1D; text-decoration: underline; font-size: 14px; letter-spacing: 1px;">Need help?</a>
                                   </td>
                                 </tr>
-                              </table><img alt="" src="https://www.primechaintech.com/images/primechain_email_image.jpg" style="max-width: 100%; height: auto;">`;
+                              </table>
+                              <img alt="" src="https://www.primechaintech.com/images/primechain_email_image.jpg" style="max-width: 100%; height: auto;">`;
 
-        this.emailBottom = `        Have an amazing day!<br>Team Primechain<br/><br/>
-                                    Please do not share this email, link, or access code with unauthorised persons.
-                                    </div>
-
-
-        </div>
-      </div>
-    </div>
-  </body>
-</html>`;
+        this.emailBottom = `Have an amazing day!<br>Team Primechain<br/><br/>Please do not share this email, link, or access code with unauthorised persons.
+                            </div>
+                          </body>
+                        </html>`;
     }
 
     /*******************************************************************************************************************
