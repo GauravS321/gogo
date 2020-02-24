@@ -17,7 +17,7 @@ module.exports.post = async (req, res) => {
 
                 await share(req.user.email, receiver_name, receiver_email, body, use_case);
 
-                req.flash("success_msg", "Document link e-mail sent successfully!!!")
+                req.flash("success_msg", "Email sent successfully")
                 return res.redirect('/plugins/dave/academic/view');
             }
             else {
