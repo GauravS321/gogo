@@ -438,6 +438,9 @@ class MailNotificationEngine {
                             </strong></p>
                             <p>A blockchain-KYC record has been shared with you.</p>
 
+                            <a href='${this.baseUrl}/plugins/dave/${use_case}/verification?${path}' style="padding: 5px 15px; background-color: #4B72FA; color: #fff; font-weight: bolder; font-size: 14px; display: inline-block; margin: 20px 0px; margin-right: 20px; text-decoration: none;">View KYC record</a>
+
+
                         <a href='${this.baseUrl}/plugins/dave/${use_case}/verification?${path}' style='padding: 8px 20px; background-color: #057cf9; color: #fff; font-weight: bolder; font-size: 16px; display: inline-block; margin: 20px 0px; margin-right: 20px; text-decoration: none;'>View document</a>
                         <br>
                         <a href='${this.baseUrl}/plugins/dave/${use_case}/qrcode?text=${this.baseUrl}/plugins/dave/${use_case}/verification?${path}' style='padding: 8px 20px; background-color: #5eb41b; color: #fff; font-weight: bolder; font-size: 16px; display: inline-block; margin: 20px 0px; margin-right: 20px; text-decoration: none;'>View QRcode</a>
