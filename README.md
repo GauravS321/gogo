@@ -13,8 +13,10 @@ Login to server / VM as a sudo or root user. Then run the following:
 sudo git clone https://primechainuser@github.com/Primechain/primechain
 9q0W4gcSDGbjkBGUKWHk0MytFPDWcDLcUBZOI1yc
 cd primechain/setup
-sudo bash -e primechain_setup.sh <ip-address>
+sudo bash -e primechain_setup.sh <ip-address> <email-address>
 ```
+Instead of the IP address you can enter the domain name above. Or after setup, go to the .env file and change the IP address or domain name.
+
 **The setup should take about 6 minutes. Once it is setup, all the credentials can be obtained from:**
 ```
 su primechain-user 
