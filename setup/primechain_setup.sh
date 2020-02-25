@@ -210,13 +210,6 @@ echo -e '=================================='
 echo ''
 echo ''
 
-echo -e \
-'--------------------------------------------'"\n"\
-'MONGODB'"\n"\
-'--------------------------------------------'"\n"\
-'MONGODB_URI=mongodb://primechainuser:'$dbpass'@localhost:27017/primechain'"\n\n"\
- >> $appdir/.env
-
 echo ''
 echo -e \
 '--------------------------------------------'"\n"\
@@ -264,6 +257,13 @@ appdir=$homedir/primechain
 content=$(curl -s GET http://$ipaddress:2512/api/v1/get_api_key)
 username=$(jq -r '.api_key.username' <<< "${content}")
 password=$(jq -r '.api_key.password' <<< "${content}")
+
+
+echo -e \
+'--------------------------------------------'"\n"\
+'MONGODB'"\n"\
+'--------------------------------------------'"\n"\
+'MONGODB_URI=mongodb://primechainuser:'$dbpass'@localhost:27017/primechain'"\n\n" >> $appdir/.env
 
 
 echo -e \

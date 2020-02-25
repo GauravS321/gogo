@@ -24,7 +24,7 @@ passport.use(new LocalStrategy({
     });
   }
 
-  const isMatch = await comparePassword(email, password);
+  const isMatch = await comparePassword(email, password);  
 
   if (isMatch) {
     req.logIn(user, async (err) => {
