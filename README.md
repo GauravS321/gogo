@@ -43,6 +43,10 @@ http://example.com:2512/api/v1/get_api_key
 All your credentials are in root/primechain-api.out
 
 ```
+To view mysql, mongo and multichain credentials
+```
+nano ~root/primechain-api.out
+```
 
 The web application credentials can be obtained from:**
 ```
