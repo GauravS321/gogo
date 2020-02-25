@@ -158,12 +158,12 @@
         readURLImage(this);
     });
 
-     $("#commentImage").change(function (e) {
+    $("#commentImage").change(function (e) {
         e.preventDefault();
         readCommentImage(this);
     });
 
-     function readCommentImage(input) {
+    function readCommentImage(input) {
         $("#commentImagePreview").val('');
 
         if (input.files && input.files[0]) {
@@ -185,8 +185,6 @@
             }
         }
     }
-
-
 
 
     function readURLImage(input) {
@@ -216,23 +214,27 @@
         e.preventDefault();
         var user_mobile = $.trim($('#user_mobile').html());
 
-        $.ajax({
-            url: '/account/update-mobile-number',
-            method: 'POST',
-            success: function (res) {
-                if (res['success']) {
-                    alert(res['message']);
+        if (user_mobile.length >= 12 & user_mobile <= 15) {
+            $.ajax({
+                url: '/account/update-mobile-number',
+                method: 'POST',
+                success: function (res) {
+                    if (res['success']) {
+                        alert(res['message']);
 
-                }
-                else {
-                    alert(res['message']);
+                    }
+                    else {
+                        alert(res['message']);
 
-                }
-                return true;
-            },
-            data: { mobile: user_mobile }
-        })
-
+                    }
+                    return true;
+                },
+                data: { mobile: user_mobile }
+            })
+        }
+        else {
+            alert("Invalid mobile number");
+        }
     });
 
     (function () {
