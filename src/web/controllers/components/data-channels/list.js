@@ -14,10 +14,15 @@ module.exports.get = async (req, res) => {
             });
 
             return res.render('components/data-channels/list', {
-                streamArr
+                streamArr,
+                username: (req.user) ? req.user.username : "",
+                email: (req.user) ? req.user.email : "",
             });
         } catch (error) {
-            return res.render('components/data-channels/list');
+            return res.render('components/data-channels/list', {
+                username: (req.user) ? req.user.username : "",
+                email: (req.user) ? req.user.email : "",
+            });
         }
     }
     return res.redirect('/login');

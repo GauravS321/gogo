@@ -2,7 +2,10 @@ const encryptFile = require('../../../../../functions/components/file/publish-en
 
 module.exports.get = (req, res) => {
     if (req.user && req.isAuthenticated()) {
-        return res.render('components/file/publish-encrypt');
+        return res.render('components/file/publish-encrypt', {
+            username: (req.user) ? req.user.username : "",
+            email: (req.user) ? req.user.email : "",
+        });
     }
     return res.redirect('/login');
 }

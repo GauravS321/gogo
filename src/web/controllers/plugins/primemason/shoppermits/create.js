@@ -2,7 +2,10 @@ const { create } = require('../../../../../../functions/plugins/primemason/shopp
 
 module.exports.get = (req, res) => {
     if (req.user && req.isAuthenticated()) {
-        return res.render('plugins/primemason/shoppermits/create');
+        return res.render('plugins/primemason/shoppermits/create', {
+            username: (req.user) ? req.user.username : "",
+            email: (req.user) ? req.user.email : "",
+        });
     }
     return res.redirect('/login');
 }

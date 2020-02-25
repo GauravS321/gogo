@@ -8,11 +8,12 @@ module.exports.get = (req, res) => {
         const name = (req.params.name) ? req.params.name : "";
         const primechain_address = (req.params.primechain_address) ? req.params.primechain_address : "";
 
-        return res.render('users/account/send',
-            {
-                asset_name: name,
-                primechain_address
-            });
+        return res.render('users/account/send', {
+            asset_name: name,
+            username: req.user.username,
+            email: req.user.email,
+            primechain_address
+        });
     }
     return res.redirect('/login');
 }
@@ -37,13 +38,12 @@ module.exports.get_thru_qr = async (req, res) => {
                 });
 
                 if (asset_found_count === 1) {
-                    return res.render('users/account/send_thru_qr',
-                        {
-                            asset_name,
-                            primechain_address,
-                            username,
-                            email: req.user.email,
-                        });
+                    return res.render('users/account/send_thru_qr', {
+                        asset_name,
+                        primechain_address,
+                        username,
+                        email: req.user.email,
+                    });
                 }
                 else {
                     req.flash('error_msg', "Unable to find asset");
@@ -66,7 +66,6 @@ module.exports.post = async (req, res) => {
     if (req.user && req.isAuthenticated()) {
         try {
             const { receiver_address, asset_name, quantity, asset_description } = req.body;
-
             const response = await send(req.user.primechain_address, receiver_address, asset_name, quantity, asset_description);
 
             if (response.status === 200) {

@@ -3,8 +3,8 @@
     <div class="logged-user-w">
       <div class="logged-user-i">
         <div class="avatar-w">
-          {{#if user.[image]}}
-          <img alt="" src="{{user.[image]}}">
+          {{#if image}}
+          <img alt="" src="{{image}}">
           {{else}}
           <img alt="" src="/web/img/buddha.jpg">
           {{/if}}
@@ -13,15 +13,15 @@
         <div class="logged-user-menu color-style-bright">
           <div class="logged-user-avatar-info">
             <div class="avatar-w">
-              {{#if user.image}}
-              <img alt="" src="{{user.image}}">
+              {{#if image}}
+              <img alt="" src="{{image}}">
               {{else}}
               <img alt="" src="/web/img/buddha.jpg">
               {{/if}}
             </div>
             <div class="logged-user-info-w">
               <div class="logged-user-name">
-                {{user.[username]}}
+                {{user.username}}
               </div>
               <div class="logged-user-role">
                 {{email}}

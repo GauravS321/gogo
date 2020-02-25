@@ -2,7 +2,10 @@ const downloadDecryptFile = require('../../../../../functions/components/file/do
 
 module.exports.get = (req, res) => {
     if (req.user && req.isAuthenticated()) {
-        return res.render('components/file/download-decrypt');
+        return res.render('components/file/download-decrypt', {
+            username: (req.user) ? req.user.username : "",
+            email: (req.user) ? req.user.email : "",
+        });
     }
     return res.redirect('/login');
 }

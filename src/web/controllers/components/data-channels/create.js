@@ -3,7 +3,10 @@ const create = require('../../../../../functions/components/data-channels/create
 // Data Channels
 module.exports.get = (req, res) => {
     if (req.user && req.isAuthenticated()) {
-        return res.render('components/data-channels/create');
+        return res.render('components/data-channels/create', {
+            username: (req.user) ? req.user.username : "",
+            email: (req.user) ? req.user.email : "",
+        });
     }
     return res.redirect('/login');
 }

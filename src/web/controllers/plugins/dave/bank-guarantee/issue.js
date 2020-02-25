@@ -17,7 +17,10 @@ const Uploads = multer({
 
 module.exports.get = (req, res) => {
     if (req.user && req.isAuthenticated()) {
-        return res.render('plugins/dave/bank-guarantee/issue');
+        return res.render('plugins/dave/bank-guarantee/issue', {
+            username: req.user.username,
+            email: req.user.email,
+        });
     }
     return res.redirect('/login');
 }

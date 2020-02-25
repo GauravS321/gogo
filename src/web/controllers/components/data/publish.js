@@ -2,7 +2,10 @@ const publishPlainData = require('../../../../../functions/components/data/publi
 
 module.exports.get = (req, res) => {
     if (req.user && req.isAuthenticated()) {
-        return res.render('components/data/publish');
+        return res.render('components/data/publish', {
+            username: (req.user) ? req.user.username : "",
+            email: (req.user) ? req.user.email : "",
+        });
     }
     return res.redirect('/login');
 };

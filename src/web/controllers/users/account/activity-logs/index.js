@@ -19,11 +19,15 @@ module.exports.get = async (req, res) => {
 
             return res.render('users/account/activity-logs',
                 {
-                    activityLogArr
+                    activityLogArr,
+                    username: req.user.username,
+                    email: req.user.email
                 });
-
         } catch (error) {
-            return res.render('users/account/activity-logs');
+            return res.render('users/account/activity-logs', {
+                username: req.user.username,
+                email: req.user.email
+            });
         }
     }
     res.redirect('/login');

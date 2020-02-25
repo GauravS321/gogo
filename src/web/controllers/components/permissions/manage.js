@@ -19,7 +19,9 @@ exports.get = async (req, res) => {
             user_name: user_info.username,
             user_email: user_info.email,
             user_role: user_info.role,
-            primechain_address: req.query.primechain_address
+            primechain_address: req.query.primechain_address,
+            username: (req.user) ? req.user.username : "",
+            email: (req.user) ? req.user.email : "",
         });
     }
     return res.redirect('/login');

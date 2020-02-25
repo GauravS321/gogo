@@ -20,9 +20,14 @@ module.exports.get = async (req, res) => {
 
             return res.render('components/user-management/list', {
                 users_list,
+                username: (req.user) ? req.user.username : "",
+                email: (req.user) ? req.user.email : "",
             })
         } catch (error) {
-            return res.render('components/user-management/list');
+            return res.render('components/user-management/list', {
+                username: (req.user) ? req.user.username : "",
+                email: (req.user) ? req.user.email : "",
+            });
         }
     }
     return res.redirect('/login')

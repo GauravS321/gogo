@@ -22,10 +22,15 @@ module.exports.get = async (req, res) => {
             });
 
             return res.render('plugins/dave/academic/view', {
-                dataArr: records_list
+                dataArr: records_list,
+                username: req.user.username,
+                email: req.user.email,
             });
         } catch (error) {
-            return res.render('plugins/dave/academic/view');
+            return res.render('plugins/dave/academic/view', {
+                username: req.user.username,
+                email: req.user.email,
+            });
         }
     }
     return res.redirect('/login');

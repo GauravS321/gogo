@@ -2,7 +2,10 @@ const grant = require('../../../../../functions/components/data-channels/grant')
 
 module.exports.get = (req, res) => {
     if (req.user && req.isAuthenticated()) {
-        return res.render('components/data-channels/grant');
+        return res.render('components/data-channels/grant', {
+            username: (req.user) ? req.user.username : "",
+            email: (req.user) ? req.user.email : "",
+        });
     }
     return res.redirect('/login');
 }

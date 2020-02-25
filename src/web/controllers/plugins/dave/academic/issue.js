@@ -17,7 +17,10 @@ const Uploads = multer({
 
 module.exports.get = (req, res) => {
     if (req.user && req.isAuthenticated()) {
-        return res.render('plugins/dave/academic/issue');
+        return res.render('plugins/dave/academic/issue', {
+            username: req.user.username,
+            email: req.user.email,
+        });
     }
     return res.redirect('/login');
 }
@@ -26,14 +29,14 @@ module.exports.post = async (req, res) => {
     if (req.user && req.isAuthenticated()) {
         Uploads(req, res, async (err) => {
             if (err) {
-                res.json({
+                return res.json({
                     success: false,
                     message: err
                 });
             }
             try {
                 const trade_channel_name = req.body.trade_channel_name;
-                let response = await issue(req.user.primechain_address, req.body);
+                const response = await issue(req.user.primechain_address, req.body);
 
                 return res.json({
                     success: true,
@@ -55,5 +58,4 @@ module.exports.post = async (req, res) => {
     else {
         return res.redirect('/login');
     }
-
 }

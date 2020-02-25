@@ -3,7 +3,7 @@ const { share } = require('../../../../../../functions/plugins/dave/bank-guarant
 module.exports.post = async (req, res) => {
     if (req.user && req.isAuthenticated()) {
         try {
-            let use_case = req.baseUrl.split('/')[3];
+            const use_case = req.baseUrl.split('/')[3];
             const { txid_data, txid_signature, password, iv, trade_channel_name, receiver_name, receiver_email } = req.body;
 
             if (txid_data && txid_signature && password && iv && trade_channel_name && receiver_name && receiver_email) {
@@ -13,7 +13,7 @@ module.exports.post = async (req, res) => {
                     password,
                     iv,
                     trade_channel_name,
-                }
+                };
 
                 await share(req.user.email, receiver_name, receiver_email, body, use_case);
 

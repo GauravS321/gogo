@@ -10,7 +10,6 @@ module.exports.get = async (req, res) => {
     else {
         try {
             const { email_address, random } = req.query;
-
             const user = await User.findOne({ email: email_address, passwordResetToken: random })
                 .where('passwordResetExpires').gt(Date.now());
 
@@ -30,7 +29,6 @@ module.exports.get = async (req, res) => {
 module.exports.post = async (req, res) => {
     try {
         const { email, random, password, confirm_password } = req.body;
-
         const response = await resetPassword(email, random, password, confirm_password);
 
         req.flash('success_msg', response.msg);

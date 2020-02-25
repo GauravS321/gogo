@@ -6,10 +6,15 @@ module.exports.get = async (req, res) => {
             const response = await runtimeParameters();
 
             return res.render('components/blockchain/runtime-parameters', {
-                runtime_parameters: response.msg
+                runtime_parameters: response.msg,
+                username: (req.user) ? req.user.username : "",
+                email: (req.user) ? req.user.email : "",
             });
         } catch (error) {
-            return res.render('components/blockchain/runtime-parameters');
+            return res.render('components/blockchain/runtime-parameters', {
+                username: (req.user) ? req.user.username : "",
+                email: (req.user) ? req.user.email : "",
+            });
         }
     }
     return res.redirect('/login');

@@ -21,11 +21,15 @@ module.exports.getQRCode = async (req, res) => {
         const text = req.query.text;
 
         return res.render('plugins/primemason/shoppermits/qrcode', {
-            data: `${text}`
+            data: `${text}`,
+            username: (req.user) ? req.user.username : "",
+            email: (req.user) ? req.user.email : "",
         });
     } catch (error) {
         return res.render('plugins/primemason/shoppermits/qrcode', {
-            error_msg: error.error
+            error_msg: error.error,
+            username: (req.user) ? req.user.username : "",
+            email: (req.user) ? req.user.email : "",
         });
     }
 }

@@ -29,11 +29,15 @@ module.exports.get = async (req, res) => {
             comment_image,
             uuid,
             dataArr: record.json,
-            inputsArr: record.inputs
+            inputsArr: record.inputs,
+            username: (req.user) ? req.user.username : "",
+            email: (req.user) ? req.user.email : "",
         });
     } catch (error) {
         return res.render('plugins/primemason/primeqr/view-inputs', {
-            error_msg: error.error
+            error_msg: error.error,
+            username: (req.user) ? req.user.username : "",
+            email: (req.user) ? req.user.email : "",
         });
     }
 }

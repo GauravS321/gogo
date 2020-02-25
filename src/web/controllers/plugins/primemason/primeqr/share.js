@@ -3,7 +3,7 @@ const { share } = require('../../../../../../functions/plugins/primemason/primeq
 module.exports.post = async (req, res) => {
     if (req.user && req.isAuthenticated()) {
         try {
-            let use_case = req.baseUrl.split('/')[3];
+            const use_case = req.baseUrl.split('/')[3];
             const {receiver_name, receiver_email, uuid} = req.body;
             
             await share(req.user.email, receiver_name, receiver_email, uuid, use_case);

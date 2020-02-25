@@ -17,7 +17,10 @@ const Uploads = multer({
 
 module.exports.get = (req, res) => {
     if (req.user && req.isAuthenticated()) {
-        return res.render('plugins/primemason/primeqr/create');
+        return res.render('plugins/primemason/primeqr/create', {
+            username: (req.user) ? req.user.username : "",
+            email: (req.user) ? req.user.email : "",
+        });
     }
     return res.redirect('/login');
 }
@@ -34,8 +37,8 @@ module.exports.post = (req, res) => {
                 }
 
                 let json = req.body;
-                json['image'] = (req.files.length > 0)? req.files[0].path: "";
-                let response = await create(req.body);
+                json['image'] = (req.files.length > 0) ? req.files[0].path : "";
+                const response = await create(req.body);
 
                 req.flash("success_msg", "PrimeQR created. ", response.msg['uuid']);
                 return res.redirect('/plugins/primemason/primeqr/create');
