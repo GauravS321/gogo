@@ -36,7 +36,8 @@ exports.post = async (req, res) => {
 
             if (response.msg.status === 200) {
                 return res.json({
-                    success: true
+                    success: true,
+                    message: response.msg
                 })
             }
             else {

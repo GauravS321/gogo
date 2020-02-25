@@ -214,7 +214,7 @@
         e.preventDefault();
         var user_mobile = $.trim($('#user_mobile').html());
 
-        if (user_mobile.length >= 12 & user_mobile <= 15) {
+        if (user_mobile.length >= 12 || user_mobile <= 15) {
             $.ajax({
                 url: '/account/update-mobile-number',
                 method: 'POST',
