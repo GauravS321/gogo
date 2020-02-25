@@ -3,9 +3,8 @@
     <div class="logged-user-w">
       <div class="logged-user-i">
         <div class="avatar-w">
-        <p>{{user}}</p>
-          {{#if user.image}}
-          <img alt="" src="{{user.image}}">
+          {{#if user.[image]}}
+          <img alt="" src="{{user.[image]}}">
           {{else}}
           <img alt="" src="/web/img/buddha.jpg">
           {{/if}}
@@ -22,10 +21,10 @@
             </div>
             <div class="logged-user-info-w">
               <div class="logged-user-name">
-                {{user.username}}
+                {{user.[username]}}
               </div>
               <div class="logged-user-role">
-                {{user.email}}
+                {{email}}
               </div>
             </div>
           </div>
