@@ -23,118 +23,16 @@
       </div>
     </div>-->
 
-    <ul class="main-menu">
-      <li class="sub-header"><span>Neo banking</span></li>
+    {{#ifAdmin user role="admin"}}
+    {{> admin_menu}}
+    {{/ifAdmin}}
 
-      <li class="has-sub-menu"><a href="#">
-          <div class="icon-w">
-            <div class="fa fa-odnoklassniki"></div>
-          </div><span>Know Your Customer</span>
-        </a>
-        <ul class="sub-menu">
-            <li><a href="/plugins/dave/indkyc/issue">Create new KYC record</a></li>
-            <li><a href="/plugins/dave/indkyc/view">View KYC records</a></li>        </ul>
-      </li>
+    {{#ifEmployee user role="employee"}}
+    {{> employee_menu}}
+    {{/ifEmployee}}
 
-      <li class="has-sub-menu"><a href="#">
-          <div class="icon-w">
-            <div class="os-icon os-icon-wallet-loaded"></div>
-          </div><span>P2P payments</span>
-        </a>
-          <ul class="sub-menu">
-            <li><a href="/plugins/sam/p2p/create">Create new token </a></li>
-            <li><a href="/plugins/sam/p2p/create-more">Issue more units</a></li>
-          </ul>
-      </li>
-
-      <li class="has-sub-menu"><a href="#">
-          <div class="icon-w">
-            <div class="os-icon os-icon-pie-chart-1"></div>
-          </div><span>Invoice discounting</span>
-        </a>
-          <ul class="sub-menu">
-            <li><a href="/plugins/sam/invoice/create">Create new invoice </a></li>
-          </ul>
-      </li>
-
-      <li class="has-sub-menu"><a href="#">
-          <div class="icon-w">
-            <div class="os-icon os-icon-ui-02"></div>
-          </div><span>Loyalty program</span>
-        </a>
-          <ul class="sub-menu">
-            <li><a href="/plugins/sam/loyalty/create">Start a Loyalty Program </a></li>
-            <li><a href="/plugins/sam/loyalty/create-more">Issue more units</a></li>
-          </ul>
-      </li>
-
-      <li class="has-sub-menu"><a href="#">
-          <div class="icon-w">
-            <div class="os-icon os-icon-bar-chart-up"></div>
-          </div><span>Bank Guarantees</span>
-        </a>
-          <ul class="sub-menu">
-            <li><a href="/plugins/dave/bank-guarantee/issue">Issue a bank guarantee</a></li>
-            <li><a href="/plugins/dave/bank-guarantee/view">View all bank guarantees</a></li>
-          </ul>
-      </li>
-
-    <li class="sub-header"><span>Tools</span></li>
-
-    <li class="has-sub-menu"><a href="#">
-        <div class="icon-w">
-          <div class="os-icon os-icon-grid"></div>
-        </div><span>Administration</span>
-      </a>
-      <div class="sub-menu-w">
-        <div class="sub-menu-i">
-          <ul class="sub-menu">
-            <li><a href="/components/blockchain/parameters">Blockchain parameters</a></li>
-            <li><a href="/components/blockchain/information">Blockchain information</a></li>
-            <li><a href="/components/blockchain/runtime-parameters">Runtime parameters</a></li>
-          </ul>
-          <ul class="sub-menu">
-            <li><a href="/components/blockchain/peer-info">List peers</a></li>
-            <li><a href="/components/user-management/list">List all users</a></li>
-            <li><a href="/components/permissions/list">List permissions</a></li>
-            <li><a href="/components/permissions/manage">Manage permissions</a></li>
-          </ul>
-          <ul class="sub-menu">
-            <li><a href="/components/data-channels/create">Create a channel</a></li>
-            <li><a href="/components/data-channels/list">View all channels</a></li>
-            <li><a href="/components/data-channels/grant">Grant permissions</a></li>
-            <li><a href="/components/data-channels/revoke">Revoke permissions</a></li>
-          </ul>
-        </div>
-      </div>
-    </li>
-
-    <li class="has-sub-menu"><a href="#">
-        <div class="icon-w">
-          <div class="os-icon os-icon-layers"></div>
-        </div><span>Components</span>
-      </a>
-      <div class="sub-menu-w">
-        <div class="sub-menu-i">
-          <ul class="sub-menu">
-            <li><a href="/components/esignature/create">Create an e-signature</a></li>
-            <li><a href="/components/esignature/verify">Verify an e-signature</a></li>
-            <li><a href="/components/esignature/create-save">Create & save an e-signature</a></li>
-            <li><a href="/components/data/publish">Publish data to blockchain</a></li>
-            <li><a href="/components/data/download">Download data from blockchain</a></li>
-            <li><a href="/components/data/publish-encrypt">Encrypt & publish data to blockchain</a></li>
-            <li><a href="/components/data/download-decrypt">Decrypt & download data from blockchain</a></li>
-            <li><a href="/components/file/publish-encrypt">Encrypt & publish a file to blockchain</a></li>
-            <li><a href="/components/file/download-decrypt">Decrypt & download a file from blockchain</a></li>
-          </ul>
-          <ul class="sub-menu">
-            <li><a href="/components/wizard/create">Create a new DB record</a></li>
-            <li><a href="/components/wizard/list">View / Edit / Delete a DB record</a></li>
-          </ul>
-        </div>
-      </div>
-    </li>
-
-    </ul>
+    {{#ifCustomer user role="customer"}}
+    {{> customer_menu}}
+    {{/ifCustomer}}
   </div>
 </div>

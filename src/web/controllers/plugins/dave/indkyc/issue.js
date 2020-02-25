@@ -18,24 +18,21 @@ const Uploads = multer({
 
 module.exports.get = (req, res) => {
     if (req.user && req.isAuthenticated()) {
-        return res.render('plugins/dave/indkyc/issue', {
-            username: req.user.username,
-            email: req.user.email
-        });
+        return res.render('plugins/dave/indkyc/issue');
     }
     return res.redirect('/login');
 }
 
 module.exports.post = (req, res) => {
     if (req.user && req.isAuthenticated()) {
-        Uploads(req, res, (err) => {            
+        Uploads(req, res, (err) => {
             if (err) {
                 res.json({
                     success: false,
                     message: err
                 });
             }
-            
+
             let json = req.body;
             json['image'] = req.files[0].path;
 
@@ -61,5 +58,5 @@ module.exports.post = (req, res) => {
                 });
         })
     }
-   // return res.redirect('/login');
+    // return res.redirect('/login');
 }

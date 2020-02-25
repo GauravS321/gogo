@@ -4,6 +4,13 @@
             <h6 class="element-header">Manage permissions</h6>
             <div class="element-box">
                 <h5 class="form-header">Manage permissions</h5>
+                <hr>
+                <strong>Name: {{user_name}}</strong>
+                <br>
+                <strong>Email: {{user_email}}</strong>
+                <br>
+                <strong >Role: {{user_role}}</strong>
+                <hr>
                 <div class="table-responsive">
                     <table id="example23" class="display nowrap table table-hover table-striped table-bordered"
                         cellspacing="0" width="100%">
@@ -22,9 +29,11 @@
                                 <td class="row-actions">
                                     <div class="buttons-w">
                                         {{#if list_permissions.connect}}
+                                        <input type="hidden" id="primechain_address" value="{{primechain_address}}">
                                         <input id="connect" type="submit" class="btn btn-danger btn-md" value="Revoke"
                                             onclick="revoke(this)">
                                         {{else}}
+                                        <input type="hidden" id="primechain_address" value="{{primechain_address}}">
                                         <input id="connect" type="submit" class="btn btn-success btn-md" value="Grant"
                                             onclick="grant(this)">
                                         {{/if}}
@@ -38,9 +47,11 @@
                                 <td class="row-actions">
                                     <div class="buttons-w">
                                         {{#if list_permissions.send}}
+                                        <input type="hidden" id="primechain_address" value="{{primechain_address}}">
                                         <input id="send" type="submit" class="btn btn-danger btn-md" value="Revoke"
                                             onclick="revoke(this)">
                                         {{else}}
+                                        <input type="hidden" id="primechain_address" value="{{primechain_address}}">
                                         <input id="send" type="submit" class="btn btn-success btn-md" value="Grant"
                                             onclick="grant(this)">
                                         {{/if}}
@@ -54,9 +65,11 @@
                                 <td class="row-actions">
                                     <div class="buttons-w">
                                         {{#if list_permissions.receive}}
+                                        <input type="hidden" id="primechain_address" value="{{primechain_address}}">
                                         <input id="receive" type="submit" class="btn btn-danger btn-md" value="Revoke"
                                             onclick="revoke(this)">
                                         {{else}}
+                                        <input type="hidden" id="primechain_address" value="{{primechain_address}}">
                                         <input id="receive" type="submit" class="btn btn-success btn-md" value="Grant"
                                             onclick="grant(this)">
                                         {{/if}}
@@ -69,9 +82,11 @@
                                 <td>issue new assets</td>
                                 <td class="row-actions">
                                     {{#if list_permissions.issue}}
+                                    <input type="hidden" id="primechain_address" value="{{primechain_address}}">
                                     <input id="issue" type="submit" class="btn btn-danger btn-md" value="Revoke"
                                         onclick="revoke(this)">
                                     {{else}}
+                                    <input type="hidden" id="primechain_address" value="{{primechain_address}}">
                                     <input id="issue" type="submit" class="btn btn-success btn-md" value="Grant"
                                         onclick="grant(this)">
                                     {{/if}}
@@ -83,9 +98,11 @@
                                 <td>create data channels</td>
                                 <td class="row-actions">
                                     {{#if list_permissions.create}}
+                                    <input type="hidden" id="primechain_address" value="{{primechain_address}}">
                                     <input id="create" type="submit" class="btn btn-danger btn-md" value="Revoke"
                                         onclick="revoke(this)">
                                     {{else}}
+                                    <input type="hidden" id="primechain_address" value="{{primechain_address}}">
                                     <input id="create" type="submit" class="btn btn-success btn-md" value="Grant"
                                         onclick="grant(this)">
                                     {{/if}}
@@ -97,9 +114,11 @@
                                 <td>mine blocks</td>
                                 <td class="row-actions">
                                     {{#if list_permissions.mine}}
+                                    <input type="hidden" id="primechain_address" value="{{primechain_address}}">
                                     <input id="mine" type="submit" class="btn btn-danger btn-md" value="Revoke"
                                         onclick="revoke(this)">
                                     {{else}}
+                                    <input type="hidden" id="primechain_address" value="{{primechain_address}}">
                                     <input id="mine" type="submit" class="btn btn-success btn-md" value="Grant"
                                         onclick="grant(this)">
                                     {{/if}}
@@ -111,9 +130,11 @@
                                 <td>change connect, send and receive permissions for other entities</td>
                                 <td class="row-actions">
                                     {{#if list_permissions.activate}}
+                                    <input type="hidden" id="primechain_address" value="{{primechain_address}}">
                                     <input id="activate" type="submit" class="btn btn-danger btn-md" value="Revoke"
                                         onclick="revoke(this)">
                                     {{else}}
+                                    <input type="hidden" id="primechain_address" value="{{primechain_address}}">
                                     <input id="activate" type="submit" class="btn btn-success btn-md" value="Grant"
                                         onclick="grant(this)">
                                     {{/if}}
@@ -126,9 +147,11 @@
                                     and admin</td>
                                 <td class="row-actions">
                                     {{#if list_permissions.admin}}
+                                    <input type="hidden" id="primechain_address" value="{{primechain_address}}">
                                     <input id="admin" type="submit" class="btn btn-danger btn-md" value="Revoke"
                                         onclick="revoke(this)">
                                     {{else}}
+                                    <input type="hidden" id="primechain_address" value="{{primechain_address}}">
                                     <input id="admin" type="submit" class="btn btn-success btn-md" value="Grant"
                                         onclick="grant(this)">
                                     {{/if}}

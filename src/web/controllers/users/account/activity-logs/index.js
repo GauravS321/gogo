@@ -19,9 +19,7 @@ module.exports.get = async (req, res) => {
 
             return res.render('users/account/activity-logs',
                 {
-                    activityLogArr,
-                    username: req.user.username,
-                    email: req.user.email,
+                    activityLogArr
                 });
 
         } catch (error) {

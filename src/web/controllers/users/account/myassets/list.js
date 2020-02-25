@@ -7,18 +7,14 @@ module.exports.get = async (req, res) => {
 
             return res.render('users/account/list_public_offers', {
                 assets: response.msg,
-                username: req.user.username,
-                email: req.user.email,
                 primechain_address: req.user.primechain_address
             });
         } catch (error) {
             return res.render('users/account/list_public_offers', {
-                username: req.user.username,
-                email: req.user.email,
                 primechain_address: req.user.primechain_address
             });
         }
 
     }
-   // return res.redirect('/login');
+    // return res.redirect('/login');
 }

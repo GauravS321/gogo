@@ -5,15 +5,11 @@ module.exports.get = async (req, res) => {
         let response = await retrieve(req.query);
 
         return res.render('plugins/dave/bank-guarantee/verification', {
-            data: response.msg['data'],
-            username: (req.user) ? req.user.username : false,
-            email: (req.user) ? req.user.email : false
+            data: response.msg['data']
         });
     } catch (error) {
         return res.render('plugins/dave/bank-guarantee/verification', {
-            error_msg: error.error,
-            username: (req.user) ? req.user.username : false,
-            email: (req.user) ? req.user.email : false
+            error_msg: error.error
         });
     }
 }
@@ -23,15 +19,12 @@ module.exports.getQRCode = async (req, res) => {
         const { text, txid_signature, password, iv, trade_channel_name } = req.query;
 
         return res.render('plugins/dave/bank-guarantee/qrcode', {
-            data: `${text}&txid_signature=${txid_signature}&password=${password}&iv=${iv}&trade_channel_name=${trade_channel_name}`,
-            username: (req.user) ? req.user.username : false,
-            email: (req.user) ? req.user.email : false
+            data: `${text}&txid_signature=${txid_signature}&password=${password}&iv=${iv}&trade_channel_name=${trade_channel_name}`
         });
-    } catch (error) {
+    }
+    catch (error) {
         return res.render('plugins/dave/bank-guarantee/verification', {
-            error_msg: error.error,
-            username: (req.user) ? req.user.username : false,
-            email: (req.user) ? req.user.email : false
+            error_msg: error.error
         });
     }
 }

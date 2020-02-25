@@ -7,15 +7,11 @@ module.exports.get = async (req, res) => {
         return res.render('plugins/primemason/shoppermits/view-permits', {
             shopname: record.json['Shop Name'],
             ownername: record.json['Owner Name'],
-            dataArr: record.permits,
-            username: (req.user) ? req.user.username : false,
-            email: (req.user) ? req.user.email : false
+            dataArr: record.permits
         });
     } catch (error) {
         return res.render('plugins/primemason/shoppermits/view-permits', {
-            error_msg: error.error,
-            username: (req.user) ? req.user.username : false,
-            email: (req.user) ? req.user.email : false
+            error_msg: error.error
         });
     }
 }
@@ -25,15 +21,11 @@ module.exports.getQRCode = async (req, res) => {
         const text = req.query.text;
 
         return res.render('plugins/primemason/shoppermits/qrcode', {
-            data: `${text}`,
-            username: (req.user) ? req.user.username : false,
-            email: (req.user) ? req.user.email : false
+            data: `${text}`
         });
     } catch (error) {
         return res.render('plugins/primemason/shoppermits/qrcode', {
-            error_msg: error.error,
-            username: (req.user) ? req.user.username : false,
-            email: (req.user) ? req.user.email : false
+            error_msg: error.error
         });
     }
 }

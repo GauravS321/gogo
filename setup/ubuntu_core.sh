@@ -88,7 +88,7 @@ su -l $linux_admin_user -c  'multichain-util create '$chainname' '$protocol' -da
 
 su -l $linux_admin_user -c "sed -ie 's/.*chain-description =.*\#/chain-description = '$chainname'-Building blockchains for a better world     #/g' $datadir/$chainname/params.dat"
 su -l $linux_admin_user -c "sed -ie 's/.*root-stream-open =.*\#/root-stream-open = false     #/g' $datadir/$chainname/params.dat"
-su -l $linux_admin_user -c "sed -ie 's/.*target-block-time =.*\#/target-block-time = 10     #/g' $datadir/$chainname/params.dat"
+su -l $linux_admin_user -c "sed -ie 's/.*target-block-time =.*\#/target-block-time = 15     #/g' $datadir/$chainname/params.dat"
 su -l $linux_admin_user -c "sed -ie 's/.*maximum-block-size =.*\#/maximum-block-size = 1000000000     #/g' $datadir/$chainname/params.dat"
 su -l $linux_admin_user -c "sed -ie 's/.*maximum-chunk-size =.*\#/maximum-chunk-size = 16777216     #/g' $datadir/$chainname/params.dat"
 su -l $linux_admin_user -c "sed -ie 's/.*maximum-chunk-count =.*\#/maximum-chunk-count = 2048     #/g' $datadir/$chainname/params.dat"
@@ -101,7 +101,7 @@ su -l $linux_admin_user -c "sed -ie 's/.*admin-consensus-mine =.*\#/admin-consen
 su -l $linux_admin_user -c "sed -ie 's/.*lock-admin-mine-rounds =.*\#/lock-admin-mine-rounds = 5     #/g' $datadir/$chainname/params.dat"
 su -l $linux_admin_user -c "sed -ie 's/.*mining-requires-peers =.*\#/mining-requires-peers = true     #/g' $datadir/$chainname/params.dat"
 su -l $linux_admin_user -c "sed -ie 's/.*mine-empty-rounds =.*\#/mine-empty-rounds = 5     #/g' $datadir/$chainname/params.dat"
-su -l $linux_admin_user -c "sed -ie 's/.*mining-turnover =.*\#/mining-turnover = 1     #/g' $datadir/$chainname/params.dat"
+su -l $linux_admin_user -c "sed -ie 's/.*mining-turnover =.*\#/mining-turnover = 0.5     #/g' $datadir/$chainname/params.dat"
 su -l $linux_admin_user -c "sed -ie 's/.*initial-block-reward =.*\#/initial-block-reward = 0     #/g' $datadir/$chainname/params.dat"
 su -l $linux_admin_user -c "sed -ie 's/.*first-block-reward =.*\#/first-block-reward = -1     #/g' $datadir/$chainname/params.dat"
 su -l $linux_admin_user -c "sed -ie 's/.*reward-halving-interval =.*\#/reward-halving-interval = 52560000     #/g' $datadir/$chainname/params.dat"

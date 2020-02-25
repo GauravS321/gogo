@@ -1,6 +1,6 @@
 const validator = require('validator');
 
-const User = require('../../../src/web/models/users/user');
+const { User } = require('../../../src/web/models/users/user');
 const common = require('.././../../helpers/common');
 const Mailer = require('../../../helpers/mailer');
 

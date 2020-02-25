@@ -2,10 +2,7 @@ const encryptFile = require('../../../../../functions/components/file/publish-en
 
 module.exports.get = (req, res) => {
     if (req.user && req.isAuthenticated()) {
-        return res.render('components/file/publish-encrypt', {
-            username: req.user.username,
-            email: req.user.email,
-        });
+        return res.render('components/file/publish-encrypt');
     }
     return res.redirect('/login');
 }
@@ -15,8 +12,7 @@ module.exports.post = async (req, res) => {
         try {
             const { stream_name } = req.body;
             const file = req.files['file[0]'];
-
-            let response = await encryptFile(req.user.primechain_address, file, stream_name);
+            const response = await encryptFile(req.user.primechain_address, file, stream_name);
 
             if (response.msg === undefined) {
                 return res.json({

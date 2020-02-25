@@ -56,6 +56,7 @@ echo -e \
 '--------------------------------------------'"\n"\
 'APPLICATION INFORMATION'"\n"\
 '--------------------------------------------'"\n"\
+'NODE_ENV=production'"\n"\
 'APPLICATION_HOSTNAME='$ipaddress"\n"\
 'APPLICATION_PORT=1410'"\n"\
 'APPLICATION_NAME=primechain'"\n"\
@@ -83,12 +84,6 @@ echo -e \
 'FACEBOOK_ID=<your-id>'"\n"\
 'FACEBOOK_SECRET=<your-secret>'"\n\n" >> $appdir/.env 
 
-echo -e \
-'--------------------------------------------'"\n"\
-'MONGODB'"\n"\
-'--------------------------------------------'"\n"\
-'MONGODB_URI=mongodb://localhost:27017/primechain'"\n\n"\
- >> $appdir/.env
 
 echo ''
 echo ''

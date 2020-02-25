@@ -4,7 +4,7 @@ module.exports.get = async (req, res) => {
     if (req.user && req.isAuthenticated()) {
         try {
             let streamArr = [];
-            let response = await read();
+            const response = await read();
 
             response.msg.forEach(stream => {
                 streamArr.push({
@@ -14,15 +14,10 @@ module.exports.get = async (req, res) => {
             });
 
             return res.render('components/data-channels/list', {
-                streamArr,
-                username: req.user.username,
-                email: req.user.email,
+                streamArr
             });
         } catch (error) {
-            return res.render('components/data-channels/list', {
-                username: req.user.username,
-                email: req.user.email,
-            });
+            return res.render('components/data-channels/list');
         }
     }
     return res.redirect('/login');

@@ -2,10 +2,7 @@ const publishPlainData = require('../../../../../functions/components/data/publi
 
 module.exports.get = (req, res) => {
     if (req.user && req.isAuthenticated()) {
-        return res.render('components/data/publish', {
-            username: req.user.username,
-            email: req.user.email,
-        });
+        return res.render('components/data/publish');
     }
     return res.redirect('/login');
 };
@@ -14,8 +11,7 @@ module.exports.post = async (req, res) => {
     if (req.user && req.isAuthenticated()) {
         try {
             const { key, data, stream_name } = req.body;
-
-            let response = await publishPlainData(req.user.primechain_address, data, stream_name, key);
+            const response = await publishPlainData(req.user.primechain_address, data, stream_name, key);
 
             return res.json({
                 success: true,

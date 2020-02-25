@@ -1,7 +1,7 @@
 const validator = require('validator');
 
 const APICall = require('../../../../helpers/request');
-const Users = require('../../../../src/web/models/users/user');
+const { User } = require('../../../../src/web/models/users/user');
 
 module.exports = (from_address, to_address, asset_name, quantity, details) => {
     return new Promise(async (resolve, reject) => {
@@ -22,11 +22,11 @@ module.exports = (from_address, to_address, asset_name, quantity, details) => {
             if (quantity > 0) {
                 if (quantity.length <= 11) {
                     if (validator.isEmail(to_address)) {
-                        let { primechain_address } = await Users.findOne({ email: to_address })
+                        let { primechain_address } = await User.findOne({ email: to_address })
                         to_address = primechain_address;
                     }
                     else if (to_address.length <= 16) {
-                        let { primechain_address } = await Users.findOne({ mobile: to_address })
+                        let { primechain_address } = await User.findOne({ mobile: to_address })
                         to_address = primechain_address;
                     }
 

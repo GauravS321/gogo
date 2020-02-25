@@ -79,7 +79,13 @@ app.use('/plugins/primemason/logistics/uploads', express.static('uploads'));
 app.use('/plugins/primemason/primeqr/uploads', express.static('uploads'));
 
 app.use((req, res, next) => {
-  res.locals.user = req.isAuthenticated();
+  const export_user = {
+    username: (req.user) ? req.user.username : "",
+    email: (req.user) ? req.user.email : "",
+    image: (req.user) ? req.user.image : "",
+  };
+
+  res.locals.user = export_user;
   res.locals.success_msg = req.flash('success_msg');
   res.locals.error_msg = req.flash('error_msg');
   res.locals.errors = req.flash('errors');
@@ -109,8 +115,6 @@ app.get('/', function (req, res) {
 
 // error handler
 app.use(function (err, req, res, next) {
-  console.log(err);
-  
   // set locals, only providing error in development
   res.locals.error = req.app.get('env') === 'development' ? err : {};
 
@@ -118,5 +122,6 @@ app.use(function (err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
 
 module.exports = app;

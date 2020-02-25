@@ -16,12 +16,12 @@ module.exports.get = async (req, res) => {
 
         let comment_image = record.inputs['comment_image'];
         delete record.inputs['comment_image'];
-        let latitude = (record.inputs['geo_latitude'] !== "") ? true: delete record.inputs['geo_latitude'];
-        let longtitude = (record.inputs['geo_longitude'] !== "") ? true: delete record.inputs['geo_longitude'];
+        let latitude = (record.inputs['geo_latitude'] !== "") ? true : delete record.inputs['geo_latitude'];
+        let longtitude = (record.inputs['geo_longitude'] !== "") ? true : delete record.inputs['geo_longitude'];
 
         // delete record.json['Best before date'];
         // delete record.json['Expiry date'];
-    
+
         return res.render('plugins/primemason/primeqr/view-inputs', {
             best_before,
             expired,
@@ -29,15 +29,11 @@ module.exports.get = async (req, res) => {
             comment_image,
             uuid,
             dataArr: record.json,
-            inputsArr: record.inputs,
-            username: (req.user) ? req.user.username : false,
-            email: (req.user) ? req.user.email : false
+            inputsArr: record.inputs
         });
     } catch (error) {
         return res.render('plugins/primemason/primeqr/view-inputs', {
-            error_msg: error.error,
-            username: (req.user) ? req.user.username : false,
-            email: (req.user) ? req.user.email : false
+            error_msg: error.error
         });
     }
 }

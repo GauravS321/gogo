@@ -3,21 +3,15 @@ const logistics = require('../../../../models/plugins/primemason/logistics');
 module.exports.get = async (req, res) => {
     if (req.user && req.isAuthenticated()) {
         try {
-            let data = await logistics.findOne({ uuid: req.query.uuid });
+            const data = await logistics.findOne({ uuid: req.query.uuid });
 
             return res.render('plugins/primemason/logistics/update', {
                 dataArr: data.json,
-                uuid: data.uuid,
-                username: req.user.username,
-                email: req.user.email
+                uuid: data.uuid
             });
         } catch (error) {
-            return res.render('plugins/primemason/logistics/update', {
-                username: req.user.username,
-                email: req.user.email
-            });
+            return res.render('plugins/primemason/logistics/update');
         }
-
     }
     return res.redirect('/login');
 }
@@ -29,7 +23,7 @@ module.exports.post = async (req, res) => {
             let uuid = req.body.uuid;
             delete json['uuid'];
 
-           await logistics.findOneAndUpdate({ uuid }, { json });
+            await logistics.findOneAndUpdate({ uuid }, { json });
 
             req.flash("success_msg", "Input updated. ", uuid);
             return res.redirect('/plugins/primemason/logistics/manage');

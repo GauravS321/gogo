@@ -2,10 +2,7 @@ const download = require('../../../../../functions/components/data/download');
 
 module.exports.get = (req, res) => {
     if (req.user && req.isAuthenticated()) {
-        return res.render('components/data/download', {
-            username: req.user.username,
-            email: req.user.email,
-        });
+        return res.render('components/data/download');
     }
     return res.redirect('/login');
 }
@@ -25,9 +22,7 @@ exports.post = async (req, res) => {
             });
 
             return res.render('components/data/view-download-data', {
-                dataArr: data,
-                username: req.user.username,
-                email: req.user.email,
+                dataArr: data
             });
 
         } catch (error) {

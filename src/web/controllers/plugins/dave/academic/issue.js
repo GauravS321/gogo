@@ -17,10 +17,7 @@ const Uploads = multer({
 
 module.exports.get = (req, res) => {
     if (req.user && req.isAuthenticated()) {
-        return res.render('plugins/dave/academic/issue', {
-            username: req.user.username,
-            email: req.user.email
-        });
+        return res.render('plugins/dave/academic/issue');
     }
     return res.redirect('/login');
 }

@@ -2,10 +2,7 @@ const { create } = require('../../../../../../functions/plugins/primemason/shopp
 
 module.exports.get = (req, res) => {
     if (req.user && req.isAuthenticated()) {
-        return res.render('plugins/primemason/shoppermits/create', {
-            username: req.user.username,
-            email: req.user.email
-        });
+        return res.render('plugins/primemason/shoppermits/create');
     }
     return res.redirect('/login');
 }
@@ -13,7 +10,7 @@ module.exports.get = (req, res) => {
 module.exports.post = async (req, res) => {
     try {
         if (req.user && req.isAuthenticated()) {
-            let response = await create(req.body);
+            const response = await create(req.body);
 
             req.flash("success_msg", "Shop created. ", response.msg['uuid']);
             return res.redirect('/plugins/primemason/shoppermits/create');

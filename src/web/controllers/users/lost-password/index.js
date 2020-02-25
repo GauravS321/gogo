@@ -10,7 +10,7 @@ module.exports.get = (req, res) => {
 module.exports.post = async (req, res) => {
     try {
         const { email } = req.body;
-        await lostPassword(email);
+        const response = await lostPassword(email);
 
         req.flash('success_msg', response.msg);
         return res.redirect('/login');

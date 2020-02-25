@@ -17,9 +17,7 @@ module.exports.get = async (req, res) => {
             });
 
             return res.render('components/wizard/list', {
-                dataArr: wizard_data,
-                username: req.user.username,
-                email: req.user.email,
+                dataArr: wizard_data
             });
         } catch (error) {
             return res.render('components/wizard/list');

@@ -3,10 +3,7 @@ const p2p = require('../../../../models/plugins/sam/p2p');
 
 module.exports.get = (req, res) => {
     if (req.user && req.isAuthenticated()) {
-        return res.render('plugins/sam/p2p/create', {
-            username: req.user.username,
-            email: req.user.email,
-        });
+        return res.render('plugins/sam/p2p/create');
     }
     return res.redirect('/login');
 };
@@ -15,7 +12,7 @@ module.exports.post = async (req, res) => {
     try {
         const { asset_name, asset_quantity, asset_open, asset_unit, asset_description } = req.body;
 
-        let response = await create(req.user.primechain_address, req.user.primechain_address, asset_name, asset_quantity, asset_unit, asset_open, asset_description);
+        const response = await create(req.user.primechain_address, req.user.primechain_address, asset_name, asset_quantity, asset_unit, asset_open, asset_description);
 
         if (response.status === 200) {
             let open = (asset_open === 'true') ? true : false;
@@ -48,8 +45,6 @@ module.exports.post = async (req, res) => {
             });
         }
     } catch (error) {
-        console.log(error);
-        
         return res.json({
             "success": false,
             "message": error.message

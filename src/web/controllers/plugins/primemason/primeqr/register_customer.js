@@ -28,7 +28,6 @@ module.exports.post = async (req, res) => {
 
             let uuid = req.body.uuid;
             let json = req.body;
-            console.log(req.files);
             json['customer_image'] = (req.files.length > 0)? req.files[0].path: "";
 
             delete json['uuid'];

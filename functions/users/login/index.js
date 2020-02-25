@@ -21,33 +21,10 @@ exports.authenticate = (req, res, email, password, next) => {
             }
             email = validator.normalizeEmail(email, { gmail_remove_dots: false });
 
-            passport.authenticate('local', (err, user) => {
-                if (err) {
-                    return reject({
-                        status: 401,
-                        message: err
-                    });
-                }
-
-                if (!user) {
-                    return reject({
-                        status: 401,
-                        message: "Incorrect email / password."
-                    });
-                }
-                req.logIn(user, async (err) => {
-                    if (err) {
-                        return reject({
-                            status: 401,
-                            message: "Incorrect email / password."
-                        });
-                    }
-
-                    return resolve({
-                        status: 200,
-                        msg: true
-                    });
-                });
+            passport.authenticate('local', {
+                successRedirect: '/',
+                failureRedirect: '/login',
+                failureFlash: true
             })(req, res, next);
         } catch (error) {
             return reject({

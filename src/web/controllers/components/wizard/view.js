@@ -4,7 +4,7 @@ module.exports.get = async (req, res) => {
     if (req.user && req.isAuthenticated()) {
         try {
             const dataArr = [];
-            let data = await getById(req.params.id);
+            const data = await getById(req.params.id);
 
             Object.keys(data.msg.json).map((_key) => {
                 let displayName = _key.toLowerCase().split('_').map((word) => {
@@ -16,9 +16,7 @@ module.exports.get = async (req, res) => {
 
             return res.render('components/wizard/view', {
                 dataArr,
-                id: data.msg['_id'],
-                username: req.user.username,
-                email: req.user.email,
+                id: data.msg['_id']
             });
         } catch (error) {
             return res.render('components/wizard/view');
