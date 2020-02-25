@@ -59,7 +59,7 @@ $('#changeUserRole').change(function (e) {
             url: '/account/change-user-role',
             success: function (res) {
                 if (res['success']) {
-                    document.getElementById('user_role_display').innerText = res['role'];
+                    document.getElementById(`user_role_display#${primechain_address}`).innerText = res['role'];
                     // window.location.href = `/components/permissions/manage?primechain_address=${primechain_address}`
                 }
                 else {
