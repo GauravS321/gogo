@@ -19,30 +19,23 @@ class MailNotificationEngine {
         };
 
         this.emailTop = `<html>
-                            <body style="background-color: #222533; padding: 20px; font-size: 14px; line-height: 1.43; font-family:Helvetica Neue Segoe UI, Helvetica, Arial, sans-serif;">
-                                <div style="max-width: 600px; margin: 0px auto; background-color: #fff; box-shadow: 0px 20px 50px rgba(0,0,0,0.05);">
-                                    <table style="width: 100%;">
-                                        <tr>
-                                            <td style="background-color: #fff;">
-                                                <img alt="" src="https://www.primechaintech.com/images/logo-2.png" style="width: 208px; padding: 20px">
-                                            </td>
-                                        </tr>
-                                    </table>
-                                    <div style="padding: 20px 70px; border-top: 1px solid rgba(0,0,0,0.05);">`;
+                          <body style="background-color: #222533; padding: 20px; font-family: font-size: 14px; line-height: 1.43; font-family: &quot;Helvetica Neue&quot;, &quot;Segoe UI&quot;, Helvetica, Arial, sans-serif;">
+                            <div style="max-width: 600px; margin: 0px auto; background-color: #fff; box-shadow: 0px 20px 50px rgba(0,0,0,0.05);">
+                              <table style="width: 100%;">
+                                <tr>
+                                  <td style="background-color: #fff;">
+                                    <img alt="" src="https://www.primechaintech.com/images/primechain_email.png" style="width: 70px; padding: 20px">
+                                  </td>
+                                  <td style="padding-left: 50px; text-align: right; padding-right: 20px;">
+                                    <a href="https://www.primechaintech.com/" style="color: #261D1D; text-decoration: underline; font-size: 14px; letter-spacing: 1px;">Need help?</a>
+                                  </td>
+                                </tr>
+                              </table>
+                              <img alt="" src="https://www.primechaintech.com/images/primechain_email_image.jpg" style="max-width: 100%; height: auto;">`;
 
-        this.emailBottom = `        Have an amazing day!<br>Team Primechain<br/><br/>
-
-                                    Please do not share this email, link, or access code with unauthorised persons.
-                                        
-                                    </div>
-                                    <div style="background-color: #F5F5F5; padding: 0px; text-align: center;">
-                                        <div style="padding-top: 5px; padding-bottom: 5px; border-top: 1px solid rgba(0,0,0,0.05);">
-                                        
-                                            <div style="color: #A5A5A5; font-size: 10px;">Copyright © 2016-20 Primechain Technologies Pvt. Ltd. All Rights Reserved.</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </body>
+        this.emailBottom = `Have an amazing day!<br>Team Primechain<br/><br/>Please do not share this email, link, or access code with unauthorised persons.
+                            </div>
+                          </body>
                         </html>`;
     }
 
@@ -428,22 +421,16 @@ class MailNotificationEngine {
     *******************************************************************************************************************/
     individualKYCMail(sender_email, receiver_name, email, use_case, path) {
         return new Promise((resolve, reject) => {
-            let subject = `Blockchain KYC`;
+            let subject = `Blockchain KYC record`;
             //let fromAddress = `${sender_email}`;
             let fromAddress = `no-reply@primechaintech.com`;
             let emailBody = `<p><strong>
-                                Hello ${receiver_name}!
+                                Hello ${receiver_name}
                             </strong></p>
-                            <p>A blockchain-KYC record has been shared with you.</p>
-
-                        <a href='${this.baseUrl}/plugins/dave/${use_case}/verification?${path}' style='padding: 8px 20px; background-color: #4B72FA; color: #fff; font-weight: bolder; font-size: 16px; display: inline-block; margin: 20px 0px; margin-right: 20px; text-decoration: none;'>View document
-                        </a>
-                        <br>
-                        
-                        <a href='${this.baseUrl}/plugins/dave/${use_case}/qrcode?text=${this.baseUrl}/plugins/dave/${use_case}/verification?${path}' style='padding: 8px 20px; background-color: #4B72FA; color: #fff; font-weight: bolder; font-size: 16px; display: inline-block; margin: 20px 0px; margin-right: 20px; text-decoration: none;'>View QRcode
-                        </a>
-                        <br>
-                        <br>`;
+                            <p>A blockchain-KYC record has been shared with you. To view the record, click on the blue button titled 'View KYC record'. If you would like to view the QR (Quick Response) code for this record, click on the green button titled 'QR'.</p>
+                            <a href='${this.baseUrl}/plugins/dave/${use_case}/verification?${path}' style="padding: 5px 15px; background-color: #4B72FA; color: #fff; font-weight: bolder; font-size: 14px; display: inline-block; margin: 20px 0px; margin-right: 20px; text-decoration: none;">View record</a>
+                            <a href='${this.baseUrl}/plugins/dave/${use_case}/qrcode?text=${this.baseUrl}/plugins/dave/${use_case}/verification?${path}' style="padding: 5px 15px; background-color: #5eb41b; color: #fff; font-weight: bolder; font-size: 14px; display: inline-block; margin: 20px 0px; margin-right: 20px; text-decoration: none;">QR</a>
+                            <br><br/>QR codes are two-dimensional scannable barcodes. They can be 'scanned' by iPhone, iPad, & iPod touch cameras (without the need for any special app) and Android phones (older Android phones need a generic QR scanning app).<br/><br/>`;
 
             this.sendEmailNotification(fromAddress, [email], subject, emailBody, null, null)
                 .then(emailSent => {

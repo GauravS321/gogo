@@ -4,7 +4,7 @@ const { resetPassword } = require('../../../../../functions/users/reset-password
 // User reset password
 module.exports.get = async (req, res) => {
     if (Object.keys(req.query).length == 0) {
-        req.flash('error_msg', 'Authentication failed');
+        req.flash('error_msg', 'Incorrect email / password.');
         return res.redirect('/login');
     }
     else {
@@ -17,7 +17,7 @@ module.exports.get = async (req, res) => {
             if (user) {
                 return res.render('users/reset-password', { email_address, random });
             } else {
-                req.flash('error_msg', `Authentication failed!!!`);
+                req.flash('error_msg', `Incorrect email / password.`);
                 return res.redirect('/login');
             }
         } catch (error) {

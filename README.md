@@ -43,3 +43,18 @@ sudo git pull && npm i && pm2 restart 1
 ```
 ## 4. Adding nodes
 https://github.com/Primechain/primechain_nodes/blob/master/README.md
+
+## 5. Stop / start multichain
+Login to the server / VM as a sudo or root user.
+For stopping multichain:
+```
+sudo su primechain-user 
+cd ~
+multichain-cli Primechain stop
+```
+For starting multichain:
+```
+sudo su primechain-user 
+cd ~
+multichaind Primechain --daemon
+```
