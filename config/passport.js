@@ -6,7 +6,6 @@ const { OAuth2Strategy: GoogleStrategy } = require('passport-google-oauth');
 const { Strategy: FacebookStrategy } = require('passport-facebook');
 const { User, comparePassword } = require('../src/web/models/users/user');
 const APICall = require('../helpers/request');
-const { create } = require('../functions/users/account/activity-logs');
 
 /**
  * Sign in using Email and Password.
@@ -33,13 +32,6 @@ passport.use(new LocalStrategy({
           message: req.flash("error_msg", 'Invalid Email / Password')
         });
       }
-
-      let ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
-      ip_arr = ip.split(':');
-      ip = ip_arr[ip_arr.length - 1];
-      let browser = req.headers['user-agent'];
-
-      await create(email, ip, browser);
 
       return done(null, user);
     });
