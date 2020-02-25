@@ -68,7 +68,7 @@ const googleStrategyConfig = new GoogleStrategy({
       ip = ip_arr[ip_arr.length - 1];
       let browser = req.headers['user-agent'];
 
-      await create(email, ip, browser);
+      await create(existingUser.email, ip, browser);
       done(null, existingUser);
     }
     else {
@@ -108,7 +108,7 @@ const googleStrategyConfig = new GoogleStrategy({
           ip = ip_arr[ip_arr.length - 1];
           let browser = req.headers['user-agent'];
 
-          await create(email, ip, browser);
+          await create(newUser.email, ip, browser);
           done(null, newUser);
         }
         else {
@@ -143,7 +143,7 @@ passport.use(new FacebookStrategy({
       ip = ip_arr[ip_arr.length - 1];
       let browser = req.headers['user-agent'];
 
-      await create(email, ip, browser);
+      await create(existingUser.email, ip, browser);
       done(null, existingUser);
     } else {
       const user = await User.findOne({ email: profile._json.email });
@@ -183,7 +183,7 @@ passport.use(new FacebookStrategy({
           ip = ip_arr[ip_arr.length - 1];
           let browser = req.headers['user-agent'];
 
-          await create(email, ip, browser);
+          await create(newUser.email, ip, browser);
           done(null, newUser);
         }
         else {
