@@ -6,6 +6,7 @@ const { OAuth2Strategy: GoogleStrategy } = require('passport-google-oauth');
 const { Strategy: FacebookStrategy } = require('passport-facebook');
 const { User, comparePassword } = require('../src/web/models/users/user');
 const APICall = require('../helpers/request');
+const { create } = require('../functions/users/account/activity-logs');
 
 /**
  * Sign in using Email and Password.
@@ -33,6 +34,13 @@ passport.use(new LocalStrategy({
         });
       }
 
+      let ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+      ip_arr = ip.split(':');
+      ip = ip_arr[ip_arr.length - 1];
+      let browser = req.headers['user-agent'];
+
+      await create(email, ip, browser);
+
       return done(null, user);
     });
   }
@@ -55,6 +63,12 @@ const googleStrategyConfig = new GoogleStrategy({
   try {
     const existingUser = await User.findOne({ "google.id": profile.id });
     if (existingUser) {
+      let ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+      ip_arr = ip.split(':');
+      ip = ip_arr[ip_arr.length - 1];
+      let browser = req.headers['user-agent'];
+
+      await create(email, ip, browser);
       done(null, existingUser);
     }
     else {
@@ -89,6 +103,12 @@ const googleStrategyConfig = new GoogleStrategy({
           });
 
           await newUser.save();
+          let ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+          ip_arr = ip.split(':');
+          ip = ip_arr[ip_arr.length - 1];
+          let browser = req.headers['user-agent'];
+
+          await create(email, ip, browser);
           done(null, newUser);
         }
         else {
@@ -116,8 +136,14 @@ passport.use(new FacebookStrategy({
 }, async (req, accessToken, refreshToken, profile, done) => {
   try {
     const existingUser = await User.findOne({ "facebook.id": profile.id });
-    
+
     if (existingUser) {
+      let ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+      ip_arr = ip.split(':');
+      ip = ip_arr[ip_arr.length - 1];
+      let browser = req.headers['user-agent'];
+
+      await create(email, ip, browser);
       done(null, existingUser);
     } else {
       const user = await User.findOne({ email: profile._json.email });
@@ -152,6 +178,12 @@ passport.use(new FacebookStrategy({
           });
 
           await newUser.save();
+          let ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+          ip_arr = ip.split(':');
+          ip = ip_arr[ip_arr.length - 1];
+          let browser = req.headers['user-agent'];
+
+          await create(email, ip, browser);
           done(null, newUser);
         }
         else {
