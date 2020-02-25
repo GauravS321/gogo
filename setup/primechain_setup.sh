@@ -155,7 +155,7 @@ echo ''
 
 echo -e \
 '--------------------------------------------'"\n"\
-'API CREDENTIALS'"\n"\
+'MULTICHAIN CREDENTIALS'"\n"\
 '--------------------------------------------'"\n"\
 'rpcuser='$rpcuser"\n"\
 'rpcpassword='$rpcpassword"\n\n" >> $outputfilepath
