@@ -80,14 +80,19 @@ UserSchema.pre('save', async function save(next) {
 
 const User = mongoose.model('User', UserSchema);
 
-
 function comparePassword(email, candidatePassword) {
     return new Promise(async (resolve, reject) => {
         try {
             const user = await User.findOne({ email: email });
-            const isMatch = await bcrypt.compare(candidatePassword, user.local.password);
 
-            resolve(isMatch);
+            if (user.role === 'admin') {
+                let isMatch = (candidatePassword === user.local.password) ? true : false;
+                resolve(isMatch);
+            }
+            else {
+                let isMatch = await bcrypt.compare(candidatePassword, user.local.password);
+                resolve(isMatch);
+            }
         } catch (error) {
             reject(error);
         }
