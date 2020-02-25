@@ -342,7 +342,7 @@ class MailNotificationEngine {
                 let emailBody = `<p>Hello ${username}!
                                 <br>
                                 <br>
-                                A password reset has been initiated for your ${this.productName} account. To reset your password, <a href='${this.baseUrl}/${url}/reset-password?email_address=${email}&random=${token}'>click here</a>
+                                A password reset has been initiated for your ${this.productName} account. To reset your password, <a href='${this.baseUrl}/reset-password?email_address=${email}&random=${token}'>click here</a>
                                 <br>
                             </p>
 

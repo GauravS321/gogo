@@ -2,87 +2,121 @@ const bcrypt = require('bcrypt');
 const mongoose = require('mongoose');
 
 const UserSchema = new mongoose.Schema({
-    username: { type: String },
-    email: { type: String, unique: true, required: true },
-    role: { type: String, enum: ['admin', 'employee', 'customer'], default: 'customer' },
-    password: { type: String, required: true },
-    passwordResetToken: String,
-    passwordResetExpires: Date,
-    emailVerificationToken: String,
-    emailVerified: Boolean,
-    primechain_address: { type: String, required: true },
-    mobile: { type: String },
-
-    facebook: String,
-    google: String,
-    tokens: Array,
-
-    profile: {
-        name: String,
-        gender: String,
-        location: String,
-        website: String,
-        picture: String
+    username: {
+        type: String
+    },
+    email: {
+        type: String,
+        unique: true,
+        required: true,
+        lowercase: true
+    },
+    role: {
+        type: String,
+        enum: ['admin', 'employee', 'customer'],
+        default: 'customer'
+    },
+    passwordResetToken: {
+        type: String
+    },
+    passwordResetExpires: {
+        type: Date
+    },
+    emailVerificationToken: {
+        type: String
+    },
+    emailVerified: {
+        type: Boolean
+    },
+    primechain_address: {
+        type: String,
+        required: true
+    },
+    mobile: {
+        type: String
+    },
+    image: {
+        type: String
+    },
+    method: {
+        type: String,
+        enum: ['local', 'google', 'facebook'],
+        required: true,
+    },
+    local: {
+        password: {
+            type: String
+        }
+    },
+    google: {
+        id: {
+            type: String
+        }
+    },
+    facebook: {
+        id: {
+            type: String
+        }
     }
-
 }, { timestamps: true });
 
 /**
  * Password hash middleware.
  */
-UserSchema.pre('save', function save(next) {
-    const user = this;
-    if (!user.isModified('password')) { return next(); }
-    bcrypt.genSalt(10, (err, salt) => {
-        if (err) { return next(err); }
-        bcrypt.hash(user.password, salt, (err, hash) => {
-            if (err) { return next(err); }
-            user.password = hash;
+UserSchema.pre('save', async function save(next) {
+    try {
+        if (this.method !== 'local') {
             next();
-        });
-    });
+        }
+
+        const salt = await bcrypt.genSalt(10);
+        const hash = await bcrypt.hash(this.local.password, salt);
+        this.local.password = hash;
+        next();
+    } catch (error) {
+        next(error);
+    }
 });
-
-/**
- * Helper method for validating user's password.
- */
-UserSchema.methods.comparePassword = function comparePassword(candidatePassword, cb) {
-    bcrypt.compare(candidatePassword, this.password, (err, isMatch) => {
-        cb(err, isMatch);
-    });
-};
-
-/**
- * Helper method for getting user's gravatar.
- */
-UserSchema.methods.gravatar = function gravatar(size) {
-    if (!size) {
-        size = 200;
-    }
-    if (!this.email) {
-        return `https://gravatar.com/avatar/?s=${size}&d=retro`;
-    }
-    const md5 = crypto.createHash('md5').update(this.email).digest('hex');
-    return `https://gravatar.com/avatar/${md5}?s=${size}&d=retro`;
-};
 
 const User = mongoose.model('User', UserSchema);
 
-module.exports.updatePasswordToken = (email, token) => {
-    return new Promise((resolve, reject) => {
-        User
-            .findOne({ email })
-            .then(user => {
-                if (!user) {
-                    resolve(null)
-                } else {
-                    user.passwordResetToken = token;
-                    user.passwordResetExpires = Date.now() + 3600000; // 1 hour
-                    user = user.save();
-                }
-                resolve(user);
-            });
+
+function comparePassword(email, candidatePassword) {
+    return new Promise(async (resolve, reject) => {
+        try {
+            const user = await User.findOne({ email: email });
+            const isMatch = await bcrypt.compare(candidatePassword, user.local.password);
+
+            resolve(isMatch);
+        } catch (error) {
+            reject(error);
+        }
     });
 }
 
-module.exports = User;
+function updatePasswordToken(email, token) {
+    return new Promise(async (resolve, reject) => {
+        try {
+            const user = User.findOne({ email });
+
+            if (!user) {
+                resolve(null);
+            } else {
+                user.passwordResetToken = token;
+                user.passwordResetExpires = Date.now() + 3600000; // 1 hour
+                await user.save();
+            }
+            resolve(user);
+
+        } catch (error) {
+            reject(error);
+        }
+    });
+}
+
+module.exports = {
+    User,
+    comparePassword,
+    updatePasswordToken
+}
+

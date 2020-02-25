@@ -1,6 +1,6 @@
 const validator = require('validator');
 
-const User = require('.././../../src/web/models/users/user');
+const { User } = require('.././../../src/web/models/users/user');
 const Mailer = require('../../../helpers/mailer');
 
 module.exports.resetPassword = (email, random, password, confirm_password) => {
@@ -28,12 +28,11 @@ module.exports.resetPassword = (email, random, password, confirm_password) => {
                 .where('passwordResetExpires').gt(Date.now())
 
             if (user) {
-                user.password = password;
+                user.local.password = password;
                 user.passwordResetToken = undefined;
                 user.passwordResetExpires = undefined;
 
                 await user.save();
-
                 await Mailer.sendPasswordChangedNotification(email, user.username);
 
                 return resolve({

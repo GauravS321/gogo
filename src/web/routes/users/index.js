@@ -1,6 +1,42 @@
 const router = require('express').Router();
 const passport = require('passport');
-const User = require('../../models/users/user');
+const Handlebars = require('handlebars');
+const { User } = require('../../models/users/user');
+
+// Middleware for express router
+router.use((req, res, next) => {
+    res.locals.user = req.user || null;
+    next();
+});
+
+// Customized handlebar for displaying link in the UI.
+Handlebars.registerHelper("displayLink", (v1, options) => {
+    if (v1 === "y") {
+        return options.fn(this);
+    }
+    return options.inverse(this);
+});
+
+Handlebars.registerHelper('ifAdmin', (user, options) => {
+    if (user && options.hash.role == user.role) {
+        return options.fn(this);
+    }
+    return options.inverse(this);
+});
+
+Handlebars.registerHelper('ifEmployee', (user, options) => {
+    if (user && options.hash.role == user.role) {
+        return options.fn(this)
+    }
+    return options.inverse(this);
+});
+
+Handlebars.registerHelper('ifCustomer', (user, options) => {
+    if (user && options.hash.role == user.role) {
+        return options.fn(this)
+    }
+    return options.inverse(this);
+});
 
 // LogIn controller
 const loginController = require('../../controllers/users/login');
@@ -39,7 +75,13 @@ const logoutContoller = require('../../controllers/users/account/logout');
 
 /* Routing for users login. */
 router.get('/login', loginController.get);
-router.post('/login', loginController.post);
+router.post('/login', (req, res, next) => {
+    passport.authenticate('local', {
+        successRedirect: '/account/my-profile',
+        failureRedirect: '/login',
+        failureFlash: true
+    })(req, res, next);
+});
 
 /* Routing for users signup. */
 router.get('/signup', signupController.get);
@@ -63,7 +105,7 @@ router.get('/account/activity-logs', activityLogsContoller.get);
 
 router.post('/account/update-mobile-number', async (req, res) => {
     if (req.user && req.isAuthenticated()) {
-        try {          
+        try {
             let user = await User.findOne({ mobile: req.body.mobile });
             if (!user) {
                 await User.findOneAndUpdate({ email: req.user.email }, { mobile: req.body.mobile });
@@ -84,12 +126,41 @@ router.post('/account/update-mobile-number', async (req, res) => {
                 message: "Not updated"
             })
         }
+    }
+    else {
+        return res.redirect('/login');
+    }
+});
 
+router.post('/account/change-user-role', async (req, res) => {
+    if (req.user && req.isAuthenticated()) {
+        try {
+            if (req.body.role !== 'admin') {
+                await User.findOneAndUpdate({ primechain_address: req.body.primechain_address }, { role: req.body.role });
+
+                return res.json({
+                    success: true,
+                    role: req.body.role
+                });
+            }
+            else {
+                return res.json({
+                    success: false,
+                    message: "Invalid role"
+                });
+            }
+        } catch (error) {
+            return res.json({
+                success: false,
+                message: "Whoops, Unable to update user role"
+            });
+        }
     }
     else {
         return res.redirect('/login');
     }
 })
+
 
 // Router user account change password
 router.get('/account/change-password', changePasswordContoller.get);

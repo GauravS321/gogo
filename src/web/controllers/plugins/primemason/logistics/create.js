@@ -17,10 +17,7 @@ const Uploads = multer({
 
 module.exports.get = (req, res) => {
     if (req.user && req.isAuthenticated()) {
-        return res.render('plugins/primemason/logistics/create', {
-            username: req.user.username,
-            email: req.user.email
-        });
+        return res.render('plugins/primemason/logistics/create');
     }
     return res.redirect('/login');
 }
@@ -35,9 +32,9 @@ module.exports.post = (req, res) => {
                         message: err
                     });
                 }
-                
+
                 let json = req.body;
-                json['image'] = (req.files)? req.files[0].path: "";
+                json['image'] = (req.files) ? req.files[0].path : "";
                 let response = await create(req.body);
 
                 req.flash("success_msg", "LR created. ", response.msg['uuid']);

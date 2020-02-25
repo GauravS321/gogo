@@ -22,15 +22,10 @@ module.exports.get = async (req, res) => {
             });
 
             return res.render('plugins/dave/bank-guarantee/view', {
-                dataArr: records_list,
-                username: req.user.username,
-                email: req.user.email
+                dataArr: records_list
             });
         } catch (error) {
-            return res.render('plugins/dave/bank-guarantee/view', {
-                username: req.user.username,
-                email: req.user.email
-            });
+            return res.render('plugins/dave/bank-guarantee/view');
         }
     }
     return res.redirect('/login')

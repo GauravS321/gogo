@@ -17,10 +17,7 @@ const Uploads = multer({
 
 module.exports.get = (req, res) => {
     if (req.user && req.isAuthenticated()) {
-        return res.render('plugins/dave/bank-guarantee/issue', {
-            username: req.user.username,
-            email: req.user.email
-        });
+        return res.render('plugins/dave/bank-guarantee/issue');
     }
     return res.redirect('/login');
 }
@@ -36,7 +33,7 @@ module.exports.post = (req, res) => {
             }
             try {
                 const trade_channel_name = req.body.trade_channel_name;
-                let response = await issue(req.user.primechain_address, req.body);
+                const response = await issue(req.user.primechain_address, req.body);
 
                 return res.json({
                     success: true,
@@ -48,7 +45,7 @@ module.exports.post = (req, res) => {
                     trade_channel_name: trade_channel_name
                 });
             } catch (error) {
-              return res.json({
+                return res.json({
                     success: false,
                     message: error.message
                 });

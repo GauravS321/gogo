@@ -15,15 +15,10 @@ module.exports.get = async (req, res) => {
             });
 
             return res.render('plugins/primemason/logistics/manage', {
-                dataArr: records_list,
-                username: req.user.username,
-                email: req.user.email
+                dataArr: records_list
             });
         } catch (error) {
-            return res.render('plugins/primemason/logistics/manage', {
-                username: req.user.username,
-                email: req.user.email
-            });
+            return res.render('plugins/primemason/logistics/manage');
         }
     }
     return res.redirect('/login');

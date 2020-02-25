@@ -17,6 +17,8 @@
                                 <th>name</th>
                                 <th>email</th>
                                 <th>primechain address</th>
+                                <th>permissions</th>
+                                <th>role</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -25,6 +27,26 @@
                                 <td>{{name}}</td>
                                 <td>{{email}}</td>
                                 <td>{{primechain_address}}</td>
+                                <td>
+                                    <form action="/components/permissions/manage" method="get">
+                                        <input type="hidden" name="primechain_address" value="{{primechain_address}}">
+                                        <input type="submit" class="btn btn-primary btn-md" value="Manage" \>
+                                    </form>
+                                </td>
+                                <td>
+                                    <div class="form-group">
+                                        <form id="changeUserRole">
+                                            <input type="hidden" id="primechain_address" value="{{primechain_address}}">
+                                            <p>Current role: <strong id="user_role_display">{{user_role}}</strong> </p>
+                                            <select class="form-control" id="user_role" name="role" value="">
+                                                <option value="">Change Role</option>
+                                                <option value="customer">Customer</option>
+                                                <option value="employee">Employee</option>
+                                            </select>
+                                        </form>
+                                    </div>
+                                </td>
+
                             </tr>
                             {{/each}}{{/if}}
                         </tbody>

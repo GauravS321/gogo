@@ -5,10 +5,7 @@ const { changePassword } = require('../../../../../../functions/users/account/ch
  */
 module.exports.get = (req, res) => {
     if (req.user && req.isAuthenticated()) {
-        return res.render('users/account/change-password', {
-            username: req.user.username,
-            email: req.user.email,
-        });
+        return res.render('users/account/change-password');
     }
     return res.redirect('/login');
 };

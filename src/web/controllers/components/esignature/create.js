@@ -3,10 +3,7 @@ const create = require('../../../../../functions/components/esignature/create')
 // Electronic signatures
 module.exports.get = (req, res) => {
     if (req.user && req.isAuthenticated()) {
-        return res.render('components/esignature/create', {
-            username: req.user.username,
-            email: req.user.email,
-        });
+        return res.render('components/esignature/create');
     }
     return res.redirect('/login');
 }
@@ -38,5 +35,5 @@ module.exports.post = async (req, res) => {
             });
         }
     }
-    res.redirect('/web');
+    return res.redirect('/login');
 };

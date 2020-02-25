@@ -5,7 +5,7 @@ module.exports.get = async (req, res) => {
     if (req.user && req.isAuthenticated()) {
         try {
             const create_more_asset_list = [];
-            let responseArr = await Invoice.find({ issuer: req.user.primechain_address });
+            const responseArr = await Invoice.find({ issuer: req.user.primechain_address });
 
             responseArr.forEach(asset => {
                 if (asset['open'] === true) {
@@ -17,17 +17,11 @@ module.exports.get = async (req, res) => {
             });
 
             return res.render('plugins/sam/invoice/view-create-more', {
-                create_more_asset_list,
-                username: req.user.username,
-                email: req.user.email,
+                create_more_asset_list
             });
         } catch (error) {
-            return res.render('plugins/sam/invoice/view-create-more', {
-                username: req.user.username,
-                email: req.user.email,
-            });
+            return res.render('plugins/sam/invoice/view-create-more');
         }
-
     }
     return res.redirect('/login');
 };
@@ -38,17 +32,11 @@ module.exports.getByAssetReference = async (req, res) => {
             const { reference } = req.params;
 
             return res.render('plugins/sam/invoice/create-more', {
-                reference,
-                username: req.user.username,
-                email: req.user.email,
+                reference
             });
         } catch (error) {
-            return res.render('plugins/sam/invoice/create-more', {
-                username: req.user.username,
-                email: req.user.email,
-            });
+            return res.render('plugins/sam/invoice/create-more');
         }
-
     }
     return res.redirect('/login');
 };
@@ -56,8 +44,7 @@ module.exports.getByAssetReference = async (req, res) => {
 module.exports.post = async (req, res) => {
     try {
         const { asset_name, asset_quantity } = req.body;
-
-        let response = await createMore(req.user.primechain_address, req.user.primechain_address, asset_name, asset_quantity);
+        const response = await createMore(req.user.primechain_address, req.user.primechain_address, asset_name, asset_quantity);
 
         if (response.status === 200) {
             req.flash("success_msg", "Created additional units");

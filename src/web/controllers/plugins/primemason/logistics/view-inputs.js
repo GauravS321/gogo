@@ -13,15 +13,11 @@ module.exports.get = async (req, res) => {
             image,
             uuid,
             dataArr: record.json,
-            inputsArr: record.inputs,
-            username: (req.user) ? req.user.username : false,
-            email: (req.user) ? req.user.email : false
+            inputsArr: record.inputs
         });
     } catch (error) {
         return res.render('plugins/primemason/logistics/view-inputs', {
-            error_msg: error.error,
-            username: (req.user) ? req.user.username : false,
-            email: (req.user) ? req.user.email : false
+            error_msg: error.error
         });
     }
 }

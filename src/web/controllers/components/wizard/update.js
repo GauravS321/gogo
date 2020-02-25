@@ -3,19 +3,14 @@ const { getById, updateData } = require('../../../../../functions/components/wiz
 module.exports.get = async (req, res) => {
     if (req.user && req.isAuthenticated()) {
         try {
-            let data = await getById(req.params.id);
+            const data = await getById(req.params.id);
 
             return res.render('components/wizard/edit', {
                 dataArr: data.msg.json,
-                id: data.msg['_id'],
-                username: req.user.username,
-                email: req.user.email,
+                id: data.msg['_id']
             });
         } catch (error) {
-            return res.render('components/wizard/edit', {
-                username: req.user.username,
-                email: req.user.email,
-            });
+            return res.render('components/wizard/edit');
         }
     }
     return res.redirect('/login');
@@ -24,7 +19,7 @@ module.exports.get = async (req, res) => {
 exports.post = async (req, res) => {
     if (req.user && req.isAuthenticated()) {
         try {
-            let response = await updateData(req.body);
+            const response = await updateData(req.body);
 
             req.flash('success_msg', response.msg);
             return res.redirect('/components/wizard/list');

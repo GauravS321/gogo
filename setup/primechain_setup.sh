@@ -209,6 +209,14 @@ echo -e 'MONGODB INSTALLATION COMPLETED!!!'
 echo -e '=================================='
 echo ''
 echo ''
+
+echo -e \
+'--------------------------------------------'"\n"\
+'MONGODB'"\n"\
+'--------------------------------------------'"\n"\
+'MONGODB_URI=mongodb://primechainuser:'$dbpass'@localhost:27017/primechain'"\n\n"\
+ >> $appdir/.env
+
 echo ''
 echo -e \
 '--------------------------------------------'"\n"\
@@ -267,7 +275,31 @@ echo -e \
 'PRIMECHAIN_API_URN='$ipaddress"\n"\
 'PRIMECHAIN_API_PORT=2512'"\n\n" >> $appdir/.env
 
+echo ''
+echo ''
+echo ''
+echo ''
+echo ''
 sleep 1
+
+echo ''
+echo ''
+echo ''
+echo ''
+echo ''
+
+echo -e '============================================='
+echo -e 'ADMIN LOGIN CREDENTIALS FOR WEB APPLICATION'
+echo -e '============================================='
+echo ''
+echo -e '#######################################################'
+echo -e '#  Email address: '$email                            '#'
+echo -e '#  Password: '$dbpass                                '#'
+echo -e '#######################################################'
+echo ''
+echo ''
+echo ''
+
 
 echo -e '==================================================='
 echo -e 'WEB APPLICATION UP AND RUNNING IN THE FOLLOWING URL'

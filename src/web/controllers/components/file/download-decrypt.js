@@ -2,10 +2,7 @@ const downloadDecryptFile = require('../../../../../functions/components/file/do
 
 module.exports.get = (req, res) => {
     if (req.user && req.isAuthenticated()) {
-        return res.render('components/file/download-decrypt', {
-            username: req.user.username,
-            email: req.user.email,
-        });
+        return res.render('components/file/download-decrypt');
     }
     return res.redirect('/login');
 }
@@ -15,9 +12,9 @@ exports.post = async (req, res) => {
         try {
             const { txid_data, txid_signature, password, iv, stream_name } = req.body;
 
-            let response = await downloadDecryptFile(txid_data, txid_signature, password, iv, stream_name);
+            const response = await downloadDecryptFile(txid_data, txid_signature, password, iv, stream_name);
 
-            let data = Buffer.from(response.msg.data, 'hex').toString();
+            const data = Buffer.from(response.msg.data, 'hex').toString();
 
             res.writeHead(200, {
                 'Content-Type': response.msg.mimetype,

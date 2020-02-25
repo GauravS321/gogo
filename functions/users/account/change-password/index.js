@@ -1,6 +1,6 @@
 const validator = require('validator');
 
-const User = require('../../../../src/web/models/users/user');
+const { User, comparePassword } = require('../../../../src/web/models/users/user');
 const Mailer = require('../../../../helpers/mailer');
 
 module.exports.changePassword = (email, oldPassword, password, confirm_password) => {
@@ -20,38 +20,25 @@ module.exports.changePassword = (email, oldPassword, password, confirm_password)
             }
 
             const user = await User.findOne({ email });
+            const isMatch = await comparePassword(email, oldPassword)
 
-            user.comparePassword(oldPassword, async (err, isMatch) => {
-                try {
-                    if (err) {
-                        throw new Error(err);
-                    }
+            if (isMatch) {
+                user.local.password = password;
 
-                    if (isMatch) {
-                        user.password = password;
+                await Mailer.sendPasswordChangedNotification(email, user.username);
+                await user.save();
 
-                        await Mailer.sendPasswordChangedNotification(email, user.username);
-                        await user.save();
-
-                        return resolve({
-                            status: 200,
-                            msg: "Password changed!!!"
-                        });
-                    }
-                    else {
-                        return reject({
-                            status: 401,
-                            message: "Old password does not match."
-                        });
-                    }
-                } catch (error) {
-                    return reject({
-                        status: 500,
-                        message: error.message
-                    });
-                }
-
-            });
+                return resolve({
+                    status: 200,
+                    msg: "Password changed!!!"
+                });
+            }
+            else {
+                return reject({
+                    status: 401,
+                    message: "Old password does not match."
+                });
+            }
         } catch (error) {
             return reject({
                 status: 500,

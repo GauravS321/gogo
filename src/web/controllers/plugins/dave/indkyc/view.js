@@ -20,17 +20,12 @@ module.exports.get = async (req, res) => {
                     trade_channel_name: record.trade_channel_name
                 });
             });
-            console.log(records_list);
+
             return res.render('plugins/dave/indkyc/view', {
-                dataArr: records_list,
-                username: req.user.username,
-                email: req.user.email
+                dataArr: records_list
             });
         } catch (error) {
-            return res.render('plugins/dave/indkyc/view', {
-                username: req.user.username,
-                email: req.user.email
-            });
+            return res.render('plugins/dave/indkyc/view');
         }
     }
     return res.redirect('/login');

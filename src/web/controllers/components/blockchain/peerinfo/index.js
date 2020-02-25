@@ -3,18 +3,13 @@ const peerinfo = require('../../../../../../functions/components/blockchain/peer
 module.exports.get = async (req, res) => {
     if (req.user && req.isAuthenticated()) {
         try {
-            let response = await peerinfo();
+            const response = await peerinfo();
 
             return res.render('components/blockchain/peerinfo', {
-                peerinfo: response.msg,
-                username: req.user.username,
-                email: req.user.email,
+                peerinfo: response.msg
             });
         } catch (error) {
-            return res.render('components/blockchain/peerinfo', {
-                username: req.user.username,
-                email: req.user.email,
-            });
+            return res.render('components/blockchain/peerinfo');
         }
     }
     return res.redirect('/login');

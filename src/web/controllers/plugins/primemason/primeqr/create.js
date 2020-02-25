@@ -17,10 +17,7 @@ const Uploads = multer({
 
 module.exports.get = (req, res) => {
     if (req.user && req.isAuthenticated()) {
-        return res.render('plugins/primemason/primeqr/create', {
-            username: req.user.username,
-            email: req.user.email
-        });
+        return res.render('plugins/primemason/primeqr/create');
     }
     return res.redirect('/login');
 }

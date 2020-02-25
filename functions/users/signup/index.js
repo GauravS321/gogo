@@ -1,6 +1,6 @@
 const validator = require('validator');
 
-const User = require('../../../src/web/models/users/user');
+const { User } = require('../../../src/web/models/users/user');
 const APICall = require('./../../../helpers/request');
 
 module.exports.create = (email, username, mobile, password, confirm_password) => {
@@ -27,7 +27,7 @@ module.exports.create = (email, username, mobile, password, confirm_password) =>
             if (user) {
                 return reject({
                     status: 401,
-                    error: 'Account with that email address already exists.'
+                    message: 'Account with that email address already exists.'
                 });
             }
 
@@ -39,26 +39,26 @@ module.exports.create = (email, username, mobile, password, confirm_password) =>
             await APICall.httpPostMethod('manage_permissions', {
                 "action": "grant",
                 "primechain_address": primechain_address.primechain_address,
-                "permission": "send,receive,issue"
+                "permission": "receive"
             });
 
             const newUser = new User({
-                username,
-                email,
-                password,
-                mobile,
-                primechain_address: primechain_address.primechain_address
+                "method": "local",
+                "username": username,
+                "email": email,
+                "local.password": password,
+                "role": "customer",
+                "mobile": mobile,
+                "primechain_address": primechain_address.primechain_address
             });
 
             await newUser.save();
 
             return resolve({
                 status: 200,
-                msg: "Account created!!!"
+                message: "Account created!!!"
             });
         } catch (error) {
-            console.log(error);
-
             return reject({
                 status: 500,
                 message: "Internal server error!!!"

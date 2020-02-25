@@ -2,13 +2,15 @@ const blockchainInformation = require('../../../../../../functions/components/bl
 
 module.exports.get = async (req, res) => {
     if (req.user && req.isAuthenticated()) {
-        let response = await blockchainInformation();
+        try {
+            const response = await blockchainInformation();
 
-        return res.render('components/blockchain/information', {
-            blockchain_information: response.msg,
-            username: req.user.username,
-            email: req.user.email,
-        });
+            return res.render('components/blockchain/information', {
+                blockchain_information: response.msg
+            });
+        } catch (error) {
+            return res.render('components/blockchain/information');
+        }
     }
     return res.redirect('/login');
 }
