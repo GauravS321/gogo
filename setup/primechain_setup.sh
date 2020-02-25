@@ -259,9 +259,11 @@ username=$(jq -r '.api_key.username' <<< "${content}")
 password=$(jq -r '.api_key.password' <<< "${content}")
 
 
+sleep 1
+
 echo -e \
 '--------------------------------------------'"\n"\
-'MONGODB'"\n"\
+'MONGODB DATABASE PATH'"\n"\
 '--------------------------------------------'"\n"\
 'MONGODB_URI=mongodb://primechainuser:'$dbpass'@localhost:27017/primechain'"\n\n" >> $appdir/.env
 

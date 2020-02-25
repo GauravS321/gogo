@@ -40,7 +40,7 @@ db.createUser({user : "adminuser", pwd : "$mongopassword", roles : [{ role : "ro
 db.auth("adminuser", "$mongopassword")
 use primechain
 db.createUser({user : "primechainuser", pwd : "$mongopassword", roles : [{ role : "dbOwner", db : "primechain"}]})
-db.users.insert({"username" : "admin" , "email" : "$email", "method":"local", "local.password" : "$mongopassword", "primechain_address" : "$primechain_address", "role" : "admin"})
+db.users.insert({"username" : "admin" , "email" : "$email", "method": "local", "local": { "password" : "$mongopassword" }, "primechain_address" : "$primechain_address", "role" : "admin"})
 EOF
 
 echo '----------------------------------------'
