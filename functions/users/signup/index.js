@@ -46,7 +46,7 @@ module.exports.create = (email, username, mobile, password, confirm_password) =>
                 "method": "local",
                 "username": username,
                 "email": email,
-                "local.password": password,
+                "local": { "password": password },
                 "role": "customer",
                 "mobile": mobile,
                 "primechain_address": primechain_address.primechain_address
@@ -59,6 +59,8 @@ module.exports.create = (email, username, mobile, password, confirm_password) =>
                 message: "Account created!!!"
             });
         } catch (error) {
+            console.log(error);
+
             return reject({
                 status: 500,
                 message: "Internal server error!!!"

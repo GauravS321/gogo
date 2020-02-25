@@ -23,6 +23,13 @@ module.exports.post = async (req, res) => {
         await create(email, username, mobile, password, confirm_password);
 
         const user = await User.findOne({ "email": email.toLowerCase() });
+        
+        let ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+        ip_arr = ip.split(':');
+        ip = ip_arr[ip_arr.length - 1];
+        let browser = req.headers['user-agent'];
+
+        await createLoginDetails(email, ip, browser);
 
         req.logIn(user, async (err) => {
             if (err) {
@@ -31,15 +38,10 @@ module.exports.post = async (req, res) => {
             }
         });
 
-        let ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
-        ip_arr = ip.split(':');
-        ip = ip_arr[ip_arr.length - 1];
-        let browser = req.headers['user-agent'];
-
-        await createLoginDetails(email, ip, browser);
-
         return res.redirect('/account/my-profile');
     } catch (error) {
+        console.log(error);
+
         if (error.errors) {
             req.flash('errors', error.errors);
             return res.redirect('/login');

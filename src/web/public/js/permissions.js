@@ -46,11 +46,11 @@ function revoke(element) {
     });
 }
 
-$('#changeUserRole').change(function (e) {
-    var elem = $('#user_role').val();
-    var primechain_address =$('#primechain_address').val();
+function changeUserRole(role, address) {
+    var primechain_address = address;
+    var role = role;
 
-    if (elem == "") {
+    if (role == "") {
         alert('Please select role');
     }
     else {
@@ -64,14 +64,13 @@ $('#changeUserRole').change(function (e) {
                 }
                 else {
                     alert(res['message']);
-                  //  window.location.href = `/components/permissions/manage?primechain_address=${primechain_address}`
+                    //  window.location.href = `/components/permissions/manage?primechain_address=${primechain_address}`
                 }
             },
             data: {
-                role: elem,
+                role: role,
                 primechain_address: primechain_address
             }
         });
     }
-
-})
+}

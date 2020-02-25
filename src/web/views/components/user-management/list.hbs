@@ -37,8 +37,10 @@
                                     <div class="form-group">
                                         <form id="changeUserRole">
                                             <input type="hidden" id="primechain_address" value="{{primechain_address}}">
-                                            <p>Current role: <strong id="user_role_display#{{primechain_address}}">{{user_role}}</strong> </p>
-                                            <select class="form-control" id="user_role" name="role" value="">
+                                            <p>Current role: <strong
+                                                    id="user_role_display#{{primechain_address}}">{{user_role}}</strong>
+                                            </p>
+                                            <select class="form-control" id="user_role" name="user_role" value="" onchange="changeUserRole(this.value, '{{primechain_address}}')">
                                                 <option value="">Change Role</option>
                                                 <option value="customer">Customer</option>
                                                 <option value="employee">Employee</option>
