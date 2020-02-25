@@ -19,7 +19,9 @@ module.exports.post = async (req, res) => {
             uuid,
             data: true,
             dataArr: record.json,
-            inputsArr: record.inputs
+            inputsArr: record.inputs,
+            username: (req.user) ? req.user.username : "",
+            email: (req.user) ? req.user.email : "",
         });
     } catch (error) {
         req.flash('error_msg', "Oops. Something went wrong.");

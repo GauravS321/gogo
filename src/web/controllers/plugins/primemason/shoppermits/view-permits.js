@@ -8,11 +8,15 @@ module.exports.get = async (req, res) => {
         return res.render('plugins/primemason/shoppermits/view-permits', {
             shopname: record.json['Shop Name'],
             ownername: record.json['Owner Name'],
-            dataArr: record.permits
+            dataArr: record.permits,
+            username: (req.user) ? req.user.username : "",
+            email: (req.user) ? req.user.email : "",
         });
     } catch (error) {
         return res.render('plugins/primemason/shoppermits/view-permits', {
-            error_msg: error.error
+            error_msg: error.error,
+            username: (req.user) ? req.user.username : "",
+            email: (req.user) ? req.user.email : "",
         });
     }
 }

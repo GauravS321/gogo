@@ -16,10 +16,15 @@ module.exports.get = async (req, res) => {
 
             return res.render('components/wizard/view', {
                 dataArr,
-                id: data.msg['_id']
+                id: data.msg['_id'],
+                username: (req.user) ? req.user.username : "",
+                email: (req.user) ? req.user.email : "",
             });
         } catch (error) {
-            return res.render('components/wizard/view');
+            return res.render('components/wizard/view',{
+                username: (req.user) ? req.user.username : "",
+                email: (req.user) ? req.user.email : "",
+            });
         }
     }
     return res.redirect('/login');

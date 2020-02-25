@@ -18,7 +18,10 @@ const Uploads = multer({
 
 module.exports.get = (req, res) => {
     if (req.user && req.isAuthenticated()) {
-        return res.render('plugins/dave/indkyc/issue');
+        return res.render('plugins/dave/indkyc/issue', {
+            username: req.user.username,
+            email: req.user.email,
+        });
     }
     return res.redirect('/login');
 }

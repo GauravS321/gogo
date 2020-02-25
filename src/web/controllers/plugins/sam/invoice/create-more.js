@@ -32,10 +32,15 @@ module.exports.getByAssetReference = async (req, res) => {
             const { reference } = req.params;
 
             return res.render('plugins/sam/invoice/create-more', {
-                reference
+                reference,
+                username: (req.user) ? req.user.username : "",
+                email: (req.user) ? req.user.email : "",
             });
         } catch (error) {
-            return res.render('plugins/sam/invoice/create-more');
+            return res.render('plugins/sam/invoice/create-more', {
+                username: (req.user) ? req.user.username : "",
+                email: (req.user) ? req.user.email : "",
+            });
         }
     }
     return res.redirect('/login');

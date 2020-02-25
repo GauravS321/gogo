@@ -16,10 +16,15 @@ module.exports.get = async (req, res) => {
                 longitude: geo_longitude,
                 dataArr: record.json,
                 inputsArr: record.inputs,
-                uuid: req.query.uuid
+                uuid: req.query.uuid,
+                username: (req.user) ? req.user.username : "",
+                email: (req.user) ? req.user.email : "",
             });
         } catch (error) {
-            return res.render('plugins/primemason/primeqr/view');
+            return res.render('plugins/primemason/primeqr/view', {
+                username: (req.user) ? req.user.username : "",
+                email: (req.user) ? req.user.email : "",
+            });
         }
     }
     return res.redirect('/login');

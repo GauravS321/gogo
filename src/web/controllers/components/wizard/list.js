@@ -17,10 +17,15 @@ module.exports.get = async (req, res) => {
             });
 
             return res.render('components/wizard/list', {
-                dataArr: wizard_data
+                dataArr: wizard_data,
+                username: (req.user) ? req.user.username : "",
+                email: (req.user) ? req.user.email : "",
             });
         } catch (error) {
-            return res.render('components/wizard/list');
+            return res.render('components/wizard/list', {
+                username: (req.user) ? req.user.username : "",
+                email: (req.user) ? req.user.email : "",
+            });
         }
     }
     return res.redirect('/login');

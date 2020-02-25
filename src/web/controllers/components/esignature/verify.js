@@ -2,7 +2,10 @@ const verify = require('../../../../../functions/components/esignature/verify')
 
 module.exports.get = (req, res) => {
     if (req.user && req.isAuthenticated()) {
-        return res.render('components/esignature/verify');
+        return res.render('components/esignature/verify', {
+            username: (req.user) ? req.user.username : "",
+            email: (req.user) ? req.user.email : "",
+        });
     }
     res.redirect('/login');
 };

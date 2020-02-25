@@ -7,9 +7,14 @@ module.exports.get = async (req, res) => {
 
             return res.render('components/blockchain/parameters', {
                 blockchain_parameters: response.msg,
+                username: (req.user) ? req.user.username : "",
+                email: (req.user) ? req.user.email : "",
             });
         } catch (error) {
-            return res.render('components/blockchain/parameters');
+            return res.render('components/blockchain/parameters', {
+                username: (req.user) ? req.user.username : "",
+                email: (req.user) ? req.user.email : "",
+            });
         }
     }
     return res.redirect('/login');

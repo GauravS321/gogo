@@ -17,12 +17,16 @@ module.exports.get = async (req, res) => {
             });
 
             return res.render('plugins/sam/p2p/view-create-more', {
-                create_more_asset_list
+                create_more_asset_list,
+                username: (req.user) ? req.user.username : "",
+                email: (req.user) ? req.user.email : "",
             });
         } catch (error) {
-            return res.render('plugins/sam/p2p/view-create-more');
+            return res.render('plugins/sam/p2p/view-create-more', {
+                username: (req.user) ? req.user.username : "",
+                email: (req.user) ? req.user.email : "",
+            });
         }
-
     }
     return res.redirect('/login');
 };
@@ -33,10 +37,15 @@ module.exports.getByAssetReference = async (req, res) => {
             const { reference } = req.params;
 
             return res.render('plugins/sam/p2p/create-more', {
-                reference
+                reference,
+                username: (req.user) ? req.user.username : "",
+                email: (req.user) ? req.user.email : "",
             });
         } catch (error) {
-            return res.render('plugins/sam/p2p/create-more');
+            return res.render('plugins/sam/p2p/create-more', {
+                username: (req.user) ? req.user.username : "",
+                email: (req.user) ? req.user.email : "",
+            });
         }
     }
     return res.redirect('/login');

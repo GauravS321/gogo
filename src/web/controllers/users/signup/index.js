@@ -5,7 +5,10 @@ const { create: createLoginDetails } = require('../../../../../functions/users/a
 // Get signup page
 module.exports.get = (req, res) => {
     if (req.user && req.isAuthenticated()) {
-        return res.redirect('/users/account/my-profile');
+        return res.redirect('/users/account/my-profile', {
+            username: req.user.username,
+            email: req.user.email
+        });
     }
     return res.render('users/signup');
 }

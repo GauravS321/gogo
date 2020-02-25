@@ -16,10 +16,15 @@ module.exports.post = async (req, res) => {
             return res.render('components/data/view-decrypt-data', {
                 data: response.msg.data,
                 signerDetails: response.msg.signer_detail.primechain_address,
-                signature: response.msg.signature_status
+                signature: response.msg.signature_status,
+                username: (req.user) ? req.user.username : "",
+                email: (req.user) ? req.user.email : "",
             });
         } catch (error) {
-            return res.render('components/data/view-decrypt-data');
+            return res.render('components/data/view-decrypt-data', {
+                username: (req.user) ? req.user.username : "",
+                email: (req.user) ? req.user.email : "",
+            });
         }
     }
 }

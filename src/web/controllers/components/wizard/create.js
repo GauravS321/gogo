@@ -2,7 +2,10 @@ const { create } = require('../../../../../functions/components/wizard');
 
 module.exports.get = (req, res) => {
     if (req.user && req.isAuthenticated()) {
-        return res.render('components/wizard/create');
+        return res.render('components/wizard/create', {
+            username: (req.user) ? req.user.username : "",
+            email: (req.user) ? req.user.email : "",
+        });
     }
     return res.redirect('/login');
 }

@@ -2,7 +2,10 @@ const download = require('../../../../../functions/components/data/download');
 
 module.exports.get = (req, res) => {
     if (req.user && req.isAuthenticated()) {
-        return res.render('components/data/download');
+        return res.render('components/data/download', {
+            username: (req.user) ? req.user.username : "",
+            email: (req.user) ? req.user.email : "",
+        });
     }
     return res.redirect('/login');
 }
@@ -12,8 +15,7 @@ exports.post = async (req, res) => {
         try {
             let data = [];
             const { key, stream_name } = req.body;
-
-            let responseArr = await download(key, stream_name);
+            const responseArr = await download(key, stream_name);
 
             responseArr.msg.forEach(response => {
                 data.push({
@@ -22,7 +24,9 @@ exports.post = async (req, res) => {
             });
 
             return res.render('components/data/view-download-data', {
-                dataArr: data
+                dataArr: data,
+                username: (req.user) ? req.user.username : "",
+                email: (req.user) ? req.user.email : "",
             });
 
         } catch (error) {
