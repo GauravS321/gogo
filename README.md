@@ -65,6 +65,16 @@ Enter your **google** and **facebook** credentials if you want to use login thro
 
 Copy **Primechain-API** username and password if you will be using the API service.
 
+
+To increase server timeout, login as root into your VM and then:
+```
+nano /etc/ssh/sshd_config
+
+# Then add the following lines
+ClientAliveInterval 120
+ClientAliveCountMax 720
+```
+
 ## 3. Updating Primechain
 Login to the server / VM as a sudo or root user.
 
@@ -91,3 +101,46 @@ sudo su primechain-user
 cd ~
 multichaind Primechain --daemon
 ```
+## 6. Setting up ngnix and SSL
+
+Login to the VM as root and then
+```
+sudo ufw allow https
+sudo apt install nginx
+sudo nano /etc/nginx/sites-available/default
+
+# Uncomment the following in SSL configuration
+
+listen 443 ssl default_server;
+listen [::]:443 ssl default_server;
+
+# Add the following to the location part of the server block
+# Add www.yourdomain.com only if you have made suitable A record entry in DNS
+
+    server_name yourdomain.com www.yourdomain.com;
+
+    location / {
+        proxy_pass http://<ip-address>:1410; #whatever port your app runs on
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host $host;
+        proxy_cache_bypass $http_upgrade;
+    }
+
+# Check NGINX config
+sudo nginx -t
+
+# Restart NGINX
+sudo service nginx restart
+
+sudo add-apt-repository ppa:certbot/certbot
+sudo apt-get update
+sudo apt-get install python-certbot-nginx
+sudo certbot --nginx -d yourdomain.com -d www.yourdomain.com
+
+# Only valid for 90 days, test the renewal process with
+certbot renew --dry-run
+
+```
+Now visit https://yourdomain.com and you should see your web app.
