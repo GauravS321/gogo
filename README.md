@@ -109,12 +109,18 @@ sudo ufw allow https
 sudo apt install nginx
 sudo nano /etc/nginx/sites-available/default
 
+# Uncomment the following in SSL configuration
+
+listen 443 ssl default_server;
+listen [::]:443 ssl default_server;
+
 # Add the following to the location part of the server block
+# Add www.yourdomain.com only if you have made suitable A record entry in DNS
 
     server_name yourdomain.com www.yourdomain.com;
 
     location / {
-        proxy_pass http://localhost:5000; #whatever port your app runs on
+        proxy_pass http://<ip-address>:1410; #whatever port your app runs on
         proxy_http_version 1.1;
         proxy_set_header Upgrade $http_upgrade;
         proxy_set_header Connection 'upgrade';
