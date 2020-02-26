@@ -130,6 +130,7 @@ passport.use('google', googleStrategyConfig);
 passport.use(new FacebookStrategy({
   clientID: process.env.FACEBOOK_ID,
   clientSecret: process.env.FACEBOOK_SECRET,
+  profileFields: ['name', 'email', 'link', 'locale', 'timezone', 'gender'],
   callbackURL: `https://${process.env.APPLICATION_HOSTNAME}/auth/facebook/callback`,
   passReqToCallback: true
 }, async (req, accessToken, refreshToken, profile, done) => {
