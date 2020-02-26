@@ -65,6 +65,16 @@ Enter your **google** and **facebook** credentials if you want to use login thro
 
 Copy **Primechain-API** username and password if you will be using the API service.
 
+
+To increase server timeout, login as root into your VM and then:
+```
+nano /etc/ssh/sshd_config
+
+# Then add the following lines
+ClientAliveInterval 120
+ClientAliveCountMax 720
+```
+
 ## 3. Updating Primechain
 Login to the server / VM as a sudo or root user.
 
