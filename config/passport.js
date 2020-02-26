@@ -134,7 +134,7 @@ passport.use(new FacebookStrategy({
   profileFields: ['name', 'email', 'link', 'locale', 'timezone', 'gender'],
   passReqToCallback: true
 }, async (req, accessToken, refreshToken, profile, done) => {
-  try {
+  try {   
     const existingUser = await User.findOne({ "facebook.id": profile.id });
 
     if (existingUser) {
@@ -170,10 +170,9 @@ passport.use(new FacebookStrategy({
             facebook: {
               id: profile.id
             },
-            "username": user.profile.name || `${profile.name.givenName} ${profile.name.familyName}`,
+            "username": `${profile._json.first_name} ${profile._json.last_name}`,
             "email": profile._json.email,
             "role": "customer",
-            "image": user.profile.picture || `https://graph.facebook.com/${profile.id}/picture?type=large`,
             "primechain_address": primechain_address.primechain_address
           });
 
