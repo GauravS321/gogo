@@ -134,9 +134,7 @@ passport.use(new FacebookStrategy({
   callbackURL: `https://${process.env.APPLICATION_HOSTNAME}/auth/facebook/callback`,
   passReqToCallback: true
 }, async (req, accessToken, refreshToken, profile, done) => {
-  try {
-    console.log(profile.photos.data);
-    
+  try {   
     const existingUser = await User.findOne({ "facebook.id": profile.id });
 
     if (existingUser) {
