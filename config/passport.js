@@ -130,11 +130,13 @@ passport.use('google', googleStrategyConfig);
 passport.use(new FacebookStrategy({
   clientID: process.env.FACEBOOK_ID,
   clientSecret: process.env.FACEBOOK_SECRET,
-  profileFields: ['name', 'email', 'link', 'locale', 'timezone', 'gender'],
+  profileFields: ['name', 'email', 'link', 'photos', 'locale', 'timezone', 'gender'],
   callbackURL: `https://${process.env.APPLICATION_HOSTNAME}/auth/facebook/callback`,
   passReqToCallback: true
 }, async (req, accessToken, refreshToken, profile, done) => {
-  try {    
+  try {
+    console.log(profile);
+    
     const existingUser = await User.findOne({ "facebook.id": profile.id });
 
     if (existingUser) {
@@ -173,6 +175,7 @@ passport.use(new FacebookStrategy({
             "username": `${profile._json.first_name} ${profile._json.last_name}`,
             "email": profile._json.email,
             "role": "customer",
+            "image": profile.photos ? profile.photos[0].value : "",
             "primechain_address": primechain_address.primechain_address
           });
 
