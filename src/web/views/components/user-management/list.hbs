@@ -1,6 +1,13 @@
 <div class="content-i">
     <div class="content-box">
         <div class="element-wrapper">
+            {{#if success_msg}}
+            <div class="alert alert-success" role="alert">{{success_msg}}</div>
+            {{/if}} {{#if error_msg}}
+            <div class="alert alert-warning" role="alert">{{error_msg}}</div>
+            {{/if}} {{#if error}}
+            <div class="alert alert-danger" role="alert">{{error}}</div>
+            {{/if}}
             <h6 class="element-header">List all users</h6>
             <div class="element-box">
                 <div class="row">
@@ -40,7 +47,8 @@
                                             <p>Current role: <strong
                                                     id="user_role_display#{{primechain_address}}">{{user_role}}</strong>
                                             </p>
-                                            <select class="form-control" id="user_role" name="user_role" value="" onchange="changeUserRole(this.value, '{{primechain_address}}')">
+                                            <select class="form-control" id="user_role" name="user_role" value=""
+                                                onchange="changeUserRole(this.value, '{{primechain_address}}')">
                                                 <option value="">Change Role</option>
                                                 <option value="customer">Customer</option>
                                                 <option value="employee">Employee</option>

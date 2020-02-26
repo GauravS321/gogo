@@ -214,26 +214,31 @@
         e.preventDefault();
         var user_mobile = $.trim($('#user_mobile').html());
 
-        if (user_mobile.length >= 12 || user_mobile <= 15) {
-            $.ajax({
-                url: '/account/update-mobile-number',
-                method: 'POST',
-                success: function (res) {
-                    if (res['success']) {
-                        alert(res['message']);
-
-                    }
-                    else {
-                        alert(res['message']);
-
-                    }
-                    return true;
-                },
-                data: { mobile: user_mobile }
-            })
+        if (user_mobile.length >= 12 && user_mobile.length <= 15) {
+            if (isNaN(user_mobile)) {
+                alert("Invalid mobile number");
+                window.location.href = '/account/my-profile'
+            }
+            else {
+                $.ajax({
+                    url: '/account/update-mobile-number',
+                    method: 'POST',
+                    success: function (res) {
+                        if (res['success']) {
+                            alert(res['message']);
+                        }
+                        else {
+                            alert(res['message']);
+                        }
+                        return true;
+                    },
+                    data: { mobile: user_mobile }
+                })
+            }
         }
         else {
-            alert("Invalid mobile number");
+            alert("Invalid mobile number!!!");
+            window.location.href = '/account/my-profile'
         }
     });
 

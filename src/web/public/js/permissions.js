@@ -7,11 +7,10 @@ function grant(element) {
         url: '/components/permissions/manage',
         success: function (res) {
             if (res['success']) {
-                window.location.href = `/components/permissions/manage?primechain_address=${primechain_address}`
+                window.location.href = `/components/permissions/manage?primechain_address=${primechain_address}&success_msg=Permissin granted. Transaction ID: ${res['transaction_id']}`
             }
             else {
-                alert(res['message']);
-                window.location.href = `/components/permissions/manage?primechain_address=${primechain_address}`
+                window.location.href = `/components/permissions/manage?primechain_address=${primechain_address}&error_msg="Unable to grant permission, please try again"`
             }
         },
         data: {
@@ -31,11 +30,11 @@ function revoke(element) {
         url: '/components/permissions/manage',
         success: function (res) {
             if (res['success']) {
-                window.location.href = `/components/permissions/manage?primechain_address=${primechain_address}`
+                window.location.href = `/components/permissions/manage?primechain_address=${primechain_address}&success_msg=Permissin changed. Transaction ID: ${res['transaction_id']}`
             }
             else {
                 alert(res['message']);
-                window.location.href = `/components/permissions/manage?primechain_address=${primechain_address}`
+                window.location.href = `/components/permissions/manage?primechain_address=${primechain_address}&error_msg="Unable to grant permission, please try again`
             }
         },
         data: {

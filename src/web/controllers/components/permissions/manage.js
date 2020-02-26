@@ -5,9 +5,7 @@ const { User } = require('../../../models/users/user');
 exports.get = async (req, res) => {
     if (req.user && req.isAuthenticated()) {
         let user_permissions = {};
-
         const user_info = await User.findOne({ primechain_address: req.query.primechain_address });
-
         const list_permissions = await list(req.query.primechain_address);
 
         list_permissions.msg.primechain_address.forEach(permission => {
@@ -22,6 +20,8 @@ exports.get = async (req, res) => {
             primechain_address: req.query.primechain_address,
             username: (req.user) ? req.user.username : "",
             email: (req.user) ? req.user.email : "",
+            success_msg: (req.query.success_msg) ? req.query.success_msg : "",
+            error_msg: (req.query.error_msg) ? req.query.error_msg : ""
         });
     }
     return res.redirect('/login');
@@ -31,14 +31,13 @@ exports.post = async (req, res) => {
     if (req.user && req.isAuthenticated()) {
         try {
             const { action, permission, primechain_address } = req.body;
-
-            let response = await manage(action, primechain_address, permission);
+            const response = await manage(action, primechain_address, permission);
 
             if (response.msg.status === 200) {
                 return res.json({
                     success: true,
-                    message: response.msg
-                })
+                    transaction_id: response.msg.tx_id
+                });
             }
             else {
                 return res.json({
