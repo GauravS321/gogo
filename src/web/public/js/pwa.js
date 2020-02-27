@@ -63,11 +63,9 @@ $(document).ready(function () {
     // //Firing PWA prompts for specific versions and when not on home screen.    
     if (isMobile.Android()) {
         console.log('Android Detected');
-
         function showInstallPromotion() {
             console.log('Triggering PWA Prompt for Android');
             if ($('#menu-install-pwa-android').length) {
-                alert(readCookie('Primechain_pwa_rejected_install'))
                 if (!readCookie('Primechain_pwa_rejected_install')) {
                     setTimeout(function () {
                         $('#menu-install-pwa-android').modal('show');
