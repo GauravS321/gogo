@@ -5,7 +5,6 @@ if ('serviceWorker' in navigator) {
     });
 }
 
-
 $(document).ready(function () {
     'use strict'
 
@@ -68,6 +67,7 @@ $(document).ready(function () {
         function showInstallPromotion() {
             console.log('Triggering PWA Prompt for Android');
             if ($('#menu-install-pwa-android').length) {
+                alert(readCookie('Primechain_pwa_rejected_install'))
                 if (!readCookie('Primechain_pwa_rejected_install')) {
                     setTimeout(function () {
                         $('#menu-install-pwa-android').modal('show');
@@ -84,15 +84,14 @@ $(document).ready(function () {
 
 
         $('.pwa-install').on('click', (e) => {
+            $('#menu-install-pwa-android').modal('hide');
             deferredPrompt.prompt();
             deferredPrompt.userChoice
                 .then((choiceResult) => {
                     if (choiceResult.outcome === 'accepted') {
-                        $('#menu-install-pwa-android').modal('hide')
                         console.log('User accepted the A2HS prompt');
                     } else {
                         $('#menu-install-pwa-android').modal('hide')
-                        console.log('User dismissed the A2HS prompt');
                     }
                     deferredPrompt = null;
                 });

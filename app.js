@@ -44,7 +44,7 @@ mongoose.connection.on('error', (err) => {
 //app.use(logger('dev'));
 
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(session({
   secret: process.env.APPLICATION_SESSION_SECRET,
@@ -73,6 +73,7 @@ expressHbs.create({
 });
 
 app.use('/web', express.static(path.join(__dirname, '/src/web/public')));
+
 
 app.use('/plugins/dave/indkyc/uploads', express.static('uploads'));
 app.use('/plugins/primemason/logistics/uploads', express.static('uploads'));
@@ -105,6 +106,10 @@ app.use('/plugins/primemason/logistics', logisticsRoutes);
 app.use('/plugins/primemason/primeqr', primeqrRoutes);
 
 app.get('/', function (req, res) {
+  return res.redirect('/login');
+});
+
+app.get('/web/*', function (req, res) {
   return res.redirect('/login');
 });
 
