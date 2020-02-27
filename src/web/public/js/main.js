@@ -35,18 +35,6 @@ Main javascript functions to init most of the elements
 // HELPER FUNCTIONS TO TEST FOR SPECIFIC DISPLAY SIZE (RESPONSIVE HELPERS)
 // ------------------------------------
 
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', function () {
-    navigator.serviceWorker.register('/web/sw.js').then(function (registration) {
-      // Registration was successful
-      console.log('ServiceWorker registration successful with scope: ', registration.scope);
-    }, function (err) {
-      // registration failed :(
-      console.log('ServiceWorker registration failed: ', err);
-    });
-  });
-}
-
 function is_display_type(display_type) {
   return $('.display-type').css('content') == display_type || $('.display-type').css('content') == '"' + display_type + '"';
 }

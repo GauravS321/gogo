@@ -5,6 +5,7 @@
     <title>Primechain</title>
     <meta charset="utf-8">
     <meta content="ie=edge" http-equiv="x-ua-compatible">
+    <meta name="apple-mobile-web-app-capable" content="yes">
     <meta content="Primechain: The 6 minute blockchain" name="keywords">
     <meta content="Neo <> Primechain Technologies Pvt ltd" name="author">
     <meta content="Primechain: The 6 minute blockchain" name="description">
@@ -111,10 +112,78 @@
     {{{body}}}
     {{> script_libraries}}
 
+    {{!-- <!-- Keep these outside the div id page on the first page -->
+    <!-- your users land on, and it will appear on all pages -->
+    <!-- Install Prompt for Android -->
+    <div id="menu-install-pwa-android" class="menu menu-box-modal round-medium" data-menu-height="340"
+        data-menu-width="320" data-menu-effect="menu-over">
+        <div class="boxed-text-huge top-25">
+            <img class="round-medium center-horizontal" src="app/icons/icon-128x128.png" alt="img" width="90">
+            <h4 class="center-text bolder top-20 bottom-10"><span class="color-highlight">EMDA</span> on your Home
+                Screen</h4>
+            <p>
+                Install EMDA Wallet on your home screen, and access it just like a regular app.
+            </p>
+            <a href="#"
+                class="pwa-install button button-xs button-round-medium button-center-large shadow-large bg-highlight bottom-0">Add
+                to Home Screen</a><br>
+            <a href="#"
+                class="pwa-dismiss close-menu center-text color-gray2-light uppercase ultrabold opacity-80 under-heading">Maybe
+                later</a>
+            <div class="clear"></div>
+        </div>
+    </div>
+
+    <!-- Install instructions for iOS -->
+    <div id="menu-install-pwa-ios" class="menu menu-box-bottom round-medium bottom-20 left-20 right-20"
+        data-menu-height="320" data-menu-width="320" data-menu-effect="menu-over">
+        <div class="boxed-text-huge top-25">
+            <img class="round-medium center-horizontal" src="app/icons/icon-128x128.png" alt="img" width="90">
+            <h4 class="center-text bolder top-20 bottom-10">Add <span class="color-highlight">Eazy</span> on your Home
+                Screen</h4>
+            <p class="bottom-15">
+                Install EazyMobile on your home screen, and access it just like a regular app. Open your Safari menu and
+                tap "Add to Home Screen".
+            </p>
+            <div class="clear"></div>
+            <a href="#"
+                class="pwa-dismiss close-menu center-text color-red2-dark uppercase ultrabold opacity-80 top-25">Maybe
+                later</a>
+            <i class="fa-ios-arrow fa fa-caret-down font-40"></i>
+        </div>
+    </div> --}}
+
+
+    <div aria-hidden="true" class="onboarding-modal modal fade animated" role="dialog" tabindex="-1"
+        id="menu-install-pwa-android">
+        <div class="modal-dialog modal-centered" role="document">
+            <div class="modal-content text-center">
+                <div class="onboarding-slide">
+                    <div class="onboarding-media">
+                        <img alt="" src="/web/img/download.png" width="128px" height="128px">
+                    </div>
+                    <div class="onboarding-content with-gradient">
+                        <h4 class="onboarding-title">Primechain
+                            <div class="onboarding-text">Install Primechain on your home screen, and access it just like
+                                a regular app.
+                            </div>
+                    </div>
+                </div>
+
+                <button class="pwa-install btn btn-primary btn-rounded" type="button"
+                    style="margin-right: 8%; margin-left: 8%;" id="buttonInstall">Add
+                    to Home Screen</button><br>
+                <a href="#" class="pwa-dismiss" style="margin-bottom: 10px;">Maybe
+                    later</a>
+            </div>
+        </div>
+    </div>
+
+
     <script type="text/javascript">
         $("#customer_image").change(function (e) {
-          e.preventDefault();
-          readCustomerImage(this);
+            e.preventDefault();
+            readCustomerImage(this);
         });
 
         function readCustomerImage(input) {
