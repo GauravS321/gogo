@@ -35,7 +35,9 @@
     "randomstring": "1.1.5",
     "request": "2.88.0",
     "uuid": "3.4.0",
-    "validator": "12.1.0"
+    "validator": "12.1.0",
+    "dompurify": "2.0.8",
+    "jsdom": "16.2.0"
   },
   "devDependencies": {
     "nodemon": "2.0.2"
