@@ -24,15 +24,15 @@
     </div>-->
 
     {{#ifAdmin user role="admin"}}
-    {{> admin_menu}}
+    {{> mobile_admin_menu}}
     {{/ifAdmin}}
 
     {{#ifEmployee user role="employee"}}
-    {{> employee_menu}}
+    {{> mobile_employee_menu}}
     {{/ifEmployee}}
 
     {{#ifCustomer user role="customer"}}
-    {{> customer_menu}}
+    {{> mobile_customer_menu}}
     {{/ifCustomer}}
   </div>
 </div>
