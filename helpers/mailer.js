@@ -95,7 +95,7 @@ class MailNotificationEngine {
             } catch (error) {
                 return reject({
                     status: 500,
-                    message: "Unable to sent e-mail"
+                    message: "Unable to send e-mail"
                 });
             }
         });

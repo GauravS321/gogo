@@ -51,7 +51,7 @@ module.exports.changePassword = (email, oldPassword, password, confirm_password)
         } catch (error) {
             return reject({
                 status: 500,
-                message: error.message
+                message: "Password has been reset."
             });
         }
     });
