@@ -285,7 +285,7 @@ echo ''
 
 echo -e \
 '--------------------------------------------'"\n"\
-'WEB APPLICATION CREDENTIALS'"\n"\
+'WEB APPLICATION ADMIN CREDENTIALS'"\n"\
 '--------------------------------------------'"\n"\
 'email='$email"\n"\
 'password='$dbpass"\n\n" >> $outputfilepath
