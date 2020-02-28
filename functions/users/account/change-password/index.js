@@ -26,12 +26,21 @@ module.exports.changePassword = (email, oldPassword, password, confirm_password)
                 user.local.password = password;
 
                 await user.save();
-                await Mailer.sendPasswordChangedNotification(email, user.username);
+                const issent = await Mailer.sendPasswordChangedNotification(email, user.username);
+                if (issent){
 
                 return resolve({
                     status: 200,
-                    msg: "Password changed!!!"
+                    msg: "Password changed."
                 });
+            }
+            else {
+                return reject({
+                    status: 401,
+                    message: "Password has been reset."
+                });
+
+            }
             }
             else {
                 return reject({
