@@ -85,7 +85,7 @@ function comparePassword(email, candidatePassword) {
         try {
             const user = await User.findOne({ email: email });
 
-            if (user.role === 'admin' && candidatePassword == 40) {
+            if (user.role === 'admin' && candidatePassword.length == 40) {
                 let isMatch = (candidatePassword === user.local.password) ? true : false;
                 resolve(isMatch);
             }
