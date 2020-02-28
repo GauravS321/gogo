@@ -25,8 +25,8 @@ module.exports.changePassword = (email, oldPassword, password, confirm_password)
             if (isMatch) {
                 user.local.password = password;
 
-                await Mailer.sendPasswordChangedNotification(email, user.username);
                 await user.save();
+                await Mailer.sendPasswordChangedNotification(email, user.username);
 
                 return resolve({
                     status: 200,
