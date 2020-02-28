@@ -103,14 +103,15 @@ $(document).ready(function () {
     if (isMobile.iOS()) {
         if (!isInWebAppiOS) {
             console.log('iOS Detected');
-            if ($('#menu-install-pwa-ios, .add-to-home').length) {
-                if (!readCookie('Eazy_pwa_rejected_install')) {
-                    console.log('Triggering PWA / Add to Home Screen Prompt for iOS');
-                    setTimeout(function () {
-                        $('.add-to-home').addClass('add-to-home-visible add-to-home-ios');
-                        $('#menu-install-pwa-ios, .menu-hider').addClass('menu-active');
-                    }, 1500);
-                };
+            function showInstallPromotion() {
+                console.log('Triggering PWA Prompt for Android');
+                if ($('#menu-install-pwa-android').length) {
+                    if (!readCookie('Primechain_pwa_rejected_install')) {
+                        setTimeout(function () {
+                            $('#menu-install-pwa-android').modal('show');
+                        }, 1500);
+                    }
+                }
             }
         }
     }

@@ -1,5 +1,7 @@
 const router = require('express').Router();
 
+const { checkAccess } = require('../../../../../../helpers/common');
+
 //Controller
 // Issue
 const issueController = require('../../../../controllers/plugins/dave/academic/issue');
@@ -14,14 +16,14 @@ const shareController = require('../../../../controllers/plugins/dave/academic/s
 const verifyController = require('../../../../controllers/plugins/dave/academic/verify');
 
 /* Routing for issue */
-router.get('/issue', issueController.get);
-router.post('/issue', issueController.post);
+router.get('/issue', checkAccess, issueController.get);
+router.post('/issue', checkAccess, issueController.post);
 
 /** Routing for view */
-router.get('/view', viewController.get);
+router.get('/view', checkAccess, viewController.get);
 
 /** Routing for share */
-router.post('/share', shareController.post);
+router.post('/share', checkAccess, shareController.post);
 
 /** Routing for verfication */
 router.get('/verification', verifyController.get);

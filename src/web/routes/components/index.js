@@ -1,5 +1,9 @@
 const router = require('express').Router();
 
+// Check route access
+const { checkAccess } = require('../../../../helpers/common');
+
+
 // Blockchain controller
 const parametersController = require('../../controllers/components/blockchain/parameters');
 const informationController = require('../../controllers/components/blockchain/information');
@@ -60,19 +64,19 @@ const wizardListController = require('../../controllers/components/wizard/list')
 // View 
 const wizardViewController = require('../../controllers/components/wizard/view');
 // Update
-const wizardUpdateController =require('../../controllers/components/wizard/update');
+const wizardUpdateController = require('../../controllers/components/wizard/update');
 // Delete
 const wizardDeleteContoller = require('../../controllers/components/wizard/delete');
 
 // Blockchain Administration
-router.get('/blockchain/parameters', parametersController.get);
-router.get('/blockchain/information', informationController.get);
-router.get('/blockchain/runtime-parameters', runtimeParametersController.get);
-router.get('/blockchain/peer-info', peerinfoController.get);
+router.get('/blockchain/parameters', checkAccess, parametersController.get);
+router.get('/blockchain/information', checkAccess, informationController.get);
+router.get('/blockchain/runtime-parameters', checkAccess, runtimeParametersController.get);
+router.get('/blockchain/peer-info', checkAccess, peerinfoController.get);
 
 // User management
 // User list
-router.get('/user-management/list', userManagementController.get)
+router.get('/user-management/list', checkAccess, userManagementController.get)
 
 // Permissions
 
@@ -80,79 +84,79 @@ router.get('/user-management/list', userManagementController.get)
 router.get('/permissions/list', listPermissionsController.get);
 
 // manage permissions
-router.get('/permissions/manage', managePermissionsController.get);
-router.post('/permissions/manage', managePermissionsController.post);
+router.get('/permissions/manage', checkAccess, managePermissionsController.get);
+router.post('/permissions/manage', checkAccess, managePermissionsController.post);
 
 
 // Electronic signatures
 
 // Create signature
-router.get('/esignature/create', createSignatureController.get);
-router.post('/esignature/create', createSignatureController.post);
+router.get('/esignature/create', checkAccess, createSignatureController.get);
+router.post('/esignature/create', checkAccess, createSignatureController.post);
 
 // Verify signature
-router.get('/esignature/verify', verifySignatureController.get);
-router.post('/esignature/verify', verifySignatureController.post);
+router.get('/esignature/verify', checkAccess, verifySignatureController.get);
+router.post('/esignature/verify', checkAccess, verifySignatureController.post);
 
 // Create and save signature
-router.get('/esignature/create-save', createSaveController.get);
-router.post('/esignature/create-save', createSignatureController.post);
+router.get('/esignature/create-save', checkAccess, createSaveController.get);
+router.post('/esignature/create-save', checkAccess, createSignatureController.post);
 
 // Data channels
 // Create
-router.get('/data-channels/create', dcCreateController.get);
-router.post('/data-channels/create', dcCreateController.post);
+router.get('/data-channels/create', checkAccess, dcCreateController.get);
+router.post('/data-channels/create', checkAccess, dcCreateController.post);
 
 // List all streams
-router.get('/data-channels/list', dcListController.get);
+router.get('/data-channels/list', checkAccess, dcListController.get);
 
 // grant write permission to trade channel
-router.get('/data-channels/grant', dcGrantController.get);
-router.post('/data-channels/grant', dcGrantController.post);
+router.get('/data-channels/grant', checkAccess, dcGrantController.get);
+router.post('/data-channels/grant', checkAccess, dcGrantController.post);
 
 // revoke write permission to trade channel
 router.get('/data-channels/revoke', dcRevokeController.get);
 router.post('/data-channels/revoke', dcRevokeController.post);
 
 // Publish Data - publish plain data
-router.get('/data/publish', pdPublishController.get);
-router.post('/data/publish', pdPublishController.post);
+router.get('/data/publish', checkAccess, pdPublishController.get);
+router.post('/data/publish', checkAccess, pdPublishController.post);
 
 // Data - download plain data
-router.get('/data/download', pdDownloadController.get);
-router.post('/data/download', pdDownloadController.post);
+router.get('/data/download', checkAccess, pdDownloadController.get);
+router.post('/data/download', checkAccess, pdDownloadController.post);
 
 // Data - publish encrypt-data
-router.get('/data/publish-encrypt', pdEncryptController.get);
-router.post('/data/publish-encrypt', pdEncryptController.post);
+router.get('/data/publish-encrypt', checkAccess, pdEncryptController.get);
+router.post('/data/publish-encrypt', checkAccess, pdEncryptController.post);
 
 // Data - download decrypt-data
-router.get('/data/download-decrypt', pdDecryptController.get);
-router.post('/data/download-decrypt', pdDecryptController.post);
+router.get('/data/download-decrypt', checkAccess, pdDecryptController.get);
+router.post('/data/download-decrypt', checkAccess, pdDecryptController.post);
 
 //File - publish plain file
-router.get('/file/publish-encrypt', pfEncryptController.get);
-router.post('/file/publish-encrypt', pfEncryptController.post);
+router.get('/file/publish-encrypt', checkAccess, pfEncryptController.get);
+router.post('/file/publish-encrypt', checkAccess, pfEncryptController.post);
 
 // File - download plian file
-router.get('/file/download-decrypt', pfDecryptController.get);
-router.post('/file/download-decrypt', pfDecryptController.post);
+router.get('/file/download-decrypt', checkAccess, pfDecryptController.get);
+router.post('/file/download-decrypt', checkAccess, pfDecryptController.post);
 
-// CRUD WIZARD - Form wizards create
-router.get('/wizard/create', wizardCreateController.get);
-router.post('/wizard/create', wizardCreateController.post);
+// // CRUD WIZARD - Form wizards create
+// router.get('/wizard/create', wizardCreateController.get);
+// router.post('/wizard/create', wizardCreateController.post);
 
-// CRUD WIZARD - Form wizards List
-router.get('/wizard/list', wizardListController.get);
+// // CRUD WIZARD - Form wizards List
+// router.get('/wizard/list', wizardListController.get);
 
-// CRUD WIZARD - Form wizards view
-router.get('/wizard/view/:id', wizardViewController.get);
+// // CRUD WIZARD - Form wizards view
+// router.get('/wizard/view/:id', wizardViewController.get);
 
-// CRUD WIZARD -form wizard update
-router.get('/wizard/edit/:id', wizardUpdateController.get);
-router.post('/wizard/update', wizardUpdateController.post);
+// // CRUD WIZARD -form wizard update
+// router.get('/wizard/edit/:id', wizardUpdateController.get);
+// router.post('/wizard/update', wizardUpdateController.post);
 
-// ELEMENT - Form wizards delete
-router.get('/wizard/delete/:id', wizardDeleteContoller.get);
+// // ELEMENT - Form wizards delete
+// router.get('/wizard/delete/:id', wizardDeleteContoller.get);
 
 module.exports = router;

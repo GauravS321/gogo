@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const { checkAccess } = require('../../../../../../helpers/common');
 
 // create asset
 const createController = require('../../../../controllers/plugins/sam/loyalty/create');
@@ -7,12 +8,12 @@ const createController = require('../../../../controllers/plugins/sam/loyalty/cr
 const createMoreController = require('../../../../controllers/plugins/sam/loyalty/create-more');
 
 // SAM - create asset
-router.get('/create', createController.get);
-router.post('/create', createController.post);
+router.get('/create', checkAccess, createController.get);
+router.post('/create', checkAccess, createController.post);
 
 // SAM - create more units of an asset
-router.get('/create-more', createMoreController.get);
-router.get('/create-more/:reference', createMoreController.getByAssetReference);
-router.post('/create-more', createMoreController.post);
+router.get('/create-more', checkAccess, createMoreController.get);
+router.get('/create-more/:reference', checkAccess, createMoreController.getByAssetReference);
+router.post('/create-more', checkAccess, createMoreController.post);
 
 module.exports = router;
