@@ -14,7 +14,6 @@
                                     <th>IP address</th>
                                     <th>Version</th>
                                     <th>Sub-version</th>
-                                    <th>handshakelocal</th>
                                     <th>handshake</th>
                                 </tr>
                             </thead>
@@ -25,8 +24,7 @@
                                     <td>{{addr}}</td>
                                     <td>{{version}}</td>
                                     <td>{{subver}}</td>
-                                    <td>{{handshakelocal}}</td>
-                                    <td>{{handshake}}</td>
+                                    <td>Local<br/>{{handshakelocal}}<br/>Remote{{handshake}}</td>
                                 </tr>
                                 {{/each}} {{/if}}
                             </tbody>
