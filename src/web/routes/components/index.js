@@ -30,6 +30,8 @@ const verifySignatureController = require('../../controllers/components/esignatu
 // verify e-signature controller
 const createSaveController = require('../../controllers/components/esignature/create-save');
 
+const verifySavedSignatureController = require('../../controllers/components/esignature/verify-save');
+
 // Data channels controller
 // Create
 const dcCreateController = require('../../controllers/components/data-channels/create');
@@ -101,6 +103,11 @@ router.post('/esignature/verify', checkAccess, verifySignatureController.post);
 // Create and save signature
 router.get('/esignature/create-save', checkAccess, createSaveController.get);
 router.post('/esignature/create-save', checkAccess, createSignatureController.post);
+
+// Create and save signature
+router.get('/esignature/verify-save', checkAccess, verifySavedSignatureController.get);
+router.post('/esignature/verify-save', checkAccess, verifySavedSignatureController.post);
+
 
 // Data channels
 // Create

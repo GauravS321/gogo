@@ -282,6 +282,14 @@ echo ''
 echo ''
 echo ''
 echo ''
+
+echo -e \
+'--------------------------------------------'"\n"\
+'MYSQL DATABASE CREDENTIALS'"\n"\
+'--------------------------------------------'"\n"\
+'email='$email"\n"\
+'password='$dbpass"\n\n" >> $outputfilepath
+
 sleep 1
 
 echo ''

@@ -143,6 +143,63 @@ $('#create_save_signature').on('click', function (e) {
     }
 });
 
+$('#verify_saved_signature').on('click', function (e) {
+    e.preventDefault();
+    $('#verify_saved_signature').val('Verifying...').attr('disabled', true);
+
+    var data = $.trim($('textarea#data').val());
+
+    if (data) {
+
+        $.ajax({
+            type: "POST",
+            url: '/components/esignature/verify-save',
+
+            success: function (res) {
+                if (res && res["success"]) {
+                    $('#signStoreStatus').show();
+                    $('html, body').animate({
+                        scrollTop: $("#signStoreStatus").offset().top
+                    }, 1000);
+
+                    if (res["signer_address"]) {
+                        $('#td1').html(res["signer_address"]);
+
+                        if (res["signature"]) {
+                            $('#td2').html(res["signature"]);
+
+                            if (res["timestamp"]) {
+                                $('#td3').html(res["timestamp"]);
+                                $('#verify_saved_signature').val('Verify').attr('disabled', false);
+                            }
+                            else {
+                                $('#td2').html("Verification failed");
+                                $('#verify_saved_signature').val('Verify').attr('disabled', false);
+                            }
+                        }
+                        else {
+                            $('#td2').html("Failed");
+                            $('#verify_saved_signature').val('Verify').attr('disabled', false);
+                        }
+                    }
+                    else {
+                        $('#td1').html("Failed");
+                        $('#verify_saved_signature').val('Verify').attr('disabled', false);
+                    }
+                }
+                else {
+                    alert(res['message']);
+                    window.location.href = '/components/esignature/verify-save';
+                }
+            },
+            data: { data }
+        });
+    }
+    else {
+        alert('Missing inputs');
+    }
+});
+
 
 Dropzone.options.myAwesomeDropzone = {
     maxFiles: 1,
@@ -187,7 +244,6 @@ Dropzone.options.myStatusDropzone = {
                 content1.hide();
                 spawnRows(responseText["sign_data"]);
             } else {
-                console.log(responseText)
                 esignVerifyResult.html(`<br><p style='color:red; font-size: 32px;'>${responseText["message"]}</p>`);
                 // //content1.hide();
                 // //content2.show(); 

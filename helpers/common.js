@@ -95,6 +95,10 @@ const routesSecurity = [
         access: ['admin']
     },
     {
+        route: '/components/esignature/verify-save',
+        access: ['admin']
+    },
+    {
         route: '/components/esignature/create-save',
         access: ['admin']
     },
