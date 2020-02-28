@@ -74,7 +74,7 @@ const googleStrategyConfig = new GoogleStrategy({
     else {
       const user = await User.findOne({ "email": profile.emails[0].value });
       if (user) {
-        done(null, false, { message: req.flash('error_msg', 'There is already a Google account that belongs to you. Sign in with that account or delete it, then link it with your current account.') });
+        done(null, false, { message: req.flash('error_msg', 'You cannot use a third party login for this email address. Please enter the password you had set when creating this Primechain account.') });
       }
       else {
         const { primechain_address } = await APICall.httpPostMethod('create_entity', {
