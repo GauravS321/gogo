@@ -72,6 +72,7 @@ su -l $linux_admin_user -c 'echo rpcport='$rpcport' >> '$datadir'/'$chainname'/m
 su -l $linux_admin_user -c 'echo rpcallowip='10.0.0.0/255.0.0.0' >> '$datadir'/'$chainname'/multichain.conf'
 su -l $linux_admin_user -c 'echo rpcallowip='172.16.0.0/255.255.0.0' >> '$datadir'/'$chainname'/multichain.conf'
 su -l $linux_admin_user -c 'echo rpcallowip='192.168.0.0/255.255.0.0' >> '$datadir'/'$chainname'/multichain.conf'
+su -l $linux_admin_user -c 'echo rpcallowip='192.168.56.0/255.255.0.0' >> '$datadir'/'$chainname'/multichain.conf'
 
 su -l $linux_admin_user -c 'echo "txindex=0" >> '$datadir'/'$chainname'/multichain.conf'
 su -l $linux_admin_user -c 'echo "autosubscribe=assets,streams" >> '$datadir'/'$chainname'/multichain.conf'

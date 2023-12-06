@@ -32,7 +32,7 @@ echo -e 'SETTING UP APPLICATIONS.....'
 echo '--------------------------------'
 
 appdir=$homedir/primechain/src/primechain-api
-su -l $linux_admin_user -c 'cd ~ && git clone https://'$git_user':'$git_pass'@github.com/Primechain/primechain.git'
+# su -l $linux_admin_user -c 'cd ~ && git clone https://'$git_user':'$git_pass'@github.com/Primechain/primechain.git'
 
 # Configuring Primechain-API DATABASE CREDS
 # ----------- -----------------------------

@@ -14,8 +14,12 @@ echo '-----------------------'
 
 # SET UP A SILENT INSTALL OF MySQL
 export DEBIAN_FRONTEND=noninteractive
-sudo sh -c "echo mysql-server-5.7 mysql-server/root_password password "$db_root_pass" | debconf-set-selections"
-sudo sh -c "echo mysql-server-5.7 mysql-server/root_password_again password "$db_root_pass" | debconf-set-selections"
+# sudo sh -c "echo mysql-server-5.7 mysql-server/root_password password "$db_root_pass" | debconf-set-selections"
+# sudo sh -c "echo mysql-server-5.7 mysql-server/root_password_again password "$db_root_pass" | debconf-set-selections"
+
+sudo sh -c "echo mysql-apt-config mysql-apt-config/select-server select mysql-8.0 | debconf-set-selections"
+sudo sh -c "echo mysql-community-server mysql-community-server/root-pass password "$db_root_pass" | debconf-set-selections"
+sudo sh -c "echo mysql-community-server mysql-community-server/re-root-pass password "$db_root_pass" | debconf-set-selections"
 
 # INSTALL MySQL
 sudo apt-get -y install mysql-server
@@ -54,10 +58,10 @@ echo -e 'CREATING A NEW USER...'
 echo '--------------------------'
 echo ''
 echo ''
-sudo mysql -u root -p$db_root_pass -Bse "CREATE USER IF NOT EXISTS '"$db_user"'@'localhost' IDENTIFIED BY '"$db_pass"';"
-sudo mysql -u root -p$db_root_pass -Bse "CREATE USER IF NOT EXISTS '"$db_user"'@'10.%' IDENTIFIED BY '"$db_pass"';"
-sudo mysql -u root -p$db_root_pass -Bse "CREATE USER IF NOT EXISTS '"$db_user"'@'172.16.%' IDENTIFIED BY '"$db_pass"';"
-sudo mysql -u root -p$db_root_pass -Bse "CREATE USER IF NOT EXISTS '"$db_user"'@'192.168.%' IDENTIFIED BY '"$db_pass"';"
+sudo mysql -u root -p$db_root_pass -Bse "CREATE USER IF NOT EXISTS '"$db_user"'@'localhost' IDENTIFIED WITH mysql_native_password BY '"$db_pass"';"
+sudo mysql -u root -p$db_root_pass -Bse "CREATE USER IF NOT EXISTS '"$db_user"'@'10.%' IDENTIFIED WITH mysql_native_password BY '"$db_pass"';"
+sudo mysql -u root -p$db_root_pass -Bse "CREATE USER IF NOT EXISTS '"$db_user"'@'172.16.%' IDENTIFIED WITH mysql_native_password BY '"$db_pass"';"
+sudo mysql -u root -p$db_root_pass -Bse "CREATE USER IF NOT EXISTS '"$db_user"'@'192.168.%' IDENTIFIED WITH mysql_native_password BY '"$db_pass"';"
 
 echo ''
 echo ''

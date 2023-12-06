@@ -14,7 +14,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-'use strict';
+"use strict";
 
 /**
  * @author : DJ
@@ -23,39 +23,43 @@ limitations under the License.
  * */
 
 //  node modules
-const uuidv4 = require('uuid/v4')
-// mongo 
-var pool = require('../models/api_management');
+const uuidv4 = require("uuid/v4");
+// mongo
+var pool = require("../models/api_management");
 // error code
-var err_code = require('../error-code/error');
+var err_code = require("../error-code/error");
 
 // creds of mailing service
-var creds = require('../config/creds');
+var creds = require("../config/creds");
 
 exports.get_api_key = () => {
-    return new Promise(async function (resolve, reject) {
-        let username = uuidv4();
-        let password = uuidv4();
+  return new Promise(async function (resolve, reject) {
+    let username = uuidv4();
+    let password = uuidv4();
 
-        var encodedData = new Buffer(username + ':' + password).toString('base64');
-        var authorizationHeader = 'Basic ' + encodedData;
+    var encodedData = Buffer.from(username + ":" + password).toString("base64");
+    var authorizationHeader = "Basic " + encodedData;
 
-        pool.query('INSERT INTO user_authentication( api_key) values (?)', [authorizationHeader], (error, results) => {
-            if (error) {
-                return reject({
-                    status: 401,
-                    message: error.message
-                })
-            } else {
-                return resolve({
-                    status: 200,
-                    response: {
-                        username: username,
-                        password: password
-                    },
-                    message: { "14040": err_code.success_code[14040] }
-                })
-            }
-        })
-    })
+    pool.query(
+      "INSERT INTO user_authentication( api_key) values (?)",
+      [authorizationHeader],
+      (error, results) => {
+        if (error) {
+          return reject({
+            status: 401,
+            message: error.message,
+          });
+        } else {
+          return resolve({
+            status: 200,
+            response: {
+              username: username,
+              password: password,
+            },
+            message: { 14040: err_code.success_code[14040] },
+          });
+        }
+      }
+    );
+  });
 };

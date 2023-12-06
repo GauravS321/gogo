@@ -23,6 +23,8 @@ echo -e \
 
 chmod +x $startup_script_full_path
 
+linux_admin_user_passwd=`< /dev/urandom tr -dc A-Za-z0-9 | head -c40; echo`
+
 rpcuser=`< /dev/urandom tr -dc A-Za-z0-9 | head -c40; echo`
 rpcpassword=`< /dev/urandom tr -dc A-Za-z0-9 | head -c40; echo`
 
@@ -30,6 +32,44 @@ dbuser=`< /dev/urandom tr -dc A-Za-z0-9 | head -c20; echo`
 dbpass=`< /dev/urandom tr -dc A-Za-z0-9^_ | head -c40; echo`
 dbrootpass=`< /dev/urandom tr -dc A-Za-z0-9^_ | head -c40; echo`
 
+# Print Credentials
+echo -e \
+'--------------------------------------------'"\n"\
+'Linux Admin User CREDENTIALS'"\n"\
+'--------------------------------------------'"\n"\
+'username='$linux_admin_user"\n"\
+'password='$linux_admin_user_passwd"\n\n" >> $outputfilepath
+
+echo -e \
+'--------------------------------------------'"\n"\
+'MYSQL DATABASE CREDENTIALS'"\n"\
+'--------------------------------------------'"\n"\
+'dbrootpass='$dbrootpass"\n"\
+'dbuser='$dbuser"\n"\
+'dbpass='$dbpass"\n\n" >> $outputfilepath
+
+echo -e \
+'--------------------------------------------'"\n"\
+'MULTICHAIN CREDENTIALS'"\n"\
+'--------------------------------------------'"\n"\
+'rpcuser='$rpcuser"\n"\
+'rpcpassword='$rpcpassword"\n\n" >> $outputfilepath
+
+echo ''
+echo -e \
+'--------------------------------------------'"\n"\
+'MONGODB DATABASE CREDENTIALS'"\n"\
+'--------------------------------------------'"\n"\
+'dbname= primechain'"\n"\
+'dbuser= primechainuser'"\n"\
+'dbpass='$dbpass"\n\n" >> $outputfilepath
+
+echo -e \
+'--------------------------------------------'"\n"\
+'WEB APPLICATION ADMIN CREDENTIALS'"\n"\
+'--------------------------------------------'"\n"\
+'email='$email"\n"\
+'password='$dbpass"\n\n" >> $outputfilepath
 
 echo ''
 echo ''
@@ -41,7 +81,7 @@ echo ''
 echo ''
 
 ### CREATING LINUX ADMIN USER
-bash -e ubuntu_create_linux_admin_user.sh
+bash -e ubuntu_create_linux_admin_user.sh $linux_admin_user_passwd
 
 echo ''
 echo ''
@@ -123,14 +163,6 @@ echo ''
 
 sleep 1
 
-echo -e \
-'--------------------------------------------'"\n"\
-'MYSQL DATABASE CREDENTIALS'"\n"\
-'--------------------------------------------'"\n"\
-'dbrootpass='$dbrootpass"\n"\
-'dbuser='$dbuser"\n"\
-'dbpass='$dbpass"\n\n" >> $outputfilepath
-
 echo ''
 echo ''
 echo -e '=================================='
@@ -152,13 +184,6 @@ echo ''
 echo ''
 echo ''
 
-
-echo -e \
-'--------------------------------------------'"\n"\
-'MULTICHAIN CREDENTIALS'"\n"\
-'--------------------------------------------'"\n"\
-'rpcuser='$rpcuser"\n"\
-'rpcpassword='$rpcpassword"\n\n" >> $outputfilepath
 
 sleep 1
 
@@ -209,15 +234,6 @@ echo -e 'MONGODB INSTALLATION COMPLETED!!!'
 echo -e '=================================='
 echo ''
 echo ''
-
-echo ''
-echo -e \
-'--------------------------------------------'"\n"\
-'MONGODB DATABASE CREDENTIALS'"\n"\
-'--------------------------------------------'"\n"\
-'dbname= primechain'"\n"\
-'dbuser= primechainuser'"\n"\
-'dbpass='$dbpass"\n\n" >> $outputfilepath
 
 
 echo ''
@@ -283,13 +299,6 @@ echo ''
 echo ''
 echo ''
 
-echo -e \
-'--------------------------------------------'"\n"\
-'WEB APPLICATION ADMIN CREDENTIALS'"\n"\
-'--------------------------------------------'"\n"\
-'email='$email"\n"\
-'password='$dbpass"\n\n" >> $outputfilepath
-
 sleep 1
 
 echo ''
@@ -327,6 +336,6 @@ echo -e 'http://'$ipaddress':2512/api/v1/get_api_key'
 
 echo ''
 echo ''
-echo -e 'All your credentials are in root/primechain-api.out'
+echo -e 'All your credentials are in /root/primechain-api.out'
 
 

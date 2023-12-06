@@ -101,7 +101,8 @@ echo '--------------------------------'
 echo -e 'INSTALLING NODE MODULES.....'
 echo '--------------------------------'
 
-cd $appdir && npm install
+cd $appdir
+sudo npm install
 sudo chown -R $linux_admin_user: $appdir
 
 echo '------------------------------------------'

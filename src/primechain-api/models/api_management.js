@@ -14,7 +14,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-'use strict';
+"use strict";
 
 /**
  * @author : DJ,
@@ -22,17 +22,16 @@ limitations under the License.
  * @property : PRIMECHAINTECH
  * */
 
-var mysql = require('mysql');
-var db = require('../config/db.js');
+var mysql = require("mysql2");
+var db = require("../config/db.js");
 
 var pool = mysql.createPool({
-    connectionLimit: 100, //important
-    host: db.host,
-    user: db.user,
-    password: db.pass,
-    database: db.database,
-    debug: false
+  connectionLimit: 100, //important
+  host: db.host,
+  user: db.user,
+  password: db.pass,
+  database: db.database,
+  debug: false,
 });
 
 module.exports = pool;
-

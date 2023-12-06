@@ -120,6 +120,27 @@ echo '----------------------------------------'
 
 echo 'user1 hard nproc 100' >> /etc/security/limits.conf
 
+echo ''
+echo ''
+echo '----------------------------------------'
+echo ''
+echo ''
+echo ''
+echo '--------------------------------------------------'
+echo -e 'CONFIGURING LIMIT SSH (TCP PORT 22) CONNECTIONS'
+echo '---------------------------------------------------'
+
+sudo ufw limit ssh/tcp comment 'Rate limit for openssh serer'
+
+echo ''
+echo ''
+echo '-------------------------------'
+echo -e 'CONFIGURING LIMIT SSH DONE!'
+echo '-------------------------------'
+echo ''
+echo ''
+echo ''
+echo ''
 
 echo '----------------------------------------'
 echo -e 'SECURING SERVER AGAINST BASH VULNERABILITY:'
